@@ -49,6 +49,7 @@ semantic_class: section-index
 | [[Engineering/KPI and OEE|📈 KPI & OEE Performance Metrics]] | OEE formula (A×P×Q), world-class benchmarks, and KPI-driven continuous improvement. |
 | [[Engineering/Discrete Manufacturing|🏗️ Discrete vs Process Manufacturing]] | Discrete manufacturing — serialized units, BOMs, routing, and work orders vs process flow. |
 | [[Engineering/HANNOVER-MESSE-2026|🏭 HANNOVER MESSE 2026]] | The world's leading industrial trade fair — dates, thematic hubs, hall map (Hydrogen Hall 11, Industrial AI Hall 27), networking formats. |
+| [[Engineering/Multiphase-Meter-Spool-Detail|🌡️ Multiphase Meter Spool]] | A fabrication spool built to host a multiphase meter — straight run, weldolet branch detail, and how to read the drawing. |
 
 ---
 
