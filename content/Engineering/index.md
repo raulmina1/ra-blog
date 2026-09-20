@@ -49,7 +49,7 @@ semantic_class: section-index
 | [[Engineering/KPI and OEE|📈 KPI & OEE Performance Metrics]] | OEE formula (A×P×Q), world-class benchmarks, and KPI-driven continuous improvement. |
 | [[Engineering/Discrete Manufacturing|🏗️ Discrete vs Process Manufacturing]] | Discrete manufacturing — serialized units, BOMs, routing, and work orders vs process flow. |
 | [[Engineering/HANNOVER-MESSE-2026|🏭 HANNOVER MESSE 2026]] | The world's leading industrial trade fair — dates, thematic hubs, hall map (Hydrogen Hall 11, Industrial AI Hall 27), networking formats. |
-| [[Engineering/Multiphase-Meter-Spool-Detail|🌡️ Multiphase Meter Spool]] | A real fabrication spool designed for a multiphase meter — proof of our engineering design service: weld details, branch connections and dual-unit dimensions. |
+| [[Engineering/Multiphase-Meter-Spool-Detail|🌡️ Red Eye Multiphase Metering]] | How a Red Eye water-cut meter works, and why the precision spool design that hosts it decides whether the measurement is honest — design service by RA. |
 
 ---
 
