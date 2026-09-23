@@ -9,7 +9,7 @@ tags:
 description: "A living catalog of 130+ AI components — prompts, agents, hooks, workflows, rules, tools, and research. Built over months of daily use in an Obsidian vault."
 reading_time: "9 min"
 related:
-  - "[[Projekte]]"
+  - "[[Projekte/index]]"
   - "[[Projekte/Prompt Shop|Prompt Shop]]"
   - "[[Einführung]]"
 date: 2026-07-06
@@ -17,9 +17,15 @@ type: about
 lang: en
 publish: true
 semantic_class: about
+relationship:
+  - "references: [[Projekte/Prompt Shop]]"
+  - "references: [[Projekte/Agent Shop]]"
+  - "references: [[Projekte/Cron Shop]]"
+  - "references: [[Projekte/Hook Shop]]"
+  - "references: [[Einführung]]"
 ---
 
-###### Related: [[Projekte]] | [[Projekte/Prompt Shop|Prompt Shop]] | [[Einführung]]
+###### Related: [[Projekte/index]] | [[Projekte/Prompt Shop|Prompt Shop]] | [[Einführung]]
 
 ---
 

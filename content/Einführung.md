@@ -11,6 +11,8 @@ type: about
 lang: de
 publish: true
 semantic_class: about
+relationship:
+  - "references: [[AI Ecosystem]]"
 ---
 
 # Wer ist RA?

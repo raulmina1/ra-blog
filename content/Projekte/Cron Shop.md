@@ -21,6 +21,11 @@ see_also:
   - "[[Projekte/Agent Shop]]"
   - "[[Projekte/Hook Shop]]"
   - "[[AI Ecosystem]]"
+relationship:
+  - "references: [[AI Ecosystem]]"
+  - "requires: [[Projekte/Agent Shop]]"
+  - "related_to: [[Projekte/Prompt Shop]]"
+  - "related_to: [[Projekte/Hook Shop]]"
 ---
 
 ###### Related: [[Projekte/Prompt Shop|Prompt Shop]] | [[Projekte/Agent Shop|Agent Shop]] | [[Projekte/Hook Shop|Hook Shop]]
@@ -192,10 +197,10 @@ Everything in both packs at a discount. Save €15 vs. buying separately.
 
 ## Order
 
-[![Support me on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/TODO_RA_KO_FI)
+[![Pay with PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/raulmina1)
 
 1. Fill the form below with your email and which cron(s) you want
-2. I'll send you a payment link via Ko-fi
+2. You'll pay via PayPal (raulmina1@outlook.com)
 3. After payment, you'll receive the cron manifests + setup within 24 hours
 
 **[Request Form →](mailto:raul.mina1@outlook.com?subject=Cron%20Pack%20Order&body=Email:%0A%0ACrons%20wanted:%0A%0AMessage:)** *Click to send me an email. Include your email, which crons you want, and the schedule for Custom orders.*

@@ -21,6 +21,11 @@ see_also:
   - "[[Projekte/Cron Shop]]"
   - "[[Projekte/Hook Shop]]"
   - "[[AI Ecosystem]]"
+relationship:
+  - "references: [[AI Ecosystem]]"
+  - "related_to: [[Projekte/Agent Shop]]"
+  - "related_to: [[Projekte/Cron Shop]]"
+  - "related_to: [[Projekte/Hook Shop]]"
 ---
 
 ## RA Prompt Shop
@@ -44,7 +49,7 @@ Every prompt runs on **Claude** (claude-sonnet-4-6 recommended) or any LLM compa
 | 🧠 Personal Life & Reflection Pack | 5 prompts | €15 |
 | 📦 Complete Bundle — All 34 Prompts | 34 prompts | **€55** |
 
-To order: **raul.mina1@outlook.com** or use the Ko-fi form below — include which pack(s) you want.
+To order: **raul.mina1@outlook.com** or use the PayPal button below — include which pack(s) you want.
 
 ---
 
@@ -129,11 +134,10 @@ To order: **raul.mina1@outlook.com** or use the Ko-fi form below — include whi
 
 ## Order
 
-[![Support me on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/TODO_RA_KO_FI)
+[![Pay with PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/raulmina1)
 
 1. Fill the form below with your email and which pack(s) you want
-2. I'll send you a payment link via Ko-fi (card, PayPal, or bank transfer)
-3. After payment, you'll receive the `.md` files within 24 hours
+2. You'll pay via PayPal (raulmina1@outlook.com), and you'll receive the `.md` files within 24 hours
 
 **[Request Form →](mailto:raul.mina1@outlook.com?subject=Prompt%20Pack%20Order&body=Email:%0A%0APacks%20wanted:%0A%0AMessage:)** *Click to open email with pre-filled subject. Include your email address and which packs you want.*
 

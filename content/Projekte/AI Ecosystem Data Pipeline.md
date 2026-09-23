@@ -137,7 +137,7 @@ Wähle unten, was du vorhast — ich bekomme automatisch eine passend vorbereite
 <p><strong>Du möchtest eine Dienstleistung buchen.</strong> Sag mir, welches Paket dich interessiert und in welcher Umgebung es laufen soll (Obsidian, Team-Wiki, Datenbank, ...). Die E-Mail ist schon vorbereitet — fülle nur das Formularfeld aus.</p>
 <p>Ich antworte in der Regel innerhalb von 24–48 Stunden mit einem konkreten Angebot.</p>
 <a class="pipeline-btn" href="mailto:raul.mina1@outlook.com?subject=Dienstleistung%20Daten-Pipeline&body=Hallo,%0A%0AIch%20interessiere%20mich%20f%C3%BCr%20folgende%20Dienstleistung:%0A%0A%20%20%5B%20%5D%20Knowledge%20Graph%20Setup%20(%E2%82%AC390)%0A%20%20%5B%20%5D%20RAG%20%2B%20KG-Fusion%20Setup%20(%E2%82%AC340)%0A%20%5B%20%5D%20Komplette%20Daten-Pipeline%20(%E2%82%AC690)%0A%20%20%5B%20%5D%20Pipeline-Audit%20(%E2%82%AC150)%0A%20%20%5B%20%5D%20Custom%20Integration%20(%E2%82%AC60/h)%0A%0AUmgebung:%0A%0AE-Mail%20f%C3%BCr%20die%20Antwort:%0A%0ANachricht:" target="_blank" rel="noopener">Dienstleistung anfragen →</a>
-<p class="pipeline-meta">Alternativ über <a href="mailto:raul.mina1@outlook.com" target="_blank" rel="noopener">Ko-fi</a> — ich schicke dir nach deiner Auswahl einen Zahlungslink.</p>
+<p class="pipeline-meta">Alternativ über <a href="https://paypal.me/raulmina1" target="_blank" rel="noopener">PayPal</a> — ich schicke dir nach deiner Auswahl einen Zahlungslink.</p>
 </div>
 
 <div class="panel panel-frage">

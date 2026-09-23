@@ -6,7 +6,7 @@ tags:
   - ki
   - ra-blog
 related:
-  - "[[Projekte]]"
+  - "[[Projekte/index]]"
   - "[[Einführung]]"
 date: 2026-06-15
 type: kolumne

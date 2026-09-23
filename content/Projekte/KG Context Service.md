@@ -111,10 +111,10 @@ To order: **raul.mina1@outlook.com** — include which pack(s) you want.
 
 ## 🛒 Order
 
-[![Support me on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/TODO_RA_KO_FI)
+[![Pay with PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/raulmina1)
 
 1. Fill the form below with your email and which pack you want
-2. I'll send you a payment link via Ko-fi
+2. You'll pay via PayPal (raulmina1@outlook.com)
 3. After payment, you'll receive the setup files + documentation within 48 hours
 
 **[Request Form →](mailto:raul.mina1@outlook.com?subject=KG%20Context%20Service%20Order&body=Email:%0A%0APack%20wanted:%0A%0AMessage:)** *Click to send me an email. Include your email, which pack you want, and a short description of your vault.*
