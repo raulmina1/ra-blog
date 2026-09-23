@@ -9,7 +9,22 @@ publish: true
 semantic_class: note
 ---
 
-A digital garden by **Raul Mina** — process engineer in Berlin, building AI systems and learning German. Everything I study, build, and publish, in one place.
+<div class="ra-hero">
+
+<span class="ra-hero-badge">🦅 Your AI. Your data. Your rules.</span>
+<h1 class="ra-hero-h1">Automate your life with an AI that is <em>yours</em>.</h1>
+<p class="ra-hero-sub">Prompt, Agent, Cron &amp; Hook systems for Obsidian and Hermes Agent — engineered by a process engineer. Your data never leaves your machine.</p>
+
+<div class="ra-hero-cta">
+  <a class="ra-btn ra-btn-primary internal" href="./Projekte/">⚡ Start — pick your system</a>
+  <a class="ra-btn ra-btn-secondary internal" href="./Contact/">🕊️ Free 30-min call</a>
+</div>
+
+<p class="ra-hero-trust">130+ prompts · 18 agents · 100% local-first · Privacy by default</p>
+
+</div>
+
+---
 
 ## Start Here
 

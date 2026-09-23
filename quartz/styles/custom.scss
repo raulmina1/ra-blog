@@ -399,3 +399,113 @@ article a.home-card {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== RA Hero (homepage) ===== */
+.ra-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding: 2.2rem 2.4rem 2.6rem;
+  margin: 0.4rem 0 1.8rem;
+  border: 1px solid var(--gray);
+  border-radius: 14px;
+  background-color: var(--lightgray);
+  background-color: color-mix(in srgb, var(--lightgray) 45%, transparent);
+}
+
+.ra-hero-badge {
+  align-self: flex-start;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dark);
+  background-color: color-mix(in srgb, var(--secondary) 14%, transparent);
+  border: 1px solid var(--secondary);
+  border-radius: 999px;
+}
+
+.ra-hero-h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4.2vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--dark);
+}
+.ra-hero-h1 em {
+  color: var(--secondary);
+  font-style: normal;
+}
+
+.ra-hero-sub {
+  margin: 0;
+  font-size: 1.06rem;
+  line-height: 1.5;
+  color: var(--dark);
+  opacity: 0.85;
+  max-width: 46em;
+}
+
+.ra-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+.ra-hero-cta a.ra-btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  text-decoration: none;
+  line-height: 1.2;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    opacity 0.18s ease;
+}
+a.ra-btn-primary {
+  color: #fff;
+  background-color: var(--secondary);
+  border: 1px solid var(--secondary);
+}
+a.ra-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  text-decoration: none;
+}
+a.ra-btn-secondary {
+  color: var(--dark);
+  background-color: transparent;
+  border: 1.5px solid var(--gray);
+}
+a.ra-btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--secondary);
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.ra-hero-trust {
+  margin: 0.3rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--dark);
+  opacity: 0.55;
+}
+
+@media (max-width: 480px) {
+  .ra-hero {
+    padding: 1.6rem 1.4rem 1.8rem;
+  }
+  .ra-hero-cta a.ra-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
