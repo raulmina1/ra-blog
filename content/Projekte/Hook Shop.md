@@ -72,7 +72,7 @@ flowchart LR
 | 🇩🇪 German Learning Hooks | 3 hooks | €45 |
 | ⚡ Vault Automation Hooks | 3 hooks | €45 |
 | 🔧 Custom Hook (your spec) | 1 bespoke trigger | €30 |
-| 📦 Complete Hook Bundle — All 6 | 6 hooks | **€75** |
+| 📦 Complete Hook Bundle — All 6 | 6 hooks | ~~€90~~ **€75** · ★ Recommended |
 
 To order: **raul.mina1@outlook.com** — include which pack(s) you want.
 

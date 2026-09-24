@@ -47,7 +47,7 @@ Every prompt runs on **Claude** (claude-sonnet-4-6 recommended) or any LLM compa
 | 🗂️ Obsidian PKM Pack | 6 prompts | €15 |
 | ⚙️ Automation & Productivity Pack | 6 prompts | €15 |
 | 🧠 Personal Life & Reflection Pack | 5 prompts | €15 |
-| 📦 Complete Bundle — All 34 Prompts | 34 prompts | **€55** |
+| 📦 Complete Bundle — All 34 Prompts | 34 prompts | ~~€95~~ **€55** · ★ Recommended |
 
 To order: **raul.mina1@outlook.com** or use the PayPal button below — include which pack(s) you want.
 

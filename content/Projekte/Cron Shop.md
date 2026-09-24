@@ -66,7 +66,7 @@ flowchart LR
 | 🇩🇪 Daily German Routine | 3 crons | €35 |
 | 🗂️ Vault Maintenance Pack | 3 crons | €35 |
 | 🔧 Custom Cron (your spec) | 1 bespoke schedule | €20 |
-| 📦 Complete Cron Bundle — All 6 | 6 crons | **€55** |
+| 📦 Complete Cron Bundle — All 6 | 6 crons | ~~€70~~ **€55** · ★ Recommended |
 
 To order: **raul.mina1@outlook.com** — include which pack(s) you want.
 

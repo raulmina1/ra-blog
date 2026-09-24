@@ -68,7 +68,7 @@ flowchart LR
 | 🇩🇪 German Learning Agent Pack | 3 agents | €60 |
 | 🗂️ Vault Automation Pack | 3 agents | €60 |
 | 🔧 Custom Agent (your spec) | 1 bespoke agent | €40 |
-| 📦 Complete Agent Bundle — All 6 | 6 agents | **€100** |
+| 📦 Complete Agent Bundle — All 6 | 6 agents | ~~€120~~ **€100** · ★ Recommended |
 
 To order: **raul.mina1@outlook.com** — include which pack(s) you want.
 
