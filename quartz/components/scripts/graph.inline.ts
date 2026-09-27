@@ -10,6 +10,7 @@ import {
   forceCollide,
   forceRadial,
   zoomIdentity,
+  ZoomTransform,
   select,
   drag,
   zoom,
@@ -87,6 +88,10 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     showTags,
     focusOnHover,
     enableRadial,
+    autoFit,
+    background,
+    bgZoom = 1.5,
+    bgAnchor = 0.28,
   } = JSON.parse(graph.dataset["cfg"]!) as D3Config
 
   const data: Map<SimpleSlug, ContentDetails> = new Map(
@@ -161,20 +166,136 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       })),
   }
 
+  // Background mode (homepage hero): a decorative back layer behind the page
+  // text must look like a clean constellation, not a hairball. Orphan nodes
+  // (zero links) are the main source of visual noise at this scale, so they are
+  // dropped before the simulation is built — the network stays airy and the
+  // remaining nodes are the ones that actually carry meaning.
+  if (background) {
+    const degree = new Map<string, number>()
+    for (const l of graphData.links) {
+      degree.set(l.source.id, (degree.get(l.source.id) ?? 0) + 1)
+      degree.set(l.target.id, (degree.get(l.target.id) ?? 0) + 1)
+    }
+    graphData.nodes = graphData.nodes.filter((n) => (degree.get(n.id) ?? 0) > 0)
+    const keep = new Set(graphData.nodes.map((n) => n.id))
+    graphData.links = graphData.links.filter(
+      (l) => keep.has(l.source.id) && keep.has(l.target.id),
+    )
+  }
+
   const width = graph.offsetWidth
   const height = Math.max(graph.offsetHeight, 250)
+
+  // radius in simulation space (used by the physics: collide force)
+  function simRadius(d: NodeData) {
+    const numLinks = graphData.links.filter(
+      (l) => l.source.id === d.id || l.target.id === d.id,
+    ).length
+    return 1.5 + Math.sqrt(numLinks) * 0.4
+  }
 
   // we virtualize the simulation and use pixi to actually render it
   const simulation: Simulation<NodeData, LinkData> = forceSimulation<NodeData>(graphData.nodes)
     .force("charge", forceManyBody().strength(-100 * repelForce))
     .force("center", forceCenter().strength(centerForce))
     .force("link", forceLink(graphData.links).distance(linkDistance).iterations(2))
-    .force("collide", forceCollide<NodeData>((n) => nodeRadius(n)).iterations(1))
+    .force("collide", forceCollide<NodeData>((n) => simRadius(n)).iterations(1))
   // settle faster so the graph appears stable sooner
   simulation.alphaDecay(0.06)
 
   const radius = (Math.min(width, height) / 2) * 0.8
   if (enableRadial) simulation.force("radial", forceRadial(radius).strength(0.2))
+
+  // Homepage hero (autoFit): settle the layout up front, then work out a
+  // transform that spreads the network across the whole canvas so it fills the
+  // panel instead of clustering around the centre.
+  //
+  // In background mode the canvas is usually far taller than the settled
+  // network is round: a uniform "cover" scale would then show only a narrow
+  // slice of the field, leaving dead black bands. So the settled layout is
+  // stretched along its short axis first (dots stay circular — only the link
+  // segments stretch), giving a network whose proportions match the box; the
+  // uniform fit afterwards has almost nothing left to crop.
+  let fitTransform: ZoomTransform | null = null
+  if (autoFit) {
+    simulation.stop()
+    for (let i = 0; i < 250; i++) simulation.tick()
+
+    // pass 1: settle extent with the unstretched layout
+    const extentOf = () => {
+      let nMinX = Infinity
+      let nMinY = Infinity
+      let nMaxX = -Infinity
+      let nMaxY = -Infinity
+      for (const n of graphData.nodes) {
+        const r = simRadius(n)
+        nMinX = Math.min(nMinX, (n.x ?? 0) - r)
+        nMinY = Math.min(nMinY, (n.y ?? 0) - r)
+        nMaxX = Math.max(nMaxX, (n.x ?? 0) + r)
+        nMaxY = Math.max(nMaxY, (n.y ?? 0) + r)
+      }
+      return { nMinX, nMinY, nMaxX, nMaxY }
+    }
+
+    let { nMinX: minX, nMinY: minY, nMaxX: maxX, nMaxY: maxY } = extentOf()
+    let stretchY = 1
+
+    if (background) {
+      const boxAspect = width / Math.max(height, 1)
+      const netAspect = Math.max(maxX - minX, 1) / Math.max(maxY - minY, 1)
+      // make the network's proportions match the box: a narrow tall canvas needs
+      // the settled layout pulled out vertically
+      stretchY = Math.min(Math.max(netAspect / Math.max(boxAspect, 1e-6), 1), 8)
+      if (stretchY > 1.01) {
+        for (const n of graphData.nodes) {
+          if (typeof n.y === "number") n.y *= stretchY
+        }
+        ;({ nMinX: minX, nMinY: minY, nMaxX: maxX, nMaxY: maxY } = extentOf())
+      }
+    }
+
+    if (Number.isFinite(minX) && Number.isFinite(minY)) {
+      const graphW = Math.max(maxX - minX, 1)
+      const graphH = Math.max(maxY - minY, 1)
+      // "contain" fits the network inside the canvas with a margin — right for a
+      // panel, where nothing may be cut off. A background layer wants the
+      // opposite ("cover"): scale by the larger ratio so the constellation
+      // reaches every edge. `bgZoom` pushes it past that again, so the field
+      // bleeds off every edge and can be framed off-centre without a gap.
+      const ratioX = (width * (background ? 1 : 0.88)) / graphW
+      const ratioY = (height * (background ? 1 : 0.88)) / graphH
+      const fitK = Math.min(
+        Math.max((background ? Math.max(ratioX, ratioY) * bgZoom : Math.min(ratioX, ratioY)), 0.25),
+        background ? 4 : 2.5,
+      )
+      const centreX = (minX + maxX) / 2 + width / 2
+      // Background mode frames the network HIGH in the canvas (bgAnchor 0 = top
+      // edge, 0.5 = centre), so the constellation reads behind the hero copy
+      // instead of sinking to the middle of a very tall box.
+      const anchorY = background ? bgAnchor : 0.5
+      const centreY = (minY + maxY) / 2 + height / 2 + (1 - 2 * anchorY) * (height / 2)
+      fitTransform = zoomIdentity
+        .translate(width / 2, height / 2)
+        .scale(fitK)
+        .translate(-centreX, -centreY)
+    }
+  }
+
+  // The fit transform scales the whole stage, so dots and link lines are drawn
+  // pre-divided by that same factor: they keep their on-screen size while the
+  // spacing between them changes. NOTE: no lower clamp at 1 here — after the
+  // background stretch the fit can be *below* 1, and clamping would let the
+  // stage shrink the strokes until the whole network fades out on phones.
+  const visualScale = fitTransform?.k ?? 1
+
+  // Background layers are decorative: dots and links get an on-screen minimum
+  // so a full-bleed canvas never turns them into invisible sub-pixel noise.
+  const reduceMotion =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  const minDotRadius = background ? (width < 800 ? 2 : 1.8) / visualScale : 0.001
+  const minLinkWidth = background ? (width < 800 ? 0.45 : 0.35) / visualScale : 0
 
   // precompute style prop strings as pixi doesn't support css variables
   const cssVars = [
@@ -208,11 +329,8 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   }
 
   function nodeRadius(d: NodeData) {
-    const numLinks = graphData.links.filter(
-      (l) => l.source.id === d.id || l.target.id === d.id,
-    ).length
-    // Obsidian-style: tiny dots, size scales gently with connectivity
-    return 1 + Math.sqrt(numLinks) * 0.5
+    // on-screen dot size: thin, small dots — constant regardless of the fit
+    return Math.max(simRadius(d) / visualScale, minDotRadius)
   }
 
   let hoveredNodeId: string | null = null
@@ -282,7 +400,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     tweens.get("label")?.stop()
     const tweenGroup = new TweenGroup()
 
-    const defaultScale = 1 / scale
+    const defaultScale = 1 / (scale * currentTransform.k)
     const activeScale = defaultScale * 1.1
     for (const n of nodeRenderData) {
       const nodeId = n.simulationData.id
@@ -361,7 +479,8 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     autoDensity: true,
     backgroundAlpha: 0,
     preference: "webgpu",
-    resolution: Math.min(window.devicePixelRatio, 2),
+    // a full-bleed 100vw canvas at dpr 3 melts low-end GPUs, so cap it tighter
+    resolution: Math.min(window.devicePixelRatio, background ? 1.5 : 2),
     eventMode: "static",
   })
   graph.appendChild(app.canvas)
@@ -382,6 +501,8 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       eventMode: "none",
       text: n.text,
       alpha: 0,
+      // background mode: no readable node captions under the running text
+      visible: !background,
       anchor: { x: 0.5, y: 1.2 },
       style: {
         fontSize: fontSize * 15,
@@ -390,7 +511,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       },
       resolution: Math.min(window.devicePixelRatio, 2) * 2,
     })
-    label.scale.set(1 / scale)
+    label.scale.set(1 / (scale * visualScale))
 
     let oldLabelOpacity = 0
     const isTagNode = nodeId.startsWith("tags/")
@@ -398,7 +519,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       interactive: true,
       label: nodeId,
       eventMode: "static",
-      hitArea: new Circle(0, 0, Math.max(nodeRadius(n), 6)),
+      hitArea: new Circle(0, 0, Math.max(nodeRadius(n), 8 / visualScale)),
       cursor: "pointer",
     })
       .circle(0, 0, nodeRadius(n))
@@ -453,6 +574,47 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   }
 
   let currentTransform = zoomIdentity
+  let zoomBehaviour: ReturnType<typeof zoom<HTMLCanvasElement, NodeData>> | undefined
+  if (enableZoom) {
+    zoomBehaviour = zoom<HTMLCanvasElement, NodeData>()
+      .extent([
+        [0, 0],
+        [width, height],
+      ])
+      .scaleExtent([0.25, 4])
+      .on("zoom", ({ transform }) => {
+        currentTransform = transform
+        stage.scale.set(transform.k, transform.k)
+        stage.position.set(transform.x, transform.y)
+
+        // zoom adjusts opacity of labels too
+        const zoomScale = transform.k * opacityScale
+        let scaleOpacity = Math.max((zoomScale - 1) / 3.75, 0)
+        const activeNodes = nodeRenderData.filter((n) => n.active).flatMap((n) => n.label)
+
+        // keep labels at a constant on-screen size regardless of the zoom / fit
+        const labelScale = 1 / (scale * transform.k * visualScale)
+        for (const label of labelsContainer.children) {
+          label.scale.set(labelScale)
+          if (!activeNodes.includes(label)) {
+            label.alpha = scaleOpacity
+          }
+        }
+      })
+    select<HTMLCanvasElement, NodeData>(app.canvas).call(zoomBehaviour)
+  }
+
+  // apply the precomputed fit for the homepage hero
+  if (fitTransform) {
+    if (zoomBehaviour) {
+      select<HTMLCanvasElement, NodeData>(app.canvas).call(zoomBehaviour.transform, fitTransform)
+    } else {
+      currentTransform = fitTransform
+      stage.scale.set(fitTransform.k, fitTransform.k)
+      stage.position.set(fitTransform.x, fitTransform.y)
+    }
+  }
+
   if (enableDrag) {
     select<HTMLCanvasElement, NodeData | undefined>(app.canvas).call(
       drag<HTMLCanvasElement, NodeData | undefined>()
@@ -512,6 +674,15 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
           stage.scale.set(transform.k, transform.k)
           stage.position.set(transform.x, transform.y)
 
+          // In background mode the layer is decoration behind running text:
+          // node labels stay off, they would only add noise under the copy.
+          if (background) {
+            for (const label of labelsContainer.children) {
+              label.alpha = 0
+            }
+            return
+          }
+
           // zoom adjusts opacity of labels too
           const scale = transform.k * opacityScale
           let scaleOpacity = Math.max((scale - 1) / 3.75, 0)
@@ -527,6 +698,8 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   }
 
   let stopAnimation = false
+  let settledFrames = 0
+  let revealed = !background
   function animate(time: number) {
     if (stopAnimation) return
     // skip the heavy per-frame work when the tab is hidden
@@ -549,11 +722,27 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       l.gfx.moveTo(linkData.source.x! + width / 2, linkData.source.y! + height / 2)
       l.gfx
         .lineTo(linkData.target.x! + width / 2, linkData.target.y! + height / 2)
-        .stroke({ alpha: l.alpha, width: 0.5, color: l.color })
+        .stroke({
+          alpha: l.alpha,
+          width: Math.max(0.3 / visualScale, minLinkWidth),
+          color: l.color,
+        })
     }
 
     tweens.forEach((t) => t.update(time))
     app.renderer.render(stage)
+
+    // Background hero: reveal the layer only once the simulation has settled,
+    // so the visitor never sees a flash of randomly placed nodes.
+    if (background && !revealed && simulation.alpha() < 0.02) {
+      settledFrames++
+      if (settledFrames > 2) {
+        revealed = true
+        const hero = graph.closest(".ra-graph-hero")
+        if (hero) hero.classList.add("is-settled")
+      }
+    }
+
     requestAnimationFrame(animate)
   }
 

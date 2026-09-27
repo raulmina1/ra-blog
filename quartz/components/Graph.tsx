@@ -19,6 +19,15 @@ export interface D3Config {
   showTags: boolean
   focusOnHover?: boolean
   enableRadial?: boolean
+  // scale the settled simulation so the network fills the canvas (homepage hero)
+  autoFit?: boolean
+  // render as a decorative back layer behind the page text instead of a panel
+  background?: boolean
+  // background mode: extra zoom past the "cover" fit, so the field bleeds off
+  // every edge and can be framed off-centre without leaving a gap
+  bgZoom?: number
+  // background mode: vertical framing of the network (0 = top edge, 0.5 = centre)
+  bgAnchor?: number
 }
 
 interface GraphOptions {
@@ -41,6 +50,10 @@ const defaultOptions: GraphOptions = {
     removeTags: [],
     focusOnHover: false,
     enableRadial: false,
+    autoFit: false,
+    background: false,
+    bgZoom: 1,
+    bgAnchor: 0.5,
   },
   globalGraph: {
     drag: true,
@@ -56,6 +69,7 @@ const defaultOptions: GraphOptions = {
     removeTags: [],
     focusOnHover: true,
     enableRadial: true,
+    autoFit: false,
   },
 }
 
@@ -63,12 +77,14 @@ export default ((opts?: Partial<GraphOptions>) => {
   const Graph: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
     const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph }
     const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
+    const isBackground = localGraph.background === true
     return (
-      <div class={classNames(displayClass, "graph")}>
-        <h3>{i18n(cfg.locale).components.graph.title}</h3>
+      <div class={classNames(displayClass, "graph", isBackground ? "graph-background" : "")}>
+        {isBackground ? null : <h3>{i18n(cfg.locale).components.graph.title}</h3>}
         <div class="graph-outer">
           <div class="graph-container" data-cfg={JSON.stringify(localGraph)}></div>
-          <button class="global-graph-icon" aria-label="Global Graph">
+          {isBackground ? null : (
+            <button class="global-graph-icon" aria-label="Global Graph">
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
@@ -94,6 +110,7 @@ export default ((opts?: Partial<GraphOptions>) => {
               />
             </svg>
           </button>
+          )}
         </div>
         <div class="global-graph-outer">
           <div class="global-graph-container" data-cfg={JSON.stringify(globalGraph)}></div>
