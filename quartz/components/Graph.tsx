@@ -28,6 +28,11 @@ export interface D3Config {
   bgZoom?: number
   // background mode: vertical framing of the network (0 = top edge, 0.5 = centre)
   bgAnchor?: number
+  // background mode: the layer is interactive but must not steal gestures it does
+  // not need — no wheel zoom, no touch panning, so page scroll and text selection
+  // keep working. Hover / click / drag stay enabled (pointer events are enabled
+  // only on the dots, see the CSS).
+  passive?: boolean
 }
 
 interface GraphOptions {

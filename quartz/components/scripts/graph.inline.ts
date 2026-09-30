@@ -10,7 +10,6 @@ import {
   forceCollide,
   forceRadial,
   zoomIdentity,
-  ZoomTransform,
   select,
   drag,
   zoom,
@@ -88,11 +87,11 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     showTags,
     focusOnHover,
     enableRadial,
-    autoFit,
-    background,
-    bgZoom = 1.5,
-    bgAnchor = 0.28,
   } = JSON.parse(graph.dataset["cfg"]!) as D3Config
+
+  // every graph instance is interactive now: the homepage uses the same panel as
+  // the notes (there is no backdrop/decorative variant any more)
+  const interactiveLayer = true
 
   const data: Map<SimpleSlug, ContentDetails> = new Map(
     Object.entries<ContentDetails>(await fetchData).map(([k, v]) => [
@@ -171,7 +170,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   // (zero links) are the main source of visual noise at this scale, so they are
   // dropped before the simulation is built — the network stays airy and the
   // remaining nodes are the ones that actually carry meaning.
-  if (background) {
+  {
     const degree = new Map<string, number>()
     for (const l of graphData.links) {
       degree.set(l.source.id, (degree.get(l.source.id) ?? 0) + 1)
@@ -195,107 +194,74 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     return 1.5 + Math.sqrt(numLinks) * 0.4
   }
 
-  // we virtualize the simulation and use pixi to actually render it
+  // The simulation lives in a coordinate system centred on (0,0) — the render
+  // loop adds width/2, height/2 — so the centre force must be pinned there.
+  // Stock Quartz passes nothing, and d3 defaults forceCenter to (0,0) too, which
+  // is why the network settles in a corner of a tall panel instead of filling it.
+  // `scale` (previously only used to size the labels) now sets the initial
+  // spread: the box diagonal / 6, so a full-screen panel gets a wide layout.
   const simulation: Simulation<NodeData, LinkData> = forceSimulation<NodeData>(graphData.nodes)
     .force("charge", forceManyBody().strength(-100 * repelForce))
-    .force("center", forceCenter().strength(centerForce))
+    .force("center", forceCenter(0, 0).strength(centerForce))
     .force("link", forceLink(graphData.links).distance(linkDistance).iterations(2))
     .force("collide", forceCollide<NodeData>((n) => simRadius(n)).iterations(1))
+  const baseSpread = (Math.min(width, height) / 2) * 0.55
+  if (baseSpread > 0) {
+    for (const n of graphData.nodes) {
+      if (typeof n.x === "number") n.x *= (baseSpread / 60) * scale
+      if (typeof n.y === "number") n.y *= (baseSpread / 60) * scale
+    }
+  }
+
+  // A note network is naturally wide and flat (links sit inside clusters), so it
+  // leaves the lower half of a tall panel empty. This per-tick force grows the
+  // settled layout — on both axes — until it reaches 92% of the box, then stops:
+  // a centred, full-panel network instead of a strip. It works on the real
+  // simulation coordinates, so hover, drag and click hit exactly where they look.
+  const fillX = width * 0.42
+  const fillY = height * 0.42
+  simulation.force("stretch", () => {
+    let minX = Infinity
+    let maxX = -Infinity
+    let minY = Infinity
+    let maxY = -Infinity
+    for (const n of graphData.nodes) {
+      if (typeof n.x !== "number" || typeof n.y !== "number") continue
+      if (n.x < minX) minX = n.x
+      if (n.x > maxX) maxX = n.x
+      if (n.y < minY) minY = n.y
+      if (n.y > maxY) maxY = n.y
+    }
+    if (!isFinite(minX) || !isFinite(minY)) return
+    const halfX = Math.max(1, (maxX - minX) / 2)
+    const halfY = Math.max(1, (maxY - minY) / 2)
+    const gx = Math.min(1.05, fillX / halfX)
+    const gy = Math.min(1.05, fillY / halfY)
+    const cx = (minX + maxX) / 2
+    const cy = (minY + maxY) / 2
+    if (gx > 1.0005 || gy > 1.0005 || Math.abs(cx) > 0.5 || Math.abs(cy) > 0.5) {
+      for (const n of graphData.nodes) {
+        if (typeof n.x === "number") n.x = (n.x - cx) * gx
+        if (typeof n.y === "number") n.y = (n.y - cy) * gy
+      }
+    }
+  })
   // settle faster so the graph appears stable sooner
   simulation.alphaDecay(0.06)
 
   const radius = (Math.min(width, height) / 2) * 0.8
   if (enableRadial) simulation.force("radial", forceRadial(radius).strength(0.2))
 
-  // Homepage hero (autoFit): settle the layout up front, then work out a
-  // transform that spreads the network across the whole canvas so it fills the
-  // panel instead of clustering around the centre.
-  //
-  // In background mode the canvas is usually far taller than the settled
-  // network is round: a uniform "cover" scale would then show only a narrow
-  // slice of the field, leaving dead black bands. So the settled layout is
-  // stretched along its short axis first (dots stay circular — only the link
-  // segments stretch), giving a network whose proportions match the box; the
-  // uniform fit afterwards has almost nothing left to crop.
-  let fitTransform: ZoomTransform | null = null
-  if (autoFit) {
-    simulation.stop()
-    for (let i = 0; i < 250; i++) simulation.tick()
-
-    // pass 1: settle extent with the unstretched layout
-    const extentOf = () => {
-      let nMinX = Infinity
-      let nMinY = Infinity
-      let nMaxX = -Infinity
-      let nMaxY = -Infinity
-      for (const n of graphData.nodes) {
-        const r = simRadius(n)
-        nMinX = Math.min(nMinX, (n.x ?? 0) - r)
-        nMinY = Math.min(nMinY, (n.y ?? 0) - r)
-        nMaxX = Math.max(nMaxX, (n.x ?? 0) + r)
-        nMaxY = Math.max(nMaxY, (n.y ?? 0) + r)
-      }
-      return { nMinX, nMinY, nMaxX, nMaxY }
-    }
-
-    let { nMinX: minX, nMinY: minY, nMaxX: maxX, nMaxY: maxY } = extentOf()
-    let stretchY = 1
-
-    if (background) {
-      const boxAspect = width / Math.max(height, 1)
-      const netAspect = Math.max(maxX - minX, 1) / Math.max(maxY - minY, 1)
-      // make the network's proportions match the box: a narrow tall canvas needs
-      // the settled layout pulled out vertically
-      stretchY = Math.min(Math.max(netAspect / Math.max(boxAspect, 1e-6), 1), 8)
-      if (stretchY > 1.01) {
-        for (const n of graphData.nodes) {
-          if (typeof n.y === "number") n.y *= stretchY
-        }
-        ;({ nMinX: minX, nMinY: minY, nMaxX: maxX, nMaxY: maxY } = extentOf())
-      }
-    }
-
-    if (Number.isFinite(minX) && Number.isFinite(minY)) {
-      const graphW = Math.max(maxX - minX, 1)
-      const graphH = Math.max(maxY - minY, 1)
-      // "contain" fits the network inside the canvas with a margin — right for a
-      // panel, where nothing may be cut off. A background layer wants the
-      // opposite ("cover"): scale by the larger ratio so the constellation
-      // reaches every edge. `bgZoom` pushes it past that again, so the field
-      // bleeds off every edge and can be framed off-centre without a gap.
-      const ratioX = (width * (background ? 1 : 0.88)) / graphW
-      const ratioY = (height * (background ? 1 : 0.88)) / graphH
-      const fitK = Math.min(
-        Math.max((background ? Math.max(ratioX, ratioY) * bgZoom : Math.min(ratioX, ratioY)), 0.25),
-        background ? 4 : 2.5,
-      )
-      const centreX = (minX + maxX) / 2 + width / 2
-      // Background mode frames the network HIGH in the canvas (bgAnchor 0 = top
-      // edge, 0.5 = centre), so the constellation reads behind the hero copy
-      // instead of sinking to the middle of a very tall box.
-      const anchorY = background ? bgAnchor : 0.5
-      const centreY = (minY + maxY) / 2 + height / 2 + (1 - 2 * anchorY) * (height / 2)
-      fitTransform = zoomIdentity
-        .translate(width / 2, height / 2)
-        .scale(fitK)
-        .translate(-centreX, -centreY)
-    }
-  }
-
-  // The fit transform scales the whole stage, so dots and link lines are drawn
-  // pre-divided by that same factor: they keep their on-screen size while the
-  // spacing between them changes. NOTE: no lower clamp at 1 here — after the
-  // background stretch the fit can be *below* 1, and clamping would let the
-  // stage shrink the strokes until the whole network fades out on phones.
-  const visualScale = fitTransform?.k ?? 1
+  // This graph has no auto-fit / backdrop mode: it is the stock interactive
+  // panel (d3 force layout centred in the box, zoom/pan, hover, drag, click).
+  // The former "cover" fit and the background-layer plumbing were removed with
+  // the technique change (Raúl 29.09.26) — the nodes are reachable now.
+  const visualScale = 1
 
   // Background layers are decorative: dots and links get an on-screen minimum
   // so a full-bleed canvas never turns them into invisible sub-pixel noise.
-  const reduceMotion =
-    typeof window.matchMedia === "function" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  const minDotRadius = background ? (width < 800 ? 2 : 1.8) / visualScale : 0.001
-  const minLinkWidth = background ? (width < 800 ? 0.45 : 0.35) / visualScale : 0
+  const minDotRadius = 0.001
+  const minLinkWidth = 0
 
   // precompute style prop strings as pixi doesn't support css variables
   const cssVars = [
@@ -419,6 +385,9 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
         tweenGroup.add(
           new Tweened<Text>(n.label).to(
             {
+              // interactive backdrop: only the hovered caption is shown, because
+              // the zoom-based label fade never reaches a visible alpha at the
+              // fit factor this layer uses
               alpha: n.label.alpha,
               scale: { x: defaultScale, y: defaultScale },
             },
@@ -480,7 +449,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     backgroundAlpha: 0,
     preference: "webgpu",
     // a full-bleed 100vw canvas at dpr 3 melts low-end GPUs, so cap it tighter
-    resolution: Math.min(window.devicePixelRatio, background ? 1.5 : 2),
+    resolution: Math.min(window.devicePixelRatio, 2),
     eventMode: "static",
   })
   graph.appendChild(app.canvas)
@@ -501,8 +470,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       eventMode: "none",
       text: n.text,
       alpha: 0,
-      // background mode: no readable node captions under the running text
-      visible: !background,
+      visible: true,
       anchor: { x: 0.5, y: 1.2 },
       style: {
         fontSize: fontSize * 15,
@@ -516,9 +484,9 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     let oldLabelOpacity = 0
     const isTagNode = nodeId.startsWith("tags/")
     const gfx = new Graphics({
-      interactive: true,
+      interactive: interactiveLayer,
       label: nodeId,
-      eventMode: "static",
+      eventMode: interactiveLayer ? "static" : "none",
       hitArea: new Circle(0, 0, Math.max(nodeRadius(n), 8 / visualScale)),
       cursor: "pointer",
     })
@@ -604,18 +572,9 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     select<HTMLCanvasElement, NodeData>(app.canvas).call(zoomBehaviour)
   }
 
-  // apply the precomputed fit for the homepage hero
-  if (fitTransform) {
-    if (zoomBehaviour) {
-      select<HTMLCanvasElement, NodeData>(app.canvas).call(zoomBehaviour.transform, fitTransform)
-    } else {
-      currentTransform = fitTransform
-      stage.scale.set(fitTransform.k, fitTransform.k)
-      stage.position.set(fitTransform.x, fitTransform.y)
-    }
-  }
 
-  if (enableDrag) {
+
+  if (enableDrag && interactiveLayer) {
     select<HTMLCanvasElement, NodeData | undefined>(app.canvas).call(
       drag<HTMLCanvasElement, NodeData | undefined>()
         .container(() => app.canvas)
@@ -661,7 +620,8 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     }
   }
 
-  if (enableZoom) {
+  const zoomEnabled = enableZoom && interactiveLayer
+  if (zoomEnabled) {
     select<HTMLCanvasElement, NodeData>(app.canvas).call(
       zoom<HTMLCanvasElement, NodeData>()
         .extent([
@@ -674,14 +634,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
           stage.scale.set(transform.k, transform.k)
           stage.position.set(transform.x, transform.y)
 
-          // In background mode the layer is decoration behind running text:
-          // node labels stay off, they would only add noise under the copy.
-          if (background) {
-            for (const label of labelsContainer.children) {
-              label.alpha = 0
-            }
-            return
-          }
+
 
           // zoom adjusts opacity of labels too
           const scale = transform.k * opacityScale
@@ -699,7 +652,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
 
   let stopAnimation = false
   let settledFrames = 0
-  let revealed = !background
+  let revealed = true
   function animate(time: number) {
     if (stopAnimation) return
     // skip the heavy per-frame work when the tab is hidden
@@ -734,7 +687,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
 
     // Background hero: reveal the layer only once the simulation has settled,
     // so the visitor never sees a flash of randomly placed nodes.
-    if (background && !revealed && simulation.alpha() < 0.02) {
+    if (!revealed && simulation.alpha() < 0.02) {
       settledFrames++
       if (settledFrames > 2) {
         revealed = true
@@ -770,12 +723,55 @@ function cleanupGlobalGraphs() {
   globalGraphCleanups = []
 }
 
+// Homepage hero backdrop (`.ra-graph-hero`): the layer is viewport-wide and
+// vertically bounded by the hero block. Both come from the DOM because neither
+// is stable across viewports:
+//   - the centre column sits off-centre between the two sidebars, so a
+//     percentage `left` on it overflows the page horizontally;
+//   - the hero's height changes with the headline wrap.
+function positionHeroBand() {
+  const band = document.querySelector<HTMLElement>(".ra-graph-hero")
+  const hero = document.querySelector<HTMLElement>("article .ra-hero")
+  if (!band || !hero) {
+    return
+  }
+  const heroRect = hero.getBoundingClientRect()
+  // The absolutely positioned layer resolves `left` against its containing block
+  // (the centre column), so a negative offset equal to the column's own viewport
+  // position makes the band start at x=0 while still hanging off the column.
+  const origin = band.offsetParent
+    ? (band.offsetParent as HTMLElement).getBoundingClientRect().left
+    : 0
+  band.style.left = `${-Math.round(origin)}px`
+  band.style.width = `${Math.round(window.innerWidth)}px`
+  const top = band.getBoundingClientRect().top + window.scrollY
+  const height = heroRect.bottom + window.scrollY - top
+  if (height > 0) {
+    band.style.height = `${Math.round(height)}px`
+  }
+}
+
 document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   const slug = e.detail.url
   addToVisited(simplifySlug(slug))
 
   async function renderLocalGraph() {
     cleanupLocalGraphs()
+    // Homepage only: GraphHero renders the interactive panel in the beforeBody
+    // block (inside .page-header), while the hero markdown lives inside
+    // <article>. Move the panel into the article, directly below the hero, so the
+    // hero keeps the top of the page and the graph stays usable right underneath
+    // (Raúl 29.09.26). Guarded, so repeated nav events do not re-append it.
+    const homePanel = document.querySelector(".ra-home-graph")
+    const homeHero = document.querySelector("article .ra-hero")
+    if (homePanel && homeHero && homePanel.previousElementSibling !== homeHero) {
+      homeHero.after(homePanel)
+    }
+    // The backdrop must cover the hero and nothing more. Its height depends on
+    // the hero's real bottom (which varies with the headline wrap and the card
+    // grid below), so size it from the DOM instead of a fixed vh clamp. Runs
+    // before the graphs render: the canvas then gets the final box size.
+    positionHeroBand()
     const localGraphContainers = document.getElementsByClassName("graph-container")
     for (const container of localGraphContainers) {
       localGraphCleanups.push(await renderGraph(container as HTMLElement, slug))

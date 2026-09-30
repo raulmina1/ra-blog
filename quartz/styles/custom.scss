@@ -511,94 +511,74 @@ a.ra-btn-secondary:hover {
 }
 
 // ============================================================
-// Homepage "Semantic Connections" — full-bleed background layer
-// (GraphHero renders the graph as a decorative back layer on slug === "index"
-// only; every other page keeps the normal interactive graph panel)
+// Homepage graph — ONE real graph, fully interactive
+// (Raúl 29.09.26: "cámbiala de técnica y hazlo totalmente interactivo").
+// No background layer, no pointer-events plumbing: the graph lives in the normal
+// flow below the hero copy, so it behaves exactly like the Graph View panel on
+// the other pages (hover, drag, click-to-open, wheel zoom).
 // ============================================================
 
-// containing block for the absolutely positioned layer
+// containing block for any absolutely positioned content in the column
 #quartz-body .center {
   position: relative;
 }
 
-.ra-graph-hero {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  // full-bleed: runs past the page padding on both sides
-  width: min(100vw, 2400px);
-  // covers the hero, the Start Here cards and the top of Wissen…
-  height: clamp(1400px, 250vh, 2900px);
-  z-index: 0;
-  // …then the mask dissolves it well above the denser card sections
-  mask-image:
-    linear-gradient(180deg, #000 42%, transparent 74%),
-    radial-gradient(140% 100% at 50% 0%, #000 55%, transparent 100%);
-  -webkit-mask-image:
-    linear-gradient(180deg, #000 42%, transparent 74%),
-    radial-gradient(140% 100% at 50% 0%, #000 55%, transparent 100%);
-  mask-composite: intersect;
-  -webkit-mask-composite: source-in;
-  // deliberately non-interactive: a drag on the graph can never eat a CTA click
-  pointer-events: none;
-  // hidden until the physics has settled, so nobody sees random node placement
-  opacity: 0;
-  transition: opacity 0.9s ease 0.15s;
+// a ghost 42px of horizontal scroll appears on phones (no element reports
+// overflowing, bisected at runtime to the document itself). `clip` closes it
+// without creating a scroll container.
+html,
+body {
+  overflow-x: clip;
+}
 
-  &.is-settled {
-    opacity: 0.6;
+// the homepage graph is the real, fully interactive Graph View panel — big:
+// almost a full screen on both desktop and phone (Raúl 29.09.26: "que ocupe casi
+// toda una pantalla, según sea móvil u ordenador, y que sea interactivo")
+.ra-home-graph {
+  margin: 1.4rem 0 2.6rem;
+
+  .graph > .graph-outer {
+    // nearly a full screen tall
+    height: clamp(560px, 88vh, 1000px);
   }
 
-  // the graph component inside drops all of its panel chrome
-  & .graph-background,
-  & .graph-background > .graph-outer,
-  & .graph-background > .graph-outer > .graph-container {
-    width: 100%;
+  // the renderer sizes the canvas from the container's height, and the stock
+  // container has none: without this the box is tall but the drawing stays a
+  // 250px strip pinned to the top (measured: network filled 30% of the panel)
+  .graph > .graph-outer > .graph-container {
     height: 100%;
-    margin: 0;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    background: transparent;
-    background-color: transparent;
-    transition: none;
   }
 
-  & .graph-background > .graph-outer {
-    overflow: hidden;
-    &:hover {
-      box-shadow: none;
+  .graph > h3 {
+    font-size: 1.02rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+// phones: a full screen of graph (minus the space the browser chrome eats)
+@media all and (max-width: 800px) {
+  .ra-home-graph {
+    // no negative side margins: they push past the viewport and create a
+    // horizontal scrollbar (measured on 390px: overflowX true)
+    margin: 1rem 0 2rem;
+
+    .graph > .graph-outer {
+      height: clamp(460px, 82vh, 820px);
     }
   }
+
+  // the velo must not bleed sideways: on narrow screens a 16% horizontal inset
+  // on a full-width hero pushes past the viewport and creates a scrollbar
+  .ra-hero::before {
+    inset: -8% 0;
+  }
 }
 
-// text always paints above the graph layer
-.page-header > :not(.popover-hint),
-article,
-.page-footer {
-  position: relative;
-  z-index: 1;
-}
-
-// dark theme: the gold network "adds light" over the black page
-:root[saved-theme="dark"] .ra-graph-hero {
-  mix-blend-mode: screen;
-}
-
-// light theme: no blend and much fainter — a watermark, not a feature
-:root[saved-theme="light"] .ra-graph-hero.is-settled {
-  opacity: 0.15;
-}
-
-// soft velo behind the hero copy so gold lines never fight the headline
+// soft velo behind the hero copy; the hero panel dissolves into the page
 .ra-hero {
   position: relative;
-  // the hero panel itself dissolves: the graph really is behind the words
   border-color: transparent;
   background-color: transparent;
-  // its own stacking context, so the velo below paints over the page but
-  // still under the headline
   isolation: isolate;
 }
 
@@ -614,40 +594,16 @@ article,
   background: radial-gradient(62% 56% at 50% 45%, rgba(255, 255, 255, 0.78), transparent 74%);
 }
 
-// cards read on a clean, opaque surface (the graph is gone by then anyway)
+// cards read on a clean surface
 article a.home-card {
   background-color: var(--lightgray);
   background-color: color-mix(in srgb, var(--lightgray) 92%, transparent);
 }
 
-// phones: shorter layer — hero plus the first card section only
-@media all and (max-width: 800px) {
-  .ra-graph-hero {
-    // phones: the canvas is narrow, so a long vertical run is the only place the
-    // constellation can breathe — measured at ~2.5 screen heights
-    height: clamp(1700px, 265vh, 2600px);
-  }
-
-  // the velo must not bleed sideways here: a 16% horizontal inset on a
-  // full-width hero pushes past the viewport and creates a scrollbar
+// the two sidebars leave the centre column nearly full-width from 800 to 1200px;
+// same velo fix as the phone breakpoint
+@media all and (min-width: 800px) and (max-width: 1200px) {
   .ra-hero::before {
-    inset: -8% 0;
-  }
-}
-
-// big screens: more presence
-@media all and (min-width: 1200px) {
-  .ra-graph-hero {
-    height: clamp(1500px, 265vh, 3100px);
-  }
-}
-
-// motion sensitivity: show it, keep it still
-@media (prefers-reduced-motion: reduce) {
-  .ra-graph-hero {
-    transition: none;
-  }
-  .ra-graph-hero.is-settled {
-    opacity: 0.45;
+    inset: -10% 0;
   }
 }
