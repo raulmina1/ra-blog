@@ -9,21 +9,50 @@ reading_time: "1 min"
 semantic_class: note
 ---
 
-# ✅ Message sent!
+<div class="ra-hero ra-contact-hero">
 
-Thank you for contacting me. I received your message and will get back to you within **24 hours**.
+<span class="ra-hero-badge">✅ Message received</span>
+<h1 class="ra-hero-h1">Thank you — your message is <em>in</em>.</h1>
+<p class="ra-hero-sub">I received your inquiry and will get back to you within <strong>24 hours</strong> with a concrete answer.</p>
 
-## 🌐 Explore the site
+<div class="ra-hero-cta">
+  <a class="ra-btn ra-btn-primary internal" href="../Projekte/">🔧 See the projects</a>
+  <a class="ra-btn ra-btn-secondary internal" href="../Einf%C3%BChrung">👤 About me</a>
+</div>
 
-In the meantime, feel free to explore the rest of the site:
+<p class="ra-hero-trust">Reply within 24 h · Free first consultation · No commitment</p>
 
-| Page | Description |
-|------|-------------|
-| [[index|🏠 Home]] | Back to the start |
-| [[Projekte|🔧 Projects]] | What I'm building |
-| [[Einführung|👤 About me]] | Who I am and what I do |
+</div>
 
----
+## 🌐 While you wait
 
-> [!tip] Urgent?
-> Write me directly at [raul.mina1@outlook.com](mailto:raul.mina1@outlook.com) with the subject **"URGENT"** and I'll get back to you the same day.
+<div class="ra-channel-grid">
+
+<a class="ra-channel-card internal" href="../index">
+  <span class="ra-channel-icon">🏠</span>
+  <span class="ra-channel-title">Home</span>
+  <span class="ra-channel-value">Back to the start of the blog</span>
+</a>
+
+<a class="ra-channel-card internal" href="../Projekte/">
+  <span class="ra-channel-icon">🔧</span>
+  <span class="ra-channel-title">Projects</span>
+  <span class="ra-channel-value">Prompt, Agent, Cron &amp; Hook systems</span>
+</a>
+
+<a class="ra-channel-card internal" href="../Einf%C3%BChrung">
+  <span class="ra-channel-icon">👤</span>
+  <span class="ra-channel-title">About me</span>
+  <span class="ra-channel-value">Who I am and what I do</span>
+</a>
+
+<a class="ra-channel-card" href="mailto:raul.mina1@outlook.com">
+  <span class="ra-channel-icon">⚡</span>
+  <span class="ra-channel-title">Urgent?</span>
+  <span class="ra-channel-value">Write "URGENT" — same-day reply</span>
+</a>
+
+</div>
+
+> [!tip] ⚡ Need an answer immediately?
+> Message **[@RAFullYellowbot](https://t.me/RAFullYellowbot)** on Telegram — instant answers about services, pricing and project fit.

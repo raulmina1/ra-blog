@@ -16,12 +16,19 @@ interface FolderContentOptions {
    */
   showFolderCount: boolean
   showSubfolders: boolean
+  /**
+   * Hide the auto-generated "N items under this folder" listing.
+   * Used on pages whose index.md is a hand-built landing page (e.g. Contact),
+   * where the raw Quartz file listing is marketing noise.
+   */
+  hideListing: boolean
   sort?: SortFn
 }
 
 const defaultOptions: FolderContentOptions = {
   showFolderCount: true,
   showSubfolders: true,
+  hideListing: false,
 }
 
 export default ((opts?: Partial<FolderContentOptions>) => {
@@ -90,6 +97,9 @@ export default ((opts?: Partial<FolderContentOptions>) => {
         .filter((page) => page !== undefined) ?? []
     const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
     const classes = cssClasses.join(" ")
+    // the raw Quartz file listing is noise on hand-built landing pages (e.g. Contact);
+    // opt out per page with `hide_folder_listing: true` in the frontmatter
+    const hideListing = options.hideListing || fileData.frontmatter?.hide_folder_listing === true
     const listProps = {
       ...props,
       sort: options.sort,
@@ -105,18 +115,20 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     return (
       <div class="popover-hint">
         <article class={classes}>{content}</article>
-        <div class="page-listing">
-          {options.showFolderCount && (
-            <p>
-              {i18n(cfg.locale).pages.folderContent.itemsUnderFolder({
-                count: allPagesInFolder.length,
-              })}
-            </p>
-          )}
-          <div>
-            <PageList {...listProps} />
+        {!hideListing && (
+          <div class="page-listing">
+            {options.showFolderCount && (
+              <p>
+                {i18n(cfg.locale).pages.folderContent.itemsUnderFolder({
+                  count: allPagesInFolder.length,
+                })}
+              </p>
+            )}
+            <div>
+              <PageList {...listProps} />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     )
   }
