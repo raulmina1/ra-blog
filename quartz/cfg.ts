@@ -73,6 +73,11 @@ export interface GlobalConfiguration {
    *   Quartz will avoid using this as much as possible and use relative URLs most of the time
    */
   baseUrl?: string
+  /** Path (relative to the site root) or absolute URL of the default social preview image.
+   *  Falls back to `static/og-image.png` when unset. */
+  ogImage?: string
+  /** Name shown in the `og:site_name` meta tag. Falls back to `pageTitle`. */
+  ogSiteName?: string
   theme: Theme
   /**
    * Allow to translate the date in the language of your choice.

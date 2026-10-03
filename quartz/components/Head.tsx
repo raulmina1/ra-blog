@@ -34,7 +34,11 @@ export default (() => {
     const usesCustomOgImage = ctx.cfg.plugins.emitters.some(
       (e) => e.name === CustomOgImagesEmitterName,
     )
-    const ogImageDefaultPath = `https://${cfg.baseUrl}/static/og-image.png`
+    const ogImageDefaultPath = cfg.ogImage
+      ? /^https?:\/\//.test(cfg.ogImage)
+        ? cfg.ogImage
+        : `https://${cfg.baseUrl}/${cfg.ogImage.replace(/^\/+/, "")}`
+      : `https://${cfg.baseUrl}/static/og-image.png`
 
     return (
       <head>
@@ -53,7 +57,7 @@ export default (() => {
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <meta name="og:site_name" content={cfg.pageTitle}></meta>
+        <meta name="og:site_name" content={cfg.ogSiteName ?? cfg.pageTitle}></meta>
         <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
