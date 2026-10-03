@@ -11,6 +11,7 @@ const config: QuartzConfig = {
     pageTitle: "RA Blog",
     pageTitleSuffix: "",
     ogSiteName: "RA Blog",
+    ogImage: "static/og-ra-logo.png",
     enableSPA: true,
     enablePopovers: true,
     analytics: null,
