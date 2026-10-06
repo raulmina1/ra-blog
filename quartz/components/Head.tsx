@@ -40,6 +40,12 @@ export default (() => {
         : `https://${cfg.baseUrl}/${cfg.ogImage.replace(/^\/+/, "")}`
       : `https://${cfg.baseUrl}/static/og-image.png`
 
+    // Quartz used to emit `image/.png` here (getFileExtension keeps the dot),
+    // which is not a valid MIME type: link previews then drop the image and
+    // render the page with no photo. Strip the leading dot.
+    const ogImageExt = (getFileExtension(ogImageDefaultPath) ?? ".png").replace(/^\./, "")
+    const ogImageMime = ogImageExt === "jpg" ? "jpeg" : ogImageExt
+
     return (
       <head>
         <title>{title}</title>
@@ -71,10 +77,7 @@ export default (() => {
             <meta property="og:image" content={ogImageDefaultPath} />
             <meta property="og:image:url" content={ogImageDefaultPath} />
             <meta name="twitter:image" content={ogImageDefaultPath} />
-            <meta
-              property="og:image:type"
-              content={`image/${getFileExtension(ogImageDefaultPath) ?? "png"}`}
-            />
+            <meta property="og:image:type" content={`image/${ogImageMime}`} />
           </>
         )}
 
