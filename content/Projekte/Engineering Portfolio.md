@@ -255,9 +255,7 @@ Each one started as a calculation I needed twice.
 
 ## The workflow
 
-Every project — whether it is a separator, an exchanger or a complete well-testing package — runs through the same five stages. On the left, the engineering path; on the right, the automation layer that feeds it:
-
-<iframe src="/static/mental-maps/engineering-portfolio-workflow.html" style="width:100%;height:720px;border:1px solid #3a3a3a;border-radius:8px;background:#000" title="Engineering portfolio — project workflow"></iframe>
+Every project — whether it is a separator, an exchanger or a complete well-testing package — runs through the same five stages:
 
 **1 · Process basis.** Scope, process data, constraints and applicable codes become a mass and energy balance: Aspen HYSYS simulations, PVT and flash behaviour, retention times and equipment duty.
 
@@ -270,9 +268,6 @@ Every project — whether it is a separator, an exchanger or a complete well-tes
 **5 · Deliverable package.** Fabrication-ready drawings, signed calculation reports and datasheets — the documents a shop and a certifying authority can work from directly.
 
 The automation layer runs alongside stages 1–3: Python and MCP agents collect plant data, fill sheets and assemble documentation, pausing for **human approval** wherever a decision carries technical or commercial weight.
-
-> [!note] RA
-> A design is finished when the shop can build it, the certifying authority can sign it, and the operator can run it — not when the drawing looks right.
 
 ---
 

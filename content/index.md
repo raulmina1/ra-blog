@@ -26,6 +26,38 @@ semantic_class: note
 
 ---
 
+## Engineering Portfolio
+
+Five years of process, mechanical and thermal engineering — oil &amp; gas and carbon capture. Separators and shell &amp; tube exchangers under ASME Section VIII, flow assurance studies, and the calculation tools built from scratch.
+
+<div class="home-grid home-grid-3">
+
+<a class="home-card internal" href="./Projekte/Engineering-Portfolio">
+  <span class="home-card-icon">🏗️</span>
+  <span class="home-card-title">50+ P&amp;ID &amp; PFD</span>
+  <span class="home-card-desc">Elaborated and standardised across every class of well-testing and artificial-lift project.</span>
+</a>
+
+<a class="home-card internal" href="./Projekte/Engineering-Portfolio">
+  <span class="home-card-icon">🧮</span>
+  <span class="home-card-title">45+ simulations</span>
+  <span class="home-card-desc">Aspen HYSYS — hydrocarbon blending, hydrates, temperature profiles.</span>
+</a>
+
+<a class="home-card internal" href="./Projekte/Engineering-Portfolio">
+  <span class="home-card-icon">🛢️</span>
+  <span class="home-card-title">ASME Section VIII</span>
+  <span class="home-card-desc">Separators, gun-barrels, TEA and KOD designed in COMPRESS.</span>
+</a>
+
+</div>
+
+<div class="ra-hero-cta">
+  <a class="ra-btn ra-btn-primary internal" href="./Projekte/Engineering-Portfolio">🏗️ Open the Engineering Portfolio →</a>
+</div>
+
+---
+
 ## Start Here
 
 <div class="home-grid home-grid-3">
