@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engineering Portfolio — Workflow</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  @font-face{font-family:"MADE Tommy";src:url("../fonts/MADE-Tommy-Regular.otf") format("opentype");font-weight:400;font-display:swap}@font-face{font-family:"MADE Tommy";src:url("../fonts/MADE-Tommy-Bold.otf") format("opentype");font-weight:700;font-display:swap}body{background:#000;font-family:"MADE Tommy",system-ui,sans-serif;display:flex;justify-content:center;padding:0.25rem;min-height:0}
+  .mermaid-container{width:100%;max-width:1200px}.mermaid .edgePath .path{stroke-width:1px!important}.mermaid .edgePath .arrowheadPath{fill:#f0c040!important}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true,theme:'dark',securityLevel:'loose',flowchart:{useMaxWidth:true,htmlLabels:true,curve:'basis'},themeVariables:{darkMode:true,background:'#000',primaryTextColor:'#f5f5f5',lineColor:'#f0c040',fontFamily:'"MADE Tommy",system-ui,sans-serif'}})</script>
+</head>
+<body>
+<div class="mermaid-container"><pre class="mermaid">
+flowchart TD
+    A["📋 CLIENT INPUT<br/>scope · process data · constraints · codes"]
+    B["1 · PROCESS BASIS<br/>mass &amp; energy balance<br/>Aspen HYSYS · PVT / flash · retention times"]
+    C["2 · MECHANICAL &amp; THERMAL DESIGN<br/>COMPRESS · ASME VIII Div. 1 &amp; 2<br/>HTRI / Aspen EDR cross-check"]
+    D["3 · DRAWINGS &amp; DOCUMENTATION<br/>P&amp;ID / PFD · equipment &amp; instrument datasheets<br/>line lists · control philosophy · tie-ins"]
+    E{"4 · VERIFICATION<br/>flow assurance · HAZOP<br/>code check · client review"}
+    F["5 · DELIVERABLE PACKAGE<br/>fabrication-ready drawings<br/>signed calculation reports · datasheets"]
+    T["🧰 OWN CALCULATION TOOLS<br/>separators · gun-barrels · hydrates<br/>pinch · erosion · multi-pump injection"]
+    AI["🤖 AI AUTOMATION<br/>Python + MCP agents<br/>plant data · sheets · documents"]
+    HITL{"HUMAN-IN-THE-LOOP<br/>the agent runs the routine,<br/>approval on critical decisions"}
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E -->|findings| C
+    E -->|approved| F
+    T -.-> B
+    T -.-> C
+    AI -.-> D
+    AI --> HITL
+    HITL -.-> F
+
+    style A fill:#b8860b,stroke:#f0c040,color:#fff,stroke-width:2px
+    style B fill:#1a1a1a,stroke:#f0c040,color:#fff,stroke-width:2px
+    style C fill:#1a1a1a,stroke:#f0c040,color:#fff,stroke-width:2px
+    style D fill:#1a1a1a,stroke:#f0c040,color:#fff,stroke-width:2px
+    style E fill:#1a1a1a,stroke:#f0c040,color:#fff,stroke-width:2px
+    style F fill:#1a1a1a,stroke:#f0c040,color:#fff,stroke-width:2px
+    style T fill:#1a1a1a,stroke:#4a9eff,color:#fff
+    style AI fill:#1a1a1a,stroke:#4a9eff,color:#fff
+    style HITL fill:#1a1a1a,stroke:#4a9eff,color:#fff
+</pre></div>
+<script>
+/* Pan & Zoom for Mermaid SVG: wheel = zoom, drag = pan, dblclick = reset, touch pan + double-tap zoom */
+(function () {
+  function init() {
+    var svg = document.querySelector('.mermaid svg');
+    if (!svg) { return setTimeout(init, 150); }
+    var state = { scale: 1, x: 0, y: 0, dragging: false, lx: 0, ly: 0 };
+    function apply() { svg.style.transform = 'translate(' + state.x + 'px,' + state.y + 'px) scale(' + state.scale + ')'; svg.style.transformOrigin = 'center top'; }
+    svg.style.cursor = 'grab';
+    svg.addEventListener('wheel', function (e) {
+      e.preventDefault();
+      var f = e.deltaY < 0 ? 1.12 : 0.89;
+      state.scale = Math.min(6, Math.max(0.3, state.scale * f));
+      apply();
+    }, { passive: false });
+    svg.addEventListener('mousedown', function (e) { state.dragging = true; state.lx = e.clientX; state.ly = e.clientY; svg.style.cursor = 'grabbing'; e.preventDefault(); });
+    window.addEventListener('mousemove', function (e) {
+      if (!state.dragging) return;
+      state.x += e.clientX - state.lx; state.y += e.clientY - state.ly;
+      state.lx = e.clientX; state.ly = e.clientY; apply();
+    });
+    window.addEventListener('mouseup', function () { state.dragging = false; svg.style.cursor = 'grab'; });
+    svg.addEventListener('dblclick', function () { state.scale = 1; state.x = 0; state.y = 0; apply(); });
+  }
+  init();
+})();
+</script>
+</body>
+</html>

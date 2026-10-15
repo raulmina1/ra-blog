@@ -132,6 +132,12 @@ semantic_class: note
   <span class="home-card-desc">NER → Knowledge Graph (51.811 triples) → RAG, every 30 minutes.</span>
 </a>
 
+<a class="home-card internal" href="./Projekte/Engineering-Portfolio">
+  <span class="home-card-icon">🏗️</span>
+  <span class="home-card-title">Engineering Portfolio</span>
+  <span class="home-card-desc">Process, mechanical and thermal design — projects, capabilities, tools.</span>
+</a>
+
 </div>
 
 ## Latest
