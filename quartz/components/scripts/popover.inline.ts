@@ -13,6 +13,11 @@ async function mouseEnterHandler(
   if (link.dataset.noPopover === "true") {
     return
   }
+  // Homepage cards: never show a preview over the navigation blocks (Raúl
+  // 15.10.26). Belt and braces — the nav handler also skips attaching to them.
+  if (link.closest(".home-grid") || link.classList.contains("home-card")) {
+    return
+  }
 
   async function setPosition(popoverElement: HTMLElement) {
     const { x, y } = await computePosition(link, popoverElement, {
@@ -123,6 +128,14 @@ function clearActivePopover() {
 document.addEventListener("nav", () => {
   const links = [...document.querySelectorAll("a.internal")] as HTMLAnchorElement[]
   for (const link of links) {
+    // Homepage blocks: the cards ARE navigation panels, so the hover preview on
+    // top of them is pure noise (Raúl 15.10.26: "veo que hay una vista preview
+    // cuando coloco el mouse por encima de los bloques. Quitar esta opción para
+    // los bloques en la página principal"). `.home-grid` wraps only those cards,
+    // so no listener is attached to them at all.
+    if (link.closest(".home-grid") || link.classList.contains("home-card")) {
+      continue
+    }
     link.addEventListener("mouseenter", mouseEnterHandler)
     link.addEventListener("mouseleave", clearActivePopover)
     window.addCleanup(() => {
