@@ -16,15 +16,24 @@ interface GraphHeroOptions {
 // so nothing ever sits on top of it.
 const homeGraphDefaults: Partial<D3Config> = {
   depth: -1,
-  scale: 1.6,
-  repelForce: 2.6,
+  // Physics tuned for the compact panel (Raúl 15.10.26: keep the graph but small
+  // — "visible pero no tan grande", luego "aún más pequeños"). The old values
+  // (scale 1.6 / link 190 / repel 2.6) were sized for a near-full-screen box; in a
+  // small band they blow the network up past the canvas and the fit force then
+  // shrinks it back, which reads as a cramped clump. Shorter links + lower repel
+  // keep the same structure, drawn at a scale that fits the small box.
+  scale: 0.95,
+  repelForce: 1.2,
   centerForce: 0.05,
-  linkDistance: 190,
+  linkDistance: 80,
   fontSize: 0.5,
   showTags: false,
   focusOnHover: true,
   drag: true,
   zoom: true,
+  // Raúl 06.10.26: "quiero que el grafo ... se mantenga moviendo constantemente"
+  // — the homepage network never freezes; it keeps drifting on its own.
+  alwaysMoving: true,
 }
 
 export default ((opts?: GraphHeroOptions) => {

@@ -87,6 +87,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     showTags,
     focusOnHover,
     enableRadial,
+    alwaysMoving,
   } = JSON.parse(graph.dataset["cfg"]!) as D3Config
 
   // every graph instance is interactive now: the homepage uses the same panel as
@@ -218,8 +219,18 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   // settled layout — on both axes — until it reaches 92% of the box, then stops:
   // a centred, full-panel network instead of a strip. It works on the real
   // simulation coordinates, so hover, drag and click hit exactly where they look.
+  // Box fit with headroom for the drift: the network is grown only while it is
+  // smaller than `fill*`, and shrunk only once it has inflated past `max*`. The
+  // band between the two is what the slow drift breathes in, so the layout is
+  // never squashed back every frame (which would cancel the drift entirely) and
+  // never spills outside the canvas. The centroid is pulled home gently (1.5 %
+  // per tick) instead of being pinned, because a hard recentre would subtract the
+  // whole offset every tick and kill the coherent motion.
   const fillX = width * 0.42
   const fillY = height * 0.42
+  const maxHalfX = width * 0.45
+  const maxHalfY = height * 0.45
+  const recenterStrength = alwaysMoving ? 0.015 : 1
   simulation.force("stretch", () => {
     let minX = Infinity
     let maxX = -Infinity
@@ -235,19 +246,55 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     if (!isFinite(minX) || !isFinite(minY)) return
     const halfX = Math.max(1, (maxX - minX) / 2)
     const halfY = Math.max(1, (maxY - minY) / 2)
-    const gx = Math.min(1.05, fillX / halfX)
-    const gy = Math.min(1.05, fillY / halfY)
-    const cx = (minX + maxX) / 2
-    const cy = (minY + maxY) / 2
-    if (gx > 1.0005 || gy > 1.0005 || Math.abs(cx) > 0.5 || Math.abs(cy) > 0.5) {
+    let gx = 1
+    let gy = 1
+    if (halfX < fillX) gx = Math.min(1.05, fillX / halfX)
+    else if (halfX > maxHalfX) gx = maxHalfX / halfX
+    if (halfY < fillY) gy = Math.min(1.05, fillY / halfY)
+    else if (halfY > maxHalfY) gy = maxHalfY / halfY
+    const cx = ((minX + maxX) / 2) * (1 - recenterStrength)
+    const cy = ((minY + maxY) / 2) * (1 - recenterStrength)
+    if (gx !== 1 || gy !== 1 || Math.abs(cx) > 0.5 || Math.abs(cy) > 0.5) {
       for (const n of graphData.nodes) {
-        if (typeof n.x === "number") n.x = (n.x - cx) * gx
-        if (typeof n.y === "number") n.y = (n.y - cy) * gy
+        if (typeof n.x === "number") n.x = (n.x - (minX + maxX) / 2) * gx + cx
+        if (typeof n.y === "number") n.y = (n.y - (minY + maxY) / 2) * gy + cy
       }
     }
   })
   // settle faster so the graph appears stable sooner
   simulation.alphaDecay(0.06)
+
+  // ── "always moving" mode (homepage hero) ──────────────────────────────────
+  // Raúl 06.10.26: "quiero que el grafo ... se mantenga moviendo constantemente".
+  // A settled d3 force layout is a still image, so two things keep it alive:
+  //  1) the simulation is never allowed to cool — `alphaTarget` holds it at a low
+  //     simmer instead of dropping to 0, so nodes keep micro-adjusting;
+  //  2) a slow coherent flow field pushes every node along one shared heading that
+  //     rotates over time, so the constellation drifts as a single body instead of
+  //     vibrating in place. The stretch force above keeps that drift centred and
+  //     bounded.
+  // velocityDecay (d3 default 0.4) makes the velocity settle at ≈1.5× the impulse,
+  // so `driftSpeed` is a per-tick acceleration, not a speed. The heading turns
+  // slowly (period ≈ 70 s), so the network orbits inside its box instead of
+  // sliding out of the panel and being squashed back.
+  const driftSpeed = alwaysMoving ? 2 : 0
+  const driftRotSpeed = alwaysMoving ? 0.0015 : 0
+  let driftAngle = 0
+  if (alwaysMoving) {
+    simulation.alphaTarget(0.1).restart()
+    simulation.force("drift", (alpha: number) => {
+      driftAngle += driftRotSpeed
+      // coherent current: same heading for every node, slowly turning
+      const k = driftSpeed * alpha
+      const dx = Math.cos(driftAngle) * k
+      const dy = Math.sin(driftAngle) * k
+      for (const n of graphData.nodes) {
+        if (typeof n.vx !== "number" || typeof n.vy !== "number") continue
+        n.vx += dx
+        n.vy += dy
+      }
+    })
+  }
 
   const radius = (Math.min(width, height) / 2) * 0.8
   if (enableRadial) simulation.force("radial", forceRadial(radius).strength(0.2))
@@ -598,7 +645,9 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
           event.subject.fy = initPos.y + (event.y - initPos.y) / currentTransform.k
         })
         .on("end", function dragended(event) {
-          if (!event.active) simulation.alphaTarget(0)
+          // "always moving" hero keeps its low simmer after a drag; everywhere
+          // else the simulation is allowed to cool down again.
+          if (!event.active) simulation.alphaTarget(alwaysMoving ? 0.1 : 0)
           event.subject.fx = null
           event.subject.fy = null
           dragging = false
@@ -757,16 +806,10 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
 
   async function renderLocalGraph() {
     cleanupLocalGraphs()
-    // Homepage only: GraphHero renders the interactive panel in the beforeBody
-    // block (inside .page-header), while the hero markdown lives inside
-    // <article>. Move the panel into the article, directly below the hero, so the
-    // hero keeps the top of the page and the graph stays usable right underneath
-    // (Raúl 29.09.26). Guarded, so repeated nav events do not re-append it.
-    const homePanel = document.querySelector(".ra-home-graph")
-    const homeHero = document.querySelector("article .ra-hero")
-    if (homePanel && homeHero && homePanel.previousElementSibling !== homeHero) {
-      homeHero.after(homePanel)
-    }
+    // Graph View panel: since 15.10.26 it renders in `afterBody` (`.page-footer`),
+    // i.e. always at the BOTTOM of the page — on the homepage too (Raúl: "ahora
+    // dejarlo siempre en la parte de abajo"). No relocation is done any more: the
+    // panel stays exactly where the layout puts it, so the article keeps the top.
     // The backdrop must cover the hero and nothing more. Its height depends on
     // the hero's real bottom (which varies with the headline wrap and the card
     // grid below), so size it from the DOM instead of a fixed vh clamp. Runs

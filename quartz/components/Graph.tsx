@@ -33,6 +33,9 @@ export interface D3Config {
   // keep working. Hover / click / drag stay enabled (pointer events are enabled
   // only on the dots, see the CSS).
   passive?: boolean
+  // never let the layout freeze: keep the physics simmering with a low alpha
+  // target plus a slow coherent drift (homepage hero — Raúl 06.10.26)
+  alwaysMoving?: boolean
 }
 
 interface GraphOptions {

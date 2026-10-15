@@ -518,6 +518,13 @@ a.ra-btn-secondary:hover {
 // the other pages (hover, drag, click-to-open, wheel zoom).
 // ============================================================
 
+// the panel now CLOSES every content page: it renders in `.page-footer`
+// (afterBody) right under the article body, so give it room above on the note
+// pages too (the homepage wrapper `.ra-home-graph` carries its own margins)
+.page-footer > .graph {
+  margin: 2.2rem 0 1rem;
+}
+
 // containing block for any absolutely positioned content in the column
 #quartz-body .center {
   position: relative;
@@ -531,15 +538,20 @@ body {
   overflow-x: clip;
 }
 
-// the homepage graph is the real, fully interactive Graph View panel — big:
-// almost a full screen on both desktop and phone (Raúl 29.09.26: "que ocupe casi
-// toda una pantalla, según sea móvil u ordenador, y que sea interactivo")
+// the homepage graph is the real, fully interactive Graph View panel — kept
+// compact, in the top part of the page, right below the hero copy
+// (Raúl 15.10.26: "quiero mantenerlo pero más pequeño, en la parte de arriba,
+//  visible pero no tan grande").
+// History: 29.09.26 it was almost a full screen (clamp(560px, 88vh, 1000px)) —
+// measured too dominant, so it is now a small panel: visible, interactive, and
+// it leaves the cards above the fold.
 .ra-home-graph {
-  margin: 1.4rem 0 2.6rem;
+  margin: 2.2rem 0 1.2rem;
 
   .graph > .graph-outer {
-    // nearly a full screen tall
-    height: clamp(560px, 88vh, 1000px);
+    // a small band instead of a near-full screen (2nd pass, Raúl 15.10.26:
+    // "aún más pequeños")
+    height: clamp(200px, 26vh, 280px);
   }
 
   // the renderer sizes the canvas from the container's height, and the stock
@@ -555,15 +567,15 @@ body {
   }
 }
 
-// phones: a full screen of graph (minus the space the browser chrome eats)
+// phones: the same compact band, sized for a small screen
 @media all and (max-width: 800px) {
   .ra-home-graph {
     // no negative side margins: they push past the viewport and create a
     // horizontal scrollbar (measured on 390px: overflowX true)
-    margin: 1rem 0 2rem;
+    margin: 1.6rem 0 1rem;
 
     .graph > .graph-outer {
-      height: clamp(460px, 82vh, 820px);
+      height: clamp(160px, 21vh, 230px);
     }
   }
 

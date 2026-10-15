@@ -24,8 +24,12 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
-    Component.GraphHero(),
   ],
+  // Graph View panel: ALWAYS at the bottom of the page, after the article body
+  // (Raúl 15.10.26: "ahora dejarlo siempre en la parte de abajo"). It is rendered
+  // in `afterBody` → `.page-footer`, so it sits under the content on every page
+  // (homepage included) instead of pushing the text down at the top.
+  afterBody: [Component.GraphHero()],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
