@@ -32,7 +32,7 @@ export function pageResources(
 
   // Bump this number on every frontend edit (CSS/JS assets are served with
   // long-lived caching on GitHub Pages, so the query param forces refresh).
-  const CACHE_BUST = "?v=30"
+  const CACHE_BUST = "?v=31"
 
   const resources: StaticResources = {
     css: [

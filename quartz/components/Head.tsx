@@ -50,6 +50,16 @@ export default (() => {
       <head>
         <title>{title}</title>
         <meta charSet="utf-8" />
+        {/* Theme is pinned to dark, permanently: the light/dark toggle was
+            removed from the layout (Raúl 15.10.26). Setting the attribute here,
+            before the stylesheet, avoids a flash of the light theme and makes
+            the site ignore any stale localStorage value. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'document.documentElement.setAttribute("saved-theme","dark");try{localStorage.removeItem("theme")}catch(e){}',
+          }}
+        />
         {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
           <>
             <link rel="preconnect" href="https://fonts.googleapis.com" />

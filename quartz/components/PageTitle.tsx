@@ -1,10 +1,10 @@
 import { joinSegments, pathToRoot } from "../util/path"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
-import { i18n } from "../i18n"
 
-const PageTitle: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzComponentProps) => {
-  const title = cfg?.pageTitle ?? i18n(cfg.locale).propertyDefaults.title
+// Logo only — the "RA Blog" wordmark under the icon was removed on request
+// (Raúl 15.10.26: "quita el RA blog debajo de mi icono").
+const PageTitle: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
   const baseDir = pathToRoot(fileData.slug!)
   const logoPath = joinSegments(baseDir, "static/ra-logo.png")
   return (
@@ -12,9 +12,6 @@ const PageTitle: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzCompo
       <a href={baseDir}>
         <img src={logoPath} alt="RA Logo" class="ra-logo" />
       </a>
-      <h2 class="page-title">
-        <a href={baseDir}>{title}</a>
-      </h2>
     </div>
   )
 }
