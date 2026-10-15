@@ -546,13 +546,17 @@ body {
   overflow-x: clip;
 }
 
-// the homepage graph is the real, fully interactive Graph View panel — kept
-// compact, in the top part of the page, right below the hero copy
-// (Raúl 15.10.26: "quiero mantenerlo pero más pequeño, en la parte de arriba,
-//  visible pero no tan grande").
-// History: 29.09.26 it was almost a full screen (clamp(560px, 88vh, 1000px)) —
-// measured too dominant, so it is now a small panel: visible, interactive, and
-// it leaves the cards above the fold.
+// the renderer sizes its canvas from the container's height, and the stock
+// container has NONE: without a height the box is tall but the canvas collapses
+// to the script's minimum (250px stock / 120px since 15.10.26), so the network
+// was drawn in a short letterbox and stretched across the full width — the
+// "graph stretches a lot on every page" Raúl reported on 15.10.26. Applies to
+// every graph panel (note pages, homepage, global graph), not just the hero.
+.graph > .graph-outer > .graph-container {
+  height: 100%;
+}
+
+// the homepage graph panel (`.ra-home-graph`) reuses the same rules
 .ra-home-graph {
   margin: 1.5rem 0 1.8rem;
 
@@ -565,9 +569,6 @@ body {
   // the renderer sizes the canvas from the container's height, and the stock
   // container has none: without this the box is tall but the drawing stays a
   // 250px strip pinned to the top (measured: network filled 30% of the panel)
-  .graph > .graph-outer > .graph-container {
-    height: 100%;
-  }
 
   .graph > h3 {
     font-size: 1.02rem;

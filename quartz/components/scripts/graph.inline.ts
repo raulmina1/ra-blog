@@ -251,18 +251,23 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     if (!isFinite(minX) || !isFinite(minY)) return
     const halfX = Math.max(1, (maxX - minX) / 2)
     const halfY = Math.max(1, (maxY - minY) / 2)
-    let gx = 1
-    let gy = 1
-    if (halfX < fillX) gx = Math.min(1.05, fillX / halfX)
-    else if (halfX > maxHalfX) gx = maxHalfX / halfX
-    if (halfY < fillY) gy = Math.min(1.05, fillY / halfY)
-    else if (halfY > maxHalfY) gy = maxHalfY / halfY
+    // ONE scale factor for both axes — the network keeps its natural shape.
+    // Scaling x and y independently (the old gx/gy) stretched a wide network to
+    // fill a wide-and-short panel: Raúl 15.10.26, "the graph in every page
+    // stretches a lot, I don't want it like this". Grow only while BOTH axes are
+    // under `fill*` (the binding axis sets the factor), shrink as soon as one axis
+    // passes `max*`, so the drawing always fits and is never distorted.
+    let g = 1
+    const grow = Math.min(fillX / halfX, fillY / halfY)
+    const shrink = Math.min(maxHalfX / halfX, maxHalfY / halfY)
+    if (grow > 1.0005) g = Math.min(1.05, grow)
+    else if (shrink < 1) g = shrink
     const cx = ((minX + maxX) / 2) * (1 - recenterStrength)
     const cy = ((minY + maxY) / 2) * (1 - recenterStrength)
-    if (gx !== 1 || gy !== 1 || Math.abs(cx) > 0.5 || Math.abs(cy) > 0.5) {
+    if (g !== 1 || Math.abs(cx) > 0.5 || Math.abs(cy) > 0.5) {
       for (const n of graphData.nodes) {
-        if (typeof n.x === "number") n.x = (n.x - (minX + maxX) / 2) * gx + cx
-        if (typeof n.y === "number") n.y = (n.y - (minY + maxY) / 2) * gy + cy
+        if (typeof n.x === "number") n.x = (n.x - (minX + maxX) / 2) * g + cx
+        if (typeof n.y === "number") n.y = (n.y - (minY + maxY) / 2) * g + cy
       }
     }
   })
