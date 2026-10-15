@@ -185,7 +185,12 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   }
 
   const width = graph.offsetWidth
-  const height = Math.max(graph.offsetHeight, 250)
+  // Minimum drawing height: the canvas must never be taller than its visible box,
+  // because the box clips (overflow: hidden) and the fit force sizes the network
+  // from the canvas — a taller canvas means a network whose bottom row is cut off.
+  // The old floor of 250px did exactly that once the homepage panel became
+  // smaller than 250px (Raúl 15.10.26); 120px is enough for any real panel.
+  const height = Math.max(graph.offsetHeight, 120)
 
   // radius in simulation space (used by the physics: collide force)
   function simRadius(d: NodeData) {
@@ -806,10 +811,17 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
 
   async function renderLocalGraph() {
     cleanupLocalGraphs()
-    // Graph View panel: since 15.10.26 it renders in `afterBody` (`.page-footer`),
-    // i.e. always at the BOTTOM of the page — on the homepage too (Raúl: "ahora
-    // dejarlo siempre en la parte de abajo"). No relocation is done any more: the
-    // panel stays exactly where the layout puts it, so the article keeps the top.
+    // Homepage only: GraphHero renders the interactive panel in the beforeBody
+    // block (inside .page-header), while the hero markdown lives inside
+    // <article>. Move the panel into the article, directly below the hero, so the
+    // hero keeps the top of the page and the graph sits right underneath it
+    // (Raúl 15.10.26: "creo que lo puedes dejar arriba"). Guarded, so repeated nav
+    // events do not re-append it.
+    const homePanel = document.querySelector(".ra-home-graph")
+    const homeHero = document.querySelector("article .ra-hero")
+    if (homePanel && homeHero && homePanel.previousElementSibling !== homeHero) {
+      homeHero.after(homePanel)
+    }
     // The backdrop must cover the hero and nothing more. Its height depends on
     // the hero's real bottom (which varies with the headline wrap and the card
     // grid below), so size it from the DOM instead of a fixed vh clamp. Runs

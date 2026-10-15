@@ -319,32 +319,38 @@ pre {
 
 // ============================================================
 // Homepage cards (HTML raw + CSS grid) — 2026-08-17
+// Restyled 15.10.26 in the Contact/enterprise language (Raúl: "quiero que los
+// bloques queden más al estilo de /Contact/") and made SMALLER ("que los bloques
+// se vean más pequeños": padding, icon, title, desc and grid columns shrunk).
+// Literal colours on purpose — panel #0f0f0d / line #2e2e28 / gold #c4ab00 /
+// ink #ecece4 — so the cards stay black in BOTH themes (var(--lightgray) flips
+// white in light mode: the exact bug fixed on Contact on 03.10.26).
 // ============================================================
 .home-grid {
   display: grid;
-  gap: 1.2rem;
-  margin: 1.25rem 0 1.5rem;
+  gap: 0.85rem;
+  margin: 1rem 0 1.3rem;
 }
 
 .home-grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
 }
 
 .home-grid-2 {
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
 }
 
 article a.home-card {
   display: block;
-  padding: 1.5rem 1.6rem;
-  border: 1px solid var(--gray);
+  padding: 1rem 1.05rem 0.95rem;
+  border: 1px solid #2e2e28;
   border-radius: 12px;
-  background-color: var(--lightgray);
-  background-color: color-mix(in srgb, var(--lightgray) 40%, transparent);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  color: var(--dark);
+  background-color: #0f0f0d;
+  background-image: linear-gradient(rgba(196, 171, 0, 0.05), rgba(0, 0, 0, 0) 62%);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+  color: #ecece4;
   text-decoration: none;
-  line-height: 1.45;
+  line-height: 1.4;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -352,43 +358,45 @@ article a.home-card {
 
   .home-card-icon {
     display: inline-block;
-    font-size: 1.9rem;
+    font-size: 1.4rem;
     line-height: 1;
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.4rem;
   }
 
   .home-card-title {
     display: block;
-    margin-bottom: 0.35rem;
-    font-size: 1.22rem;
+    margin-bottom: 0.22rem;
+    font-size: 1rem;
     font-weight: 600;
+    letter-spacing: 0.01em;
+    color: #ecece4;
   }
 
   .home-card-desc {
     display: block;
-    font-size: 0.95em;
-    color: var(--darkgray);
+    font-size: 0.83em;
+    line-height: 1.45;
+    color: #a8a89a;
   }
 
   .home-card-meta {
     display: block;
-    margin-top: 0.65rem;
-    font-size: 0.8em;
-    font-weight: 500;
+    margin-top: 0.5rem;
+    font-size: 0.7em;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: var(--secondary);
+    letter-spacing: 0.08em;
+    color: #c4ab00;
   }
 
   &:hover {
     transform: translateY(-3px);
-    border-color: var(--secondary);
+    border-color: #c4ab00;
     box-shadow:
-      0 10px 26px rgba(0, 0, 0, 0.28),
-      0 3px 8px rgba(0, 0, 0, 0.16);
-    color: var(--dark);
-    background-color: var(--lightgray);
-    background-color: color-mix(in srgb, var(--lightgray) 40%, transparent);
+      0 12px 28px rgba(0, 0, 0, 0.34),
+      0 3px 8px rgba(0, 0, 0, 0.2);
+    color: #ecece4;
+    background-color: #0f0f0d;
     text-decoration: none;
   }
 }
@@ -518,11 +526,11 @@ a.ra-btn-secondary:hover {
 // the other pages (hover, drag, click-to-open, wheel zoom).
 // ============================================================
 
-// the panel now CLOSES every content page: it renders in `.page-footer`
-// (afterBody) right under the article body, so give it room above on the note
-// pages too (the homepage wrapper `.ra-home-graph` carries its own margins)
-.page-footer > .graph {
-  margin: 2.2rem 0 1rem;
+// the panel opens the page again (beforeBody → `.page-header`, top of the page):
+// give it a little air under the title/meta/tags on the note pages. The homepage
+// panel carries its own margins (`.ra-home-graph`, right below the hero).
+.page-header > .graph {
+  margin: 1.4rem 0 0.4rem;
 }
 
 // containing block for any absolutely positioned content in the column
@@ -546,7 +554,7 @@ body {
 // measured too dominant, so it is now a small panel: visible, interactive, and
 // it leaves the cards above the fold.
 .ra-home-graph {
-  margin: 2.2rem 0 1.2rem;
+  margin: 1.5rem 0 1.8rem;
 
   .graph > .graph-outer {
     // a small band instead of a near-full screen (2nd pass, Raúl 15.10.26:
@@ -586,6 +594,65 @@ body {
   }
 }
 
+// ============================================================
+// Homepage header band — tighter top (Raúl 15.10.26: "mejores la estética del
+// espacio desde el logo hasta donde dice RA Blog, creo que hay mucho espacio").
+// The stock layout leaves 6rem above the centre title AND 6rem above the logo in
+// the sidebar, so the top band of the homepage was mostly air. Scoped with
+// `body[data-slug="index"]` (Quartz writes the slug on <body>), so the note pages
+// keep their own rhythm. Desktop-only for the two top margins (on phones the
+// stock values are already tight).
+// ============================================================
+@media not (max-width: 800px) {
+  body[data-slug="index"] #quartz-body .page-header {
+    margin-top: 2.2rem;
+  }
+
+  body[data-slug="index"] #quartz-body .sidebar.left {
+    padding-top: 2.2rem;
+  }
+}
+
+body[data-slug="index"] #quartz-body .article-title {
+  margin: 0.6rem 0 0;
+}
+
+body[data-slug="index"] #quartz-body .content-meta {
+  margin-top: 0.1rem;
+  font-size: 0.82rem;
+  opacity: 0.7;
+}
+
+body[data-slug="index"] #quartz-body .tags {
+  margin: 0.5rem 0 0;
+}
+
+body[data-slug="index"] article .ra-hero {
+  margin-top: 1.1rem;
+}
+
+// homepage section titles get the enterprise accent — a hairline rule with a
+// short gold bar, the same language as the Contact section heads
+body[data-slug="index"] article h2 {
+  position: relative;
+  margin: 1.7rem 0 0.55rem;
+  padding-bottom: 0.45rem;
+  font-size: 1.22rem;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid #2e2e28;
+}
+
+body[data-slug="index"] article h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 46px;
+  height: 2px;
+  border-radius: 2px;
+  background: #c4ab00;
+}
+
 // soft velo behind the hero copy; the hero panel dissolves into the page
 .ra-hero {
   position: relative;
@@ -606,11 +673,10 @@ body {
   background: radial-gradient(62% 56% at 50% 45%, rgba(255, 255, 255, 0.78), transparent 74%);
 }
 
-// cards read on a clean surface
-article a.home-card {
-  background-color: var(--lightgray);
-  background-color: color-mix(in srgb, var(--lightgray) 92%, transparent);
-}
+// cards are ALWAYS the dark enterprise panel (see the redesigned block above):
+// nothing to override here any more. The old rule that repainted them with
+// `var(--lightgray)` is gone — it flipped them white in light mode and beat the
+// black panel by cascade order.
 
 // the two sidebars leave the centre column nearly full-width from 800 to 1200px;
 // same velo fix as the phone breakpoint
