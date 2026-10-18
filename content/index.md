@@ -58,6 +58,29 @@ Five years of process, mechanical and thermal engineering — oil &amp; gas and 
 
 ---
 
+## 🗞️ Daily Brief
+
+<!-- DAILY:BEGIN -->
+<div class="home-grid home-grid-2">
+
+<a class="home-card internal" href="./Daily/2026-10-18">
+  <span class="home-card-icon">🗞️</span>
+  <span class="home-card-title">Brent closes at &#36;109.86, its highest since 19 May — WTI up…</span>
+  <span class="home-card-desc">Crude is up more than 75 % this year and the buffer is gone: IEA puts observed inventories 509m barrels below pre-war levels with onshore stocks the.</span>
+  <span class="home-card-meta">18 Oct 2026 · Daily Brief · 7 stories</span>
+</a>
+
+<a class="home-card internal" href="./Daily/">
+  <span class="home-card-icon">🗃️</span>
+  <span class="home-card-title">All issues &amp; threads</span>
+  <span class="home-card-desc">Every issue filed into its topic thread — the garden grows one edge at a time.</span>
+</a>
+
+</div>
+<!-- DAILY:END -->
+
+---
+
 ## Start Here
 
 <div class="home-grid home-grid-3">
