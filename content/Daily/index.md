@@ -58,7 +58,7 @@ A feed forgets. This does not: every issue lands in a **thread**, and each threa
   <span class="home-card-meta">Thread</span>
 </a>
 
-<a class="home-card internal" href="./Daily/Topics/History-and-Echoes">
+<a class="home-card internal" href="./Daily/Topics/History-and-Echoes" style="grid-column: 1 / -1">
   <span class="home-card-icon">🕰️</span>
   <span class="home-card-title">History &amp; Echoes</span>
   <span class="home-card-desc">Dated precedents quoted by the sources themselves — anchors, not commentary.</span>
@@ -78,7 +78,7 @@ A feed forgets. This does not: every issue lands in a **thread**, and each threa
 
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/Research/Germany-Heating-Costs-2021-2026">
+<a class="home-card internal" href="./Daily/Research/Germany-Heating-Costs-2021-2026" style="grid-column: 1 / -1">
   <span class="home-card-icon">🔥</span>
   <span class="home-card-title">Gas heating vs. hot water</span>
   <span class="home-card-desc">Heating up 83 %, hot water only 32 % — more than half of a hot-water bill is the municipal water charge. Plus what a hot shower costs per minute.</span>
@@ -133,20 +133,6 @@ _Pages published across the garden, newest first._
   <span class="home-card-title">RA Prompt Shop</span>
   <span class="home-card-desc">AI prompts for Obsidian, German learning, job hunting, and automation — 34 prompts in 5 packs, built for Claude and refined…</span>
   <span class="home-card-meta">23 Sep 2026 · Projekte</span>
-</a>
-
-<a class="home-card internal" href="../Kolumnen/Die-Werkzeuge,-die-ich-mir-selbst-gebaut-habe">
-  <span class="home-card-icon">✍️</span>
-  <span class="home-card-title">Die Werkzeuge, die ich mir selbst gebaut habe</span>
-  <span class="home-card-desc">Wie ein Ingenieur anfing, sich selbst zu automatisieren — und warum der größte Gewinn nicht Zeitersparnis, sondern kognitive…</span>
-  <span class="home-card-meta">23 Sep 2026 · Kolumnen</span>
-</a>
-
-<a class="home-card internal" href="../Engineering/Multiphase-Meter-Spool-Detail">
-  <span class="home-card-icon">🏗️</span>
-  <span class="home-card-title">Red Eye Multiphase Metering — precision design makes the measurement honest</span>
-  <span class="home-card-desc">How a Red Eye–style multiphase water-cut meter works, and why the spool design that hosts it decides whether the measurement…</span>
-  <span class="home-card-meta">20 Sep 2026 · Engineering</span>
 </a>
 
 </div>
