@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-18|18 Oct 2026]] | Wall Street's worst week since June: Nasdaq −4.5 %, chips down eight sessions in a row for the… |
+| [[Daily/2026-10-19|19 Oct 2026]] | Gross debt reaches COP 1,068 trillion as the 2027 budget deadline hits Tuesday midnight |

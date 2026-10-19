@@ -25,6 +25,9 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 The reporting keeps anchoring today to a specific past moment ("since 2008", "lowest since 2016"). Each row is an anchor the source chose itself, quoted, not interpreted.
 
+- **2026-10-19** — The sharpest drop since September 2024, with 29 of 39 industrial branches down
+- **2026-10-19** — Germany enters the heating season with the least buffer since 2021 and a levy coming in 2027
+- **2026-10-19** — The highest since 2022
 - **2026-10-18** — Touching $110 intraday for the first time since May
 - **2026-10-18** — Its worst week since June and the end of a four-week winning streak
 - **2026-10-18** — And chip stocks posted their longest losing streak since 2008 (see microeconomics)
@@ -33,4 +36,4 @@ The reporting keeps anchoring today to a specific past moment ("since 2008", "lo
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-18|18 Oct 2026]] | 3 dated precedents quoted today |
+| [[Daily/2026-10-19|19 Oct 2026]] | 3 dated precedents quoted today |

@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-18|18 Oct 2026]] | Hormuz: the deadliest week of the war for shipping, and both sides now claim control of the… |
+| [[Daily/2026-10-19|19 Oct 2026]] | Trump waives the Graham Act sanctions two days before they took effect — with no end date in… |

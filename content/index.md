@@ -63,11 +63,11 @@ Five years of process, mechanical and thermal engineering — oil &amp; gas and 
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-10-18">
+<a class="home-card internal" href="./Daily/2026-10-19">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Brent closes at &#36;109.86, its highest since 19 May — WTI up…</span>
-  <span class="home-card-desc">Crude is up more than 75 % this year and the buffer is gone: IEA puts observed inventories 509m barrels below pre-war levels with onshore stocks the.</span>
-  <span class="home-card-meta">18 Oct 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Brent slips to &#36;108.82 on Russian supply relief after closing…</span>
+  <span class="home-card-desc">The market is now trading two offsetting risks with no buffer behind either: ~509m barrels of inventories below pre-war levels and record diesel.</span>
+  <span class="home-card-meta">19 Oct 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

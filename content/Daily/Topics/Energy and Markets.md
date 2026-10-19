@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-18|18 Oct 2026]] | Brent closes at \$109.86, its highest since 19 May — WTI up 10.4 % on the week as Hormuz flows… |
+| [[Daily/2026-10-19|19 Oct 2026]] | Brent slips to \$108.82 on Russian supply relief after closing Friday at \$109.86, its highest… |
