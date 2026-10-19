@@ -332,6 +332,26 @@ pre {
   margin: 1rem 0 1.3rem;
 }
 
+
+// ------------------------------------------------------------
+// Daily Brief (/Daily/): gleich hohe Karten, damit das 2-Spalten-
+// Raster ruhig bleibt — Beschreibungen auf 3 Zeilen geklemmt.
+// ------------------------------------------------------------
+body[data-slug="Daily/index"] {
+  a.home-card {
+    min-height: 148px;
+  }
+  .home-card-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .home-grid {
+    margin: 0.9rem 0 1.6rem;
+  }
+}
+
 .home-grid-3 {
   grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
 }

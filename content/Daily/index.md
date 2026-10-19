@@ -28,7 +28,7 @@ A feed forgets. This does not: every issue lands in a **thread**, and each threa
 
 ## Threads
 
-<div class="home-grid">
+<div class="home-grid home-grid-2">
 
 <a class="home-card internal" href="./Daily/Topics/Money-and-Policy">
   <span class="home-card-icon">📊</span>
@@ -76,7 +76,7 @@ A feed forgets. This does not: every issue lands in a **thread**, and each threa
 
 ## Research
 
-<div class="home-grid">
+<div class="home-grid home-grid-2">
 
 <a class="home-card internal" href="./Daily/Research/Germany-Heating-Costs-2021-2026">
   <span class="home-card-icon">🔥</span>
@@ -92,7 +92,7 @@ A feed forgets. This does not: every issue lands in a **thread**, and each threa
 
 _Pages published across the garden, newest first._
 
-<div class="home-grid">
+<div class="home-grid home-grid-2">
 <a class="home-card internal" href="./Daily/Research/Germany-Heating-Costs-2021-2026">
   <span class="home-card-icon">🔎</span>
   <span class="home-card-title">Gas Heating vs. Hot Water: Germany's Bill, 2021–2026</span>
