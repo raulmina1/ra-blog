@@ -8,6 +8,7 @@ reading_time: "2 min"
 type: section-index
 lang: en
 publish: true
+hide_folder_listing: true
 semantic_class: section-index
 see_also:
   - "[[Wirtschaft/index|Wirtschaft]]"
