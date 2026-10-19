@@ -42,4 +42,4 @@ Longer investigations built from the same sources live under **Research** — on
 
 | Date | Investigation | Data |
 |---|---|---|
-| [[Daily/Research/Germany Heating Costs 2021-2026|19 Oct 2026]] | Germany's heating bill, 2021–2026: gas vs water — why the same house paid 83 % more for heat while water rose 16 % | Destatis 61243-0011, 61241-03, tw-08 / tw-09 |
+| [[Daily/Research/Germany Heating Costs 2021-2026|19 Oct 2026]] | Germany's heating bill, 2021–2026: gas vs hot water — heating up 83 %, hot water only 32 %, because 56 % of hot water is the municipal water charge | Destatis 61243-0011, 61241-03, tw-08 / tw-09, aw-07 |
