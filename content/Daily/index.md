@@ -30,35 +30,35 @@ A feed forgets. This does not: every issue lands in a **thread**, and each threa
 
 <div class="home-grid">
 
-<a class="home-card internal" href="./Topics/Money-and-Policy">
+<a class="home-card internal" href="./Daily/Topics/Money-and-Policy">
   <span class="home-card-icon">📊</span>
   <span class="home-card-title">Money &amp; Policy</span>
   <span class="home-card-desc">Central banks, yields, deficits, currencies and the fiscal arithmetic behind them.</span>
   <span class="home-card-meta">Thread</span>
 </a>
 
-<a class="home-card internal" href="./Topics/Energy-and-Markets">
+<a class="home-card internal" href="./Daily/Topics/Energy-and-Markets">
   <span class="home-card-icon">⚡</span>
   <span class="home-card-title">Energy &amp; Markets</span>
   <span class="home-card-desc">Brent and WTI, TTF and storage, power, carbon and the lanes that connect them.</span>
   <span class="home-card-meta">Thread</span>
 </a>
 
-<a class="home-card internal" href="./Topics/Geopolitics-and-Conflict">
+<a class="home-card internal" href="./Daily/Topics/Geopolitics-and-Conflict">
   <span class="home-card-icon">🌍</span>
   <span class="home-card-title">Geopolitics &amp; Conflict</span>
   <span class="home-card-desc">Wars, sanctions, chokepoints and the politics that move prices.</span>
   <span class="home-card-meta">Thread</span>
 </a>
 
-<a class="home-card internal" href="./Topics/AI-and-Models">
+<a class="home-card internal" href="./Daily/Topics/AI-and-Models">
   <span class="home-card-icon">🤖</span>
   <span class="home-card-title">AI &amp; Models</span>
   <span class="home-card-desc">Model releases, benchmark rows, agent incidents, regulation and the compute bill.</span>
   <span class="home-card-meta">Thread</span>
 </a>
 
-<a class="home-card internal" href="./Topics/History-and-Echoes">
+<a class="home-card internal" href="./Daily/Topics/History-and-Echoes">
   <span class="home-card-icon">🕰️</span>
   <span class="home-card-title">History &amp; Echoes</span>
   <span class="home-card-desc">Dated precedents quoted by the sources themselves — anchors, not commentary.</span>
@@ -78,7 +78,7 @@ A feed forgets. This does not: every issue lands in a **thread**, and each threa
 
 <div class="home-grid">
 
-<a class="home-card internal" href="./Research/Germany-Heating-Costs-2021-2026">
+<a class="home-card internal" href="./Daily/Research/Germany-Heating-Costs-2021-2026">
   <span class="home-card-icon">🔥</span>
   <span class="home-card-title">Gas heating vs. hot water</span>
   <span class="home-card-desc">Heating up 83 %, hot water only 32 % — more than half of a hot-water bill is the municipal water charge. Plus what a hot shower costs per minute.</span>
@@ -93,7 +93,7 @@ A feed forgets. This does not: every issue lands in a **thread**, and each threa
 _Pages published across the garden, newest first._
 
 <div class="home-grid">
-<a class="home-card internal" href="./Research/Germany-Heating-Costs-2021-2026">
+<a class="home-card internal" href="./Daily/Research/Germany-Heating-Costs-2021-2026">
   <span class="home-card-icon">🔎</span>
   <span class="home-card-title">Gas Heating vs. Hot Water: Germany's Bill, 2021–2026</span>
   <span class="home-card-desc">Destatis data: a 20,000 kWh gas household paid 83 % more for heating in 2025, 32 % more for hot water — because 56 % of hot…</span>
