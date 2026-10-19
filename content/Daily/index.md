@@ -46,3 +46,22 @@ Longer investigations built from the same sources live under **Research** — on
 | Date | Investigation | Data |
 |---|---|---|
 | [[Daily/Research/Germany Heating Costs 2021-2026|19 Oct 2026]] | Gas heating vs hot water, 2021–2026 — heating up 83 %, hot water only 32 %, because 56 % of hot water is the municipal water charge; +10 % gas costs 296 €/year | Destatis 61243-0011, 61241-03, tw-08 / tw-09, aw-07 |
+
+<!-- RECENT:BEGIN -->
+## New in the garden
+
+| Date | Page | Section |
+|---|---|---|
+| 19 Oct 2026 | [[Daily/Research/Germany-Heating-Costs-2021-2026\|Gas Heating vs. Hot Water: Germany's Bill, 2021–2026]] | Research |
+| 15 Oct 2026 | [[Projekte/Engineering-Portfolio\|Engineering Portfolio — projects, capabilities and tools]] | Projekte |
+| 23 Sep 2026 | [[Projekte/Agent-Shop\|RA Agent Shop]] | Projekte |
+| 23 Sep 2026 | [[Projekte/Cron-Shop\|RA Cron Shop]] | Projekte |
+| 23 Sep 2026 | [[Projekte/Hook-Shop\|RA Hook Shop]] | Projekte |
+| 23 Sep 2026 | [[Projekte/Prompt-Shop\|RA Prompt Shop]] | Projekte |
+| 23 Sep 2026 | [[Kolumnen/Die-Werkzeuge,-die-ich-mir-selbst-gebaut-habe\|Die Werkzeuge, die ich mir selbst gebaut habe]] | Kolumnen |
+| 20 Sep 2026 | [[Engineering/Multiphase-Meter-Spool-Detail\|Red Eye Multiphase Metering — precision design makes the measurement honest]] | Engineering |
+| 7 Sep 2026 | [[Contact/thanks\|Thank you for your message]] | Contact |
+| 7 Sep 2026 | [[Projekte/AI-Ecosystem-Data-Pipeline\|Der Weg einer Notiz: meine Daten-Pipeline]] | Projekte |
+| 6 Sep 2026 | [[Semantic-Web/KG-Context-Graph\|KG Context — Semantic Context Injection for LLMs]] | Semantic Web |
+| 5 Sep 2026 | [[Projekte/KG-Context-Service\|KG Context Service — dein Vault als Wissensgraph]] | Projekte |
+<!-- RECENT:END -->
