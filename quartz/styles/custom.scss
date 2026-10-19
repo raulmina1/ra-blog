@@ -350,6 +350,20 @@ body[data-slug="Daily/index"] {
   .home-grid {
     margin: 0.9rem 0 1.6rem;
   }
+  // Tabelle (Issues) im selben Rhythmus wie die Karten
+  .table-container > table {
+    margin: 0.6rem 0 1.4rem;
+  }
+  .table-container > table th,
+  .table-container > table td {
+    padding: 0.6rem 0.75rem;
+    vertical-align: top;
+  }
+  .table-container > table thead th {
+    color: #9a978c;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
 }
 
 .home-grid-3 {
