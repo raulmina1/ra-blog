@@ -1,5 +1,5 @@
 ---
-title: "Germany's Heating Bill, 2021–2026: Gas vs Hot Water"
+title: "Gas Heating vs. Hot Water: Germany's Bill, 2021–2026"
 date: 2026-10-19
 tags:
   - daily
@@ -9,7 +9,7 @@ tags:
   - policy
   - gas
 description: "Destatis data: a 20,000 kWh gas household paid 83 % more for heating in 2025, 32 % more for hot water — because 56 % of hot water is the municipal water charge."
-reading_time: "7 min"
+reading_time: "8 min"
 type: research
 lang: en
 publish: true
@@ -21,9 +21,9 @@ see_also:
   - "[[Wirtschaft/Carbon-Pricing-Germany|Carbon Pricing in Germany]]"
 ---
 
-# Germany's Heating Bill, 2021–2026: Gas vs Hot Water
+# Gas Heating vs. Hot Water: Germany's Bill, 2021–2026
 
-> Two lines on the same utility bill, same house, same four years. The heating line rose by 83 %. The hot-water line rose by 32 %. The difference is not thrift — it is that more than half of a hot shower is not gas at all, but the municipal charge for the water running through it.
+> Two lines on the same utility bill, same house, same four years — **gas heating against hot water**. The heating line rose by 83 %. The hot-water line rose by 32 %. The difference is not thrift: more than half of a hot shower is not gas at all, but the municipal charge for the water running through it.
 
 A gas household with **20,000 kWh a year** paid **€1,066** for heating in 2021 and **€1,950** in 2025 — **+83 % in four years**, with the price of gas itself going from **6.66 ct/kWh** to **12.19 ct/kWh**. Its **hot water** — the same gas, plus the water and wastewater bill that comes with it — went from **€833** to **€1,096**, or **+32 %**. Together the two bills moved from **€1,899** to **€3,046** a year.
 
@@ -34,6 +34,8 @@ This page is a data note, not a forecast: it takes the official Destatis series,
 ## What this measures
 
 One model household — a detached single-family house with **20,000 kWh of gas per year**, split into **16,000 kWh for space heating and 4,000 kWh for hot water**, and **130 m³ of water per year**. Gas is priced at the official average household gas price for each year and each month. Water and wastewater are priced at the official average charges per cubic metre.
+
+The comparison runs throughout between **gas heating and hot water**. Drinking water appears only as a component *inside* the hot-water line — the municipal charge for the volume that has to be heated — never as a stand-alone benchmark against gas.
 
 The point is not to estimate any individual's bill. It is to isolate **the price component**: consumption is frozen so that every euro of change comes from the tariff, not from a colder winter or a smaller flat.
 
@@ -117,6 +119,34 @@ Assumptions: **12 litres per minute** (standard shower head), water heated from 
 A ten-minute shower went from **€0.78 in 2021 to €1.02 in August 2026** — **+31 %**, not the +83 % the gas price alone would suggest. At the November 2022 peak it cost **€1.09**.
 
 Today **45 % of the cost of that minute is gas and 55 % is water and wastewater**. The shower price is therefore a damped version of the gas price: it cannot fall much when gas falls, and it cannot rise much when gas rises. The lever the household actually holds is not the tariff but the duration — five minutes instead of ten saves about **€0.51 per shower**, or roughly **€186 a year** at one shower a day.
+
+## What over-consumption costs
+
+The rest of this page freezes consumption, which answers how the *price* moved. The other half of the question is what a household pays when the consumption itself moves: the same model household, repriced at **August 2026** — gas at **11.75 ct/kWh**, water at **€2.06/m³** plus wastewater at **€2.62/m³**.
+
+| Gas consumption above the reference | Extra gas heating €/year | Extra hot water €/year | Total €/year |
+|---|---|---|---|
+| Reference (20,000 kWh) | 0 | 0 | 0 |
+| +10 % | 188 | 108 | **296** |
+| +25 % | 470 | 270 | **740** |
+| +50 % | 940 | 539 | **1,479** |
+| +100 % | 1,880 | 1,078 | **2,958** |
+
+![Extra annual cost of over-consumption for gas heating and hot water in Germany, August 2026 prices](/static/daily/overconsumption-cost.png)
+
+A tenth more gas is 2,000 kWh: 1,600 of them through the boiler, 400 through the hot-water cylinder. The heating half is pure gas arithmetic — 1,600 × €0.1175 = **€188**. The hot-water half is more than its fuel: 400 kWh are €47 of gas, but they also carry the water those 400 kWh heated, roughly 13 m³ more at €4.68 all-in, which brings it to **€108**. Per kilowatt-hour that is **11.75 cents for heating against 27 cents for hot water** — the municipal charge attaches to every extra litre, not to every extra kilowatt-hour of heat.
+
+The shower table uses the same price basis as the section above: **12 l/min**, a **28 K** rise, so 0.39 kWh of gas and 12 litres of water and wastewater per minute.
+
+| Shower length | Extra per shower | Extra per year (one a day) |
+|---|---|---|
+| 15 min | €0.51 | €186 |
+| 20 min | €1.02 | €373 |
+| 25 min | €1.53 | €559 |
+
+Every minute above ten costs **€0.10** — the August 2026 figure from the per-minute section, here multiplied out to the lengths people actually take.
+
+**The reading is the shape of the line: it is straight.** Nothing in a German household bill rewards a larger consumption — no declining block, no volume discount, no cheaper rate per kilowatt-hour for the household that uses more. Over-consumption is not penalised with a higher price; it is simply multiplied at the same price, and in hot water it multiplies faster because the municipal half is charged per cubic metre. No part of the bill gets cheaper per unit as it grows: consumption is the only lever that changes the total without changing the rate.
 
 ## What it implies, in a band
 
