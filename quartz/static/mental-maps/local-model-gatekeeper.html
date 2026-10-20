@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Local Model as a Gatekeeper — Flowchart</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  @font-face{font-family:"MADE Tommy";src:url("../fonts/MADE-Tommy-Regular.otf") format("opentype");font-weight:400;font-display:swap}@font-face{font-family:"MADE Tommy";src:url("../fonts/MADE-Tommy-Bold.otf") format("opentype");font-weight:700;font-display:swap}body{background:#000;font-family:"MADE Tommy",system-ui,sans-serif;display:flex;justify-content:center;padding:0.25rem;min-height:0}
+  .mermaid-container{width:100%;max-width:1200px}.mermaid .edgePath .path{stroke-width:1px!important}.mermaid .edgePath .arrowheadPath{fill:#f0c040!important}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true,theme:'dark',securityLevel:'loose',flowchart:{useMaxWidth:true,htmlLabels:true,curve:'basis'},themeVariables:{darkMode:true,background:'#000',primaryTextColor:'#f5f5f5',lineColor:'#f0c040',fontFamily:'"MADE Tommy",system-ui,sans-serif'}})</script>
+</head>
+<body>
+<div class="mermaid-container"><pre class="mermaid">
+flowchart TD
+    A["Cron tick<br/>every 30 min or 2 h"]
+    B["Monitor computes<br/>a fingerprint<br/>free, no model"]
+    C{"Fingerprint<br/>changed?"}
+    D{"What kind<br/>of change?"}
+    E["Deterministic rule<br/>new file, watermark<br/>milliseconds, 0 EUR"]
+    F["LOCAL 7B<br/>qwen2.5 7B, 100 % GPU<br/>4.7 GB VRAM, 0 EUR"]
+    G{"Real work?"}
+    H["FAIL-OPEN<br/>the door opens anyway"]
+    I["BIG MODEL WAKES<br/>deepseek-v4.1-flash<br/>the actual work"]
+    J["Decision logged<br/>jsonl"]
+    K["Teacher audits<br/>every 30 min"]
+    L["New rules<br/>few-shot prompt"]
+    Z["SILENCE<br/>agent never starts<br/>0 tokens"]
+
+    A --> B
+    B --> C
+    C -->|no| Z
+    C -->|yes| D
+    D -->|structural| E
+    D -->|text diff| F
+    E --> G
+    F --> G
+    F -.->|timeout or error| H
+    G -->|yes| I
+    G -->|no| Z
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+
+    style A fill:#b8860b,stroke:#f0c040,color:#000,stroke-width:2px
+    style B fill:#1a1a1a,stroke:#f0c040,color:#fff,stroke-width:2px
+    style C fill:#1a1a1a,stroke:#f0c040,color:#fff,stroke-width:2px
+    style D fill:#1a1a1a,stroke:#f0c040,color:#fff,stroke-width:2px
+    style E fill:#1a1a1a,stroke:#4a9eff,color:#fff,stroke-width:2px
+    style F fill:#1a1a1a,stroke:#4a9eff,color:#fff,stroke-width:2px
+    style G fill:#1a1a1a,stroke:#f0c040,color:#fff,stroke-width:2px
+    style H fill:#1a1a1a,stroke:#4a9eff,color:#fff,stroke-width:2px
+    style I fill:#1a1a1a,stroke:#f0c040,color:#fff,stroke-width:2px
+    style J fill:#1a1a1a,stroke:#4a9eff,color:#fff
+    style K fill:#1a1a1a,stroke:#4a9eff,color:#fff
+    style L fill:#1a1a1a,stroke:#4a9eff,color:#fff
+    style Z fill:#333,stroke:#444,color:#888
+</pre></div>
+<script>
+/* Pan & Zoom for Mermaid SVG: wheel = zoom, drag = pan, dblclick = reset, touch pan + double-tap zoom */
+(function () {
+  function resizeIframe() {
+    try {
+      if (window.parent && window.parent !== window && window.parent.document) {
+        var slug = (location.pathname.split("/").pop() || "").replace(/\.html$/, "");
+        var frames = window.parent.document.querySelectorAll("iframe");
+        for (var i = 0; i < frames.length; i++) {
+          var src = frames[i].getAttribute("src") || "";
+          if (src.indexOf(slug) > -1) {
+            frames[i].style.height = Math.max(220, Math.ceil(document.body.scrollHeight)) + "px";
+          }
+        }
+      }
+    } catch (e) {}
+  }
+  function hint() {
+    var d = document.createElement("div");
+    d.textContent = "Ziehen zum Verschieben \u00b7 Mausrad zum Zoomen \u00b7 Doppelklick zum Zur\u00fccksetzen";
+    d.style.cssText = "position:fixed;right:8px;bottom:6px;font:11px/1.4 \"MADE Tommy\",system-ui,sans-serif;color:rgba(255,255,255,.55);background:rgba(0,0,0,.35);padding:3px 8px;border-radius:4px;pointer-events:none;z-index:9";
+    document.body.appendChild(d);
+  }
+  function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
+  function init() {
+    var svg = document.querySelector(".mermaid svg");
+    if (!svg || svg.getAttribute("data-pz")) return;
+    svg.setAttribute("data-pz", "1");
+    try {
+      var bb = svg.getBBox();
+      if (bb.width > 0 && bb.height > 0) {
+        var M = 10;
+        svg.setAttribute("viewBox", (bb.x - M) + " " + (bb.y - M) + " " + (bb.width + 2 * M) + " " + (bb.height + 2 * M));
+      }
+    } catch (e) {}
+    var vb = svg.viewBox.baseVal;
+    var baseW = vb.width || 100, baseH = vb.height || 100;
+    var st = { x: vb.x, y: vb.y, w: baseW, h: baseH };
+    function apply() { svg.setAttribute("viewBox", st.x + " " + st.y + " " + st.w + " " + st.h); }
+    function reset() { st = { x: 0, y: 0, w: baseW, h: baseH }; apply(); }
+    function units(cx, cy) {
+      var r = svg.getBoundingClientRect();
+      return { ux: (cx - r.left) / r.width * st.w + st.x, uy: (cy - r.top) / r.height * st.h + st.y };
+    }
+    function zoomAt(cx, cy, f) {
+      var p = units(cx, cy);
+      var nw = clamp(st.w * f, baseW / 25, baseW * 8);
+      var nh = nw * (st.h / st.w);
+      f = nw / st.w;
+      st.x = p.ux - (p.ux - st.x) * f;
+      st.y = p.uy - (p.uy - st.y) * f;
+      st.w = nw; st.h = nh;
+      apply();
+    }
+    svg.addEventListener("wheel", function (e) {
+      e.preventDefault();
+      zoomAt(e.clientX, e.clientY, Math.pow(1.18, e.deltaY / 100));
+    }, { passive: false });
+    var drag = null;
+    svg.addEventListener("mousedown", function (e) {
+      if (e.button !== 0) return;
+      drag = { sx: e.clientX, sy: e.clientY, ox: st.x, oy: st.y, moved: false };
+      svg.style.cursor = "grabbing";
+      e.preventDefault();
+    });
+    window.addEventListener("mousemove", function (e) {
+      if (!drag) return;
+      var r = svg.getBoundingClientRect();
+      st.x = drag.ox - (e.clientX - drag.sx) / r.width * st.w;
+      st.y = drag.oy - (e.clientY - drag.sy) / r.height * st.h;
+      if (Math.abs(e.clientX - drag.sx) + Math.abs(e.clientY - drag.sy) > 6) drag.moved = true;
+      apply();
+    });
+    window.addEventListener("mouseup", function () {
+      if (drag) { drag = null; svg.style.cursor = "grab"; }
+    });
+    svg.addEventListener("dblclick", reset);
+    svg.style.cursor = "grab";
+    var tch = null;
+    svg.addEventListener("touchstart", function (e) {
+      if (e.touches.length === 1) {
+        tch = { x: e.touches[0].clientX, y: e.touches[0].clientY, ox: st.x, oy: st.y, t: Date.now() };
+      }
+    }, { passive: true });
+    svg.addEventListener("touchmove", function (e) {
+      if (tch && e.touches.length === 1) {
+        var r = svg.getBoundingClientRect();
+        st.x = tch.ox - (e.touches[0].clientX - tch.x) / r.width * st.w;
+        st.y = tch.oy - (e.touches[0].clientY - tch.y) / r.height * st.h;
+        apply();
+        e.preventDefault();
+      }
+    }, { passive: false });
+    svg.addEventListener("touchend", function () {
+      if (tch && Date.now() - tch.t < 250) {
+        var r = svg.getBoundingClientRect();
+        zoomAt(r.left + r.width / 2, r.top + r.height / 2, st.w === baseW ? 1.6 : 1 / 1.6);
+      }
+      tch = null;
+    });
+  }
+  hint();
+  resizeIframe();
+  window.addEventListener("load", resizeIframe);
+  window.addEventListener("resize", resizeIframe);
+  var tries = 0;
+  var timer = setInterval(function () {
+    tries++;
+    if (document.querySelector(".mermaid svg")) {
+      clearInterval(timer);
+      setTimeout(init, 150);
+    } else if (tries > 150) {
+      clearInterval(timer);
+    }
+  }, 100);
+})();
+</script>
+</body>
+</html>
