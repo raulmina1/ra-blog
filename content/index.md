@@ -63,11 +63,11 @@ Five years of process, mechanical and thermal engineering — oil &amp; gas and 
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-10-19">
+<a class="home-card internal" href="./Daily/2026-10-20">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Brent slips to &#36;108.82 on Russian supply relief after closing…</span>
-  <span class="home-card-desc">The market is now trading two offsetting risks with no buffer behind either: ~509m barrels of inventories below pre-war levels and record diesel.</span>
-  <span class="home-card-meta">19 Oct 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Brent settles &#36;109.55 after swinging &#36;3 lower and back; WTI…</span>
+  <span class="home-card-desc">The two benchmarks are telling different stories and both are true: waterborne crude is relieved by the Russian licence.</span>
+  <span class="home-card-meta">20 Oct 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

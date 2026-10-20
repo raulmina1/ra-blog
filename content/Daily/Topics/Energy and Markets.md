@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-19|19 Oct 2026]] | Brent slips to \$108.82 on Russian supply relief after closing Friday at \$109.86, its highest… |
+| [[Daily/2026-10-20|20 Oct 2026]] | Brent settles \$109.55 after swinging \$3 lower and back; WTI jumps 2.2 % to \$103.66 into expiry… |

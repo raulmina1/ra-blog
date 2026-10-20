@@ -25,6 +25,8 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 The reporting keeps anchoring today to a specific past moment ("since 2008", "lowest since 2016"). Each row is an anchor the source chose itself, quoted, not interpreted.
 
+- **2026-10-20** — A weekly high since February
+- **2026-10-20** — His first visit to Iran since February 2025
 - **2026-10-19** — The sharpest drop since September 2024, with 29 of 39 industrial branches down
 - **2026-10-19** — Germany enters the heating season with the least buffer since 2021 and a levy coming in 2027
 - **2026-10-19** — The highest since 2022
@@ -36,4 +38,4 @@ The reporting keeps anchoring today to a specific past moment ("since 2008", "lo
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-19|19 Oct 2026]] | 3 dated precedents quoted today |
+| [[Daily/2026-10-20|20 Oct 2026]] | 2 dated precedents quoted today |

@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-19|19 Oct 2026]] | The capex suppliers are printing records while the AI equity trade reprices: ASML €11.7bn… |
+| [[Daily/2026-10-20|20 Oct 2026]] | Microsoft walks away from Britain's largest AI data centre because the grid connection slid to… |

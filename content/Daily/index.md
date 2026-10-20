@@ -72,6 +72,7 @@ A feed forgets. This does not: every issue lands in a **thread**, and each threa
 
 | Date | Lead story |
 |---|---|
+| [[Daily/2026-10-20|20 Oct 2026]] | Brent settles \$109.55 after swinging \$3 lower and back; WTI jumps 2.2 % to \$103.66 into expiry… |
 | [[Daily/2026-10-19|19 Oct 2026]] | Brent slips to \$108.82 on Russian supply relief after closing Friday at \$109.86, its highest… |
 | [[Daily/2026-10-18|18 Oct 2026]] | Brent closes at \$109.86, its highest since 19 May — WTI up 10.4 % on the week as Hormuz flows… |
 
