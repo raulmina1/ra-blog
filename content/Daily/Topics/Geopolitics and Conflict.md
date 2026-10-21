@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-20|20 Oct 2026]] | Washington Post: Tehran is deliberately escalating before 3 November to inflict maximum… |
+| [[Daily/2026-10-21|21 Oct 2026]] | Araghchi: "The Strait of Hormuz is closed" — indirect talks continue through Pakistan and… |

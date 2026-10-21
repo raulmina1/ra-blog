@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-20|20 Oct 2026]] | AI infrastructure bounces, the 10-year goes back to 5.14 %, and the rest of the market does not… |
+| [[Daily/2026-10-21|21 Oct 2026]] | Congress passes the 2027 budget at 3:47 a.m. — COP 634.9 trillion, and the JEP loses 23 % of… |

@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-20|20 Oct 2026]] | Brent settles \$109.55 after swinging \$3 lower and back; WTI jumps 2.2 % to \$103.66 into expiry… |
+| [[Daily/2026-10-21|21 Oct 2026]] | The government puts its own number on the Hormuz shock: LNG +162 %, diesel +100 %, crude +50 % |
