@@ -57,44 +57,6 @@ see_also:
 </div>
 
 <div class="ra-section-head">
-  <span class="ra-overline">Ready to buy</span>
-  <h2>Shops</h2>
-  <p class="ra-section-sub">Four layers of the same automation stack. Start with prompts, add agents, schedule them with crons, react to events with hooks — each pack is delivered as files you own and can edit.</p>
-</div>
-
-<div class="home-grid home-grid-3">
-
-<a class="home-card internal" href="./Prompt-Shop">
-  <span class="home-card-icon">💬</span>
-  <span class="home-card-title">Prompt Shop</span>
-  <span class="home-card-desc">Structured prompts with INTENT, CONTEXT, CONSTRAINTS and EXPECTED OUTPUT — German learning, job hunting, PKM, automation.</span>
-  <span class="home-card-meta">34 prompts · 5 packs · from €15</span>
-</a>
-
-<a class="home-card internal" href="./Agent-Shop">
-  <span class="home-card-icon">🤖</span>
-  <span class="home-card-title">Agent Shop</span>
-  <span class="home-card-desc">Agents with a role, a workflow and memory — vocabulary cards, German annotation, task decomposition, vault automation.</span>
-  <span class="home-card-meta">6 agents · from €40</span>
-</a>
-
-<a class="home-card internal" href="./Cron-Shop">
-  <span class="home-card-icon">⏰</span>
-  <span class="home-card-title">Cron Shop</span>
-  <span class="home-card-desc">Prompt + agent + schedule in one package. Daily German routine, vault maintenance, blog sync — no manual triggers.</span>
-  <span class="home-card-meta">6 crons · from €20</span>
-</a>
-
-<a class="home-card internal" href="./Hook-Shop">
-  <span class="home-card-icon">🔗</span>
-  <span class="home-card-title">Hook Shop</span>
-  <span class="home-card-desc">Event-driven automation: a file save or a frontmatter change fires the right agent. The reactive layer of the vault.</span>
-  <span class="home-card-meta">6 hooks · from €30</span>
-</a>
-
-</div>
-
-<div class="ra-section-head">
   <span class="ra-overline">Data &amp; knowledge</span>
   <h2>AI projects, bookable as services</h2>
   <p class="ra-section-sub">The infrastructure behind this blog: note in, knowledge graph and vector index out, then agents that answer from it. The setup is one-time — the pipeline keeps itself current.</p>
@@ -136,6 +98,44 @@ see_also:
   <span class="home-card-title">AI Ecosystem Innenansicht</span>
   <span class="home-card-desc">Sechs Schichten, 16 Knoten — ein Blick ins Innere des KI-Ökosystems.</span>
   <span class="home-card-meta">One-pager · Architektur</span>
+</a>
+
+</div>
+
+<div class="ra-section-head">
+  <span class="ra-overline">Ready to buy</span>
+  <h2>Shops</h2>
+  <p class="ra-section-sub">Four layers of the same automation stack. Start with prompts, add agents, schedule them with crons, react to events with hooks — each pack is delivered as files you own and can edit.</p>
+</div>
+
+<div class="home-grid home-grid-3">
+
+<a class="home-card internal" href="./Prompt-Shop">
+  <span class="home-card-icon">💬</span>
+  <span class="home-card-title">Prompt Shop</span>
+  <span class="home-card-desc">Structured prompts with INTENT, CONTEXT, CONSTRAINTS and EXPECTED OUTPUT — German learning, job hunting, PKM, automation.</span>
+  <span class="home-card-meta">34 prompts · 5 packs · from €15</span>
+</a>
+
+<a class="home-card internal" href="./Agent-Shop">
+  <span class="home-card-icon">🤖</span>
+  <span class="home-card-title">Agent Shop</span>
+  <span class="home-card-desc">Agents with a role, a workflow and memory — vocabulary cards, German annotation, task decomposition, vault automation.</span>
+  <span class="home-card-meta">6 agents · from €40</span>
+</a>
+
+<a class="home-card internal" href="./Cron-Shop">
+  <span class="home-card-icon">⏰</span>
+  <span class="home-card-title">Cron Shop</span>
+  <span class="home-card-desc">Prompt + agent + schedule in one package. Daily German routine, vault maintenance, blog sync — no manual triggers.</span>
+  <span class="home-card-meta">6 crons · from €20</span>
+</a>
+
+<a class="home-card internal" href="./Hook-Shop">
+  <span class="home-card-icon">🔗</span>
+  <span class="home-card-title">Hook Shop</span>
+  <span class="home-card-desc">Event-driven automation: a file save or a frontmatter change fires the right agent. The reactive layer of the vault.</span>
+  <span class="home-card-meta">6 hooks · from €30</span>
 </a>
 
 </div>
