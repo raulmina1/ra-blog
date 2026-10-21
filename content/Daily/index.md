@@ -25,7 +25,7 @@ see_also:
 
 > What I read every day — finance, energy, geopolitics and the model layer. One issue, published by itself every morning.
 
-A feed forgets. This does not: every issue and every page of the garden lands in **one list** below, newest first, each entry labelled with its category and grouped by month. Longer investigations live under the category **Research** — one question, one dataset, official figures only.
+A feed forgets. This does not: every issue and every page of the garden lands in **one list** below, newest first, each entry labelled with its category and grouped by month. Longer investigations live under the category **Research** — one question, one dataset, official figures only. The monthly **Market** report sits in the same list: Germany and Colombia, kept separate.
 
 <!-- RECENT:BEGIN -->
 ## Latest
