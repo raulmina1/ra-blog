@@ -41,6 +41,9 @@ export default ((opts?: GraphHeroOptions) => {
   const StandardGraph = Graph()
 
   const GraphHero: QuartzComponent = (props: QuartzComponentProps) => {
+    const slug = props.fileData.slug ?? ""
+    // Tag pages are listings, not landing pages — no graph there.
+    if (slug.startsWith("tags/")) return null
     if (props.fileData.slug !== "index") {
       return <StandardGraph {...props} />
     }

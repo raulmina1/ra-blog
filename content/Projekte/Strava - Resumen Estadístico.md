@@ -1,55 +1,55 @@
 ---
-title: "Strava — Resumen Estadístico"
+title: "Strava — Statistical Summary"
 date: 2026-08-04
 tags:
   - strava
   - fitness
   - running
   - data
-description: Mis estadísticas de entrenamiento de las últimas 4 semanas — 8 actividades, 21.6 km, 3h28min. Correr, pesas y ciclismo con datos reales.
+description: My training stats from the last 4 weeks — 8 activities, 21.6 km, 3h28min. Running, weight training and cycling with real data.
 reading_time: "2 min"
 type: showcase
-lang: es
+lang: en
 publish: true
 semantic_class: showcase
 see_also:
   - "[[AI Ecosystem]]"
 ---
 
-# Strava — Resumen Estadístico
+# Strava — Statistical Summary
 
-> Últimas 4 semanas · 8 actividades
-> *Actualizado: 04.08.2026*
+> Last 4 weeks · 8 activities
+> *Updated: 04.08.2026*
 
-Cada kilómetro cuenta una historia. Estas son las mías de las últimas 4 semanas — correr, levantar pesas, y pedalear por Berlín. Datos reales, sin filtros.
+Every kilometer tells a story. These are mine from the last 4 weeks — running, lifting weights, and pedaling through Berlin. Real data, no filters.
 
 ---
 
-## 📊 Totales
+## 📊 Totals
 
-| Métrica | Valor |
+| Metric | Value |
 |---------|-------|
-| **Actividades** | 8 |
-| **Distancia** | 21.6 km |
-| **Tiempo** | 3h 28min |
-| **Desnivel** | 36 m |
-| **Promedio por actividad** | 2.7 km · 26 min |
+| **Activities** | 8 |
+| **Distance** | 21.6 km |
+| **Time** | 3h 28min |
+| **Elevation** | 36 m |
+| **Average per activity** | 2.7 km · 26 min |
 
 ---
 
-## 🏷️ Por Tipo de Actividad
+## 🏷️ By Activity Type
 
-| Tipo | Count | Distancia | Tiempo | Desnivel |
+| Type | Count | Distance | Time | Elevation |
 |------|-------|-----------|--------|----------|
-| 🏃 Correr | 4 | 18.6 km | 1h 48min | 26 m |
-| 🏋️ Pesas | 3 | 0.0 km | 1h 29min | — |
-| 🚴 Ciclismo | 1 | 3.0 km | 10 min | 9 m |
+| 🏃 Running | 4 | 18.6 km | 1h 48min | 26 m |
+| 🏋️ Weight Training | 3 | 0.0 km | 1h 29min | — |
+| 🚴 Cycling | 1 | 3.0 km | 10 min | 9 m |
 
 ---
 
-## 📅 Por Semana
+## 📅 By Week
 
-| Semana | Acts | Distancia | Tiempo |
+| Week | Acts | Distance | Time |
 |--------|------|-----------|--------|
 | 2026-W31 | 2 | 0.0 km | 57 min |
 | 2026-W30 | 3 | 9.9 km | 1h 27min |
@@ -57,9 +57,9 @@ Cada kilómetro cuenta una historia. Estas son las mías de las últimas 4 seman
 
 ---
 
-## 🏆 Top 5 — Distancia
+## 🏆 Top 5 — Distance
 
-| # | Fecha | Actividad | Distancia | Tiempo |
+| # | Date | Activity | Distance | Time |
 |---|-------|-----------|-----------|--------|
 | 1 | 13.07.26 | 🏃 Morning Run | 6.4 km | 38 min |
 | 2 | 22.07.26 | 🏃 Afternoon Run | 5.0 km | 28 min |
@@ -69,9 +69,9 @@ Cada kilómetro cuenta una historia. Estas son las mías de las últimas 4 seman
 
 ---
 
-## ⏱️ Top 5 — Duración
+## ⏱️ Top 5 — Duration
 
-| # | Fecha | Actividad | Tiempo | Distancia |
+| # | Date | Activity | Time | Distance |
 |---|-------|-----------|--------|-----------|
 | 1 | 13.07.26 | 🏃 Morning Run | 38 min | 6.4 km |
 | 2 | 22.07.26 | 🏋️ Lunch Weight Training | 32 min | — |
@@ -81,9 +81,9 @@ Cada kilómetro cuenta una historia. Estas son las mías de las últimas 4 seman
 
 ---
 
-## 📋 Historial Reciente
+## 📋 Recent History
 
-| Fecha | Tipo | Actividad | Distancia | Tiempo |
+| Date | Type | Activity | Distance | Time |
 |-------|------|-----------|-----------|--------|
 | 01.08.26 | 🏋️ | Lunch Weight Training | — | 29 min |
 | 28.07.26 | 🏋️ | Morning Weight Training | — | 28 min |
@@ -97,6 +97,6 @@ Cada kilómetro cuenta una historia. Estas son las mías de las últimas 4 seman
 ---
 
 > [!note] RA
-> Lo que no se mide no se mejora. 21.6 km no es mucho — pero es 21.6 km más que quedarse en el sofá.
+> What isn't measured isn't improved. 21.6 km isn't much — but it's 21.6 km more than staying on the couch.
 
-*¿Tú también registras tus entrenamientos? Escríbeme → raul.mina1@outlook.com*
+*Do you log your workouts too? Write to me → raul.mina1@outlook.com*

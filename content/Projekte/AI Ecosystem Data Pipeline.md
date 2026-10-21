@@ -1,5 +1,5 @@
 ---
-title: "Der Weg einer Notiz: meine Daten-Pipeline"
+title: "The Journey of a Note: My Data Pipeline"
 tags:
   - ai
   - ecosystem
@@ -7,10 +7,10 @@ tags:
   - ra-blog
   - services
   - pricing
-description: "Was passiert mit einer Notiz, nachdem du sie geschrieben hast? NER → Knowledge Graph (51.811 Triples) → RAG (14.180 Chunks). Meine lokale Daten-Pipeline, alle 30 Minuten. Jetzt auch als Dienstleistung buchbar."
+description: "What happens to a note after you write it? NER → Knowledge Graph (51.811 triples) → RAG (14.180 chunks). My local data pipeline, every 30 minutes. Now also bookable as a service."
 reading_time: "5 min"
 type: showcase
-lang: de
+lang: en
 publish: true
 created: 2026-08-17
 status: published
@@ -22,88 +22,88 @@ see_also:
   - "[[Semantic Web/KG-Context-vs-RAG]]"
 ---
 
-# Der Weg einer Notiz: meine Daten-Pipeline
+# The Journey of a Note: My Data Pipeline
 
-> Ich schreibe eine Notiz. Dann passiert etwas — ohne dass ich einen Finger rühre.
+> I write a note. Then something happens — without me lifting a finger.
 
-Jede Notiz in meinem Obsidian-Vault durchläuft eine Daten-Pipeline: **Entitäten werden erkannt, Metadaten angereichert, alles wird in einen Knowledge Graph (51.811 Triples) und parallel in einen Vektor-Index (14.180 Chunks) verwandelt.** Alle 30 Minuten, automatisch, lokal — ohne SaaS.
+Every note in my Obsidian vault passes through a data pipeline: **entities are recognized, metadata is enriched, everything is turned into a Knowledge Graph (51.811 triples) and, in parallel, into a vector index (14.180 chunks).** Every 30 minutes, automatically, locally — without SaaS.
 
-## Das komplette Diagramm
+## The Complete Diagram
 
-<iframe src="/static/mental-maps/ecosystem-data-pipeline.html" style="width:100%;height:720px;border:1px solid #3a3a3a;border-radius:8px;background:#000" title="Daten-Pipeline AI-Ökosystem"></iframe>
+<iframe src="/static/mental-maps/ecosystem-data-pipeline.html" style="width:100%;height:720px;border:1px solid #3a3a3a;border-radius:8px;background:#000" title="AI ecosystem data pipeline"></iframe>
 
-## DP-1 · Ingesta & Anreicherung
+## DP-1 · Ingestion & Enrichment
 
-Ein Orchestrator (`vault_structure_sync.py`) tickt alle 30 Minuten und koordiniert:
+An orchestrator (`vault_structure_sync.py`) ticks every 30 minutes and coordinates:
 
-| Schritt | Werkzeug | Ergebnis |
+| Step | Tool | Result |
 |---------|----------|----------|
-| Entity-Erkennung | `ner_extract.py` (lokal, Wörterbuch) | 6.210 Mentions · 74 Entitäten |
-| Zwischenspeicher | `ner_cache.ndjson` + `mentions.ttl` | Input für den RDF-Parser |
-| Anreicherung | `frontmatter_enricher.py` | Tags, created, Aliase — mit Backup + Changelog |
+| Entity recognition | `ner_extract.py` (local, dictionary) | 6.210 mentions · 74 entities |
+| Cache | `ner_cache.ndjson` + `mentions.ttl` | Input for the RDF parser |
+| Enrichment | `frontmatter_enricher.py` | Tags, created, aliases — with backup + changelog |
 
 ## DP-2 · Knowledge Graph
 
-- **`parse_vault_to_rdf.py`** baut inkrementell (`--since` + State-File) RDF-Triples; um 5 Uhr ein kompletter Rebuild (`--replace`).
-- **`yellowvault_export.ttl`** — 51.811 Triples — wird in **11 Chunks** nach **GraphDB** geladen.
-- Stündlich hält **`kg_incremental_sync.py`** den Graph frisch (inkl. WebVOWL-Refresh).
-- Drei Dashboards lesen direkt vom Graph: **WebVOWL :3000** (Ontologie), **Grafana :4000** (5 SPARQL-Panels), **RA Log Viewer :8485** (Ecosistema-Tab).
+- **`parse_vault_to_rdf.py`** builds RDF triples incrementally (`--since` + state file); at 5 AM a complete rebuild (`--replace`).
+- **`yellowvault_export.ttl`** — 51.811 triples — is loaded into **GraphDB** in **11 chunks**.
+- Hourly, **`kg_incremental_sync.py`** keeps the graph fresh (incl. WebVOWL refresh).
+- Three dashboards read directly from the graph: **WebVOWL :3000** (ontology), **Grafana :4000** (5 SPARQL panels), **RA Log Viewer :8485** (Ecosistema tab).
 
-## DP-3 · Vektor-RAG
+## DP-3 · Vector RAG
 
-Notizen werden mit **e5-small** eingebettet → **ChromaDB** (14.180 Chunks, 5.810 Dateien). Ein optionaler **Cross-Encoder** re-rankt die Treffer. `hybrid_context.py` fusioniert KG- und Vektor-Ergebnisse — mit 0,5s Cache.
+Notes are embedded with **e5-small** → **ChromaDB** (14.180 chunks, 5.810 files). An optional **cross-encoder** re-ranks the hits. `hybrid_context.py` fuses KG and vector results — with a 0.5s cache.
 
-## DP-4 · Konsumenten
+## DP-4 · Consumers
 
-Drei Abfrage-Pfade speisen den **Prompt Runner**:
+Three query paths feed the **Prompt Runner**:
 
-| Agent | Funktion |
+| Agent | Function |
 |-------|----------|
-| `sparql_bridge --kg-context` | 3 SPARQL-Queries: Tags, Backlinks, Nachbarn → Kontextblock |
-| `qa_kg` | Natürliche Sprache → SPARQL |
-| `hybrid_context` | KG + RAG fusioniert |
+| `sparql_bridge --kg-context` | 3 SPARQL queries: tags, backlinks, neighbors → context block |
+| `qa_kg` | Natural language → SPARQL |
+| `hybrid_context` | KG + RAG fused |
 
-## DP-5 · Betrieb — die langweilige Schicht
+## DP-5 · Operations — the boring layer
 
-| Komponente | Job |
+| Component | Job |
 |------------|-----|
-| `backup_graphdb.py` | Backup So 4 Uhr → OneDrive, Retention 7 |
-| `sync_health_check.py` | Alarm unter 35K Triples |
-| `keep-alive cron` | GraphDB 8–22 Uhr am Leben halten, Auto-Start 30–90s |
+| `backup_graphdb.py` | Backup Sun 4 AM → OneDrive, retention 7 |
+| `sync_health_check.py` | Alert below 35K triples |
+| `keep-alive cron` | Keep GraphDB alive 8–22, auto-start 30–90s |
 | `ecosystem_status.py` | Status → Grafana + Telegram |
 
-## Zahlen hinter der Pipeline
+## Numbers Behind the Pipeline
 
-| Etappe | Live-Kennzahlen |
+| Stage | Live metrics |
 |--------|-----------------|
-| 📁 Quelle | 4.063 Notizen |
-| ⚙️ Ingesta | 6.210 Mentions · 74 Entitäten · 30-Min-Tick |
-| 🕸️ Knowledge Graph | 51.811 Triples · 11 Chunks · stündlicher Sync |
-| 🧠 Vektor-RAG | 14.180 Chunks · 5.810 Dateien · Cache 0,5s |
-| 🛡️ Betrieb | Backup So 4 Uhr · 35K-Schwelle · Keep-alive 8–22 Uhr |
+| 📁 Source | 4.063 notes |
+| ⚙️ Ingestion | 6.210 mentions · 74 entities · 30-min tick |
+| 🕸️ Knowledge Graph | 51.811 triples · 11 chunks · hourly sync |
+| 🧠 Vector RAG | 14.180 chunks · 5.810 files · 0.5s cache |
+| 🛡️ Operations | Backup Sun 4 AM · 35K threshold · Keep-alive 8–22 |
 
 ---
 
-## Dienstleistungen & Preise
+## Services & Pricing
 
-Diese Pipeline ist kein einmaliges Experiment — sie läuft bei mir jeden Tag. Wenn du so etwas für deinen eigenen Wissensbestand, dein Team oder dein Produkt willst, buche ich es auf, installiere und dokumentiere es. Alles läuft lokal, ohne SaaS-Zwangsabos.
+This pipeline is no one-off experiment — it runs for me every day. If you want something like it for your own knowledge base, your team, or your product, I'll set it up, install it, and document it. Everything runs locally, without forced SaaS subscriptions.
 
-| Paket | Was du bekommst | Preis |
+| Package | What you get | Price |
 |-------|-----------------|-------|
-| 🧠 **Knowledge Graph Setup** | NER → RDF → GraphDB, einmalig aufgebaut und geladen, inkl. SPARQL-Endpoint und WebVOWL-Ansicht | €390 |
-| 🔍 **RAG + KG-Fusion Setup** | ChromaDB-Vektorindex, Cross-Encoder, `hybrid_context` (KG + Vektor fusioniert) | €340 |
-| 📦 **Komplette Daten-Pipeline** | Ingesta + Knowledge Graph + Vektor-RAG + Doku, alles alle 30 Min automatisch | **€690** |
-| 🩺 **Pipeline-Audit (bestehendes Setup)** | Architektur-Review, Performance-Flaschenhälse, Sicherheits-Check, Bericht | €150 |
-| 🛠️ **Custom Integration** | Nach deinem Stack (Docker, Obsidian, Confluence, Datenbank) — Stundensatz | €60/h |
+| 🧠 **Knowledge Graph Setup** | NER → RDF → GraphDB, set up and loaded once, incl. SPARQL endpoint and WebVOWL view | €390 |
+| 🔍 **RAG + KG Fusion Setup** | ChromaDB vector index, cross-encoder, `hybrid_context` (KG + vector fused) | €340 |
+| 📦 **Complete Data Pipeline** | Ingestion + Knowledge Graph + vector RAG + docs, all automatically every 30 min | **€690** |
+| 🩺 **Pipeline Audit (existing setup)** | Architecture review, performance bottlenecks, security check, report | €150 |
+| 🛠️ **Custom Integration** | For your stack (Docker, Obsidian, Confluence, database) — hourly rate | €60/h |
 
-> [!warning] Was inklusive ist
-> Einmaliges Setup + Installations-Call (30 Min) + Dokumentation. Laufende Wartung über separate Betreuung nach Absprache. Preise zzgl. Umsatzsteuer.
+> [!warning] What's Included
+> One-time setup + installation call (30 min) + documentation. Ongoing maintenance via separate support by arrangement. Prices excl. VAT.
 
 ---
 
-## Wie kann ich dir helfen?
+## How Can I Help You?
 
-Wähle unten, was du vorhast — ich bekomme automatisch eine passend vorbereitete Nachricht. Wenn es nur eine kurze Frage oder ein Kommentar zur Seite ist: Wähle die entsprechende Registerkarte. Kein Anruf nötig, antworte per E-Mail.
+Choose below what you're planning to do — I automatically receive a suitably prepared message. If it's just a short question or a comment about the page, choose the relevant tab. No call needed, reply by email.
 
 <div class="pipeline-tabs">
 <style>
@@ -128,34 +128,34 @@ Wähle unten, was du vorhast — ich bekomme automatisch eine passend vorbereite
 <input type="radio" name="pipeline-tabs" id="tab-frage">
 <input type="radio" name="pipeline-tabs" id="tab-kommentar">
 <nav>
-<label for="tab-dienst">🛒 Dienstleistung</label>
-<label for="tab-frage">❓ Frage</label>
-<label for="tab-kommentar">💬 Kommentar</label>
+<label for="tab-dienst">🛒 Service</label>
+<label for="tab-frage">❓ Question</label>
+<label for="tab-kommentar">💬 Comment</label>
 </nav>
 
 <div class="panel panel-dienst">
-<p><strong>Du möchtest eine Dienstleistung buchen.</strong> Sag mir, welches Paket dich interessiert und in welcher Umgebung es laufen soll (Obsidian, Team-Wiki, Datenbank, ...). Die E-Mail ist schon vorbereitet — fülle nur das Formularfeld aus.</p>
-<p>Ich antworte in der Regel innerhalb von 24–48 Stunden mit einem konkreten Angebot.</p>
-<a class="pipeline-btn" href="mailto:raul.mina1@outlook.com?subject=Dienstleistung%20Daten-Pipeline&body=Hallo,%0A%0AIch%20interessiere%20mich%20f%C3%BCr%20folgende%20Dienstleistung:%0A%0A%20%20%5B%20%5D%20Knowledge%20Graph%20Setup%20(%E2%82%AC390)%0A%20%20%5B%20%5D%20RAG%20%2B%20KG-Fusion%20Setup%20(%E2%82%AC340)%0A%20%5B%20%5D%20Komplette%20Daten-Pipeline%20(%E2%82%AC690)%0A%20%20%5B%20%5D%20Pipeline-Audit%20(%E2%82%AC150)%0A%20%20%5B%20%5D%20Custom%20Integration%20(%E2%82%AC60/h)%0A%0AUmgebung:%0A%0AE-Mail%20f%C3%BCr%20die%20Antwort:%0A%0ANachricht:" target="_blank" rel="noopener">Dienstleistung anfragen →</a>
-<p class="pipeline-meta">Alternativ über <a href="https://paypal.me/raulmina1" target="_blank" rel="noopener">PayPal</a> — ich schicke dir nach deiner Auswahl einen Zahlungslink.</p>
+<p><strong>You'd like to book a service.</strong> Tell me which package interests you and in which environment it should run (Obsidian, team wiki, database, ...). The email is already prepared — just fill in the form field.</p>
+<p>I usually reply within 24–48 hours with a concrete offer.</p>
+<a class="pipeline-btn" href="mailto:raul.mina1@outlook.com?subject=Service%20request%20%E2%80%94%20Data%20Pipeline&body=Hello%2C%0A%0AI%27m%20interested%20in%20the%20following%20service%3A%0A%0A%20%20%5B%20%5D%20Knowledge%20Graph%20setup%20%28%E2%82%AC390%29%0A%20%20%5B%20%5D%20RAG%20%2B%20KG%20fusion%20setup%20%28%E2%82%AC340%29%0A%20%20%5B%20%5D%20Full%20data%20pipeline%20%28%E2%82%AC690%29%0A%20%20%5B%20%5D%20Pipeline%20audit%20%28%E2%82%AC150%29%0A%20%20%5B%20%5D%20Custom%20integration%20%28%E2%82%AC60%2Fh%29%0A%0AEnvironment%3A%0A%0AReply-to%20email%3A%0A%0AMessage%3A" target="_blank" rel="noopener">Request service →</a>
+<p class="pipeline-meta">Alternatively via <a href="https://paypal.me/raulmina1" target="_blank" rel="noopener">PayPal</a> — after your selection I'll send you a payment link.</p>
 </div>
 
 <div class="panel panel-frage">
-<p><strong>Du hast eine Frage.</strong> Vielleicht zu den Technologien (GraphDB, ChromaDB, SPARQL), zur Skalierung, zu Datenschutz oder ob sich das für deinen Anwendungsfall lohnt. Stell sie frei — es kostet nichts und bleibt vertraulich.</p>
-<a class="pipeline-btn" href="mailto:raul.mina1@outlook.com?subject=Frage%20zur%20Daten-Pipeline&body=Hallo,%0A%0AIch%20habe%20eine%20Frage%20zur%20Daten-Pipeline:%0A%0AFrage:%0A%0AE-Mail%20f%C3%BCr%20die%20Antwort:" target="_blank" rel="noopener">Frage stellen →</a>
-<p class="pipeline-meta">Ich beantworte technische Fragen kostenlos und ohne Verpflichtung.</p>
+<p><strong>You have a question.</strong> Maybe about the technologies (GraphDB, ChromaDB, SPARQL), about scaling, about data protection, or whether it's worth it for your use case. Ask freely — it costs nothing and stays confidential.</p>
+<a class="pipeline-btn" href="mailto:raul.mina1@outlook.com?subject=Question%20about%20the%20Data%20Pipeline&body=Hello%2C%0A%0AI%20have%20a%20question%20about%20the%20data%20pipeline%3A%0A%0AQuestion%3A%0A%0AReply-to%20email%3A" target="_blank" rel="noopener">Ask a question →</a>
+<p class="pipeline-meta">I answer technical questions free of charge and without obligation.</p>
 </div>
 
 <div class="panel panel-kommentar">
-<p><strong>Du willst einfach deinen Kommentar zur Seite loswerden.</strong> Feedback, eine Idee, ein Tipp, etwas, das ich verbessern könnte — jede Rückmeldung hilft. Auch reine Lob- oder Grußnachrichten sind willkommen.</p>
-<a class="pipeline-btn" href="mailto:raul.mina1@outlook.com?subject=Kommentar%20zur%20Daten-Pipeline&body=Hallo,%0A%0AIch%20m%C3%B6chte%20einen%20Kommentar%20zur%20Seite%20hinterlassen:%0A%0AKommentar:%0A%0AE-Mail%20f%C3%BCr%20freiwillige%20R%C3%BCckmeldung:" target="_blank" rel="noopener">Kommentar hinterlassen →</a>
-<p class="pipeline-meta">Deine E-Mail wird nur für die Antwort verwendet und nicht weitergegeben.</p>
+<p><strong>You just want to share your comment about the page.</strong> Feedback, an idea, a tip, something I could improve — every bit of feedback helps. Pure praise or greeting messages are welcome too.</p>
+<a class="pipeline-btn" href="mailto:raul.mina1@outlook.com?subject=Comment%20about%20the%20Data%20Pipeline&body=Hello%2C%0A%0AI%27d%20like%20to%20leave%20a%20comment%20about%20the%20page%3A%0A%0AComment%3A%0A%0AEmail%20for%20optional%20feedback%3A" target="_blank" rel="noopener">Leave a comment →</a>
+<p class="pipeline-meta">Your email is used only for the reply and is not shared.</p>
 </div>
 </div>
 
 > [!note] RA
-> Eine Pipeline ist erst dann fertig, wenn du aufhören kannst, sie zu beobachten.
+> A pipeline is only finished when you can stop watching it.
 
 ---
 
-*Was passiert mit deinen Notizen, wenn du nicht hinsiehst? Schreib mir → raul.mina1@outlook.com*
+*What happens to your notes when you're not looking? Write to me → raul.mina1@outlook.com*

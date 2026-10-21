@@ -1,14 +1,14 @@
 ---
-title: "Ein KI-System, das sich selbst überwacht"
+title: "An AI system that monitors itself"
 tags:
   - ai
   - ecosystem
   - automation
   - ra-blog
-description: "Mein komplettes KI-Ökosystem auf einer Seite: 4.063 Notizen, dualer Watchdog, zwei Gehirne (GraphDB + ChromaDB), alles lokal — ein System, das sich selbst überwacht."
+description: "My complete AI ecosystem on one page: 4.063 notes, dual watchdog, two brains (GraphDB + ChromaDB), all local — a system that monitors itself."
 reading_time: "4 min"
 type: showcase
-lang: de
+lang: en
 publish: true
 created: 2026-08-14
 status: published
@@ -19,45 +19,45 @@ see_also:
   - "[[Projekte/AI Ecosystem Data Pipeline]]"
 ---
 
-# Ein KI-System, das sich selbst überwacht
+# An AI system that monitors itself
 
-> Ich habe kein Produktivitätssystem gekauft — ich habe mir eines gebaut, das sich selbst überwacht.
+> I didn't buy a productivity system — I built one that monitors itself.
 
-Mein Obsidian-Vault ist in den letzten Monaten zu einem vollständigen KI-Ökosystem gewachsen: **130+ Komponenten, 12 autonome Agenten, 44 Prompts, 5 Hooks** — alles lokal, 24/7, ohne SaaS-Lock-in.
+Over the last few months, my Obsidian vault has grown into a complete AI ecosystem: **130+ components, 12 autonomous agents, 44 prompts, 5 hooks** — all local, 24/7, no SaaS lock-in.
 
-Der One-Pager dahinter ist brutal in seiner Einfachheit: **4.063 Notizen → dualer Watchdog + Orchestrator alle 30 Minuten → zwei parallele Gehirne → Agenten → zurück zu den Notizen.**
+The one-pager behind it is brutally simple: **4.063 notes → dual watchdog + orchestrator every 30 minutes → two parallel brains → agents → back to the notes.**
 
-## Das komplette Diagramm
+## The complete diagram
 
-<iframe src="/static/mental-maps/ecosystem-one-pager.html" style="width:100%;height:720px;border:1px solid #3a3a3a;border-radius:8px;background:#000" title="AI-Ökosystem One-Pager"></iframe>
+<iframe src="/static/mental-maps/ecosystem-one-pager.html" style="width:100%;height:720px;border:1px solid #3a3a3a;border-radius:8px;background:#000" title="AI ecosystem One-Pager"></iframe>
 
-## Zwei Gehirne, ein System
+## Two brains, one system
 
-| Gehirn | Speichert | Stand |
+| Brain | Stores | Status |
 |--------|-----------|-------|
-| 🕸️ **GraphDB** | Struktur — wer mit wem verbunden ist | 51.811 Triples |
-| 🧠 **ChromaDB** | Bedeutung — was ähnlich zu was ist | 14.180 Chunks |
+| 🕸️ **GraphDB** | Structure — who is connected to whom | 51.811 Triples |
+| 🧠 **ChromaDB** | Meaning — what is similar to what | 14.180 Chunks |
 
-Alle 30 Minuten organisiert sich der Vault neu: Tags, Links, Entitäten (6.210 Mentions erkannt), Knowledge-Graph-Sync, semantischer Index. Kein manueller Aufwand.
+Every 30 minutes the vault reorganizes itself: tags, links, entities (6.210 mentions recognized), knowledge-graph sync, semantic index. No manual effort.
 
-## Das System heilt sich selbst
+## The system heals itself
 
-Wenn ein Watcher stirbt, repariert sich das System selbst — ich schaue nicht mehr zu. **Es überwacht sich selbst.**
+When a watcher dies, the system repairs itself — I no longer watch. **It monitors itself.**
 
-## Zahlen hinter dem One-Pager
+## Numbers behind the one-pager
 
-| Ebene | Komponenten | Live-Kennzahlen |
+| Layer | Components | Live metrics |
 |-------|-------------|-----------------|
-| 📁 Quelle | Obsidian-Vault, `run_prompt: true` | 4.063 Notizen |
-| ⚙️ Automatisierung | `vault_structure_sync.py` alle 30 Min., NER, RDF-Parse, Embeddings | 6.210 Mentions · 74 Entitäten |
-| 🗄️ Zwei Gehirne | GraphDB (Triples) + ChromaDB (Chunks) | 51.811 Triples · 14.180 Chunks · 5.810 Dateien |
-| 🔌 Zugriff | `sparql_bridge`, `hybrid_context`, `qa_kg` | Prompt Runner v3.17 |
-| 👁️ Visualisierung & Monitoring | WebVOWL · Grafana · RA Log Viewer | 5 SPARQL-Panels · 30s Refresh |
-| 🛡️ Betrieb | Backup · Health · Keep-alive · Auto-Start | Backup So 4 Uhr · 35K-Schwelle |
+| 📁 Source | Obsidian vault, `run_prompt: true` | 4.063 notes |
+| ⚙️ Automation | `vault_structure_sync.py` every 30 min, NER, RDF parse, embeddings | 6.210 mentions · 74 entities |
+| 🗄️ Two brains | GraphDB (triples) + ChromaDB (chunks) | 51.811 triples · 14.180 chunks · 5.810 files |
+| 🔌 Access | `sparql_bridge`, `hybrid_context`, `qa_kg` | Prompt Runner v3.17 |
+| 👁️ Visualization & monitoring | WebVOWL · Grafana · RA Log Viewer | 5 SPARQL panels · 30s refresh |
+| 🛡️ Operations | Backup · Health · Keep-alive · Auto-start | Backup Sun 4 am · 35K threshold |
 
 > [!note] RA
-> Jedes System, das ich gebaut habe, ist ein Spiegel einer Lücke, die ich gefunden habe — nicht in den Tools, sondern darin, wie ich sie benutzt habe.
+> Every system I've built is a mirror of a gap I found — not in the tools, but in how I used them.
 
 ---
 
-*Was würde dein eigenes System aussehen, wenn du aufhören würdest, Tools zu kaufen? Schreib mir → raul.mina1@outlook.com*
+*What would your own system look like if you stopped buying tools? Write me → raul.mina1@outlook.com*

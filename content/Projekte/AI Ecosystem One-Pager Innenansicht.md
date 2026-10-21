@@ -1,14 +1,14 @@
 ---
-title: "Ein Blick ins Innere: mein KI-Ökosystem auf einer Seite"
+title: "A Look Inside: My AI Ecosystem on One Page"
 tags:
   - ai
   - ecosystem
   - architecture
   - ra-blog
-description: "Sechs Schichten, 16 Knoten, kein toter Raum: was wirklich in meinem KI-Ökosystem steckt — von der Quelle bis zum Betrieb, mit echten Zahlen."
+description: "Six layers, 16 nodes, no dead space: what really lives inside my AI ecosystem — from source to operations, with real numbers."
 reading_time: "4 min"
 type: showcase
-lang: de
+lang: en
 publish: true
 created: 2026-08-14
 status: published
@@ -19,53 +19,53 @@ see_also:
   - "[[Projekte/AI Ecosystem Data Pipeline]]"
 ---
 
-# Ein Blick ins Innere: mein KI-Ökosystem auf einer Seite
+# A Look Inside: My AI Ecosystem on One Page
 
-> Ein KI-Ökosystem — eine Seite, sechs Schichten, null toter Raum.
+> An AI ecosystem — one page, six layers, zero dead space.
 
-So sieht mein System von innen aus — in einem einzigen Diagramm, 16 Knoten, alles lokal, kein SaaS:
+This is what my system looks like from the inside — in a single diagram, 16 nodes, all local, no SaaS:
 
-<iframe src="/static/mental-maps/ecosystem-one-pager.html" style="width:100%;height:720px;border:1px solid #3a3a3a;border-radius:8px;background:#000" title="AI-Ökosystem One-Pager"></iframe>
+<iframe src="/static/mental-maps/ecosystem-one-pager.html" style="width:100%;height:720px;border:1px solid #3a3a3a;border-radius:8px;background:#000" title="AI ecosystem One-Pager"></iframe>
 
-## Die sechs Schichten
+## The Six Layers
 
-### 📁 Quelle — 4.063 Notizen
+### 📁 Source — 4.063 notes
 
-Alles beginnt im Obsidian-Vault. Jede Notiz mit `run_prompt: true` aktiviert die Pipeline — bewacht von einem **dualen Watchdog** (1s-Polling, gemeinsames Registry, 104+ Runs).
+Everything starts in the Obsidian vault. Every note with `run_prompt: true` activates the pipeline — guarded by a **dual watchdog** (1s polling, shared registry, 104+ runs).
 
-### ⚙️ Automatisierung — alle 30 Minuten
+### ⚙️ Automation — every 30 minutes
 
-Der Orchestrator `vault_structure_sync.py` läuft im 30-Minuten-Takt:
+The orchestrator `vault_structure_sync.py` runs on a 30-minute cycle:
 
-| Schritt | Skript | Kennzahl |
+| Step | Script | Metric |
 |---------|--------|----------|
-| NER | `ner_extract.py` | 6.210 Mentions · 74 Entitäten |
-| Anreicherung | `frontmatter_enricher.py` | Tags · created · aliases |
-| Parse | `parse_vault_to_rdf.py` | inkrementell · 5 Uhr Voll-Build |
+| NER | `ner_extract.py` | 6.210 mentions · 74 entities |
+| Enrichment | `frontmatter_enricher.py` | tags · created · aliases |
+| Parse | `parse_vault_to_rdf.py` | incremental · 5 AM full build |
 | Embeddings | `vault_rag.py` | e5-small |
 
-### 🗄️ Zwei Gehirne
+### 🗄️ Two Brains
 
-| Gehirn | Was es speichert | Stand |
+| Brain | What it stores | Status |
 |--------|------------------|-------|
-| 🕸️ **GraphDB** | Struktur (Triples) | 51.811 Triples · 4.063 Notizen · 226K 2-Hop |
-| 🧠 **ChromaDB** | Bedeutung (Chunks) | 14.180 Chunks · 5.810 Dateien |
+| 🕸️ **GraphDB** | structure (triples) | 51.811 triples · 4.063 notes · 226K 2-hop |
+| 🧠 **ChromaDB** | meaning (chunks) | 14.180 chunks · 5.810 files |
 
-### 🔌 Zugriff — drei Abfrage-Pfade
+### 🔌 Access — three query paths
 
-`sparql_bridge` (KG-Kontext), `hybrid_context` (KG + RAG fusioniert), `qa_kg` (natürliche Sprache → SPARQL) — alle speisen **Prompt Runner v3.17**.
+`sparql_bridge` (KG context), `hybrid_context` (KG + RAG fused), `qa_kg` (natural language → SPARQL) — all feed **Prompt Runner v3.17**.
 
-### 👁️ Visualisierung & Monitoring
+### 👁️ Visualization & Monitoring
 
-WebVOWL (Ontologie-Browser), Grafana (5 SPARQL-Panels), RA Log Viewer (30s Refresh).
+WebVOWL (ontology browser), Grafana (5 SPARQL panels), RA Log Viewer (30s refresh).
 
-### 🛡️ Betrieb
+### 🛡️ Operations
 
-Backup sonntags 4 Uhr, Health-Check mit 35K-Schwelle, Keep-alive 8–22 Uhr, Auto-Start 30–90s.
+Backup Sundays at 4 AM, health check with a 35K threshold, keep-alive 8 AM–10 PM, auto-start 30–90s.
 
 > [!note] RA
-> Jedes System, das ich gebaut habe, ist ein Spiegel einer Lücke, die ich gefunden habe — nicht in den Tools, sondern darin, wie ich sie benutzt habe.
+> Every system I've built is a mirror of a gap I found — not in the tools, but in how I used them.
 
 ---
 
-*Wenn ein System so komplex ist, dass es nicht mehr auf eine Seite passt — verstehst du es dann wirklich? Schreib mir → raul.mina1@outlook.com*
+*If a system is so complex it no longer fits on one page — do you really understand it? Write me → raul.mina1@outlook.com*

@@ -1,5 +1,5 @@
 ---
-title: "KG Context Service — dein Vault als Wissensgraph"
+title: "KG Context Service — your Vault as a Knowledge Graph"
 tags:
   - knowledge-graph
   - service
@@ -10,12 +10,12 @@ related:
   - "[[AI Ecosystem]]"
   - "[[Projekte/Agent Shop|Agent Shop]]"
   - "[[Projekte/Prompt Shop|Prompt Shop]]"
-description: "Ich baue dir einen Knowledge Graph aus deinem Obsidian-Vault: Jede Notiz weiß, wo sie lebt. Wikilinks, Tags, Nachbarn — exakt, deterministisch, null Halluzination. Plus Vektor-RAG und Link Prediction."
+description: "I build you a Knowledge Graph from your Obsidian vault: every note knows where it lives. Wikilinks, tags, neighbors — exact, deterministic, zero hallucination. Plus vector RAG and link prediction."
 reading_time: "4 min"
 publish: true
 date: 2026-09-05
 type: showcase
-lang: de
+lang: en
 semantic_class: showcase
 see_also:
   - "[[Projekte/KGE Link Prediction YellowVault]]"
@@ -27,125 +27,125 @@ see_also:
 
 ---
 
-# KG Context Service — dein Vault als Wissensgraph
+# KG Context Service — your Vault as a Knowledge Graph
 
-> Jede Notiz weiß, wo sie lebt. Ich baue dir einen Knowledge Graph aus deinem Obsidian-Vault, damit deine Notizen sich selbst verbinden — exakt, deterministisch, null Halluzination.
+> Every note knows where it lives. I build you a Knowledge Graph from your Obsidian vault so your notes connect themselves — exact, deterministic, zero hallucination.
 
-Dein Vault ist voller Wissen, aber es ist **verstreut**. Notizen existieren, aber niemand weiß, wie sie zusammenhängen. Der KG Context löst genau das: Er macht die **Struktur deines Wissens** sichtbar und abfragbar.
+Your vault is full of knowledge, but it is **scattered**. Notes exist, but nobody knows how they are connected. The KG Context solves exactly that: it makes the **structure of your knowledge** visible and queryable.
 
 ---
 
-## 🎯 Für wen das ist
+## 🎯 Who this is for
 
-> [!question] Kennst du das?
-> „Ich habe tausende Notizen — und weiß nicht, was womit zusammenhängt."
-> „Vor einem Jahr hatten wir dasselbe Problem — und keiner erinnert sich, wie wir es gelöst haben."
-> „Meine KI antwortet mit Dingen, die gar nicht in meinen Notizen stehen."
+> [!question] Do you know this?
+> “I have thousands of notes — and I don't know what relates to what.”
+> “A year ago we had the same problem — and nobody remembers how we solved it.”
+> “My AI answers with things that aren't even in my notes.”
 
-Wenn einer dieser Sätze von dir kommt, ist das hier für dich gebaut:
+If one of these sentences comes from you, this here is built for you:
 
-| Profil | Situation |
+| Profile | Situation |
 |--------|-----------|
-| 🧳 **Selbstständige & Berater** | 3+ Jahre Projektnotizen, nichts ist mehr auffindbar |
-| 👥 **Kleine Teams (3–15)** | Dokumentation in Markdown, aber kein durchsuchbares Wissen |
-| 🎓 **Forschende & Doktoranden** | Tausende Notizen und PDFs, Verbindungen unsichtbar |
+| 🧳 **Freelancers & consultants** | 3+ years of project notes, nothing is findable anymore |
+| 👥 **Small teams (3–15)** | Documentation in Markdown, but no searchable knowledge |
+| 🎓 **Researchers & PhD students** | Thousands of notes and PDFs, connections invisible |
 
-**Was sich ändert — in einem Satz:** Deine Notizen hören auf, Text zu sein, und werden ein Netz, in dem jede Notiz weiß, wozu sie gehört. Deine KI erfindet nichts mehr, weil sie nur Verbindungen sieht, die **wirklich existieren**.
-
----
-
-## 🗺️ Der komplette Fluss
-
-<iframe src="/static/mental-maps/kg-context-service.html" style="width:100%;height:720px;border:1px solid #3a3a3a;border-radius:8px;background:#000" title="KG Context Service — Flussdiagramm"></iframe>
+**What changes — in one sentence:** Your notes stop being text and become a network in which every note knows what it belongs to. Your AI no longer invents anything, because it only sees connections that **actually exist**.
 
 ---
 
-## ⚙️ Was ich gebaut habe
+## 🗺️ The complete flow
 
-Ein kompletter Knowledge-Graph-Stack, der aus einem Obsidian-Vault ein abfragbares semantisches Netz macht:
+<iframe src="/static/mental-maps/kg-context-service.html" style="width:100%;height:720px;border:1px solid #3a3a3a;border-radius:8px;background:#000" title="KG Context Service — flow diagram"></iframe>
+
+---
+
+## ⚙️ What I built
+
+A complete knowledge-graph stack that turns an Obsidian vault into a queryable semantic network:
 
 > [!note] 📁 Vault → RDF
-> Jede Notiz wird zu einer **Entität**, jeder Wikilink zu einer **Kante**, jeder Tag zu einer **Verbindung**. Dein Wissen wird zu einem Graphen.
+> Every note becomes an **entity**, every wikilink becomes an **edge**, every tag becomes a **connection**. Your knowledge becomes a graph.
 
 > [!info] 🗄️ GraphDB (SPARQL)
-> Triplestore mit **OWL-Reasoning** — fragt die Struktur ab: Wer verlinkt wen? Welche Tags? Welche Nachbarn?
+> Triplestore with **OWL reasoning** — queries the structure: who links to whom? Which tags? Which neighbors?
 
 > [!success] 🧠 KG Context
-> Injiziert die Struktur als **Kontext in den Prompt** — das Modell sieht, wo die Notiz im Netz lebt.
+> Injects the structure as **context into the prompt** — the model sees where the note lives in the network.
 
 > [!tip] 🤖 KGE Link Prediction
-> Machine Learning (TransE) sagt **fehlende Verbindungen** voraus — der Graph lernt.
+> Machine learning (TransE) predicts **missing connections** — the graph learns.
 
-**Die Zahlen (live 27.09.26):**
+**The numbers (live 27.09.26):**
 
-| Metrik | Wert |
+| Metric | Value |
 |--------|------|
-| Notizen | 8.175 |
+| Notes | 8.175 |
 | Wikilinks | 15.459 |
-| Tags | 1.992 (9.046 Zuweisungen) |
-| Triples im Graphen | 68.311 |
-| Vektor-Chunks (RAG) | 13.659 |
-| Entitäten im KGE | 8.597 |
+| Tags | 1.992 (9.046 assignments) |
+| Triples in the graph | 68.311 |
+| Vector chunks (RAG) | 13.659 |
+| Entities in KGE | 8.597 |
 
 ---
 
-## 💡 Warum Struktur zählt
+## 💡 Why structure matters
 
-> [!example] Eine Notiz ist nie allein
-> Der Graph kennt ihre Verwandten — von wem sie verlinkt wird, welche Tags sie teilt, welche Nachbarn sie hat. Das ist Kontext, den man **nicht getippt hat**. Er entsteht automatisch aus der Struktur des Wissens.
+> [!example] A note is never alone
+> The graph knows its relatives — who links to it, which tags it shares, which neighbors it has. That is context that was **not typed**. It emerges automatically from the structure of the knowledge.
 
-> [!success] Null Halluzination
-> Der KG liefert nur Verbindungen, die **physisch existieren**. Keine erfundenen Kanten, keine Interpretation — exakt und deterministisch.
+> [!success] Zero hallucination
+> The KG delivers only connections that **physically exist**. No invented edges, no interpretation — exact and deterministic.
 
 ---
 
-## 🚀 Wie du es für deine Services nutzen kannst
+## 🚀 How you can use it for your services
 
-Der KG Context ist kein Selbstzweck — er ist die **Basis für bessere AI-Agenten**. Wenn deine Agenten wissen, wo jede Notiz im Netz lebt, arbeiten sie mit dem vollen Kontext:
+The KG Context is not an end in itself — it is the **basis for better AI agents**. When your agents know where every note lives in the network, they work with the full context:
 
-> [!note] 🎯 Bessere Antworten
-> Der Agent sieht die **Struktur + die Bedeutung** — nicht nur ein Stück Text.
+> [!note] 🎯 Better answers
+> The agent sees the **structure + the meaning** — not just a piece of text.
 
-> [!success] 🛡️ Weniger Halluzination
-> Kontext basiert auf **echten Verbindungen**, nicht auf Vermutungen.
+> [!success] 🛡️ Less hallucination
+> Context is based on **real connections**, not on guesses.
 
-> [!info] 🔄 Automatische Vernetzung
-> Neue Notizen werden **automatisch** in den Graphen eingeordnet.
+> [!info] 🔄 Automatic linking
+> New notes are **automatically** placed into the graph.
 
-> [!tip] 🔍 Semantische Suche
-> Frag den Graphen: *"Was hängt mit diesem Thema zusammen?"*
+> [!tip] 🔍 Semantic search
+> Ask the graph: *"What is connected to this topic?"*
 
 ---
 
 ## 💰 Packs & Pricing
 
-| Pack | Was du bekommst | Preis |
+| Pack | What you get | Price |
 |------|----------------|-------|
-| 🕸️ **KG Context Setup** | Vault → RDF → GraphDB → KG Context, komplett eingerichtet | €120 |
-| 🧠 **KG + RAG Fusion** | KG Context + Vektor-RAG (ChromaDB) — die vollständige Erinnerung | €180 |
-| 🤖 **KG + Agenten** | KG Context + 2 Custom-Agenten, die den Graphen nutzen | €240 |
-| 📦 **Komplettes KG-System** | Alles oben + KGE Link Prediction + Dashboard | **€350** |
+| 🕸️ **KG Context Setup** | Vault → RDF → GraphDB → KG Context, fully set up | €120 |
+| 🧠 **KG + RAG Fusion** | KG Context + vector RAG (ChromaDB) — the complete memory | €180 |
+| 🤖 **KG + Agents** | KG Context + 2 custom agents that use the graph | €240 |
+| 📦 **Complete KG system** | Everything above + KGE Link Prediction + dashboard | **€350** |
 
-> [!tip] Laufende Betreuung (empfohlen)
-> **+ €30–50 / Monat** — Graph-Sync, Updates, Agenten-Betrieb und Support. Dein Graph bleibt aktuell, ohne dass du etwas anfassen musst.
-> Einmal-Setup ab **€120** · monatlich ab **€30**. Kündbar monatlich.
+> [!tip] Ongoing support (recommended)
+> **+ €30–50 / month** — graph sync, updates, agent operations and support. Your graph stays current without you having to touch anything.
+> One-time setup from **€120** · monthly from **€30**. Cancelable monthly.
 
 To order: **raul.mina1@outlook.com** — include which pack(s) you want.
 
 ---
 
-## 📈 Läuft produktiv — auf meinem eigenen Vault
+## 📈 Runs in production — on my own vault
 
-Das ist kein Konzept, sondern ein System im Tagesbetrieb:
+This is not a concept, but a system in daily operation:
 
-| Was | Detail |
+| What | Detail |
 |-----|--------|
-| 🗂️ Basis | 8.175 Notizen, 15.459 Wikilinks, 68.311 Triples |
-| 🧠 Erinnerung | 13.659 Vektor-Chunks, KG + RAG fusioniert in einem Abruf |
-| 🔮 Vorhersage | 8.597 Entitäten im KGE-Modell (TransE) — schlägt Verbindungen vor, die noch nicht geschrieben sind |
-| ⚙️ Betrieb | tägliche Syncs, 100+ Cron-Jobs, Agenten die den Graphen live abfragen |
+| 🗂️ Base | 8.175 notes, 15.459 wikilinks, 68.311 triples |
+| 🧠 Memory | 13.659 vector chunks, KG + RAG fused in a single retrieval |
+| 🔮 Prediction | 8.597 entities in the KGE model (TransE) — suggests connections that are not yet written |
+| ⚙️ Operations | daily syncs, 100+ cron jobs, agents that query the graph live |
 
-**Prüfbar, nicht behauptet:** Jeder Link und jeder Tag, den der KG Context liefert, existiert physisch in deinem Vault. Du kannst jede Antwort nachschlagen.
+**Verifiable, not claimed:** Every link and every tag that the KG Context delivers physically exists in your vault. You can look up every answer.
 
 ---
 
@@ -162,12 +162,12 @@ Das ist kein Konzept, sondern ein System im Tagesbetrieb:
 > [!warning] Requirements
 > You need **Obsidian** (or any Markdown vault) and **Docker Desktop** (for GraphDB). No coding required — I handle the setup.
 
-> [!info] Rechnung & Kleinunternehmerregelung
-> Ich rechne als Kleinunternehmer nach **§ 19 UStG** ab — keine Umsatzsteuer wird ausgewiesen. Steuernummer auf der Rechnung: **36/445/03887**. Zahlung per PayPal oder Überweisung; Rechnung kommt mit der Lieferung.
+> [!info] Invoice & small-business regulation
+> I invoice as a small business under **§ 19 UStG** — no VAT is shown. Tax number on the invoice: **36/445/03887**. Payment via PayPal or bank transfer; the invoice comes with delivery.
 
 ---
 
 > [!note] RA
-> Ein Knowledge Graph ist die stille Fabrik hinter jedem guten Prompt. Die Struktur ist das Produkt.
+> A Knowledge Graph is the silent factory behind every good prompt. The structure is the product.
 
-*Welche Notiz in deinem Vault sollte sich mit was verbinden? Ich bin gespannt, was du baust. → [raul.mina1@outlook.com](mailto:raul.mina1@outlook.com)*
+*Which note in your vault should connect with what? I'm curious what you'll build. → [raul.mina1@outlook.com](mailto:raul.mina1@outlook.com)*

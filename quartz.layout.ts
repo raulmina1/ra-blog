@@ -48,7 +48,14 @@ export const defaultContentPageLayout: PageLayout = {
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  beforeBody: [
+    Component.Breadcrumbs(),
+    Component.ArticleTitle(),
+    Component.ContentMeta(),
+    // Section landing pages (/Projekte/, /Engineering/, …) get the same local
+    // graph as a note (Raúl 21.10.26). Tag pages stay without it.
+    Component.GraphHero(),
+  ],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),

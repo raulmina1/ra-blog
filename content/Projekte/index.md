@@ -89,15 +89,15 @@ see_also:
 <a class="home-card internal" href="./AI-Ecosystem-One-Pager-Autonomie">
   <span class="home-card-icon">📄</span>
   <span class="home-card-title">AI Ecosystem One-Pager</span>
-  <span class="home-card-desc">Das KI-Ökosystem auf einer Seite — ein System, das sich selbst überwacht. Die Autonomie-Perspektive.</span>
-  <span class="home-card-meta">One-pager · Autonomie</span>
+  <span class="home-card-desc">The AI ecosystem on a single page — a system that monitors itself. The autonomy perspective.</span>
+  <span class="home-card-meta">One-pager · Autonomy</span>
 </a>
 
 <a class="home-card internal" href="./AI-Ecosystem-One-Pager-Innenansicht">
   <span class="home-card-icon">🔬</span>
-  <span class="home-card-title">AI Ecosystem Innenansicht</span>
-  <span class="home-card-desc">Sechs Schichten, 16 Knoten — ein Blick ins Innere des KI-Ökosystems.</span>
-  <span class="home-card-meta">One-pager · Architektur</span>
+  <span class="home-card-title">AI Ecosystem Inside View</span>
+  <span class="home-card-desc">Six layers, 16 nodes — a look inside the engine room of the AI ecosystem.</span>
+  <span class="home-card-meta">One-pager · Architecture</span>
 </a>
 
 </div>
