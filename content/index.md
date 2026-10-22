@@ -63,11 +63,11 @@ Five years of process, mechanical and thermal engineering — oil &amp; gas and 
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-10-21">
+<a class="home-card internal" href="./Daily/2026-10-22">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">The government puts its own number on the Hormuz shock: LNG…</span>
-  <span class="home-card-desc">Until now the German price debate ran on market quotes (TTF, DAX, pump prices).</span>
-  <span class="home-card-meta">21 Oct 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Brent settles at &#36;108.82, then jumps to &#36;110.11 on the Saudi…</span>
+  <span class="home-card-desc">Brent &#36;108.82 (+0.03 %), near a five-month high, WTI &#36;97.15 (−0.7 %) — after both benchmarks had gained more than &#36;2 intraday and then reversed on.</span>
+  <span class="home-card-meta">22 Oct 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-21|21 Oct 2026]] | Google open-sources TorchTPU, co-developed with Meta — PyTorch now runs natively on TPUs |
+| [[Daily/2026-10-22|22 Oct 2026]] | Anthropic ships Claude Duet, its first standalone always-on agent app |

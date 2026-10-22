@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-21|21 Oct 2026]] | The government puts its own number on the Hormuz shock: LNG +162 %, diesel +100 %, crude +50 % |
+| [[Daily/2026-10-22|22 Oct 2026]] | Brent settles at \$108.82, then jumps to \$110.11 on the Saudi escalation |
