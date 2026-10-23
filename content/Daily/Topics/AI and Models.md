@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-22|22 Oct 2026]] | Anthropic ships Claude Duet, its first standalone always-on agent app |
+| [[Daily/2026-10-23|23 Oct 2026]] | No frontier change — the move is in OpenRouter volume (DeepSeek 45.2T) and in how AI is now… |

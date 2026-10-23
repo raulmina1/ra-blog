@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-22|22 Oct 2026]] | NYT and FT: the US and Israel have drafted a renewed strike package on Iran for after the… |
+| [[Daily/2026-10-23|23 Oct 2026]] | Iran says seven tankers were hit in Hormuz overnight — the largest single-day damage count of… |

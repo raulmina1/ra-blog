@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-22|22 Oct 2026]] | Fedesarrollo's October survey lifts the expected BanRep rate to 12.50 % and 2026 inflation to… |
+| [[Daily/2026-10-23|23 Oct 2026]] | Nasdaq −2.6 %, worst session since June; the Dow finishes green as money runs to bonds |

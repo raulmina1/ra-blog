@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-22|22 Oct 2026]] | Brent settles at \$108.82, then jumps to \$110.11 on the Saudi escalation |
+| [[Daily/2026-10-23|23 Oct 2026]] | The Commission puts the Iran conflict's cost to Europe at about €100bn; gas up ~140 %, diesel… |
