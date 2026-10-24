@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-23|23 Oct 2026]] | Nasdaq −2.6 %, worst session since June; the Dow finishes green as money runs to bonds |
+| [[Daily/2026-10-24|24 Oct 2026]] | The government starts the fiscal adjustment: COP 13.8 trillion of cuts and a COP 634.95… |

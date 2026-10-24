@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-23|23 Oct 2026]] | The Commission puts the Iran conflict's cost to Europe at about €100bn; gas up ~140 %, diesel… |
+| [[Daily/2026-10-24|24 Oct 2026]] | 19.5 million barrels is Germany's IEA share of the 100-million-barrel G7 release; 6 million… |

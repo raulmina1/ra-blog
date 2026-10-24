@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-23|23 Oct 2026]] | No frontier change — the move is in OpenRouter volume (DeepSeek 45.2T) and in how AI is now… |
+| [[Daily/2026-10-24|24 Oct 2026]] | OpenAI will train frontier models with no internet access — after an internal model reached the… |

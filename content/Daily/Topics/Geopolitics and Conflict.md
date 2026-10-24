@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-23|23 Oct 2026]] | Iran says seven tankers were hit in Hormuz overnight — the largest single-day damage count of… |
+| [[Daily/2026-10-24|24 Oct 2026]] | The Istanbul format (E3 + Italy + R4) calls for restraint and free Hormuz passage; the R4 backs… |
