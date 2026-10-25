@@ -201,6 +201,89 @@ article iframe[src*="mental-maps"] {
   border: none !important;
 }
 
+// Framed diagram card around a mental-map iframe: header, black canvas, metric strip.
+// Literal colours (always dark) — var(--*) would flip to white in light mode.
+.ra-diagram {
+  margin: 1.2rem 0 1.5rem;
+  background: #0f0f0d;
+  border: 1px solid #2e2e28;
+  border-top: 3px solid #c4ab00;
+  border-radius: 12px;
+  overflow: hidden;
+
+  .ra-diagram-head {
+    padding: 1rem 1.05rem 0.85rem;
+
+    .ra-overline {
+      margin-bottom: 0.35rem;
+      color: #c4ab00;
+    }
+
+    h3 {
+      margin: 0 0 0.3rem;
+      font-size: 1.05rem;
+      line-height: 1.3;
+      color: #ecece4;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: #a8a89a;
+    }
+  }
+
+  iframe {
+    width: 100%;
+    display: block;
+    background: #000;
+    border: 0;
+  }
+
+  .ra-diagram-foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.6rem;
+    padding: 0.7rem 1.05rem 0.75rem;
+    border-top: 1px solid #2e2e28;
+    background: #0b0b09;
+    font-size: 0.69rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: #9a9a8c;
+
+    span + span::before {
+      content: "·";
+      margin-right: 0.6rem;
+      color: #4a4a40;
+    }
+  }
+}
+
+@media all and (max-width: 640px) {
+  .ra-diagram {
+    margin: 1rem 0 1.2rem;
+
+    .ra-diagram-head {
+      padding: 0.8rem 0.85rem 0.7rem;
+
+      h3 {
+        font-size: 0.98rem;
+      }
+
+      p {
+        font-size: 0.78rem;
+      }
+    }
+
+    .ra-diagram-foot {
+      padding: 0.6rem 0.85rem 0.65rem;
+      font-size: 0.64rem;
+    }
+  }
+}
+
 .graph > .graph-outer {
   border: none;
 }

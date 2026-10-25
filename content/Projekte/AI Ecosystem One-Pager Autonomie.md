@@ -29,7 +29,7 @@ The one-pager behind it is brutally simple: **4.063 notes → dual watchdog + or
 
 ## The complete diagram
 
-<iframe src="/static/mental-maps/ecosystem-one-pager.html" style="width:100%;height:720px;border:1px solid #3a3a3a;border-radius:8px;background:#000" title="AI ecosystem One-Pager"></iframe>
+<div class="ra-diagram"><div class="ra-diagram-head"><span class="ra-overline">Architecture &middot; One-Pager</span><h3>Six layers, one loop that runs itself</h3><p>Notes in, two brains out. Interactive: drag to pan, scroll or pinch to zoom, double-click to reset.</p></div><iframe src="/static/mental-maps/ecosystem-one-pager.html" style="width:100%;height:840px;border:0;background:#000;display:block" title="AI ecosystem One-Pager"></iframe><div class="ra-diagram-foot"><span>4.063 notes</span><span>51.811 triples</span><span>14.180 chunks</span><span>30 min cycle</span></div></div>
 
 ## Two brains, one system
 
