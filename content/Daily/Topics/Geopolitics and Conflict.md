@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-24|24 Oct 2026]] | The Istanbul format (E3 + Italy + R4) calls for restraint and free Hormuz passage; the R4 backs… |
+| [[Daily/2026-10-25|25 Oct 2026]] | Iran: "no US warships in the Gulf, ever" — and a US intelligence memo on assassination plots |

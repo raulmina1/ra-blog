@@ -63,11 +63,11 @@ Five years of process, mechanical and thermal engineering — oil &amp; gas and 
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-10-24">
+<a class="home-card internal" href="./Daily/2026-10-25">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">The government starts the fiscal adjustment: COP 13.8…</span>
-  <span class="home-card-desc">COP 3 trillion of operating costs, COP 4 trillion of debt-service savings from the stronger peso and COP 6.8 trillion of contracts that will not be.</span>
-  <span class="home-card-meta">24 Oct 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Gold breaks below &#36;4,000 as the oil shock hardens rate…</span>
+  <span class="home-card-desc">a weekly loss of about 4 %, the steepest since June.</span>
+  <span class="home-card-meta">25 Oct 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

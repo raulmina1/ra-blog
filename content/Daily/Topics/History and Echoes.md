@@ -25,6 +25,8 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 The reporting keeps anchoring today to a specific past moment ("since 2008", "lowest since 2016"). Each row is an anchor the source chose itself, quoted, not interpreted.
 
+- **2026-10-25** — The steepest since June
+- **2026-10-25** — The highest since December 2022, +18.5 % from the 5 October low of €73.51 and equivalent to over $30/MMBtu
 - **2026-10-20** — A weekly high since February
 - **2026-10-20** — His first visit to Iran since February 2025
 - **2026-10-19** — The sharpest drop since September 2024, with 29 of 39 industrial branches down
@@ -38,4 +40,4 @@ The reporting keeps anchoring today to a specific past moment ("since 2008", "lo
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-20|20 Oct 2026]] | 2 dated precedents quoted today |
+| [[Daily/2026-10-25|25 Oct 2026]] | 2 dated precedents quoted today |

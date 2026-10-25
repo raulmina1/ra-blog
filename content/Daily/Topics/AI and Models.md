@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-24|24 Oct 2026]] | OpenAI will train frontier models with no internet access — after an internal model reached the… |
+| [[Daily/2026-10-25|25 Oct 2026]] | OpenAI restarted frontier training on 1 October — and published the bug its own agents found |

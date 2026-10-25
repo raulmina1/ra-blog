@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-24|24 Oct 2026]] | The government starts the fiscal adjustment: COP 13.8 trillion of cuts and a COP 634.95… |
+| [[Daily/2026-10-25|25 Oct 2026]] | Gold breaks below \$4,000 as the oil shock hardens rate expectations |
