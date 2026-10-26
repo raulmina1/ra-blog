@@ -6,53 +6,110 @@
 <title>AI-Ökosystem — Daten-Pipeline (Mermaid-Diagramm)</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  @font-face{font-family:"MADE Tommy";src:url("../fonts/MADE-Tommy-Regular.otf") format("opentype");font-weight:400;font-display:swap}@font-face{font-family:"MADE Tommy";src:url("../fonts/MADE-Tommy-Bold.otf") format("opentype");font-weight:700;font-display:swap}body{background:#000;font-family:"MADE Tommy",system-ui,sans-serif;display:flex;justify-content:center;padding:0.25rem;min-height:0}
-  .mermaid-container{width:100%;max-width:1200px}.mermaid .edgePath .path{stroke-width:0.8px!important}.mermaid .edgePath .arrowheadPath{fill:#666!important}
+  @font-face{font-family:"MADE Tommy";src:url("../fonts/MADE-Tommy-Regular.otf") format("opentype");font-weight:400;font-display:swap}
+  @font-face{font-family:"MADE Tommy";src:url("../fonts/MADE-Tommy-Bold.otf") format("opentype");font-weight:700;font-display:swap}
+  html{background:#000;height:auto}
+  body{
+    background:#000;
+    background-image:radial-gradient(rgba(196,171,0,.10) 1px, transparent 1px);
+    background-size:22px 22px;
+    font-family:"MADE Tommy",system-ui,sans-serif;
+    display:block;
+    padding:.85rem .85rem .75rem;
+    min-height:0;overflow:hidden;
+  }
+  .mermaid-container{width:100%;max-width:1180px;margin:0 auto}
+  @media all and (max-width:700px){ .mermaid-container{width:560px;max-width:none} }
+
+  /* diagram chrome */
+  .mermaid .node rect,.mermaid .node polygon,.mermaid .node circle,.mermaid .node path{rx:9px;ry:9px}
+  .mermaid .node .label,.mermaid .nodeLabel{font-size:12.5px;line-height:1.45}
+  .mermaid .cluster rect{rx:14px;ry:14px}
+  .mermaid .cluster span,.mermaid .cluster .nodeLabel{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#d9c24a}
+  .mermaid .edgePath .path{stroke:#4d4d43;stroke-width:.9px!important}
+  .mermaid .edgePath .arrowheadPath{fill:#6a6a5e!important}
+  .mermaid .edgeLabel{background:#000;color:#a8a89a;font-size:10px}
+
+  /* legend strip */
+  .diagram-foot{
+    display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem;
+    max-width:1180px;margin:.7rem auto 0;padding-top:.6rem;border-top:1px solid #1f1f1b;
+    font-size:10.5px;letter-spacing:.07em;color:#8d8d80;text-transform:uppercase
+  }
+  .diagram-foot i{display:inline-block;width:20px;height:0;border-top:1px solid #6a6a5e;margin-right:.45rem;vertical-align:middle}
+  .diagram-foot i.dash{border-top-style:dashed;border-top-color:#8a7420}
+  .diagram-foot{position:relative}
+  .diagram-zoom{
+    margin-left:auto;cursor:pointer;font:inherit;letter-spacing:.08em;text-transform:uppercase;
+    color:#d9c24a;background:#141412;border:1px solid #3a3a30;border-radius:6px;padding:.32rem .65rem;
+    font-size:10px;transition:border-color .15s,color .15s
+  }
+  .diagram-zoom:hover{border-color:#c4ab00;color:#f0c040}
+  .diagram-zoom::after{content:none}
+  .diagram-foot .hint{margin-left:auto;text-transform:none;letter-spacing:.02em;color:#6d6d62}
+  @media all and (max-width:640px){ .diagram-foot{gap:.7rem .9rem;font-size:9.5px} .diagram-foot .hint{margin-left:0;width:100%} }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>mermaid.initialize({startOnLoad:true,theme:'dark',securityLevel:'loose',flowchart:{useMaxWidth:true,htmlLabels:true,curve:'basis'},themeVariables:{darkMode:true,background:'#000',primaryColor:'#000',primaryTextColor:'#f5f5f5',primaryBorderColor:'#000',lineColor:'#666',secondaryColor:'#000',tertiaryColor:'#000',clusterBkg:'#000',clusterBorder:'#000',fontFamily:'"MADE Tommy",system-ui,sans-serif'}})</script>
+<script>
+mermaid.initialize({
+  startOnLoad:true, theme:'dark', securityLevel:'loose',
+  flowchart:{useMaxWidth:true, htmlLabels:true, curve:'basis', padding:14, nodeSpacing:32, rankSpacing:36},
+  themeVariables:{
+    darkMode:true, background:'#000', primaryColor:'#000', primaryTextColor:'#f5f5f5',
+    primaryBorderColor:'#000', lineColor:'#4d4d43', secondaryColor:'#000', tertiaryColor:'#000',
+    clusterBkg:'#0b0b09', clusterBorder:'#332f12', fontFamily:'"MADE Tommy",system-ui,sans-serif'
+  }
+})
+</script>
 </head>
 <body>
 <div class="mermaid-container"><pre class="mermaid">
 flowchart TB
-    subgraph S0["📁 Quelle — YellowVault"]
-        V["📝 4.063 Notizen<br/>frontmatter + wikilinks"]
+    subgraph S0["01 · Quelle"]
+    V["📝 4.063 Notizen<br/>frontmatter + wikilinks"]
     end
 
-    subgraph S1["⚙️ Ingesta & Anreicherung — alle 30 Minuten"]
-        ORCH["vault_structure_sync.py<br/>NER → parse → enrich → KG → RAG"]
-        NER["ner_extract.py<br/>6.210 Mentions · 74 Entitäten"]
-        NERC[("ner_cache.ndjson<br/>+ mentions.ttl")]
-        FE["frontmatter_enricher.py<br/>tags · created · aliases"]
+    subgraph S1["02 · Ingesta — alle 30 Minuten"]
+    ORCH["vault_structure_sync.py<br/>alle 30 Minuten"]
+    NER["ner_extract.py<br/>6.210 Mentions · 74 Entitäten"]
+    NERC[("ner_cache.ndjson")]
+    FE["frontmatter_enricher.py<br/>tags · aliases"]
     end
 
-    subgraph S2["🕸️ Knowledge Graph"]
-        P["parse_vault_to_rdf.py<br/>inkrementell --since · 5 Uhr --replace"]
-        TTL[("yellowvault_export.ttl<br/>51.811 Triples")]
-        L["load_ttl_to_graphdb.py<br/>--replace · 11 Chunks"]
-        G[("GraphDB :7200<br/>repo yellowvault")]
-        INC["kg_incremental_sync.py<br/>stündlich · WebVOWL-Refresh"]
-        VIZ["WebVOWL :3000 · Grafana :4000<br/>RA Log Viewer :8485"]
+    subgraph S2["03 · Knowledge Graph"]
+    P["parse_vault_to_rdf.py<br/>5 Uhr --replace"]
+    TTL[("yellowvault_export.ttl<br/>51.811 Triples")]
+    L["load_ttl_to_graphdb.py<br/>11 Chunks"]
+    G[("GraphDB :7200")]
+    INC["kg_incremental_sync.py<br/>stündlich"]
+    VIZ["WebVOWL · Grafana<br/>RA Log Viewer"]
     end
 
-    subgraph S3["🧠 Vektor-RAG"]
-        RAG[("ChromaDB<br/>e5-small · 14.180 Chunks<br/>5.810 Dateien")]
-        RERANK["rerank cross-encoder<br/>optional"]
+    subgraph S3["04 · Vektor-RAG"]
+    RAG[("ChromaDB<br/>14.180 Chunks · 5.810 Dateien")]
+    RERANK["rerank cross-encoder<br/>optional"]
     end
 
-    subgraph S4["🔌 Konsumenten"]
-        SB["sparql_bridge<br/>--kg-context · --suggest-tags"]
-        HY["hybrid_context<br/>KG + RAG · Cache 0,5s"]
-        QA["qa_kg<br/>NL → SPARQL"]
-        PR["Prompt Runner<br/>kg_context / hybrid_context"]
+    subgraph S4["05 · Konsumenten"]
+    SB["sparql_bridge"]
+    HY["hybrid_context"]
+    QA["qa_kg"]
+    PR["Prompt Runner"]
     end
 
-    subgraph S5["🛡️ Betrieb"]
-        BK["backup_graphdb<br/>So 4 Uhr → OneDrive · Retention 7"]
-        HC["sync_health_check<br/>Schwelle 35K Triples"]
-        KA["keep-alive 8–22 Uhr<br/>Auto-Start 30–90s"]
-        ES["ecosystem_status<br/>→ Grafana + Telegram"]
+    subgraph S5["06 · Betrieb"]
+    BK["backup_graphdb<br/>So 4 Uhr · Retention 7"]
+    HC["sync_health_check<br/>Schwelle 35K"]
+    KA["keep-alive<br/>8–22 Uhr"]
+    ES["ecosystem_status"]
     end
+
+    %% strict 01..06 vertical stack
+    S0 ~~~ S1
+    S1 ~~~ S2
+    S2 ~~~ S3
+    S3 ~~~ S4
+    S4 ~~~ S5
 
     V --> ORCH
     ORCH --> NER
@@ -79,82 +136,82 @@ flowchart TB
     BK -.-> G
     HC -.-> G
     ES -.-> G
-    style S0 fill:#141414,stroke:#f0c040,stroke-width:2px,color:#f5f5f5
-    style S1 fill:#181818,stroke:#f0c040,stroke-width:2px,color:#f5f5f5
-    style S2 fill:#1c1c1c,stroke:#f0c040,stroke-width:2px,color:#f5f5f5
-    style S3 fill:#202020,stroke:#f0c040,stroke-width:2px,color:#f5f5f5
-    style S4 fill:#242424,stroke:#f0c040,stroke-width:2px,color:#f5f5f5
-    style S5 fill:#282828,stroke:#f0c040,stroke-width:2px,color:#f5f5f5
-    style V fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style ORCH fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style NER fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style NERC fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style FE fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style P fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style TTL fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style L fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style G fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style INC fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style VIZ fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style RAG fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style RERANK fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style SB fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style HY fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style QA fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style PR fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style BK fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style HC fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style KA fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style ES fill:#1a1a1a,stroke:#f0c040,color:#fff
+
+    classDef layer fill:#0b0b09,stroke:#332f12,stroke-width:1px,color:#f5f5f5
+    classDef step fill:#141412,stroke:#3a3a30,stroke-width:1px,color:#ecece4
+    classDef store fill:#141412,stroke:#8a7420,stroke-width:1.4px,color:#f0c040
+    classDef hub fill:#1b1a10,stroke:#c4ab00,stroke-width:2px,color:#ffffff
+    class V,ORCH,NER,FE,P,L,INC,VIZ,RERANK,SB,HY,QA,BK,HC,KA,ES step
+    class NERC,TTL,G,RAG store
+    class PR hub
 </pre></div>
+<div class="diagram-foot">
+  <span><i></i>direkter Fluss</span>
+  <span><i class="dash"></i>Trigger / Dispatch</span>
+  <button class="diagram-zoom" type="button" aria-label="Diagramm vergrößern">⛶ Größer</button>
+  <span class="hint">Ziehen zum Verschieben · Mausrad / Pinch zum Zoomen · Doppelklick zum Zurücksetzen</span>
+</div>
 <script>
-/* Pan & Zoom for Mermaid SVG: wheel = zoom, drag = pan, dblclick = reset, touch pan + double-tap zoom */
+/* Pan & zoom for the Mermaid SVG (wheel/pinch = zoom, drag = pan, dblclick = reset)
+   + reports its own content height to the parent iframe so no dead space is left. */
 (function () {
-  function resizeIframe() {
+  function contentHeight() {
+    /* documentElement.scrollHeight never drops below the iframe viewport, so measuring it
+       makes the height ratchet upward and never shrink -> dead space. Measure the content. */
+    var bottom = 0;
+    for (var el = document.body.firstElementChild; el; el = el.nextElementSibling) {
+      var r = el.getBoundingClientRect();
+      if (r.height) bottom = Math.max(bottom, r.bottom);
+    }
+    bottom += (parseFloat(getComputedStyle(document.body).paddingBottom) || 0);
+    return Math.ceil(bottom);
+  }
+  function fitParent() {
     try {
+      var h = contentHeight();
+      if (!h || h < 120) return;
+      var fe = window.frameElement;               /* same-origin: the iframe itself */
+      if (fe) {
+        if (fe.classList.contains("ra-diagram-zoom")) return;   /* overlay has its own height */
+        if (Math.abs(parseInt(fe.style.height, 10) - h) > 1) fe.style.height = h + "px";
+        return;
+      }
       if (window.parent && window.parent !== window && window.parent.document) {
         var slug = (location.pathname.split("/").pop() || "").replace(/\.html$/, "");
         var frames = window.parent.document.querySelectorAll("iframe");
         for (var i = 0; i < frames.length; i++) {
-          var src = frames[i].getAttribute("src") || "";
-          if (src.indexOf(slug) > -1) {
-            frames[i].style.height = Math.max(220, Math.ceil(document.body.scrollHeight)) + "px";
+          if ((frames[i].getAttribute("src") || "").indexOf(slug) > -1) {
+            frames[i].style.height = Math.max(240, h) + "px";
           }
         }
       }
     } catch (e) {}
-  }
-  function hint() {
-    var d = document.createElement("div");
-    d.textContent = "Ziehen zum Verschieben \u00b7 Mausrad zum Zoomen \u00b7 Doppelklick zum Zur\u00fccksetzen";
-    d.style.cssText = "position:fixed;right:8px;bottom:6px;font:11px/1.4 "MADE Tommy",system-ui,sans-serif;color:rgba(255,255,255,.55);background:rgba(0,0,0,.35);padding:3px 8px;border-radius:4px;pointer-events:none;z-index:9";
-    document.body.appendChild(d);
   }
   function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
   function init() {
     var svg = document.querySelector(".mermaid svg");
     if (!svg || svg.getAttribute("data-pz")) return;
     svg.setAttribute("data-pz", "1");
-    // Crop dead space: fit viewBox tightly around the rendered content
+    /* crop dead space: fit the viewBox tightly around the rendered content */
     try {
       var bb = svg.getBBox();
       if (bb.width > 0 && bb.height > 0) {
-        var M = 10;
+        var M = 6;
         svg.setAttribute("viewBox", (bb.x - M) + " " + (bb.y - M) + " " + (bb.width + 2 * M) + " " + (bb.height + 2 * M));
       }
     } catch (e) {}
-    var vb = svg.viewBox.baseVal;
-    var baseW = vb.width || 100, baseH = vb.height || 100;
-    var st = { x: vb.x, y: vb.y, w: baseW, h: baseH };
+    var base = { x: svg.viewBox.baseVal.x, y: svg.viewBox.baseVal.y,
+                 w: svg.viewBox.baseVal.width || 100, h: svg.viewBox.baseVal.height || 100 };
+    var st = { x: base.x, y: base.y, w: base.w, h: base.h };
     function apply() { svg.setAttribute("viewBox", st.x + " " + st.y + " " + st.w + " " + st.h); }
-    function reset() { st = { x: 0, y: 0, w: baseW, h: baseH }; apply(); }
+    function reset() { st = { x: base.x, y: base.y, w: base.w, h: base.h }; apply(); }
     function units(cx, cy) {
       var r = svg.getBoundingClientRect();
       return { ux: (cx - r.left) / r.width * st.w + st.x, uy: (cy - r.top) / r.height * st.h + st.y };
     }
     function zoomAt(cx, cy, f) {
       var p = units(cx, cy);
-      var nw = clamp(st.w * f, baseW / 25, baseW * 8);
+      var nw = clamp(st.w * f, base.w / 25, base.w * 8);
       var nh = nw * (st.h / st.w);
       f = nw / st.w;
       st.x = p.ux - (p.ux - st.x) * f;
@@ -169,7 +226,7 @@ flowchart TB
     var drag = null;
     svg.addEventListener("mousedown", function (e) {
       if (e.button !== 0) return;
-      drag = { sx: e.clientX, sy: e.clientY, ox: st.x, oy: st.y, moved: false };
+      drag = { sx: e.clientX, sy: e.clientY, ox: st.x, oy: st.y };
       svg.style.cursor = "grabbing";
       e.preventDefault();
     });
@@ -178,7 +235,6 @@ flowchart TB
       var r = svg.getBoundingClientRect();
       st.x = drag.ox - (e.clientX - drag.sx) / r.width * st.w;
       st.y = drag.oy - (e.clientY - drag.sy) / r.height * st.h;
-      if (Math.abs(e.clientX - drag.sx) + Math.abs(e.clientY - drag.sy) > 6) drag.moved = true;
       apply();
     });
     window.addEventListener("mouseup", function () {
@@ -204,23 +260,47 @@ flowchart TB
     svg.addEventListener("touchend", function () {
       if (tch && Date.now() - tch.t < 250) {
         var r = svg.getBoundingClientRect();
-        zoomAt(r.left + r.width / 2, r.top + r.height / 2, st.w === baseW ? 1.6 : 1 / 1.6);
+        zoomAt(r.left + r.width / 2, r.top + r.height / 2, st.w === base.w ? 1.6 : 1 / 1.6);
       }
       tch = null;
     });
+    fitParent();
   }
-  hint();
-  resizeIframe();
-  window.addEventListener("load", resizeIframe);
-  window.addEventListener("resize", resizeIframe);
+
+  /* enlarge: pin the parent iframe to a near-fullscreen overlay (same-origin) */
+  function toggleZoom() {
+    try {
+      var fe = window.frameElement;
+      if (!fe) return;
+      var on = fe.classList.toggle("ra-diagram-zoom");
+      var b = document.querySelector(".diagram-zoom");
+      if (b) b.textContent = on ? "\u2715 Schlie\u00dfen" : "\u26f6 Gr\u00f6\u00dfer";
+      if (!on) setTimeout(fitParent, 60);
+    } catch (e) {}
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      try {
+        var fe = window.frameElement;
+        if (fe && fe.classList.contains("ra-diagram-zoom")) toggleZoom();
+      } catch (err) {}
+    }
+  });
+  document.querySelector(".diagram-zoom").addEventListener("click", toggleZoom);
+  window.addEventListener("load", fitParent);
+  window.addEventListener("resize", fitParent);
+  if (window.ResizeObserver) new ResizeObserver(fitParent).observe(document.documentElement);
   var tries = 0;
   var timer = setInterval(function () {
     tries++;
     if (document.querySelector(".mermaid svg")) {
       clearInterval(timer);
-      setTimeout(init, 150);
+      setTimeout(function () { init(); fitParent(); }, 120);
+      setTimeout(fitParent, 500);
+      setTimeout(fitParent, 1400);
     } else if (tries > 150) {
       clearInterval(timer);
+      fitParent();
     }
   }, 100);
 })();

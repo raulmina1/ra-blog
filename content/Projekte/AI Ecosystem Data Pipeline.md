@@ -30,7 +30,7 @@ Every note in my Obsidian vault passes through a data pipeline: **entities are r
 
 ## The Complete Diagram
 
-<iframe src="/static/mental-maps/ecosystem-data-pipeline.html" style="width:100%;height:720px;border:1px solid #3a3a3a;border-radius:8px;background:#000" title="AI ecosystem data pipeline"></iframe>
+<div class="ra-diagram"><div class="ra-diagram-head"><span class="ra-overline">Data Pipeline &middot; One-Pager</span><h3>From a written note to two queryable brains</h3><p>Every stage, every 30 minutes. Interactive: drag to pan, scroll or pinch to zoom, double-click to reset.</p></div><iframe src="/static/mental-maps/ecosystem-data-pipeline.html" style="width:100%;height:900px;border:0;background:#000;display:block" title="AI ecosystem data pipeline"></iframe><div class="ra-diagram-foot"><span>6.210 mentions</span><span>51.811 triples</span><span>14.180 chunks</span><span>30 min tick</span></div></div>
 
 ## DP-1 · Ingestion & Enrichment
 

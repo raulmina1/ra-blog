@@ -261,6 +261,30 @@ article iframe[src*="mental-maps"] {
   }
 }
 
+// "Größer" overlay: the diagram iframe pins itself near-fullscreen (toggled from inside
+// the iframe via window.frameElement.classList). Dense Mermaid graphs are unreadable at
+// column width, so this is the readable view — pan/zoom still works inside.
+iframe.ra-diagram-zoom,
+article iframe.ra-diagram-zoom {
+  position: fixed !important;
+  inset: 3vh 3vw !important;
+  width: 94vw !important;
+  height: 94vh !important;
+  z-index: 9999;
+  border-radius: 10px;
+  border: 1px solid #2e2e28 !important;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9);
+  background: #000;
+}
+
+body:has(iframe.ra-diagram-zoom)::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 9998;
+}
+
 @media all and (max-width: 640px) {
   .ra-diagram {
     margin: 1rem 0 1.2rem;

@@ -38,6 +38,14 @@
   }
   .diagram-foot i{display:inline-block;width:20px;height:0;border-top:1px solid #6a6a5e;margin-right:.45rem;vertical-align:middle}
   .diagram-foot i.dash{border-top-style:dashed;border-top-color:#8a7420}
+  .diagram-foot{position:relative}
+  .diagram-zoom{
+    margin-left:auto;cursor:pointer;font:inherit;letter-spacing:.08em;text-transform:uppercase;
+    color:#d9c24a;background:#141412;border:1px solid #3a3a30;border-radius:6px;padding:.32rem .65rem;
+    font-size:10px;transition:border-color .15s,color .15s
+  }
+  .diagram-zoom:hover{border-color:#c4ab00;color:#f0c040}
+  .diagram-zoom::after{content:none}
   .diagram-foot .hint{margin-left:auto;text-transform:none;letter-spacing:.02em;color:#6d6d62}
   @media all and (max-width:640px){ .diagram-foot{gap:.7rem .9rem;font-size:9.5px} .diagram-foot .hint{margin-left:0;width:100%} }
 </style>
@@ -121,6 +129,7 @@ flowchart TB
 <div class="diagram-foot">
   <span><i></i>direkter Fluss</span>
   <span><i class="dash"></i>Trigger / Dispatch</span>
+  <button class="diagram-zoom" type="button" aria-label="Diagramm vergrößern">⛶ Größer</button>
   <span class="hint">Ziehen zum Verschieben · Mausrad / Pinch zum Zoomen · Doppelklick zum Zurücksetzen</span>
 </div>
 <script>
@@ -144,6 +153,7 @@ flowchart TB
       if (!h || h < 120) return;
       var fe = window.frameElement;               /* same-origin: the iframe itself */
       if (fe) {
+        if (fe.classList.contains("ra-diagram-zoom")) return;   /* overlay has its own height */
         if (Math.abs(parseInt(fe.style.height, 10) - h) > 1) fe.style.height = h + "px";
         return;
       }
@@ -237,6 +247,27 @@ flowchart TB
     });
     fitParent();
   }
+
+  /* enlarge: pin the parent iframe to a near-fullscreen overlay (same-origin) */
+  function toggleZoom() {
+    try {
+      var fe = window.frameElement;
+      if (!fe) return;
+      var on = fe.classList.toggle("ra-diagram-zoom");
+      var b = document.querySelector(".diagram-zoom");
+      if (b) b.textContent = on ? "\u2715 Schlie\u00dfen" : "\u26f6 Gr\u00f6\u00dfer";
+      if (!on) setTimeout(fitParent, 60);
+    } catch (e) {}
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      try {
+        var fe = window.frameElement;
+        if (fe && fe.classList.contains("ra-diagram-zoom")) toggleZoom();
+      } catch (err) {}
+    }
+  });
+  document.querySelector(".diagram-zoom").addEventListener("click", toggleZoom);
   window.addEventListener("load", fitParent);
   window.addEventListener("resize", fitParent);
   if (window.ResizeObserver) new ResizeObserver(fitParent).observe(document.documentElement);
