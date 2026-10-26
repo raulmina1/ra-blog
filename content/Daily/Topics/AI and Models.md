@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-25|25 Oct 2026]] | OpenAI restarted frontier training on 1 October — and published the bug its own agents found |
+| [[Daily/2026-10-26|26 Oct 2026]] | At Rippling, OpenAI's share of coding work went 16 % → 52 % while Anthropic fell 57 % → 18 %… |

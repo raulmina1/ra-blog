@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-25|25 Oct 2026]] | Iran: "no US warships in the Gulf, ever" — and a US intelligence memo on assassination plots |
+| [[Daily/2026-10-26|26 Oct 2026]] | Houthis claim three operations with "dozens of ballistic missiles" against King Khalid airport… |

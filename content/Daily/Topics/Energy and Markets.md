@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-25|25 Oct 2026]] | Goldman: freight has gone from \$3 to \$20 a barrel — and the risk premium in Brent is ~\$27 |
+| [[Daily/2026-10-26|26 Oct 2026]] | Brent pulls back from a six-month high — \$115 in Asia after a \$116.72 Friday settle |

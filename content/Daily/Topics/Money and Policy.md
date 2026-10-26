@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-25|25 Oct 2026]] | Gold breaks below \$4,000 as the oil shock hardens rate expectations |
+| [[Daily/2026-10-26|26 Oct 2026]] | 13 of 19 Anif respondents expect +25bp on 30 October; BanRep's own survey has a 12.50 % median… |

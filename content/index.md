@@ -63,11 +63,11 @@ Five years of process, mechanical and thermal engineering — oil &amp; gas and 
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-10-25">
+<a class="home-card internal" href="./Daily/2026-10-26">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Gold breaks below &#36;4,000 as the oil shock hardens rate…</span>
-  <span class="home-card-desc">a weekly loss of about 4 %, the steepest since June.</span>
-  <span class="home-card-meta">25 Oct 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Brent pulls back from a six-month high — &#36;115 in Asia after a…</span>
+  <span class="home-card-desc">Brent's highest settlement since 29 April.</span>
+  <span class="home-card-meta">26 Oct 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">
