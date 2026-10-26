@@ -317,8 +317,14 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
 
   // Background layers are decorative: dots and links get an on-screen minimum
   // so a full-bleed canvas never turns them into invisible sub-pixel noise.
-  const minDotRadius = 0.001
-  const minLinkWidth = 0
+  const minDotRadius = 0.7
+  const minLinkWidth = 0.16
+  // Raúl 26.10.26: "los puntos de los grafos y sus líneas sean más pequeños y
+  // delgados" — visual sizing only. The physics keeps its own radius
+  // (simRadius), so the spacing between nodes stays identical and the smaller
+  // dots never start overlapping.
+  const dotScale = 0.65
+  const linkWidth = 0.2
 
   // precompute style prop strings as pixi doesn't support css variables
   const cssVars = [
@@ -352,8 +358,8 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   }
 
   function nodeRadius(d: NodeData) {
-    // on-screen dot size: thin, small dots — constant regardless of the fit
-    return Math.max(simRadius(d) / visualScale, minDotRadius)
+    // on-screen dot size: small, thin dots — constant regardless of the fit
+    return Math.max((simRadius(d) * dotScale) / visualScale, minDotRadius)
   }
 
   let hoveredNodeId: string | null = null
@@ -565,7 +571,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       })
 
     if (isTagNode) {
-      gfx.stroke({ width: 1, color: computedStyleMap["--tertiary"] })
+      gfx.stroke({ width: 0.8, color: computedStyleMap["--tertiary"] })
     }
 
     nodesContainer.addChild(gfx)
@@ -736,7 +742,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
         .lineTo(linkData.target.x! + width / 2, linkData.target.y! + height / 2)
         .stroke({
           alpha: l.alpha,
-          width: Math.max(0.3 / visualScale, minLinkWidth),
+          width: Math.max(linkWidth / visualScale, minLinkWidth),
           color: l.color,
         })
     }
