@@ -686,6 +686,12 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   }
 
   const zoomEnabled = enableZoom && interactiveLayer
+  // Raúl 26.10.26: the dots and the links must stay small and thin WHILE
+  // zooming. The stage scale multiplies every drawn shape, so both are divided
+  // by the current zoom factor: node graphics get `1/k` on their own transform
+  // (the position is set separately, so spacing still scales) and the link
+  // stroke is divided by `zoomK` in the render loop.
+  let zoomK = 1
   if (zoomEnabled) {
     select<HTMLCanvasElement, NodeData>(app.canvas).call(
       zoom<HTMLCanvasElement, NodeData>()
@@ -699,6 +705,11 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
           stage.scale.set(transform.k, transform.k)
           stage.position.set(transform.x, transform.y)
 
+          // keep dots (and their tag rings) at a constant on-screen size
+          zoomK = transform.k
+          for (const n of nodeRenderData) {
+            n.gfx.scale.set(1 / zoomK)
+          }
 
 
           // zoom adjusts opacity of labels too
@@ -742,7 +753,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
         .lineTo(linkData.target.x! + width / 2, linkData.target.y! + height / 2)
         .stroke({
           alpha: l.alpha,
-          width: Math.max(linkWidth / visualScale, minLinkWidth),
+          width: Math.max(linkWidth, minLinkWidth) / (visualScale * zoomK),
           color: l.color,
         })
     }
