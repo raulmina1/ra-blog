@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-26|26 Oct 2026]] | Brent pulls back from a six-month high — \$115 in Asia after a \$116.72 Friday settle |
+| [[Daily/2026-10-27|27 Oct 2026]] | Brent settles at \$115.81 and slips again in Asia — the premium is leaking, not collapsing |

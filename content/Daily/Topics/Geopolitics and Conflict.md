@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-26|26 Oct 2026]] | Houthis claim three operations with "dozens of ballistic missiles" against King Khalid airport… |
+| [[Daily/2026-10-27|27 Oct 2026]] | Tehran hosts Saudi, Turkish and Pakistani officials — and oil falls for a second day |

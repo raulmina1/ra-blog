@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-26|26 Oct 2026]] | 13 of 19 Anif respondents expect +25bp on 30 October; BanRep's own survey has a 12.50 % median… |
+| [[Daily/2026-10-27|27 Oct 2026]] | Colombia raises \$5.2bn in dollars — 3.07 times oversubscribed — its first international bond… |
