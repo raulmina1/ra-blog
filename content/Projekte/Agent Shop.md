@@ -48,19 +48,6 @@ Everything on this page runs on this machine **before** it is offered: **107 age
 
 <div class="ra-diagram"><div class="ra-diagram-head"><span class="ra-overline">Agent Ecosystem &middot; One-Pager</span><h3>Anatomy of one agent — from trigger to output</h3><p>Six layers, every agent. Interactive: drag to pan, scroll or pinch to zoom, double-click to reset.</p></div><iframe src="/static/mental-maps/agent-ecosystem.html" style="width:100%;height:900px;border:0;background:#000;display:block" title="Agent ecosystem architecture"></iframe><div class="ra-diagram-foot"><span>4 trigger types</span><span>51.811 triples in context</span><span>14.180 RAG chunks</span><span>144 scheduled runs</span></div></div>
 
-## What it looks like — a real daily note
-
-<div class="ra-rows">
-<div class="ra-row">
-<div class="ra-row-head"><span class="ra-ic">📸</span><h3>Inside a Daily Note — twelve sections, captured in Obsidian</h3><span class="ra-meta">demo vault · northlight engineering · 09.03.26</span></div>
-<p>One day, twelve sections, eight agents writing into them. Not mock-ups: screenshots from the app itself, same theme (*Vanilla AMOLED*, gold accent, MADE TOMMY), same reading view. Fictional company, real structure.</p>
-<div class="ra-box"><ul>
-<li><strong>What you see:</strong> changed today, events with real timestamps, the plan, hour-by-hour tables, tasks with IDs, PC Workflow, money, the personal blocks, the 30-minute grid, the task index and the tracking table.</li>
-<li><strong>Where:</strong> the full walk-through lives on its own page → <a href="/Projekte/System-Views">Inside a Daily Note</a>.</li>
-</ul></div>
-</div>
-</div>
-
 ## The six layers
 
 <div class="ra-rows">
@@ -222,54 +209,54 @@ These are agents that already run here — grouped by the job they replace, not 
 
 ## Packs & Pricing
 
-| Pack | Agents included | Price |
-|------|----------------|-------|
-| 🇩🇪 **German Learning Agent Pack** | Wörter-Scout · Klodi · Marthyna | €60 |
-| 🗂️ **Vault Automation Pack** | Dexter (task decomposition) · RA Mirror (daily reflection) · Content Router | €60 |
-| 🔧 **Custom Agent** — your spec | 1 bespoke agent, built on your vault | €40 |
-| 📦 **Complete Agent Bundle** — all 6 | €120 value | ~~€120~~ **€100** · ★ Recommended |
+<div class="ra-rows">
 
-Each pack is delivered as: `SKILL.md` + scripts + a vault note describing the contract + a 30-minute installation call.
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">🇩🇪</span><h3>German Learning Agent Pack</h3><span class="ra-meta">3 agents · €60</span></div>
+<p>For anyone going through a German course who loses the evening to making cards instead of learning.</p>
+<div class="ra-box"><ul>
+<li><strong>What is inside:</strong> Wörter-Scout (empty vocabulary stubs filled with gender, plural, conjugations and examples — ~734 cards generated so far) · Klodi (one VHS class note → 8 Anki cards: vocabulary, grammar, Redemittel, exam tips) · Marthyna (corrects what you write, explains the mistake, answers as audio).</li>
+<li><strong>What it changes:</strong> one command produces a full deck ready for import, and corrections arrive without a teacher — on demand, in the same minute.</li>
+</ul></div>
+</div>
 
-### 🇩🇪 German Learning Agent Pack — €60
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">🗂️</span><h3>Vault Automation Pack</h3><span class="ra-meta">3 agents · €60</span></div>
+<p>For the vault that grows faster than you can file it — tasks, reflections and incoming files handled by agents, not by discipline.</p>
+<div class="ra-box"><ul>
+<li><strong>What is inside:</strong> Dexter (takes a scheduled task from the daily note and decomposes it into subtasks with A/B/C priority) · RA Mirror (reads the daily note at the end of the day and writes a second perspective) · Content Router (watches the vault root and moves each new file to the correct folder).</li>
+<li><strong>What it changes:</strong> one task becomes clear next steps, the day gets reflected without you writing it, and the inbox stays at zero because nothing waits for you to file it.</li>
+</ul></div>
+</div>
 
-| Agent | What it does | Real-world impact |
-|-------|-------------|-------------------|
-| **Wörter-Scout** | Watches for empty German vocabulary stubs, fills them with full lexical data (gender, plural, conjugations, examples). | ~734 cards generated automatically. No manual card creation. |
-| **Klodi** | Reads a VHS class note and generates 8 Anki cards per session: vocabulary, grammar, Redemittel, exam tips. | One command → full deck ready for import. |
-| **Marthyna** | Corrects what you write, explains the mistake and sends the answer as audio. | Correction without a teacher, on demand. |
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">🔧</span><h3>Custom Agent — your spec</h3><span class="ra-meta">1 bespoke agent · €40</span></div>
+<p>You describe the task in one sentence; I build the agent around your folders, your rules and your data.</p>
+<div class="ra-box"><ul>
+<li><strong>What you get:</strong> `SKILL.md` with role, workflow, guardrails and output contract · the scripts it needs, tested against a vault of your size · a vault note documenting what it may read and write · trigger setup (manual, cron or file hook) · 30-minute installation call and 14 days of fixes.</li>
+<li><strong>Recent builds:</strong> a job-matching agent scoring postings against a CV and a life-plan filter · a finance agent projecting cash flow from account exports · an intake agent turning official letters into deadlines · a publishing agent mirroring every blog page to a WhatsApp channel with its diagram.</li>
+</ul></div>
+</div>
 
-### 🗂️ Vault Automation Pack — €60
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">📦</span><h3>Complete Agent Bundle</h3><span class="ra-meta">all 6 agents · €100 instead of €120</span></div>
+<p>Both packs together — the German stack and the vault stack — for the price of one and a half.</p>
+<div class="ra-box"><ul>
+<li><strong>What is inside:</strong> Wörter-Scout · Klodi · Marthyna · Dexter · RA Mirror · Content Router, each with its `SKILL.md`, scripts and the vault note that documents the contract.</li>
+<li><strong>What is included:</strong> one-time build, installation call (30 min), documentation and 14 days of fixes — ongoing maintenance by arrangement, prices excl. VAT.</li>
+</ul></div>
+</div>
 
-| Agent | What it does | Real-world impact |
-|-------|-------------|-------------------|
-| **Dexter** | Takes a scheduled task from your daily note and decomposes it into subtasks with A/B/C priority. | One task → clear next steps. |
-| **RA Mirror** | Reads the daily note at the end of the day and writes a second perspective on it. | Daily reflection without writing it yourself. |
-| **Content Router** | Watches the vault root and moves each new file to the correct folder. | Zero inbox, every note where it belongs. |
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">📬</span><h3>Delivery and requirements</h3><span class="ra-meta">files you own · no subscription</span></div>
+<p>Everything arrives as files in a folder — not as access to a platform that can change under you.</p>
+<div class="ra-box"><ul>
+<li><strong>Delivery:</strong> `SKILL.md` + scripts + a vault note describing the contract + a 30-minute installation call, by mail, usually within 24–48 hours of the scope being agreed.</li>
+<li><strong>Requirements:</strong> Hermes Agent (or a compatible MCP client) and a vault — Obsidian is what these were built against. No coding needed: the skills are files you drop in a folder.</li>
+</ul></div>
+</div>
 
-### 🔧 Custom Agent — €40
-
-You describe the task. I build the agent.
-
-**What you get:**
-- `SKILL.md` with role, workflow, guardrails and output contract
-- The scripts it needs, tested against a vault of your size
-- A vault note documenting what it may read and may write
-- Trigger setup: manual, cron or file hook
-- 30-minute installation call + 14 days of fixes
-
-**Examples of recent custom builds:**
-- A job-matching agent that scores new postings against a CV and a "life plan" filter
-- A finance agent that projects cash flow from account exports
-- An intake agent that reads official letters and writes deadlines into a task list
-- A publishing agent that mirrors every blog page to a WhatsApp channel with its diagram
-
-### 📦 Complete Agent Bundle — all 6 agents — €100
-
-Both packs together, €20 cheaper than buying them separately.
-
-> [!warning] What is included
-> One-time build + installation call (30 min) + documentation + 14 days of fixes. Ongoing maintenance by arrangement. Prices excl. VAT. You need **Hermes Agent** (or a compatible MCP client) — no coding required to run the agents.
+</div>
 
 ---
 
