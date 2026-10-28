@@ -48,189 +48,172 @@ Everything on this page runs on this machine **before** it is offered: **107 age
 
 <div class="ra-diagram"><div class="ra-diagram-head"><span class="ra-overline">Agent Ecosystem &middot; One-Pager</span><h3>Anatomy of one agent — from trigger to output</h3><p>Six layers, every agent. Interactive: drag to pan, scroll or pinch to zoom, double-click to reset.</p></div><iframe src="/static/mental-maps/agent-ecosystem.html" style="width:100%;height:900px;border:0;background:#000;display:block" title="Agent ecosystem architecture"></iframe><div class="ra-diagram-foot"><span>4 trigger types</span><span>51.811 triples in context</span><span>14.180 RAG chunks</span><span>144 scheduled runs</span></div></div>
 
-## What it looks like — screenshots from the app
+## What it looks like — a real daily note
 
-Not mock-ups. Every image below was captured from **Obsidian itself**, with the theme and settings I use every day (*Vanilla AMOLED*, gold accent, MADE TOMMY). The data is fictional: a made-up company, **Northlight Engineering**, and one made-up day, **Monday 09.03.26** — the structure, the sections and the agents writing into them are the real ones.
+<div class="ra-rows">
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">📸</span><h3>Inside a Daily Note — twelve sections, captured in Obsidian</h3><span class="ra-meta">demo vault · northlight engineering · 09.03.26</span></div>
+<p>One day, twelve sections, eight agents writing into them. Not mock-ups: screenshots from the app itself, same theme (*Vanilla AMOLED*, gold accent, MADE TOMMY), same reading view. Fictional company, real structure.</p>
+<div class="ra-box"><ul>
+<li><strong>What you see:</strong> changed today, events with real timestamps, the plan, hour-by-hour tables, tasks with IDs, PC Workflow, money, the personal blocks, the 30-minute grid, the task index and the tracking table.</li>
+<li><strong>Where:</strong> the full walk-through lives on its own page → <a href="/Projekte/System-Views">Inside a Daily Note</a>.</li>
+</ul></div>
+</div>
+</div>
 
-<div class="ra-shots">
-<figure class="wide"><img loading="lazy" src="/static/posters/northlight/window.webp" alt="Obsidian window with the daily note"><figcaption>The daily note as it opens: file tree on the left, the note in reading view, backlinks on the right.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/d-01-top.webp" alt="Properties and prompt block"><figcaption>Top of the note — 21 properties the agents read, the note links, the two databanks and the prompt block that turns one line into a task.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/d-02-events.webp" alt="Events and migration report"><figcaption>24 events the agents wrote into the day — run, meditation, work blocks, German, gym — plus the Dexter migration report.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/d-03-dayplan.webp" alt="Day plan"><figcaption>The day plan: fixed appointments from the calendar first, then the rules the plan obeys. Dictation beats inference.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/d-04-hourly.webp" alt="Hour by hour table"><figcaption>Hour by hour, morning to evening, with the notes the activity tracker actually saw — empty hours stay empty.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/d-05-tasks.webp" alt="Tasks table and history"><figcaption>Tasks with IDs, group, due date and state — plus the change history of the plan over the day.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/d-06-pcworkflow.webp" alt="PC workflow metrics"><figcaption>PC Workflow — screen time 7h 58m, focus 81 %, per-app time, and the exact files edited in every folder.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/d-07-money.webp" alt="Money and comments"><figcaption>Money — what came in, what went out, what is still open in the quote — followed by the day's comments.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/d-08-journal.webp" alt="Dream, meditation, how I feel"><figcaption>The personal blocks: dream, meditation, how I feel, and the A/B/C the next day starts from.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/d-09-metadata.webp" alt="Metadata insight and 30-minute grid"><figcaption>Metadata insight and the 30-minute grid: every half hour of the day, one line each, with the track that was playing.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/d-10-taskindex.webp" alt="Task index note"><figcaption>The task index is its own note — today and this week, grouped, every task with an ID and a due date.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/d-11-taskindex2.webp" alt="Task index — closed today"><figcaption>Same task index further down: closed today and the later bucket, so nothing disappears without a trace.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/d-12-tracking.webp" alt="Tracking note"><figcaption>Tracking: 14 days of habits and the weekly totals, written by the agent — streaks without a spreadsheet.</figcaption></figure>
+## The six layers
+
+<div class="ra-rows">
+
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">⚡</span><h3>AG-1 · Triggers — what starts an agent</h3><span class="ra-meta">4 types · chat · cron · hook · bridge</span></div>
+<p>An agent is not a chat window you remember to open. It wakes up on its own: a scheduled job, a file change, a message from my phone, or me asking for it.</p>
+<div class="ra-box"><ul>
+<li><strong>The four doors:</strong> chat (Hermes CLI or Telegram topic) · cron (144 enabled jobs, interval or expression) · watchdog on a vault path (`run_prompt: true`) · messaging bridge from WhatsApp or Telegram.</li>
+<li><strong>The trigger only decides when it wakes up</strong> — never what it does. The same skill behaves identically whether it runs at 05:00 or because I typed a line.</li>
+</ul></div>
+</div>
+
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">🧩</span><h3>AG-2 · The skill — the part you actually buy</h3><span class="ra-meta">6 components · plain text</span></div>
+<p>A skill file is `SKILL.md` plus the scripts it needs. No platform, no subscription, no hidden runtime: it runs on Hermes Agent and the vault side is just markdown.</p>
+<div class="ra-box"><ul>
+<li><strong>Six parts:</strong> role (who it is, its limits) · workflow (numbered steps, no shortcuts) · context rules (which notes, which graph queries, which memory tier) · guardrails (hard rules) · output contract (exact file, exact frontmatter) · memory (what it keeps between sessions).</li>
+<li><strong>Reproducible, not creative:</strong> the same input produces the same file in the same folder — that is what makes an agent sellable and a prompt not.</li>
+</ul></div>
+</div>
+
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">🧠</span><h3>AG-3 · Context — three brains, one prompt</h3><span class="ra-meta">4.063 notes · 51.811 triples · 14.180 chunks</span></div>
+<p>The agent never reads four thousand notes. It asks the knowledge graph for neighbours and the vector index for similar text, and gets a context block of a few hundred tokens.</p>
+<div class="ra-box"><ul>
+<li><strong>Three sources, fused:</strong> vault notes (frontmatter + wikilinks) · GraphDB over SPARQL via `sparql_bridge --kg-context` · vector RAG (e5-small → ChromaDB, fused by `hybrid_context.py`), plus three memory tiers.</li>
+<li><strong>Cheap and precise:</strong> a small, cited context block keeps a run fast and stops the model from inventing the note it was supposed to read.</li>
+</ul></div>
+</div>
+
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">🛡️</span><h3>AG-4 · Execution and guardrails</h3><span class="ra-meta">5 hard rules · fail closed</span></div>
+<p>Every run passes the same gate before anything leaves the machine. The gate is not advice in a prompt — it is checked in code, and a failure produces a report instead of a result.</p>
+<div class="ra-box"><ul>
+<li><strong>The five rules:</strong> privacy firewall (no money, diary, credentials or private contacts in public output) · GO before send (mail is drafted, never sent, until I answer) · red alerts only (monitors stay silent unless something is broken) · local by default · write-scope (each agent touches only the folders its skill declares).</li>
+<li><strong>Failing closes the door:</strong> no "best effort" write, no silent partial run — the agent stops and says why.</li>
+</ul></div>
+</div>
+
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">📤</span><h3>AG-5 · Output — where the work lands</h3><span class="ra-meta">5 destinations · one loop</span></div>
+<p>The result is not a paragraph in a chat that disappears. It is a file in the right folder, with frontmatter and links, ready for the graph to pick up on the next run.</p>
+<div class="ra-box"><ul>
+<li><strong>The destinations:</strong> vault note (frontmatter + wikilinks + folder) · Telegram topic per domain · blog page in Quartz · WhatsApp channel with its diagram as an image · Anki deck or calendar.</li>
+<li><strong>The loop closes:</strong> the note goes back into the vault, the pipeline re-indexes it, and the next agent sees it as context — that is why the system gets better without retraining anything.</li>
+</ul></div>
+</div>
+
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">⚙️</span><h3>AG-6 · Operations — the boring layer</h3><span class="ra-meta">144 cron jobs · 4 instruments</span></div>
+<p>An agent that fails silently is worse than no agent. So the fleet watches itself: run history, healers, a log viewer and a nightly backup with a health check.</p>
+<div class="ra-box"><ul>
+<li><strong>The instruments:</strong> cron ticker with run history and failure delivery · healers and watchdogs (dead daemon, stale index, broken link) · RA Log Viewer (logs, memory/CPU, ecosystem tab) · Grafana with 5 SPARQL panels over the graph.</li>
+<li><strong>Backups with a floor:</strong> GraphDB every Sunday at 4 AM, with an alert if the triple count drops below 35K — a backup you never test is a rumour.</li>
+</ul></div>
+</div>
+
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">📊</span><h3>Numbers behind the fleet</h3><span class="ra-meta">measured, not estimated</span></div>
+<p>Everything on this page runs on this machine before it is offered — these are the live figures at the time of writing.</p>
+<div class="ra-box"><ul>
+<li><strong>The fleet:</strong> 107 agent skills installed, 18 in daily use, 144 enabled cron jobs out of 156 defined, four trigger types.</li>
+<li><strong>The context:</strong> 4.063 notes, 51.811 triples, 14.180 RAG chunks, three memory tiers — plus log viewer, Grafana, health checks and a weekly backup.</li>
+</ul></div>
+</div>
+
 </div>
 
 <style>
-.ra-shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.2rem 0 1.6rem}
-.ra-shots figure{margin:0;background:#0f0f0d;border:1px solid #2e2e28;border-radius:10px;overflow:hidden}
-.ra-shots figure.wide{grid-column:1 / -1}
-.ra-shots img{display:block;width:100%;height:auto;border-bottom:1px solid #1e1e18}
-.ra-shots figcaption{font-size:.78rem;line-height:1.45;color:#a8a89a;padding:.6rem .75rem}
-.ra-shots figure.wide figcaption{color:#c9c9bd}
-@media all and (max-width:760px){ .ra-shots{grid-template-columns:1fr} }
+.ra-rows{display:flex;flex-direction:column;gap:1.1rem;margin:1.2rem 0 1.6rem}
+.ra-row{background:#0f0f0d;border:1px solid #2e2e28;border-radius:10px;padding:1rem 1.1rem 1.1rem;overflow:hidden}
+.ra-row-head{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin-bottom:.5rem}
+.ra-row-head h3{margin:0;font-size:1.05rem;color:#f0c040;border:none;padding:0}
+.ra-ic{font-size:1.1rem}
+.ra-meta{font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:#8f8f80}
+.ra-row p{margin:.15rem 0 .7rem;font-size:.92rem;line-height:1.55;color:#d8d8cc}
+.ra-box{background:#141410;border:1px solid #33332b;border-left:3px solid #c4ab00;border-radius:6px;padding:.55rem .9rem .55rem 1.1rem;margin:0 0 .3rem}
+.ra-box ul{margin:.25rem 0;padding-left:1.05rem}
+.ra-box li{font-size:.86rem;line-height:1.5;color:#bdbdb0;margin:.3rem 0}
+.ra-box li strong{color:#e8e8dd}
+.ra-row img{display:block;width:100%;height:auto;border:1px solid #26261f;border-radius:6px;background:#000;margin-top:.85rem}
+@media all and (max-width:760px){
+  .ra-row{padding:.85rem .8rem .9rem}
+  .ra-row-head h3{font-size:.98rem}
+  .ra-row p{font-size:.88rem}
+  .ra-box li{font-size:.83rem}
+}
 </style>
-
-What the screenshots cover: 21 properties and the prompt block · 24 agent-written events · the migration report · the day plan and its rules · the hour-by-hour tables · the task table and plan history · PC Workflow metrics · money and comments · dream, meditation and how I feel · the 30-minute grid · the task index · the tracking table.
-
-Want a second opinion on your own vault? Send me one note you write by hand — I'll show you what the same view looks like after the agents touch it.
-
-## AG-1 · Triggers — what starts an agent
-
-| Trigger | Mechanism | Used for |
-|---|---|---|
-| **Chat** | Hermes CLI / Telegram topic | Work that needs a decision from me |
-| **Cron** | 144 enabled jobs, interval or cron expression | Nightly scans, digests, syncs, backups |
-| **Watchdog / hook** | File watcher on vault paths | Prompt Runner (`run_prompt: true`), new documents |
-| **Bridge** | WhatsApp / Telegram channels | Mobile input, publishing to the channel |
-
-The same agent can be reachable from all four — the trigger only decides *when* it wakes up, never what it does.
-
-## AG-2 · The skill — the part you actually buy
-
-| Component | What it contains | Why it matters |
-|---|---|---|
-| **Role** | Who the agent is, its voice, its limits | No generic "helpful assistant" answers |
-| **Workflow** | Numbered steps, in order, no shortcuts | Reproducible output on every run |
-| **Context rules** | Which notes, which graph queries, which memory tier to read | Answers grounded in your vault, not in guesses |
-| **Guardrails** | Hard rules the agent must not cross | The failure mode is a stop, not a wrong write |
-| **Output contract** | Exact file, exact frontmatter, exact place in the vault | No manual filing afterwards |
-| **Memory** | What it remembers between sessions | It gets better at *your* data, not at generic tasks |
-
-A skill file is plain text (`SKILL.md`) plus scripts. No lock-in: it runs on Hermes Agent, and the vault side is just markdown.
-
-## AG-3 · Context — three brains, one prompt
-
-| Source | Implementation | Live figure |
-|---|---|---|
-| 📝 **Vault notes** | Obsidian, frontmatter + wikilinks | 4.063 notes |
-| 🕸️ **Knowledge graph** | GraphDB + SPARQL via `sparql_bridge --kg-context` | 51.811 triples |
-| 🧠 **Vector RAG** | e5-small → ChromaDB, `hybrid_context.py` fusion | 14.180 chunks |
-| 🧩 **Memory** | User profile · project skills · session history | 3 tiers |
-
-The agent never reads 4.000 notes. It asks the graph for neighbours and the vector index for similar text, and gets a **context block of a few hundred tokens** — that is what keeps a run cheap and precise.
-
-## AG-4 · Execution and guardrails
-
-Every agent runs through the same gate before anything leaves the machine:
-
-| Rule | Behaviour when hit |
-|---|---|
-| **Privacy firewall** | No financial data, no diary, no credentials, no private contacts in any public output |
-| **GO before send** | Emails are drafted, never sent, until I answer with an explicit go |
-| **Red alerts only** | Monitors and healers stay silent unless something is actually broken |
-| **Local by default** | Models, embeddings and databases run on the machine; cloud only where it pays off |
-| **Write-scope** | Each agent may only touch the folders its skill declares |
-
-Failing the gate does not produce a "best effort" result — it produces a report and no write.
-
-## AG-5 · Output — where the work lands
-
-| Destination | Example |
-|---|---|
-| **Vault note** | Frontmatter, wikilinks and the right folder — ready for the graph |
-| **Telegram topic** | One topic per domain, so a month of output stays searchable |
-| **Blog / Quartz** | Daily Brief, project pages, semantic sections |
-| **WhatsApp channel** | Published pages with their diagram as an image |
-| **Anki / calendar** | German cards, shifts, exam drills |
-
-Then the loop closes: the note goes back into the vault, the pipeline re-indexes it, and the next agent run sees it.
-
-## AG-6 · Operations — the boring layer
-
-| Component | Job |
-|---|---|
-| `cron` ticker | 144 enabled jobs, run history + failure delivery |
-| Healers / watchdogs | Detect a dead daemon, a stale index or a broken link and repair it |
-| **RA Log Viewer** | Live logs, memory/CPU, ecosystem tab |
-| **Grafana** | 5 SPARQL panels over the graph |
-| Backups + health checks | GraphDB Sunday 4 AM, alert below 35K triples |
-
-## Numbers Behind the Fleet
-
-| Layer | Live metrics |
-|---|---|
-| Agent skills | 107 installed · 18 in daily use |
-| Automations | 144 enabled cron jobs (156 defined) |
-| Triggers | chat · cron · file hook · messaging bridge |
-| Context | 4.063 notes · 51.811 triples · 14.180 chunks |
-| Guardrails | privacy firewall · GO-before-send · red-alert-only |
-| Operations | log viewer · Grafana · health checks · backup |
 
 ---
 
 ## What is in the catalog
 
-These are agents that already run here. They are grouped by the job they replace — not by technology.
+These are agents that already run here — grouped by the job they replace, not by technology.
 
-### 🇩🇪 German learning
+<div class="ra-rows">
 
-| Agent | What it does |
-|---|---|
-| **Wörter-Scout** | Finds empty vocabulary stubs and fills them with gender, plural, conjugations and examples — ~734 cards generated so far |
-| **Klodi** | One VHS class note → 8 Anki cards (vocabulary, grammar, *Redemittel*, exam tips) |
-| **Kasun** | Processes a whole lesson note, filters it and writes the structured version |
-| **Marthyna** | Corrects written German, Spanish and English — and answers with TTS audio |
-| **Kendrik** | Breaks a German letter or email down sentence by sentence for a B1 reader |
-| **Kontext B2 drill** | Daily exam drill with corrections, not just answers |
-| **Handwriting OCR** | Photo of handwritten notes → structured text, with a verification pass |
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">🇩🇪</span><h3>German learning</h3><span class="ra-meta">7 agents · ~734 cards generated</span></div>
+<p>From a photo of a class note to a finished Anki deck — plus a tutor that corrects what I write and answers with audio.</p>
+<div class="ra-box"><ul>
+<li><strong>The deck builders:</strong> Wörter-Scout (fills empty vocabulary stubs with gender, plural, conjugations, examples) · Klodi (VHS class note → 8 Anki cards) · Kasun (filters and rewrites a whole lesson note) · Kontext B2 drill (daily exam drill with corrections, not answers).</li>
+<li><strong>The correctors:</strong> Marthyna (written German, Spanish, English + TTS audio) · Kendrik (a German letter explained sentence by sentence for a B1 reader) · handwriting OCR (photo → structured text, with a verification pass).</li>
+</ul></div>
+</div>
 
-### 💼 Career and applications
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">💼</span><h3>Career and applications</h3><span class="ra-meta">5 agents · CV, Anschreiben, portals</span></div>
+<p>The part of a job search that eats evenings: tailoring the documents, filling the same form for the twentieth time, preparing for the interview.</p>
+<div class="ra-box"><ul>
+<li><strong>Documents:</strong> Paula (German career consultant: covers, applications, positioning) · Application docs (CV poster + Anschreiben + portfolio as one PDF set) · LinkedIn authoring (measured results in, invented claims out).</li>
+<li><strong>Research and forms:</strong> employer research (interview case study from public material) · portal forms (fills German job-portal forms field by field through the browser).</li>
+</ul></div>
+</div>
 
-| Agent | What it does |
-|---|---|
-| **Paula** | German career consultant: covers, applications, positioning, interview prep |
-| **Application docs** | CV poster + *Anschreiben* + portfolio generated as one PDF set |
-| **Portal forms** | Fills German job-portal forms through the browser, field by field |
-| **Employer research** | Builds an interview case study from the company's public material |
-| **LinkedIn authoring** | Turns measured results into a profile text without invented claims |
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">🕸️</span><h3>Knowledge and semantics</h3><span class="ra-meta">5 agents · 51.811 triples</span></div>
+<p>Agents that keep the vault itself healthy — structure, links, frontmatter, and the graph on top of it.</p>
+<div class="ra-box"><ul>
+<li><strong>The readers:</strong> Misuko (general expert over the vault, answering with KG + RAG context) · ontology export (TTL → VOWL JSON, so the graph is readable by a human).</li>
+<li><strong>The cleaners:</strong> vault audits (structure, dangling links, semantic gaps, with a repair list) · link repair (fixes broken wikilinks against the real slug index) · continuous improvement (missing frontmatter, tags and sections, with proposed fixes).</li>
+</ul></div>
+</div>
 
-### 🕸️ Knowledge and semantics
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">💰</span><h3>Money, admin and documents</h3><span class="ra-meta">6 agents · German paperwork</span></div>
+<p>Letters with deadlines, payslips, reminders and invoices — the paperwork that punishes you for forgetting it.</p>
+<div class="ra-box"><ul>
+<li><strong>The advisors:</strong> Maribel (balances, projection, monthly review) · Keith (monthly market report, Germany and Colombia kept separate) · freelance invoices (German Rechnung with the mandatory fields).</li>
+<li><strong>The intake:</strong> official document intake (deadlines and obligations extracted from a letter) · Mahnung / Stundung (answer to a payment reminder with the legal basis) · payslip processing (Lohnabrechnung read, archived, net pay booked).</li>
+</ul></div>
+</div>
 
-| Agent | What it does |
-|---|---|
-| **Misuko** | General expert over the vault, answering with KG + RAG context |
-| **Vault audits** | Structure, dangling links, semantic gaps — with a repair list |
-| **Link repair** | Fixes broken wikilinks against the real slug index |
-| **Continuous improvement** | Scans for missing frontmatter, tags and sections and proposes fixes |
-| **Ontology export** | TTL → VOWL JSON, so the graph is readable by a human |
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">🎬</span><h3>Content and media</h3><span class="ra-meta">5 agents · blog, channel, digest</span></div>
+<p>Publishing is a workflow, not a mood: draft, privacy check, deploy, distribute — and a daily digest that never invents a fact.</p>
+<div class="ra-box"><ul>
+<li><strong>The publishers:</strong> Wane (blog strategist: drafts, privacy firewall, deploy, distribution kit) · Valentina (brand publishing across blog, Telegram and the WhatsApp channel) · Bob (single-panel illustrations in the RA visual language).</li>
+<li><strong>The inputs:</strong> Laura (daily news digest from named sources) · Lisa and Sly (concert radar and Spotify library work).</li>
+</ul></div>
+</div>
 
-### 💰 Money, admin and documents
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">🛡️</span><h3>Operations and security</h3><span class="ra-meta">4 agents · one finding per path</span></div>
+<p>The agents that watch the machine, the vault and the repos — and stay quiet until something is actually wrong.</p>
+<div class="ra-box"><ul>
+<li><strong>Security:</strong> Flu (Windows guardian: exposed keys, open ports, one finding per path) · security audit (repo and machine scan with a prioritised report).</li>
+<li><strong>Housekeeping:</strong> metrics dashboard (activity, PC usage and workload consolidated per day) · vault backup (USB backup built from a verified manifest).</li>
+</ul></div>
+</div>
 
-| Agent | What it does |
-|---|---|
-| **Maribel** | Personal finance coach: balances, projection, monthly review |
-| **Keith** | Monthly market report, Germany and Colombia kept separate |
-| **Official document intake** | Reads an official letter, extracts deadlines and obligations |
-| **Mahnung / Stundung** | Drafts the answer to a payment reminder with the legal basis |
-| **Payslip processing** | Reads a *Lohnabrechnung*, archives it and books the net pay |
-| **Freelance invoices** | German *Rechnung* with the correct mandatory fields |
-
-### 🎬 Content and media
-
-| Agent | What it does |
-|---|---|
-| **Wane** | Blog strategist: drafts, privacy firewall, deploy, distribution kit |
-| **Valentina** | Brand publishing across blog, Telegram and the WhatsApp channel |
-| **Bob** | Single-panel illustrations in the RA visual language |
-| **Laura** | Daily news digest from named sources, no invented facts |
-| **Lisa / Sly** | Concert radar and Spotify library work |
-
-### 🛡️ Operations and security
-
-| Agent | What it does |
-|---|---|
-| **Flu** | Windows security guardian: exposed keys, open ports, one finding per path |
-| **Metrics dashboard** | Activity, PC usage and workload consolidated per day |
-| **Security audit** | Repo and machine scan with a prioritised report |
-| **Vault backup** | USB backup built from a verified manifest |
+</div>
 
 > [!note] Not a demo
 > Every agent above has a history: notes it wrote, runs it completed, failures it reported. You get the same skill file, adapted to your folder names and your rules.

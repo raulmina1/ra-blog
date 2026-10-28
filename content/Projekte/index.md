@@ -100,6 +100,13 @@ see_also:
   <span class="home-card-meta">One-pager · Architecture</span>
 </a>
 
+<a class="home-card internal" href="./System-Views">
+  <span class="home-card-icon">📸</span>
+  <span class="home-card-title">Inside a Daily Note</span>
+  <span class="home-card-desc">One day, twelve sections, eight agents — captured inside Obsidian. Changed today, events, hour-by-hour tables, PC Workflow, money, the 30-minute grid, task index and tracking.</span>
+  <span class="home-card-meta">12 screenshots · demo vault</span>
+</a>
+
 </div>
 
 <div class="ra-section-head">
