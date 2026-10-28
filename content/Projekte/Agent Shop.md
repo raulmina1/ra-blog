@@ -48,6 +48,21 @@ Everything on this page runs on this machine **before** it is offered: **107 age
 
 <div class="ra-diagram"><div class="ra-diagram-head"><span class="ra-overline">Agent Ecosystem &middot; One-Pager</span><h3>Anatomy of one agent — from trigger to output</h3><p>Six layers, every agent. Interactive: drag to pan, scroll or pinch to zoom, double-click to reset.</p></div><iframe src="/static/mental-maps/agent-ecosystem.html" style="width:100%;height:900px;border:0;background:#000;display:block" title="Agent ecosystem architecture"></iframe><div class="ra-diagram-foot"><span>4 trigger types</span><span>51.811 triples in context</span><span>14.180 RAG chunks</span><span>144 scheduled runs</span></div></div>
 
+## What it looks like — the four views you open every day
+
+Promotional material, not a mock-up: the panels below are **1:1 copies of the real views** (same headings, same columns, same callouts, same markers). Only the data is invented — a fictional company, **Nordlicht Engineering**, and a fictional day, **Monday 09.03.26**.
+
+<div class="ra-diagram"><div class="ra-diagram-head"><span class="ra-overline">Organization System &middot; Demo Views</span><h3>Daily note · task index · day plan · tracking</h3><p>Switch between the four views. Each one is a working surface an agent writes into — not a template.</p></div><iframe src="/static/mental-maps/system-views.html" style="width:100%;height:900px;border:0;background:#000;display:block" title="Organization system — demo views"></iframe><div class="ra-diagram-foot"><span>4 views</span><span>demo data</span><span>written by agents</span><span>screenshot-ready</span></div></div>
+
+| View | What it proves |
+|---|---|
+| 📸 **Daily Note** | The day writes itself: activity, apps, focus time, notes touched — plus the tasks the agents extracted from it |
+| 🗂 **Task Index** | One table, one source of truth. The daily note carries a two-line pointer instead of a copy that drifts |
+| 📅 **Day Plan** | Every block has an exact hour. Calendar first, then activity, then my own dictation — in that order |
+| 📊 **Tracking** | The agent writes one row per evening and warns on streaks, so the trend is visible without a spreadsheet |
+
+Want a second opinion on your own vault? Send me one note you write by hand — I'll show you what the same view looks like after the agents touch it.
+
 ## AG-1 · Triggers — what starts an agent
 
 | Trigger | Mechanism | Used for |

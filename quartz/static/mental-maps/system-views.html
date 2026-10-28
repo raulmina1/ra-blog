@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Organización — Vistas Demo</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  @font-face{font-family:"MADE Tommy";src:url("../fonts/MADE-Tommy-Regular.otf") format("opentype");font-weight:400;font-display:swap}
+  @font-face{font-family:"MADE Tommy";src:url("../fonts/MADE-Tommy-Bold.otf") format("opentype");font-weight:700;font-display:swap}
+  html{background:#000;height:auto}
+  body{background:#000;background-image:radial-gradient(rgba(196,171,0,.08) 1px,transparent 1px);background-size:22px 22px;
+       font-family:"MADE Tommy",system-ui,sans-serif;color:#ecece4;padding:.85rem;min-height:0;overflow:hidden}
+  .wrap{max-width:1180px;margin:0 auto}
+  .demo-badge{display:inline-flex;align-items:center;gap:.45rem;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+              color:#c4ab00;border:1px solid #3a3410;background:#141208;border-radius:999px;padding:.3rem .7rem;margin-bottom:.6rem}
+  .demo-badge i{width:6px;height:6px;border-radius:50%;background:#c4ab00;display:inline-block}
+  .tabs{display:flex;flex-wrap:wrap;gap:.35rem;border-bottom:1px solid #26261f;margin-bottom:.9rem}
+  .tabs button{cursor:pointer;background:none;border:1px solid transparent;border-bottom:none;color:#8d8d80;
+               font:inherit;font-size:11px;letter-spacing:.06em;padding:.5rem .85rem;border-radius:.4rem .4rem 0 0}
+  .tabs button:hover{color:#d9c24a}
+  .tabs button.on{color:#f0c040;background:#141412;border-color:#2e2e28}
+  .view{display:none}
+  .view.on{display:block}
+  .win{background:#0b0b09;border:1px solid #24241e;border-radius:10px;overflow:hidden}
+  .win-bar{display:flex;align-items:center;gap:.5rem;padding:.5rem .8rem;border-bottom:1px solid #1e1e18;background:#0f0f0d}
+  .win-dots{display:flex;gap:.3rem}
+  .win-dots i{width:7px;height:7px;border-radius:50%;background:#2e2e28;display:block}
+  .win-title{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#8d8d80}
+  .win-body{padding:.85rem .95rem 1rem}
+  .doc-title{font-size:15px;color:#f0c040;font-weight:700;margin-bottom:.15rem}
+  .doc-sub{font-size:10.5px;color:#7d7d70;margin-bottom:.8rem}
+  .flags{display:flex;flex-wrap:wrap;gap:.35rem .9rem;font-size:10.5px;color:#b6b6a8;margin-bottom:.85rem}
+  .flags b{color:#ecece4;font-weight:400}
+  .flags .no{color:#6d6d62}
+  h4{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#c4ab00;margin:.9rem 0 .35rem;font-weight:700}
+  table{width:100%;border-collapse:collapse;font-size:10.5px}
+  th{text-align:left;color:#8d8d80;font-weight:400;padding:.28rem .4rem;border-bottom:1px solid #2a2a22;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:.3rem .4rem;border-bottom:1px solid #1b1b15;color:#d4d4c8;vertical-align:top}
+  td.mut{color:#8d8d80}
+  .pill{display:inline-block;font-size:9px;padding:.08rem .4rem;border-radius:4px;border:1px solid #3a3a30;color:#c4ab00}
+  .pill.g{color:#9fd08a;border-color:#2f4a28}
+  .pill.y{color:#e0c46a;border-color:#4a4020}
+  .pill.r{color:#e08a7a;border-color:#4a2620}
+  .bars{display:grid;grid-template-columns:1fr 1fr;gap:.15rem .9rem;font-size:10.5px;margin-top:.3rem}
+  .bars span{color:#b6b6a8}
+  .bars em{color:#f0c040;font-style:normal}
+  .kpi{display:flex;flex-wrap:wrap;gap:1.4rem;margin:.2rem 0 .8rem}
+  .kpi div{display:flex;flex-direction:column}
+  .kpi b{font-size:16px;color:#f0c040;font-weight:700}
+  .kpi small{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#7d7d70}
+  ul.plain{list-style:none;font-size:10.5px;color:#c9c9bd}
+  ul.plain li{padding:.14rem 0 .14rem .9rem;position:relative}
+  ul.plain li::before{content:"·";position:absolute;left:.2rem;color:#8a7420}
+  .note{font-size:10px;color:#8d8d80;margin-top:.7rem;line-height:1.5}
+  .foot{display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;margin-top:.7rem;padding-top:.55rem;border-top:1px solid #1f1f1b;
+        font-size:9.5px;letter-spacing:.07em;color:#8d8d80;text-transform:uppercase}
+  .foot .hint{margin-left:auto;text-transform:none;letter-spacing:.02em;color:#6d6d62;font-size:10px}
+  @media all and (max-width:640px){ .bars{grid-template-columns:1fr} .foot .hint{margin-left:0;width:100%} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="demo-badge"><i></i>Demo-Daten · Nordlicht Engineering · Montag 09.03.26</span>
+
+  <div class="tabs" role="tablist">
+    <button class="on" data-v="v1">📸 1 · Daily Note</button>
+    <button data-v="v2">🗂 2 · Task Index</button>
+    <button data-v="v3">📅 3 · Tagesplan</button>
+    <button data-v="v4">📊 4 · Tracking</button>
+  </div>
+
+  <!-- 1 — DAILY NOTE -->
+  <section class="view on" id="v1">
+    <div class="win"><div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">09.03.26.md — Daily Note</span></div>
+      <div class="win-body">
+        <div class="doc-title">Montag, 09.03.26</div>
+        <div class="doc-sub">Nordlicht Engineering · Projekt P-204 · Werkstattbegehung</div>
+        <div class="flags">
+          <span>Laufen 🏃 <b>✓</b></span><span class="no">Fitnessstudio 💪 —</span><span>Deutsch 📖 <b>✓</b></span>
+          <span>Lesen 📕 <b>✓</b></span><span>Meditation 🧘 <b>✓</b></span><span>Tagebuch 📓 <b>✓</b></span><span>Planung 🪶 <b>✓</b></span>
+        </div>
+        <h4>Heute geänderte Anmerkungen</h4>
+        <ul class="plain">
+          <li>Modell P-204</li><li>Simulation P-204 — Abweichung 0,04 %</li><li>Fließbild Revision C</li>
+          <li>Kostenaufstellung P-204</li><li>Angebot Nordlicht — Phase 2</li><li>Vokabelkarten — Woche 10</li>
+        </ul>
+        <h4>PC Workflow — ActivityWatch</h4>
+        <div class="kpi">
+          <div><b>6h 12m</b><small>Bildschirmzeit</small></div>
+          <div><b>61 %</b><small>Fokus</small></div>
+          <div><b>4</b><small>Deep-Work-Blöcke ≥ 30 min</small></div>
+          <div><b>+38</b><small>Notizen erstellt</small></div>
+        </div>
+        <div class="bars">
+          <span>Obsidian <em>2h 44m</em></span><span>AspenHysys <em>1h 38m</em></span>
+          <span>Chrome <em>1h 12m</em></span><span>Teams <em>51m</em></span>
+          <span>Excel <em>34m</em></span><span>Telegram <em>22m</em></span>
+        </div>
+        <h4>Daily Metadata — 30-Minuten-Raster</h4>
+        <table>
+          <thead><tr><th>Uhr</th><th>PC · App</th><th>Notiz</th><th>Tasks Δ</th></tr></thead>
+          <tbody>
+            <tr><td>07:00</td><td>24m · Obsidian</td><td class="mut">Modell P-204</td><td>✏️2</td></tr>
+            <tr><td>08:00</td><td>27m · AspenHysys</td><td class="mut">Simulation P-204</td><td>✏️3</td></tr>
+            <tr><td>09:00</td><td>30m · Teams</td><td class="mut">Protokoll Woche 10</td><td>📄+1</td></tr>
+            <tr><td>11:00</td><td>26m · Obsidian</td><td class="mut">Fließbild Revision C</td><td>✏️5</td></tr>
+            <tr><td>15:00</td><td>28m · Teams</td><td class="mut">Terminnotiz 09.03.26</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 — TASK INDEX -->
+  <section class="view" id="v2">
+    <div class="win"><div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">Task Index.md</span></div>
+      <div class="win-body">
+        <div class="doc-title">🗂 Task Index</div>
+        <div class="doc-sub">Einzige Quelle der Wahrheit für offene Aufgaben · geschrieben von der Migration, gelesen von 4 Agenten</div>
+        <table>
+          <thead><tr><th>TSK</th><th>Aufgabe</th><th>Status</th><th>Erstellt</th><th>Dauer</th><th>Kommentar</th></tr></thead>
+          <tbody>
+            <tr><td>1041</td><td>Angebot Phase 2 an Nordlicht senden</td><td><span class="pill">⏲️ offen</span></td><td class="mut">09.03 (0d)</td><td class="mut">45m</td><td class="mut">Frist Fr 13.03</td></tr>
+            <tr><td>1043</td><td>Rechnung 2026-014 mahnen</td><td><span class="pill">⏲️ offen</span></td><td class="mut">02.03 (7d)</td><td class="mut">15m</td><td class="mut">3. Mahnstufe</td></tr>
+            <tr><td>1042</td><td>Prüfbericht WT-08 ablegen</td><td><span class="pill y">🐦‍🔥 läuft</span></td><td class="mut">06.03 (3d)</td><td class="mut">20m</td><td class="mut">2 von 3 Seiten</td></tr>
+            <tr><td>1038</td><td>Zertifikat Dichtheitsprüfung verlängern</td><td><span class="pill">⏲️ offen</span></td><td class="mut">24.02 (13d)</td><td class="mut">30m</td><td class="mut">TÜV bestätigt</td></tr>
+            <tr><td>1027</td><td>Wartungsplan Q2 erstellen</td><td><span class="pill">⏲️ offen</span></td><td class="mut">05.02 (32d)</td><td class="mut">40m</td><td class="mut">wartet auf Anlagenliste</td></tr>
+            <tr><td>1019</td><td>Prüfplan Q1 abzeichnen</td><td><span class="pill">⏲️ offen</span></td><td class="mut">15.01 (53d)</td><td class="mut">30m</td><td class="mut">QS-Freigabe</td></tr>
+            <tr><td>1035</td><td>Unterlagen Werkstoff 1.4571</td><td><span class="pill g">🏁 fertig</span></td><td class="mut">18.02 (19d)</td><td class="mut">1h 10m</td><td class="mut">abgeschlossen 06.03</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Gruppen: 🔥 Sofort · ⏳ Dringend · 📋 Fertigstellen · 📌 Ausstehend · 📎 Zusätzlich. Die Daily Note trägt nur einen Zeiger — die Tabelle existiert genau einmal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 — TAGESPLAN -->
+  <section class="view" id="v3">
+    <div class="win"><div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">RA — Umsetzungsplan.md</span></div>
+      <div class="win-body">
+        <div class="doc-title">📅 Tagesplan — Montag 09.03.26</div>
+        <div class="doc-sub">zuletzt aktualisiert 17:36 · jeder Block hat eine exakte Uhrzeit</div>
+        <h4>Feste Termine aus dem Kalender</h4>
+        <ul class="plain">
+          <li>06:00–07:00 Lauf am Morgen · 8 km</li>
+          <li>07:00–08:00 Werkstatt Nordlicht — Anlagenbegehung</li>
+          <li>09:00–09:30 Team-Sync Woche 10</li>
+          <li>15:00–15:30 Kundentermin Nordlicht — Freigabe Phase 2</li>
+        </ul>
+        <h4>Tagesplan nach Stunden</h4>
+        <table>
+          <thead><tr><th>Start → Ende</th><th>Aktivität</th><th>Notizen (AW)</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="mut">7 → 7.5</td><td>Werkstatt Nordlicht · Anlagenbegehung</td><td class="mut">Anlagenregister · Prüfplan Q1</td><td><span class="pill g">gemacht</span></td></tr>
+            <tr><td class="mut">8 → 8.5</td><td>Obsidian — Prozessmodell P-204</td><td class="mut">Modell P-204 · Massenbilanz</td><td><span class="pill g">gemacht</span></td></tr>
+            <tr><td class="mut">9 → 9.5</td><td>Teams — Team-Sync Woche 10</td><td class="mut">Protokoll Woche 10</td><td><span class="pill g">gemacht</span></td></tr>
+            <tr><td class="mut">10.5 → 11</td><td>HYSYS — Simulation neu gerechnet (0,04 %)</td><td class="mut">Simulation P-204</td><td><span class="pill g">gemacht</span></td></tr>
+            <tr><td class="mut">12 → 12.5</td><td>Mittagspause (kein PC-Signal)</td><td class="mut">—</td><td><span class="pill">frei</span></td></tr>
+            <tr><td class="mut">15 → 15.5</td><td>Teams — Kundentermin Nordlicht</td><td class="mut">Terminnotiz 09.03.26</td><td><span class="pill y">im Gange</span></td></tr>
+            <tr><td class="mut">16.5 → 17</td><td>Automatisierung/Sync (Agenten)</td><td class="mut">Activity Hub</td><td><span class="pill g">gemacht</span></td></tr>
+          </tbody>
+        </table>
+        <h4>Historial</h4>
+        <ul class="plain">
+          <li>06:40 — Rebuild für den neuen Tag, Tabula rasa ab 06:00.</li>
+          <li>17:36 — Nachmittag nach ActivityWatch gefüllt · 12:30 Excel · 13:30 Angebot · 15:00 Kundentermin.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 — TRACKING -->
+  <section class="view" id="v4">
+    <div class="win"><div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">Ejercicio — Tracking.md</span></div>
+      <div class="win-body">
+        <div class="doc-title">📊 Ejercicio — Tracking</div>
+        <div class="doc-sub">täglich ~21:00 vom Tracking-Agenten geschrieben · Streaks als Frühwarnung</div>
+        <h4>Legende</h4>
+        <div class="flags"><span>0–3 Tage <b>kein Emoji</b></span><span>4–6 Tage <b>⚠️ gelb</b></span><span>7+ Tage <b>🔴 rot</b></span></div>
+        <table>
+          <thead><tr><th>Fecha</th><th>Laufen 🏃</th><th>Fitnessstudio 💪</th><th>Tage ohne Sport</th></tr></thead>
+          <tbody>
+            <tr><td>01.03.26</td><td>—</td><td>✓</td><td>0 💪</td></tr>
+            <tr><td>02.03.26</td><td>✓</td><td>—</td><td>0 🏃</td></tr>
+            <tr><td>03.03.26</td><td>—</td><td>—</td><td>1</td></tr>
+            <tr><td>04.03.26</td><td>✓</td><td>—</td><td>0 🏃</td></tr>
+            <tr><td>05.03.26</td><td>—</td><td>✓</td><td>0 💪</td></tr>
+            <tr><td>06.03.26</td><td>✓</td><td>—</td><td>0 🏃</td></tr>
+            <tr><td>07.03.26</td><td>—</td><td>—</td><td>1</td></tr>
+            <tr><td>08.03.26</td><td>✓</td><td>✓</td><td>0 🏃</td></tr>
+            <tr><td>09.03.26</td><td>✓</td><td>—</td><td>0 🏃</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Der Agent schreibt die Zeile jeden Abend aus Kalender + Aktivität, berechnet den Streak und markiert erst ab 4 Tagen — dieselbe Tabelle, die ein Coach lesen würde.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot">
+    <span>Vistas demo · datos ficticios</span>
+    <span class="hint">Pestañas: cada vista es una copia 1:1 de la vista real · solo los datos son inventados</span>
+  </div>
+</div>
+<script>
+(function () {
+  function contentHeight() {
+    var bottom = 0;
+    for (var el = document.body.firstElementChild; el; el = el.nextElementSibling) {
+      var r = el.getBoundingClientRect();
+      if (r.height) bottom = Math.max(bottom, r.bottom);
+    }
+    bottom += (parseFloat(getComputedStyle(document.body).paddingBottom) || 0);
+    return Math.ceil(bottom);
+  }
+  function fitParent() {
+    try {
+      var h = contentHeight();
+      if (!h || h < 120) return;
+      var fe = window.frameElement;
+      if (!fe) return;
+      if (Math.abs(parseInt(fe.style.height, 10) - h) > 1) fe.style.height = h + "px";
+    } catch (e) {}
+  }
+  var btns = [].slice.call(document.querySelectorAll(".tabs button"));
+  btns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      btns.forEach(function (x) { x.classList.remove("on"); });
+      b.classList.add("on");
+      [].slice.call(document.querySelectorAll(".view")).forEach(function (v) {
+        v.classList.toggle("on", v.id === b.dataset.v);
+      });
+      setTimeout(fitParent, 30);
+    });
+  });
+  window.addEventListener("load", fitParent);
+  window.addEventListener("resize", fitParent);
+  if (window.ResizeObserver) new ResizeObserver(fitParent).observe(document.documentElement);
+  setTimeout(fitParent, 200);
+  setTimeout(fitParent, 700);
+})();
+</script>
+</body>
+</html>
