@@ -48,18 +48,32 @@ Everything on this page runs on this machine **before** it is offered: **107 age
 
 <div class="ra-diagram"><div class="ra-diagram-head"><span class="ra-overline">Agent Ecosystem &middot; One-Pager</span><h3>Anatomy of one agent — from trigger to output</h3><p>Six layers, every agent. Interactive: drag to pan, scroll or pinch to zoom, double-click to reset.</p></div><iframe src="/static/mental-maps/agent-ecosystem.html" style="width:100%;height:900px;border:0;background:#000;display:block" title="Agent ecosystem architecture"></iframe><div class="ra-diagram-foot"><span>4 trigger types</span><span>51.811 triples in context</span><span>14.180 RAG chunks</span><span>144 scheduled runs</span></div></div>
 
-## What it looks like — the four views you open every day
+## What it looks like — screenshots from the app
 
-Promotional material, not a mock-up: the window below is **the vault as I see it** — same theme, same file tree, same tabs, same reading view. Only the vault and the data are invented: a fictional company, **Northlight Engineering**, and a fictional day, **Monday 09.03.26**.
+Not mock-ups. Every image below was captured from **Obsidian itself**, with the theme and settings I use every day (*Vanilla AMOLED*, gold accent, MADE TOMMY). The data is fictional: a made-up company, **Northlight Engineering**, and one made-up day, **Monday 09.03.26** — the structure is the real one.
 
-<div class="ra-diagram"><div class="ra-diagram-head"><span class="ra-overline">Organization System &middot; Demo Vault</span><h3>The four notes, as they open in Obsidian</h3><p>Same theme (Vanilla AMOLED, gold accent), same panels, same tab bar. Switch tabs like you would in the app — only the vault and the data are fictional.</p></div><iframe src="/static/mental-maps/system-views.html" style="width:100%;height:640px;border:0;background:#000;display:block" title="Obsidian — organization system demo views"></iframe><div class="ra-diagram-foot"><span>4 notes</span><span>Obsidian reading view</span><span>demo data</span><span>screenshot-ready</span></div></div>
+<div class="ra-shots">
+<figure class="wide"><img loading="lazy" src="/static/posters/northlight/window.webp" alt="Obsidian window with the daily note"><figcaption>The daily note as it opens: file tree on the left, the note in reading view, backlinks on the right.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/w-01.webp" alt="Properties and prompt block"><figcaption>Top of the note — properties, the three note links, and the prompt block that turns one line into a task.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/w-02.webp" alt="Events and migration report"><figcaption>Events the agents wrote into the day, plus the migration report and the task-index pointer.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/w-03.webp" alt="Day plan"><figcaption>The day plan: fixed appointments from the calendar first, then the rules the plan obeys.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/w-04.webp" alt="Hour by hour table"><figcaption>Hour by hour, with the notes the activity tracker actually saw — empty hours stay empty.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/w-07.webp" alt="PC workflow metrics"><figcaption>PC Workflow — screen time, focus, per-app time, and the exact files edited in each folder.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/w-08.webp" alt="Comments and day summary"><figcaption>Comments and the day summary the agent writes at the end of the day.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/w-10.webp" alt="Metadata insight and 30-minute grid"><figcaption>Metadata insight and the 30-minute grid: every half hour of the day, one line each.</figcaption></figure>
+</div>
 
-| View | What it proves |
-|---|---|
-| 📸 **Daily Note** | The day writes itself: activity, apps, focus time, notes touched — plus the tasks the agents extracted from it |
-| 🗂 **Task Index** | One table, one source of truth. The daily note carries a two-line pointer instead of a copy that drifts |
-| 📅 **Day Plan** | Every block has an exact hour. Calendar first, then activity, then my own dictation — in that order |
-| 📊 **Tracking** | The agent writes one row per evening and warns on streaks, so the trend is visible without a spreadsheet |
+<style>
+.ra-shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.2rem 0 1.6rem}
+.ra-shots figure{margin:0;background:#0f0f0d;border:1px solid #2e2e28;border-radius:10px;overflow:hidden}
+.ra-shots figure.wide{grid-column:1 / -1}
+.ra-shots img{display:block;width:100%;height:auto;border-bottom:1px solid #1e1e18}
+.ra-shots figcaption{font-size:.78rem;line-height:1.45;color:#a8a89a;padding:.6rem .75rem}
+.ra-shots figure.wide figcaption{color:#c9c9bd}
+@media all and (max-width:760px){ .ra-shots{grid-template-columns:1fr} }
+</style>
+
+What the screenshots cover: properties and the prompt block · events and the agent migration report · the day plan and its rules · the hour-by-hour tables · PC Workflow metrics · comments and the day summary · the 30-minute grid.
 
 Want a second opinion on your own vault? Send me one note you write by hand — I'll show you what the same view looks like after the agents touch it.
 
