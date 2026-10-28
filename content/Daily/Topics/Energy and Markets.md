@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-27|27 Oct 2026]] | Brent settles at \$115.81 and slips again in Asia — the premium is leaking, not collapsing |
+| [[Daily/2026-10-28|28 Oct 2026]] | Brent settles at \$113.88 as the war premium leaks — but diesel and freight do not |

@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-27|27 Oct 2026]] | Anthropic's S-1 is public: \$16.3bn in six months, 900 % net revenue retention, \$80.7bn net loss |
+| [[Daily/2026-10-28|28 Oct 2026]] | Parents sue OpenAI over GPT-4o and a seizure-medication taper |

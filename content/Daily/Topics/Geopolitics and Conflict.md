@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-27|27 Oct 2026]] | Tehran hosts Saudi, Turkish and Pakistani officials — and oil falls for a second day |
+| [[Daily/2026-10-28|28 Oct 2026]] | Khamenei sets terms, Oman proposes a Gulf non-aggression pact, and UBS lifts its Brent forecast |

@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-27|27 Oct 2026]] | Colombia raises \$5.2bn in dollars — 3.07 times oversubscribed — its first international bond… |
+| [[Daily/2026-10-28|28 Oct 2026]] | The peso holds at 3,147 and BanRep decides on Friday; Cepal keeps Colombia at 2.4 % |

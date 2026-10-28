@@ -63,11 +63,11 @@ Five years of process, mechanical and thermal engineering — oil &amp; gas and 
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-10-27">
+<a class="home-card internal" href="./Daily/2026-10-28">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Brent settles at &#36;115.81 and slips again in Asia — the…</span>
-  <span class="home-card-desc">Houthi attacks on Saudi Arabia continued over the weekend, and UKMTO confirmed another disabled tanker in Hormuz.</span>
-  <span class="home-card-meta">27 Oct 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Brent settles at &#36;113.88 as the war premium leaks — but…</span>
+  <span class="home-card-desc">refining and freight costs, plus diesel-export demand, are the binding constraints now.</span>
+  <span class="home-card-meta">28 Oct 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

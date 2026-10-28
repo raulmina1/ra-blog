@@ -25,6 +25,8 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 The reporting keeps anchoring today to a specific past moment ("since 2008", "lowest since 2016"). Each row is an anchor the source chose itself, quoted, not interpreted.
 
+- **2026-10-28** — The lowest since November 2023
+- **2026-10-28** — Global visible inventories are at multi-year lows after roughly 500m barrels drawn since February, and government stock releases are largely finished
 - **2026-10-26** — Highest since December 2022
 - **2026-10-25** — The steepest since June
 - **2026-10-25** — The highest since December 2022, +18.5 % from the 5 October low of €73.51 and equivalent to over $30/MMBtu
@@ -41,4 +43,4 @@ The reporting keeps anchoring today to a specific past moment ("since 2008", "lo
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-26|26 Oct 2026]] | 1 dated precedents quoted today |
+| [[Daily/2026-10-28|28 Oct 2026]] | 2 dated precedents quoted today |
