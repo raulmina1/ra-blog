@@ -120,8 +120,8 @@ see_also:
 <a class="home-card internal" href="./Agent-Shop">
   <span class="home-card-icon">🤖</span>
   <span class="home-card-title">Agent Shop</span>
-  <span class="home-card-desc">Agents with a role, a workflow and memory — vocabulary cards, German annotation, task decomposition, vault automation.</span>
-  <span class="home-card-meta">6 agents · from €40</span>
+  <span class="home-card-desc">Agents with a role, a workflow, a context layer and guardrails — catalog of 107 skills, German learning and vault automation packs.</span>
+  <span class="home-card-meta">6-agent packs · 144 scheduled runs · from €40</span>
 </a>
 
 <a class="home-card internal" href="./Cron-Shop">

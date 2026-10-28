@@ -5,13 +5,16 @@ tags:
   - shop
   - automation
   - ai
+  - services
+  - pricing
 related:
   - "[[AI Ecosystem]]"
   - "[[Projekte/Prompt Shop|Prompt Shop]]"
-description: Pre-built AI agents for Obsidian automation — vocabulary cards, German annotation, task decomposition, and custom workflows delivered as Hermes skills.
-reading_time: "4 min"
+description: "107 agent skills, 144 scheduled automations, 18 agents in daily use. Every agent is a role, a workflow, a context layer and guardrails — sold as files you own."
+reading_time: "9 min"
 publish: true
 date: 2026-07-09
+updated: 2026-10-26
 type: showcase
 lang: en
 semantic_class: showcase
@@ -19,45 +22,184 @@ see_also:
   - "[[Projekte/Prompt Shop]]"
   - "[[Projekte/Cron Shop]]"
   - "[[Projekte/Hook Shop]]"
+  - "[[Projekte/AI Ecosystem Data Pipeline]]"
   - "[[AI Ecosystem]]"
 relationship:
   - "references: [[AI Ecosystem]]"
   - "requires: [[Projekte/Cron Shop]]"
   - "requires: [[Projekte/Hook Shop]]"
   - "related_to: [[Projekte/Prompt Shop]]"
+  - "related_to: [[Projekte/AI Ecosystem Data Pipeline]]"
 ---
 
-###### Related: [[Projekte/Prompt Shop|Prompt Shop]] | [[Projekte/Cron Shop|Cron Shop]] | [[Projekte/Hook Shop|Hook Shop]]
+###### Related: [[Projekte/Prompt Shop|Prompt Shop]] | [[Projekte/Cron Shop|Cron Shop]] | [[Projekte/Hook Shop|Hook Shop]] | [[Projekte/AI Ecosystem Data Pipeline|Data Pipeline]]
 
 ---
 
 # RA Agent Shop
 
-> Autonomous AI agents that live in your vault and do work without supervision. Each agent is a complete specification: Hermes skill file, vault note, workflow documentation, and guardrails.
+> Agents that live in a vault and work when nobody is watching. Not prompt snippets — complete specifications: role, workflow, context, guardrails, memory.
 
-An agent is not a prompt. A prompt tells the AI what to do once. An agent has a **role**, a **personality**, a **workflow**, and **memory** — it works continuously, maintains context across sessions, and follows guardrails automatically.
+A prompt tells an AI what to do **once**. An agent has a **role**, a **workflow**, a **context layer** and **guardrails** — it runs on a schedule or on a file event, keeps state between sessions, and stops itself when a rule would be broken.
+
+Everything on this page runs on this machine **before** it is offered: **107 agent skills installed**, **144 scheduled automations**, **18 agents in daily use**.
+
+## The Complete Diagram
+
+<div class="ra-diagram"><div class="ra-diagram-head"><span class="ra-overline">Agent Ecosystem &middot; One-Pager</span><h3>Anatomy of one agent — from trigger to output</h3><p>Six layers, every agent. Interactive: drag to pan, scroll or pinch to zoom, double-click to reset.</p></div><iframe src="/static/mental-maps/agent-ecosystem.html" style="width:100%;height:900px;border:0;background:#000;display:block" title="Agent ecosystem architecture"></iframe><div class="ra-diagram-foot"><span>4 trigger types</span><span>51.811 triples in context</span><span>14.180 RAG chunks</span><span>144 scheduled runs</span></div></div>
+
+## AG-1 · Triggers — what starts an agent
+
+| Trigger | Mechanism | Used for |
+|---|---|---|
+| **Chat** | Hermes CLI / Telegram topic | Work that needs a decision from me |
+| **Cron** | 144 enabled jobs, interval or cron expression | Nightly scans, digests, syncs, backups |
+| **Watchdog / hook** | File watcher on vault paths | Prompt Runner (`run_prompt: true`), new documents |
+| **Bridge** | WhatsApp / Telegram channels | Mobile input, publishing to the channel |
+
+The same agent can be reachable from all four — the trigger only decides *when* it wakes up, never what it does.
+
+## AG-2 · The skill — the part you actually buy
+
+| Component | What it contains | Why it matters |
+|---|---|---|
+| **Role** | Who the agent is, its voice, its limits | No generic "helpful assistant" answers |
+| **Workflow** | Numbered steps, in order, no shortcuts | Reproducible output on every run |
+| **Context rules** | Which notes, which graph queries, which memory tier to read | Answers grounded in your vault, not in guesses |
+| **Guardrails** | Hard rules the agent must not cross | The failure mode is a stop, not a wrong write |
+| **Output contract** | Exact file, exact frontmatter, exact place in the vault | No manual filing afterwards |
+| **Memory** | What it remembers between sessions | It gets better at *your* data, not at generic tasks |
+
+A skill file is plain text (`SKILL.md`) plus scripts. No lock-in: it runs on Hermes Agent, and the vault side is just markdown.
+
+## AG-3 · Context — three brains, one prompt
+
+| Source | Implementation | Live figure |
+|---|---|---|
+| 📝 **Vault notes** | Obsidian, frontmatter + wikilinks | 4.063 notes |
+| 🕸️ **Knowledge graph** | GraphDB + SPARQL via `sparql_bridge --kg-context` | 51.811 triples |
+| 🧠 **Vector RAG** | e5-small → ChromaDB, `hybrid_context.py` fusion | 14.180 chunks |
+| 🧩 **Memory** | User profile · project skills · session history | 3 tiers |
+
+The agent never reads 4.000 notes. It asks the graph for neighbours and the vector index for similar text, and gets a **context block of a few hundred tokens** — that is what keeps a run cheap and precise.
+
+## AG-4 · Execution and guardrails
+
+Every agent runs through the same gate before anything leaves the machine:
+
+| Rule | Behaviour when hit |
+|---|---|
+| **Privacy firewall** | No financial data, no diary, no credentials, no private contacts in any public output |
+| **GO before send** | Emails are drafted, never sent, until I answer with an explicit go |
+| **Red alerts only** | Monitors and healers stay silent unless something is actually broken |
+| **Local by default** | Models, embeddings and databases run on the machine; cloud only where it pays off |
+| **Write-scope** | Each agent may only touch the folders its skill declares |
+
+Failing the gate does not produce a "best effort" result — it produces a report and no write.
+
+## AG-5 · Output — where the work lands
+
+| Destination | Example |
+|---|---|
+| **Vault note** | Frontmatter, wikilinks and the right folder — ready for the graph |
+| **Telegram topic** | One topic per domain, so a month of output stays searchable |
+| **Blog / Quartz** | Daily Brief, project pages, semantic sections |
+| **WhatsApp channel** | Published pages with their diagram as an image |
+| **Anki / calendar** | German cards, shifts, exam drills |
+
+Then the loop closes: the note goes back into the vault, the pipeline re-indexes it, and the next agent run sees it.
+
+## AG-6 · Operations — the boring layer
+
+| Component | Job |
+|---|---|
+| `cron` ticker | 144 enabled jobs, run history + failure delivery |
+| Healers / watchdogs | Detect a dead daemon, a stale index or a broken link and repair it |
+| **RA Log Viewer** | Live logs, memory/CPU, ecosystem tab |
+| **Grafana** | 5 SPARQL panels over the graph |
+| Backups + health checks | GraphDB Sunday 4 AM, alert below 35K triples |
+
+## Numbers Behind the Fleet
+
+| Layer | Live metrics |
+|---|---|
+| Agent skills | 107 installed · 18 in daily use |
+| Automations | 144 enabled cron jobs (156 defined) |
+| Triggers | chat · cron · file hook · messaging bridge |
+| Context | 4.063 notes · 51.811 triples · 14.180 chunks |
+| Guardrails | privacy firewall · GO-before-send · red-alert-only |
+| Operations | log viewer · Grafana · health checks · backup |
 
 ---
 
-## How an agent works
+## What is in the catalog
 
-```mermaid
-flowchart LR
-    A[Trigger<br/>manual/cron/hook] --> B[Skill loaded]
-    B --> C[Agent executes<br/>defined workflow]
-    C --> D{Guardrails<br/>check}
-    D -->|Pass| E[Write output<br/>to vault note]
-    D -->|Fail| F[Stop + report<br/>violation]
-    E --> G[Optional:<br/>blog sync /<br/>Anki export]
-    
-    style A fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style B fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style C fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style D fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style E fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style F fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style G fill:#1a1a1a,stroke:#f0c040,color:#fff
-```
+These are agents that already run here. They are grouped by the job they replace — not by technology.
+
+### 🇩🇪 German learning
+
+| Agent | What it does |
+|---|---|
+| **Wörter-Scout** | Finds empty vocabulary stubs and fills them with gender, plural, conjugations and examples — ~734 cards generated so far |
+| **Klodi** | One VHS class note → 8 Anki cards (vocabulary, grammar, *Redemittel*, exam tips) |
+| **Kasun** | Processes a whole lesson note, filters it and writes the structured version |
+| **Marthyna** | Corrects written German, Spanish and English — and answers with TTS audio |
+| **Kendrik** | Breaks a German letter or email down sentence by sentence for a B1 reader |
+| **Kontext B2 drill** | Daily exam drill with corrections, not just answers |
+| **Handwriting OCR** | Photo of handwritten notes → structured text, with a verification pass |
+
+### 💼 Career and applications
+
+| Agent | What it does |
+|---|---|
+| **Paula** | German career consultant: covers, applications, positioning, interview prep |
+| **Application docs** | CV poster + *Anschreiben* + portfolio generated as one PDF set |
+| **Portal forms** | Fills German job-portal forms through the browser, field by field |
+| **Employer research** | Builds an interview case study from the company's public material |
+| **LinkedIn authoring** | Turns measured results into a profile text without invented claims |
+
+### 🕸️ Knowledge and semantics
+
+| Agent | What it does |
+|---|---|
+| **Misuko** | General expert over the vault, answering with KG + RAG context |
+| **Vault audits** | Structure, dangling links, semantic gaps — with a repair list |
+| **Link repair** | Fixes broken wikilinks against the real slug index |
+| **Continuous improvement** | Scans for missing frontmatter, tags and sections and proposes fixes |
+| **Ontology export** | TTL → VOWL JSON, so the graph is readable by a human |
+
+### 💰 Money, admin and documents
+
+| Agent | What it does |
+|---|---|
+| **Maribel** | Personal finance coach: balances, projection, monthly review |
+| **Keith** | Monthly market report, Germany and Colombia kept separate |
+| **Official document intake** | Reads an official letter, extracts deadlines and obligations |
+| **Mahnung / Stundung** | Drafts the answer to a payment reminder with the legal basis |
+| **Payslip processing** | Reads a *Lohnabrechnung*, archives it and books the net pay |
+| **Freelance invoices** | German *Rechnung* with the correct mandatory fields |
+
+### 🎬 Content and media
+
+| Agent | What it does |
+|---|---|
+| **Wane** | Blog strategist: drafts, privacy firewall, deploy, distribution kit |
+| **Valentina** | Brand publishing across blog, Telegram and the WhatsApp channel |
+| **Bob** | Single-panel illustrations in the RA visual language |
+| **Laura** | Daily news digest from named sources, no invented facts |
+| **Lisa / Sly** | Concert radar and Spotify library work |
+
+### 🛡️ Operations and security
+
+| Agent | What it does |
+|---|---|
+| **Flu** | Windows security guardian: exposed keys, open ports, one finding per path |
+| **Metrics dashboard** | Activity, PC usage and workload consolidated per day |
+| **Security audit** | Repo and machine scan with a prioritised report |
+| **Vault backup** | USB backup built from a verified manifest |
+
+> [!note] Not a demo
+> Every agent above has a history: notes it wrote, runs it completed, failures it reported. You get the same skill file, adapted to your folder names and your rules.
 
 ---
 
@@ -65,133 +207,115 @@ flowchart LR
 
 | Pack | Agents included | Price |
 |------|----------------|-------|
-| 🇩🇪 German Learning Agent Pack | 3 agents | €60 |
-| 🗂️ Vault Automation Pack | 3 agents | €60 |
-| 🔧 Custom Agent (your spec) | 1 bespoke agent | €40 |
-| 📦 Complete Agent Bundle — All 6 | 6 agents | ~~€120~~ **€100** · ★ Recommended |
+| 🇩🇪 **German Learning Agent Pack** | Wörter-Scout · Klodi · Marthyna | €60 |
+| 🗂️ **Vault Automation Pack** | Dexter (task decomposition) · RA Mirror (daily reflection) · Content Router | €60 |
+| 🔧 **Custom Agent** — your spec | 1 bespoke agent, built on your vault | €40 |
+| 📦 **Complete Agent Bundle** — all 6 | €120 value | ~~€120~~ **€100** · ★ Recommended |
 
-To order: **raul.mina1@outlook.com** — include which pack(s) you want.
+Each pack is delivered as: `SKILL.md` + scripts + a vault note describing the contract + a 30-minute installation call.
 
----
-
-## 🇩🇪 German Learning Agent Pack — €60
-
-3 agents that automate your German study pipeline — from class notes to Anki cards to sentence annotation.
+### 🇩🇪 German Learning Agent Pack — €60
 
 | Agent | What it does | Real-world impact |
 |-------|-------------|-------------------|
-| **Wörter-Scout** | Watches your vault for empty German vocabulary stubs, fills them with full lexical data (gender, plural, conjugations, examples). | ~734 cards generated automatically. No more manual card creation. |
-| **Klodi** | Reads a VHS class note and generates 8 Anki cards per session: vocabulary, grammar rules, Redemittel, and exam tips. | One command → full deck ready for import. |
-| **Neue Sätze Übersetzer** | Incrementally annotates collected German sentences with wikilinks, translations, and grammar breakdowns. | Processes one sentence at a time, never overwhelming you. |
+| **Wörter-Scout** | Watches for empty German vocabulary stubs, fills them with full lexical data (gender, plural, conjugations, examples). | ~734 cards generated automatically. No manual card creation. |
+| **Klodi** | Reads a VHS class note and generates 8 Anki cards per session: vocabulary, grammar, Redemittel, exam tips. | One command → full deck ready for import. |
+| **Marthyna** | Corrects what you write, explains the mistake and sends the answer as audio. | Correction without a teacher, on demand. |
 
-### Flowchart: German Learning Pipeline
-
-```mermaid
-flowchart TD
-    A[VHS Class Note<br/>saved to vault] --> B[Klodi agent<br/>triggered]
-    B --> C[8 Anki cards<br/>generated]
-    C --> D[Import to Anki<br/>for review]
-    
-    E[German word stub<br/>detected] --> F[Wörter-Scout<br/>agent triggered]
-    F --> G[Full card created:<br/>gender, plural, conjugation]
-    G --> H[Card ready for<br/>daily review]
-    
-    I[New German sentence<br/>added to note] --> J[Neue Sätze<br/>agent triggered]
-    J --> K[Sentence annotated:<br/>wikilinks + translation]
-    
-    style A fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style B fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style C fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style D fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style E fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style F fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style G fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style H fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style I fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style J fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style K fill:#1a1a1a,stroke:#f0c040,color:#fff
-```
-
----
-
-## 🗂️ Vault Automation Pack — €60
-
-3 agents that keep your vault organized and your tasks moving — no manual triage needed.
+### 🗂️ Vault Automation Pack — €60
 
 | Agent | What it does | Real-world impact |
 |-------|-------------|-------------------|
-| **Dexter** | Takes any scheduled task from your daily note and decomposes it into actionable subtasks with ABC priority triage. | One task → clear next steps. No more staring at a vague todo. |
-| **RA Mirror** | Reads your daily note at end of day and writes a reflective commentary — a second perspective on what happened. | Daily introspection without the mental effort of writing it yourself. |
-| **Content Router** | Watches for new files in the vault root and automatically moves them to the correct folder based on content analysis. | Zero inbox. Every note lands where it belongs. |
+| **Dexter** | Takes a scheduled task from your daily note and decomposes it into subtasks with A/B/C priority. | One task → clear next steps. |
+| **RA Mirror** | Reads the daily note at the end of the day and writes a second perspective on it. | Daily reflection without writing it yourself. |
+| **Content Router** | Watches the vault root and moves each new file to the correct folder. | Zero inbox, every note where it belongs. |
 
-### Flowchart: Vault Automation Pipeline
-
-```mermaid
-flowchart TD
-    A[Daily note<br/>updated] --> B[Dexter agent<br/>reads SCH tasks]
-    B --> C[Tasks decomposed<br/>A: critical<br/>B: important<br/>C: nice-to-have]
-    C --> D[Clear next steps<br/>written to note]
-    
-    E[End of day<br/>trigger] --> F[RA Mirror agent<br/>reads daily note]
-    F --> G[Reflective commentary<br/>written to vault]
-    
-    H[New file in<br/>vault root] --> I[Content Router<br/>watcher detects]
-    I --> J[File analyzed +<br/>moved to correct folder]
-    
-    style A fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style B fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style C fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style D fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style E fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style F fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style G fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style H fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style I fill:#1a1a1a,stroke:#f0c040,color:#fff
-    style J fill:#1a1a1a,stroke:#f0c040,color:#fff
-```
-
----
-
-## 🔧 Custom Agent — €40
+### 🔧 Custom Agent — €40
 
 You describe the task. I build the agent.
 
 **What you get:**
-- Hermes skill file (SKILL.md) with full workflow
-- Vault specification note
-- Guardrails and privacy rules
-- Tested against your vault structure
-- Documentation for triggering (manual, cron, or hook)
+- `SKILL.md` with role, workflow, guardrails and output contract
+- The scripts it needs, tested against a vault of your size
+- A vault note documenting what it may read and may write
+- Trigger setup: manual, cron or file hook
+- 30-minute installation call + 14 days of fixes
 
-**Examples of custom agents:**
-- A weekly newsletter compiler from your reading notes
-- A job-matching agent that scores new postings against your CV
-- A habit tracker that analyzes daily note entries and generates monthly reports
+**Examples of recent custom builds:**
+- A job-matching agent that scores new postings against a CV and a "life plan" filter
+- A finance agent that projects cash flow from account exports
+- An intake agent that reads official letters and writes deadlines into a task list
+- A publishing agent that mirrors every blog page to a WhatsApp channel with its diagram
+
+### 📦 Complete Agent Bundle — all 6 agents — €100
+
+Both packs together, €20 cheaper than buying them separately.
+
+> [!warning] What is included
+> One-time build + installation call (30 min) + documentation + 14 days of fixes. Ongoing maintenance by arrangement. Prices excl. VAT. You need **Hermes Agent** (or a compatible MCP client) — no coding required to run the agents.
 
 ---
 
-## 📦 Complete Agent Bundle — All 6 agents — €100
+## How Can I Help You?
 
-Everything in both packs at a discount. Save €20 vs. buying separately.
+Choose what you are planning — the email arrives already prepared. Only a question or a comment? Use the other tabs. No call needed.
 
----
+<div class="agent-tabs">
+<style>
+.agent-tabs{max-width:100%;margin:1rem 0}
+.agent-tabs input{display:none}
+.agent-tabs nav{display:flex;flex-wrap:wrap;gap:.5rem;border-bottom:1px solid var(--gray);margin-bottom:1rem}
+.agent-tabs nav label{cursor:pointer;padding:.6rem 1.1rem;font-weight:600;color:var(--gray);border-radius:.45rem .45rem 0 0;border:1px solid transparent;border-bottom:none;transition:color .15s,background .15s;font-size:.92rem}
+.agent-tabs nav label:hover{color:var(--secondary)}
+.agent-tabs .panel{display:none;padding:.2rem .1rem 0;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+.agent-tabs #at-dienst:checked~nav label[for="at-dienst"],
+.agent-tabs #at-frage:checked~nav label[for="at-frage"],
+.agent-tabs #at-kommentar:checked~nav label[for="at-kommentar"]{background:var(--lightgray);color:var(--secondary);border-color:var(--gray)}
+.agent-tabs #at-dienst:checked~.panel-dienst,
+.agent-tabs #at-frage:checked~.panel-frage,
+.agent-tabs #at-kommentar:checked~.panel-kommentar{display:block}
+.agent-btn{display:inline-block;padding:.65rem 1.3rem;background:#1a1a1a;color:#f0c040;border:1px solid #f0c040;border-radius:.5rem;font-weight:700;text-decoration:none;transition:background .15s,color .15s}
+.agent-btn:hover{background:#f0c040;color:#1a1a1a}
+.agent-meta{font-size:.9rem;color:var(--gray);margin-top:.6rem}
+</style>
+<input type="radio" name="agent-tabs" id="at-dienst" checked>
+<input type="radio" name="agent-tabs" id="at-frage">
+<input type="radio" name="agent-tabs" id="at-kommentar">
+<nav>
+<label for="at-dienst">🛒 Service</label>
+<label for="at-frage">❓ Question</label>
+<label for="at-kommentar">💬 Comment</label>
+</nav>
 
-## Order
+<div class="panel panel-dienst">
+<p><strong>You want an agent built.</strong> Tell me which pack interests you — or describe the task in one sentence — and in which vault or tool it should run. The email is already prepared, just fill in the blanks.</p>
+<p>I reply within 24–48 hours with a concrete scope, a fixed price and a delivery date.</p>
+<a class="agent-btn" href="mailto:raul.mina1@outlook.com?subject=Agent%20request%20%E2%80%94%20RA%20Agent%20Shop&body=Hello%2C%0A%0AI%27m%20interested%20in%3A%0A%0A%20%20%5B%20%5D%20German%20Learning%20pack%20%28%E2%82%AC60%29%0A%20%20%5B%20%5D%20Vault%20Automation%20pack%20%28%E2%82%AC60%29%0A%20%20%5B%20%5D%20Complete%20bundle%20%28%E2%82%AC100%29%0A%20%20%5B%20%5D%20Custom%20agent%20%28%E2%82%AC40%29%0A%0AThe%20task%20I%20want%20automated%3A%0A%0AWhere%20it%20should%20run%20%28Obsidian%2C%20Hermes%20Agent%2C%20other%29%3A%0A%0AReply-to%20email%3A" target="_blank" rel="noopener">Request an agent →</a>
+<p class="agent-meta">Alternatively via <a href="https://paypal.me/raulmina1" target="_blank" rel="noopener">PayPal</a> — after your selection I send a payment link.</p>
+</div>
 
-[![Pay with PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/raulmina1)
+<div class="panel panel-frage">
+<p><strong>You have a question.</strong> About the guardrails, about running agents on your own machine, about what happens to your data, or whether a task is worth automating at all. Ask freely — it costs nothing and stays confidential.</p>
+<a class="agent-btn" href="mailto:raul.mina1@outlook.com?subject=Question%20about%20the%20Agent%20Shop&body=Hello%2C%0A%0AI%20have%20a%20question%20about%20the%20agents%3A%0A%0AQuestion%3A%0A%0AReply-to%20email%3A" target="_blank" rel="noopener">Ask a question →</a>
+<p class="agent-meta">Technical questions are answered free of charge and without obligation.</p>
+</div>
 
-1. Fill the form below with your email and which agent(s) you want
-2. You'll pay via PayPal (raulmina1@outlook.com)
-3. After payment, you'll receive the agent skill files + setup within 48 hours
-
-**[Request Form →](mailto:raul.mina1@outlook.com?subject=Agent%20Pack%20Order&body=Email:%0A%0AAgents%20wanted:%0A%0AMessage:)** *Click to send me an email. Include your email, which agents you want, and a description if ordering Custom.*
+<div class="panel panel-kommentar">
+<p><strong>You just want to leave a comment.</strong> Feedback, an idea, a task you think should be automatable — every bit helps. Greetings are welcome too.</p>
+<a class="agent-btn" href="mailto:raul.mina1@outlook.com?subject=Comment%20about%20the%20Agent%20Shop&body=Hello%2C%0A%0AI%27d%20like%20to%20leave%20a%20comment%20about%20the%20Agent%20Shop%3A%0A%0AComment%3A%0A%0AEmail%20for%20optional%20feedback%3A" target="_blank" rel="noopener">Leave a comment →</a>
+<p class="agent-meta">Your email is used only for the reply and is not shared.</p>
+</div>
+</div>
 
 > [!warning] Requirements
-> You need **Hermes Agent** (or compatible MCP client) to run these agents. No coding required — just drop the skills into your Hermes folder.
+> **Hermes Agent** (or a compatible MCP client) to run the agents. A vault — Obsidian is what these were built against. No coding required: the skills are files you drop in a folder.
 
 ---
 
 > [!note] RA
 > Every agent is a task you no longer have to think about. That silence is the actual product.
 
-*Which task would you most like to automate? I'm curious what you're building. → [raul.mina1@outlook.com](mailto:raul.mina1@outlook.com)*
+---
+
+*Which task would you most like to automate? Write to me → raul.mina1@outlook.com*
