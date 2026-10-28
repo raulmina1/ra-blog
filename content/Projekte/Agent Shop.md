@@ -50,17 +50,22 @@ Everything on this page runs on this machine **before** it is offered: **107 age
 
 ## What it looks like — screenshots from the app
 
-Not mock-ups. Every image below was captured from **Obsidian itself**, with the theme and settings I use every day (*Vanilla AMOLED*, gold accent, MADE TOMMY). The data is fictional: a made-up company, **Northlight Engineering**, and one made-up day, **Monday 09.03.26** — the structure is the real one.
+Not mock-ups. Every image below was captured from **Obsidian itself**, with the theme and settings I use every day (*Vanilla AMOLED*, gold accent, MADE TOMMY). The data is fictional: a made-up company, **Northlight Engineering**, and one made-up day, **Monday 09.03.26** — the structure, the sections and the agents writing into them are the real ones.
 
 <div class="ra-shots">
 <figure class="wide"><img loading="lazy" src="/static/posters/northlight/window.webp" alt="Obsidian window with the daily note"><figcaption>The daily note as it opens: file tree on the left, the note in reading view, backlinks on the right.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/w-01.webp" alt="Properties and prompt block"><figcaption>Top of the note — properties, the three note links, and the prompt block that turns one line into a task.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/w-02.webp" alt="Events and migration report"><figcaption>Events the agents wrote into the day, plus the migration report and the task-index pointer.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/w-03.webp" alt="Day plan"><figcaption>The day plan: fixed appointments from the calendar first, then the rules the plan obeys.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/w-04.webp" alt="Hour by hour table"><figcaption>Hour by hour, with the notes the activity tracker actually saw — empty hours stay empty.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/w-07.webp" alt="PC workflow metrics"><figcaption>PC Workflow — screen time, focus, per-app time, and the exact files edited in each folder.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/w-08.webp" alt="Comments and day summary"><figcaption>Comments and the day summary the agent writes at the end of the day.</figcaption></figure>
-<figure><img loading="lazy" src="/static/posters/northlight/w-10.webp" alt="Metadata insight and 30-minute grid"><figcaption>Metadata insight and the 30-minute grid: every half hour of the day, one line each.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/d-01-top.webp" alt="Properties and prompt block"><figcaption>Top of the note — 21 properties the agents read, the note links, the two databanks and the prompt block that turns one line into a task.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/d-02-events.webp" alt="Events and migration report"><figcaption>24 events the agents wrote into the day — run, meditation, work blocks, German, gym — plus the Dexter migration report.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/d-03-dayplan.webp" alt="Day plan"><figcaption>The day plan: fixed appointments from the calendar first, then the rules the plan obeys. Dictation beats inference.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/d-04-hourly.webp" alt="Hour by hour table"><figcaption>Hour by hour, morning to evening, with the notes the activity tracker actually saw — empty hours stay empty.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/d-05-tasks.webp" alt="Tasks table and history"><figcaption>Tasks with IDs, group, due date and state — plus the change history of the plan over the day.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/d-06-pcworkflow.webp" alt="PC workflow metrics"><figcaption>PC Workflow — screen time 7h 58m, focus 81 %, per-app time, and the exact files edited in every folder.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/d-07-money.webp" alt="Money and comments"><figcaption>Money — what came in, what went out, what is still open in the quote — followed by the day's comments.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/d-08-journal.webp" alt="Dream, meditation, how I feel"><figcaption>The personal blocks: dream, meditation, how I feel, and the A/B/C the next day starts from.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/d-09-metadata.webp" alt="Metadata insight and 30-minute grid"><figcaption>Metadata insight and the 30-minute grid: every half hour of the day, one line each, with the track that was playing.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/d-10-taskindex.webp" alt="Task index note"><figcaption>The task index is its own note — today and this week, grouped, every task with an ID and a due date.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/d-11-taskindex2.webp" alt="Task index — closed today"><figcaption>Same task index further down: closed today and the later bucket, so nothing disappears without a trace.</figcaption></figure>
+<figure><img loading="lazy" src="/static/posters/northlight/d-12-tracking.webp" alt="Tracking note"><figcaption>Tracking: 14 days of habits and the weekly totals, written by the agent — streaks without a spreadsheet.</figcaption></figure>
 </div>
 
 <style>
@@ -73,7 +78,7 @@ Not mock-ups. Every image below was captured from **Obsidian itself**, with the 
 @media all and (max-width:760px){ .ra-shots{grid-template-columns:1fr} }
 </style>
 
-What the screenshots cover: properties and the prompt block · events and the agent migration report · the day plan and its rules · the hour-by-hour tables · PC Workflow metrics · comments and the day summary · the 30-minute grid.
+What the screenshots cover: 21 properties and the prompt block · 24 agent-written events · the migration report · the day plan and its rules · the hour-by-hour tables · the task table and plan history · PC Workflow metrics · money and comments · dream, meditation and how I feel · the 30-minute grid · the task index · the tracking table.
 
 Want a second opinion on your own vault? Send me one note you write by hand — I'll show you what the same view looks like after the agents touch it.
 
