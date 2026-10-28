@@ -1,243 +1,362 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sistema de Organización — Vistas Demo</title>
+<title>Obsidian — Organization System (Demo Vault)</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   @font-face{font-family:"MADE Tommy";src:url("../fonts/MADE-Tommy-Regular.otf") format("opentype");font-weight:400;font-display:swap}
   @font-face{font-family:"MADE Tommy";src:url("../fonts/MADE-Tommy-Bold.otf") format("opentype");font-weight:700;font-display:swap}
-  html{background:#000;height:auto}
-  body{background:#000;background-image:radial-gradient(rgba(196,171,0,.08) 1px,transparent 1px);background-size:22px 22px;
-       font-family:"MADE Tommy",system-ui,sans-serif;color:#ecece4;padding:.85rem;min-height:0;overflow:hidden}
-  .wrap{max-width:1180px;margin:0 auto}
-  .demo-badge{display:inline-flex;align-items:center;gap:.45rem;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
-              color:#c4ab00;border:1px solid #3a3410;background:#141208;border-radius:999px;padding:.3rem .7rem;margin-bottom:.6rem}
-  .demo-badge i{width:6px;height:6px;border-radius:50%;background:#c4ab00;display:inline-block}
-  .tabs{display:flex;flex-wrap:wrap;gap:.35rem;border-bottom:1px solid #26261f;margin-bottom:.9rem}
-  .tabs button{cursor:pointer;background:none;border:1px solid transparent;border-bottom:none;color:#8d8d80;
-               font:inherit;font-size:11px;letter-spacing:.06em;padding:.5rem .85rem;border-radius:.4rem .4rem 0 0}
-  .tabs button:hover{color:#d9c24a}
-  .tabs button.on{color:#f0c040;background:#141412;border-color:#2e2e28}
+  :root{
+    --bg:#000;
+    --bg-2:#080808;
+    --bg-3:#111;
+    --line:#1a1a1a;
+    --line-2:#2a2a2a;
+    --txt:#fff;
+    --txt-2:#bbb;
+    --txt-3:#999;
+    --accent:#a89a00;
+    --pill:#1f1f1f;
+    --callout:180,120,255;
+  }
+  html{background:#000}
+  body{background:#000;font-family:"MADE Tommy",system-ui,sans-serif;font-size:14px;color:var(--txt);overflow:hidden}
+  .app{height:620px;display:flex;flex-direction:column;border:1px solid var(--line-2);border-radius:8px;overflow:hidden;background:var(--bg)}
+  .titlebar{display:flex;align-items:center;gap:.6rem;height:34px;padding:0 .7rem;background:var(--bg-3);border-bottom:1px solid var(--line);flex:0 0 auto}
+  .dots{display:flex;gap:.35rem}
+  .dots i{width:9px;height:9px;border-radius:50%;background:#333;display:block}
+  .vault{font-size:11px;letter-spacing:.08em;color:#7d7d7d;text-transform:uppercase}
+  .titlebar .spacer{flex:1}
+  .titlebar .win{font-size:11px;color:#666}
+  .body{flex:1;display:flex;min-height:0}
+  .ribbon{width:40px;background:var(--bg-3);border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:.55rem;padding:.6rem 0;flex:0 0 auto}
+  .ribbon span{width:24px;height:24px;display:grid;place-items:center;border-radius:5px;font-size:12px;color:#8d8d8d;opacity:.85}
+  .ribbon span.on{background:#1b1b1b;color:#dcdcdc}
+  .sidebar{width:186px;background:var(--bg-2);border-right:1px solid var(--line);padding:.5rem .35rem;overflow:hidden;flex:0 0 auto}
+  .side-head{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6d6d6d;padding:.35rem .45rem .45rem}
+  .tree{font-size:12px;color:var(--txt-2)}
+  .tree div{padding:.16rem .45rem;border-radius:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tree .folder{color:#cfcfcf}
+  .tree .ind{padding-left:1.15rem;color:#9a9a9a}
+  .tree .active{background:#1c1c1c;color:#fff}
+  .tree .chev{color:#666;margin-right:.3rem}
+  .main{flex:1;display:flex;flex-direction:column;min-width:0}
+  .tabbar{display:flex;align-items:stretch;height:34px;background:var(--bg-3);border-bottom:1px solid var(--line);flex:0 0 auto;overflow:hidden}
+  .tabbar button{background:none;border:none;border-right:1px solid var(--line);color:#8d8d8d;font:inherit;font-size:11.5px;
+                 padding:0 .85rem;cursor:pointer;display:flex;align-items:center;gap:.4rem;white-space:nowrap}
+  .tabbar button .x{color:#555;font-size:10px}
+  .tabbar button.on{background:var(--bg);color:#e8e8e8;box-shadow:inset 0 -2px 0 var(--accent)}
+  .pane{flex:1;overflow:auto;padding:1.1rem 1.6rem 2rem}
+  .pane::-webkit-scrollbar{width:8px}
+  .pane::-webkit-scrollbar-thumb{background:#242424;border-radius:8px}
+  .note{max-width:720px}
+  .note h1{font-size:1.6em;font-weight:700;margin:0 0 .95rem;line-height:1.3}
+  .note h2{font-size:1.18em;font-weight:700;margin:1.25rem 0 .4rem}
+  .note h3{font-size:1.02em;font-weight:700;margin:1rem 0 .3rem}
+  .props{border:1px solid var(--line-2);border-radius:6px;padding:.3rem .1rem;margin:.2rem 0 1rem;font-size:12px}
+  .props .row{display:flex;gap:.6rem;padding:.2rem .55rem;border-bottom:1px solid #141414}
+  .props .row:last-child{border-bottom:none}
+  .props .k{width:132px;color:#8d8d8d;flex:0 0 auto;padding-right:.6rem;border-right:1px solid #1c1c1c;margin-right:.15rem}
+  .props .v{color:#e6e6e6}
+  .props .v code{background:#161616;border:1px solid #262626;border-radius:3px;padding:0 .3rem;font-family:"CQ Mono",monospace;font-size:11px;color:var(--accent)}
+  .tag{display:inline-block;background:var(--pill);color:#c9c9c9;border-radius:10px;padding:.05rem .5rem;font-size:10.5px;margin-right:.25rem}
+  .cb{list-style:none;display:flex;flex-direction:column;gap:.12rem}
+  .cb li{display:flex;gap:.45rem;font-size:13.5px;color:#e0e0e0}
+  .cb li .box{width:14px;height:14px;border:1px solid #4a4a4a;border-radius:3px;flex:0 0 auto;margin-top:2px;display:grid;place-items:center;font-size:10px;color:#000}
+  .cb li.done .box{background:var(--accent);border-color:var(--accent)}
+  .cb li.done span.t{color:#7d7d7d;text-decoration:line-through}
+  ul.mk{list-style:none;font-size:13.5px;color:#dcdcdc}
+  ul.mk li{position:relative;padding-left:1rem;margin:.12rem 0}
+  ul.mk li::before{content:"•";position:absolute;left:.2rem;color:#666}
+  a.wl{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(168,154,0,.35)}
+  .callout{border-radius:6px;border:1px solid rgba(var(--callout),.35);background:rgba(var(--callout),.08);
+           padding:.55rem .75rem;margin:.8rem 0;font-size:12.5px;color:#ded3ff}
+  .callout b{color:#efe8ff}
+  .callout .ic{margin-right:.35rem}
+  table{width:100%;border-collapse:collapse;font-size:12px;margin:.45rem 0 .9rem}
+  th{text-align:left;font-weight:700;color:#cfcfcf;padding:.3rem .45rem;border-bottom:1px solid #333}
+  td{padding:.3rem .45rem;border-bottom:1px solid #171717;color:#d6d6d6;vertical-align:top}
+  td.mut{color:#8d8d8d}
+  .st{display:inline-block;font-size:10.5px;padding:.05rem .4rem;border-radius:4px;background:#1b1b1b;color:#b9b9b9}
+  .st.ok{color:#a8d48a}.st.doing{color:#e0c46a}
+  .kv{display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;font-size:12.5px;color:#c9c9c9;margin:.15rem 0 .6rem}
+  .kv b{color:#fff;font-weight:700}
+  .bars{display:grid;grid-template-columns:1fr 1fr;gap:.1rem 1rem;font-size:12px;color:#c2c2c2;margin:.3rem 0 .5rem}
+  .bars em{color:var(--accent);font-style:normal}
+  .rightbar{width:170px;background:var(--bg-2);border-left:1px solid var(--line);padding:.5rem .3rem;overflow:hidden;flex:0 0 auto}
+  .rightbar div.item{font-size:11.5px;color:#9a9a9a;padding:.15rem .45rem;border-radius:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rightbar div.item.lvl2{padding-left:1rem;color:#848484}
+  .statusbar{height:26px;background:var(--bg-3);border-top:1px solid var(--line);display:flex;align-items:center;gap:1.1rem;
+             padding:0 .8rem;font-size:10.5px;color:#7a7a7a;flex:0 0 auto}
+  .statusbar .spacer{flex:1}
   .view{display:none}
   .view.on{display:block}
-  .win{background:#0b0b09;border:1px solid #24241e;border-radius:10px;overflow:hidden}
-  .win-bar{display:flex;align-items:center;gap:.5rem;padding:.5rem .8rem;border-bottom:1px solid #1e1e18;background:#0f0f0d}
-  .win-dots{display:flex;gap:.3rem}
-  .win-dots i{width:7px;height:7px;border-radius:50%;background:#2e2e28;display:block}
-  .win-title{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#8d8d80}
-  .win-body{padding:.85rem .95rem 1rem}
-  .doc-title{font-size:15px;color:#f0c040;font-weight:700;margin-bottom:.15rem}
-  .doc-sub{font-size:10.5px;color:#7d7d70;margin-bottom:.8rem}
-  .flags{display:flex;flex-wrap:wrap;gap:.35rem .9rem;font-size:10.5px;color:#b6b6a8;margin-bottom:.85rem}
-  .flags b{color:#ecece4;font-weight:400}
-  .flags .no{color:#6d6d62}
-  h4{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#c4ab00;margin:.9rem 0 .35rem;font-weight:700}
-  table{width:100%;border-collapse:collapse;font-size:10.5px}
-  th{text-align:left;color:#8d8d80;font-weight:400;padding:.28rem .4rem;border-bottom:1px solid #2a2a22;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase}
-  td{padding:.3rem .4rem;border-bottom:1px solid #1b1b15;color:#d4d4c8;vertical-align:top}
-  td.mut{color:#8d8d80}
-  .pill{display:inline-block;font-size:9px;padding:.08rem .4rem;border-radius:4px;border:1px solid #3a3a30;color:#c4ab00}
-  .pill.g{color:#9fd08a;border-color:#2f4a28}
-  .pill.y{color:#e0c46a;border-color:#4a4020}
-  .pill.r{color:#e08a7a;border-color:#4a2620}
-  .bars{display:grid;grid-template-columns:1fr 1fr;gap:.15rem .9rem;font-size:10.5px;margin-top:.3rem}
-  .bars span{color:#b6b6a8}
-  .bars em{color:#f0c040;font-style:normal}
-  .kpi{display:flex;flex-wrap:wrap;gap:1.4rem;margin:.2rem 0 .8rem}
-  .kpi div{display:flex;flex-direction:column}
-  .kpi b{font-size:16px;color:#f0c040;font-weight:700}
-  .kpi small{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#7d7d70}
-  ul.plain{list-style:none;font-size:10.5px;color:#c9c9bd}
-  ul.plain li{padding:.14rem 0 .14rem .9rem;position:relative}
-  ul.plain li::before{content:"·";position:absolute;left:.2rem;color:#8a7420}
-  .note{font-size:10px;color:#8d8d80;margin-top:.7rem;line-height:1.5}
-  .foot{display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;margin-top:.7rem;padding-top:.55rem;border-top:1px solid #1f1f1b;
-        font-size:9.5px;letter-spacing:.07em;color:#8d8d80;text-transform:uppercase}
-  .foot .hint{margin-left:auto;text-transform:none;letter-spacing:.02em;color:#6d6d62;font-size:10px}
-  @media all and (max-width:640px){ .bars{grid-template-columns:1fr} .foot .hint{margin-left:0;width:100%} }
+  @media all and (max-width:900px){
+    .rightbar{display:none}
+    .sidebar{width:150px}
+  }
+  @media all and (max-width:700px){
+    .app{height:560px;border-radius:0;border:none}
+    .sidebar,.ribbon{display:none}
+    .pane{padding:.9rem .9rem 1.4rem}
+    .bars{grid-template-columns:1fr}
+    .props .k{width:86px}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <span class="demo-badge"><i></i>Demo-Daten · Nordlicht Engineering · Montag 09.03.26</span>
-
-  <div class="tabs" role="tablist">
-    <button class="on" data-v="v1">📸 1 · Daily Note</button>
-    <button data-v="v2">🗂 2 · Task Index</button>
-    <button data-v="v3">📅 3 · Tagesplan</button>
-    <button data-v="v4">📊 4 · Tracking</button>
+<div class="app">
+  <div class="titlebar">
+    <span class="dots"><i></i><i></i><i></i></span>
+    <span class="vault">YellowVault — Obsidian</span>
+    <span class="spacer"></span>
+    <span class="win">demo vault · fictional data</span>
   </div>
 
-  <!-- 1 — DAILY NOTE -->
-  <section class="view on" id="v1">
-    <div class="win"><div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">09.03.26.md — Daily Note</span></div>
-      <div class="win-body">
-        <div class="doc-title">Montag, 09.03.26</div>
-        <div class="doc-sub">Nordlicht Engineering · Projekt P-204 · Werkstattbegehung</div>
-        <div class="flags">
-          <span>Laufen 🏃 <b>✓</b></span><span class="no">Fitnessstudio 💪 —</span><span>Deutsch 📖 <b>✓</b></span>
-          <span>Lesen 📕 <b>✓</b></span><span>Meditation 🧘 <b>✓</b></span><span>Tagebuch 📓 <b>✓</b></span><span>Planung 🪶 <b>✓</b></span>
-        </div>
-        <h4>Heute geänderte Anmerkungen</h4>
-        <ul class="plain">
-          <li>Modell P-204</li><li>Simulation P-204 — Abweichung 0,04 %</li><li>Fließbild Revision C</li>
-          <li>Kostenaufstellung P-204</li><li>Angebot Nordlicht — Phase 2</li><li>Vokabelkarten — Woche 10</li>
-        </ul>
-        <h4>PC Workflow — ActivityWatch</h4>
-        <div class="kpi">
-          <div><b>6h 12m</b><small>Bildschirmzeit</small></div>
-          <div><b>61 %</b><small>Fokus</small></div>
-          <div><b>4</b><small>Deep-Work-Blöcke ≥ 30 min</small></div>
-          <div><b>+38</b><small>Notizen erstellt</small></div>
-        </div>
-        <div class="bars">
-          <span>Obsidian <em>2h 44m</em></span><span>AspenHysys <em>1h 38m</em></span>
-          <span>Chrome <em>1h 12m</em></span><span>Teams <em>51m</em></span>
-          <span>Excel <em>34m</em></span><span>Telegram <em>22m</em></span>
-        </div>
-        <h4>Daily Metadata — 30-Minuten-Raster</h4>
-        <table>
-          <thead><tr><th>Uhr</th><th>PC · App</th><th>Notiz</th><th>Tasks Δ</th></tr></thead>
-          <tbody>
-            <tr><td>07:00</td><td>24m · Obsidian</td><td class="mut">Modell P-204</td><td>✏️2</td></tr>
-            <tr><td>08:00</td><td>27m · AspenHysys</td><td class="mut">Simulation P-204</td><td>✏️3</td></tr>
-            <tr><td>09:00</td><td>30m · Teams</td><td class="mut">Protokoll Woche 10</td><td>📄+1</td></tr>
-            <tr><td>11:00</td><td>26m · Obsidian</td><td class="mut">Fließbild Revision C</td><td>✏️5</td></tr>
-            <tr><td>15:00</td><td>28m · Teams</td><td class="mut">Terminnotiz 09.03.26</td><td>—</td></tr>
-          </tbody>
-        </table>
+  <div class="body">
+    <div class="ribbon">
+      <span class="on">▤</span><span>🔍</span><span>◈</span><span>⧉</span><span>⚙</span>
+    </div>
+
+    <div class="sidebar">
+      <div class="side-head">Files</div>
+      <div class="tree">
+        <div class="folder"><span class="chev">▾</span>00_CALENDAR</div>
+        <div class="ind active">09.03.26</div>
+        <div class="ind">Task Index</div>
+        <div class="folder"><span class="chev">▾</span>02_PROJECTS</div>
+        <div class="ind">P-204 — Model</div>
+        <div class="ind">P-204 — Simulation</div>
+        <div class="ind">P&amp;ID Revision C</div>
+        <div class="folder"><span class="chev">▸</span>03_GERMAN</div>
+        <div class="folder"><span class="chev">▸</span>04_FINANCE</div>
+        <div class="folder"><span class="chev">▸</span>05_REFERENCE</div>
+        <div class="ind">Trading — Tracking</div>
+        <div class="ind">RA — Day Plan</div>
       </div>
     </div>
-  </section>
 
-  <!-- 2 — TASK INDEX -->
-  <section class="view" id="v2">
-    <div class="win"><div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">Task Index.md</span></div>
-      <div class="win-body">
-        <div class="doc-title">🗂 Task Index</div>
-        <div class="doc-sub">Einzige Quelle der Wahrheit für offene Aufgaben · geschrieben von der Migration, gelesen von 4 Agenten</div>
-        <table>
-          <thead><tr><th>TSK</th><th>Aufgabe</th><th>Status</th><th>Erstellt</th><th>Dauer</th><th>Kommentar</th></tr></thead>
-          <tbody>
-            <tr><td>1041</td><td>Angebot Phase 2 an Nordlicht senden</td><td><span class="pill">⏲️ offen</span></td><td class="mut">09.03 (0d)</td><td class="mut">45m</td><td class="mut">Frist Fr 13.03</td></tr>
-            <tr><td>1043</td><td>Rechnung 2026-014 mahnen</td><td><span class="pill">⏲️ offen</span></td><td class="mut">02.03 (7d)</td><td class="mut">15m</td><td class="mut">3. Mahnstufe</td></tr>
-            <tr><td>1042</td><td>Prüfbericht WT-08 ablegen</td><td><span class="pill y">🐦‍🔥 läuft</span></td><td class="mut">06.03 (3d)</td><td class="mut">20m</td><td class="mut">2 von 3 Seiten</td></tr>
-            <tr><td>1038</td><td>Zertifikat Dichtheitsprüfung verlängern</td><td><span class="pill">⏲️ offen</span></td><td class="mut">24.02 (13d)</td><td class="mut">30m</td><td class="mut">TÜV bestätigt</td></tr>
-            <tr><td>1027</td><td>Wartungsplan Q2 erstellen</td><td><span class="pill">⏲️ offen</span></td><td class="mut">05.02 (32d)</td><td class="mut">40m</td><td class="mut">wartet auf Anlagenliste</td></tr>
-            <tr><td>1019</td><td>Prüfplan Q1 abzeichnen</td><td><span class="pill">⏲️ offen</span></td><td class="mut">15.01 (53d)</td><td class="mut">30m</td><td class="mut">QS-Freigabe</td></tr>
-            <tr><td>1035</td><td>Unterlagen Werkstoff 1.4571</td><td><span class="pill g">🏁 fertig</span></td><td class="mut">18.02 (19d)</td><td class="mut">1h 10m</td><td class="mut">abgeschlossen 06.03</td></tr>
-          </tbody>
-        </table>
-        <p class="note">Gruppen: 🔥 Sofort · ⏳ Dringend · 📋 Fertigstellen · 📌 Ausstehend · 📎 Zusätzlich. Die Daily Note trägt nur einen Zeiger — die Tabelle existiert genau einmal.</p>
+    <div class="main">
+      <div class="tabbar">
+        <button class="on" data-v="v1" data-w="412" data-c="2.684">09.03.26 <span class="x">✕</span></button>
+        <button data-v="v2" data-w="386" data-c="2.911">Task Index <span class="x">✕</span></button>
+        <button data-v="v3" data-w="503" data-c="3.402">RA — Day Plan <span class="x">✕</span></button>
+        <button data-v="v4" data-w="148" data-c="812">Tracking <span class="x">✕</span></button>
+      </div>
+
+      <div class="pane">
+        <section class="view on" id="v1">
+          <article class="note">
+            <h1>09.03.26</h1>
+            <div class="props">
+              <div class="row"><span class="k">Running</span><span class="v">true</span></div>
+              <div class="row"><span class="k">Gym</span><span class="v">false</span></div>
+              <div class="row"><span class="k">German</span><span class="v">true</span></div>
+              <div class="row"><span class="k">Reading</span><span class="v">true</span></div>
+              <div class="row"><span class="k">Meditation</span><span class="v">true</span></div>
+              <div class="row"><span class="k">Journal</span><span class="v">true</span></div>
+              <div class="row"><span class="k">Planning</span><span class="v">true</span></div>
+              <div class="row"><span class="k">Tags</span><span class="v"><span class="tag">daily</span><span class="tag">data-analytics</span></span></div>
+            </div>
+
+            <h3>Notes</h3>
+            <ul class="mk"><li><a class="wl">Quick notes</a></li><li><a class="wl">General ideas</a></li></ul>
+
+            <h3>Databanks</h3>
+            <ul class="mk"><li><a class="wl">German dictionary — Databank.base</a></li><li><a class="wl">Applications Databank.base</a></li></ul>
+
+            <h3>Changed today</h3>
+            <ul class="mk">
+              <li><a class="wl">Model P-204</a></li>
+              <li><a class="wl">Simulation P-204 — deviation 0.04 %</a></li>
+              <li><a class="wl">P&amp;ID Revision C</a></li>
+              <li><a class="wl">Cost breakdown P-204</a></li>
+              <li><a class="wl">Quote Northlight — Phase 2</a></li>
+              <li><a class="wl">Vocabulary cards — Week 10</a></li>
+            </ul>
+
+            <div class="callout"><span class="ic">ⓘ</span><b>What I'm doing</b> — the plan below is written by the agents: calendar first, then activity data, then my own dictation.</div>
+
+            <h3>PC Workflow — ActivityWatch</h3>
+            <div class="kv"><span>Screen time <b>6h 12m</b></span><span>Focus <b>61 %</b></span><span>Deep work <b>4 blocks ≥ 30 min</b></span><span>Notes created <b>+38</b></span></div>
+            <div class="bars">
+              <span>Obsidian <em>2h 44m</em></span><span>AspenHysys <em>1h 38m</em></span>
+              <span>Chrome <em>1h 12m</em></span><span>Teams <em>51m</em></span>
+              <span>Excel <em>34m</em></span><span>Telegram <em>22m</em></span>
+            </div>
+
+            <h3>Daily metadata</h3>
+            <table>
+              <thead><tr><th>Time</th><th>PC · app</th><th>Note</th><th>Tasks Δ</th></tr></thead>
+              <tbody>
+                <tr><td class="mut">07:00</td><td>24m · Obsidian</td><td class="mut">Model P-204</td><td>✏️ 2</td></tr>
+                <tr><td class="mut">08:00</td><td>27m · AspenHysys</td><td class="mut">Simulation P-204</td><td>✏️ 3</td></tr>
+                <tr><td class="mut">09:00</td><td>30m · Teams</td><td class="mut">Meeting notes — Week 10</td><td>📄 +1</td></tr>
+                <tr><td class="mut">11:00</td><td>26m · Obsidian</td><td class="mut">P&amp;ID Revision C</td><td>✏️ 5</td></tr>
+                <tr><td class="mut">15:00</td><td>28m · Teams</td><td class="mut">Meeting note 09.03.26</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </section>
+
+        <section class="view" id="v2">
+          <article class="note">
+            <h1>🗂 Task Index</h1>
+            <div class="callout"><span class="ic">ℹ</span><b>Single source of truth</b> for open tasks. Written by the migration job, read by four agents. The daily note only carries a two-line pointer — the table exists exactly once.</div>
+
+            <h2>🔥 Now</h2>
+            <table>
+              <thead><tr><th>TSK</th><th>Task</th><th>Status</th><th>Created</th><th>Time</th><th>Comment</th></tr></thead>
+              <tbody>
+                <tr><td>1041</td><td><a class="wl">Send Phase 2 quote to Northlight</a></td><td><span class="st">⏲️ open</span></td><td class="mut">09.03 (0d)</td><td class="mut">45m</td><td class="mut">due Fri 13.03</td></tr>
+                <tr><td>1043</td><td><a class="wl">Chase invoice 2026-014</a></td><td><span class="st">⏲️ open</span></td><td class="mut">02.03 (7d)</td><td class="mut">15m</td><td class="mut">3rd reminder stage</td></tr>
+              </tbody>
+            </table>
+
+            <h2>⏳ Urgent</h2>
+            <table>
+              <thead><tr><th>TSK</th><th>Task</th><th>Status</th><th>Created</th><th>Time</th><th>Comment</th></tr></thead>
+              <tbody>
+                <tr><td>1042</td><td><a class="wl">File inspection report WT-08</a></td><td><span class="st doing">🐦‍🔥 running</span></td><td class="mut">06.03 (3d)</td><td class="mut">20m</td><td class="mut">2 of 3 pages</td></tr>
+                <tr><td>1038</td><td><a class="wl">Renew pressure-test certificate</a></td><td><span class="st">⏲️ open</span></td><td class="mut">24.02 (13d)</td><td class="mut">30m</td><td class="mut">TÜV confirmed</td></tr>
+                <tr><td>1027</td><td><a class="wl">Create Q2 maintenance plan</a></td><td><span class="st">⏲️ open</span></td><td class="mut">05.02 (32d)</td><td class="mut">40m</td><td class="mut">waiting for asset list</td></tr>
+              </tbody>
+            </table>
+
+            <h2>📋 To finish</h2>
+            <table>
+              <thead><tr><th>TSK</th><th>Task</th><th>Status</th><th>Created</th><th>Time</th><th>Comment</th></tr></thead>
+              <tbody>
+                <tr><td>1019</td><td><a class="wl">Sign off Q1 inspection plan</a></td><td><span class="st">⏲️ open</span></td><td class="mut">15.01 (53d)</td><td class="mut">30m</td><td class="mut">QS approval</td></tr>
+                <tr><td>1035</td><td><a class="wl">Source material 1.4571 documents</a></td><td><span class="st ok">🏁 done</span></td><td class="mut">18.02 (19d)</td><td class="mut">1h 10m</td><td class="mut">closed 06.03</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </section>
+
+        <section class="view" id="v3">
+          <article class="note">
+            <h1>📅 Day plan — Monday 09.03.26</h1>
+            <div class="props">
+              <div class="row"><span class="k">Last updated</span><span class="v">09.03.26 17:36</span></div>
+              <div class="row"><span class="k">Model</span><span class="v"><code>deepseek-v4.1-flash</code></span></div>
+              <div class="row"><span class="k">Tags</span><span class="v"><span class="tag">plan</span><span class="tag">daily-plan</span></span></div>
+            </div>
+
+            <h2>Fixed appointments — from the calendar</h2>
+            <ul class="cb">
+              <li class="done"><span class="box">✓</span><span class="t">06:00–07:00 · Morning run (8 km)</span></li>
+              <li class="done"><span class="box">✓</span><span class="t">07:00–08:00 · Northlight workshop — plant walkdown</span></li>
+              <li class="done"><span class="box">✓</span><span class="t">09:00–09:30 · Team sync Week 10</span></li>
+              <li><span class="box"></span><span class="t">15:00–15:30 · Customer meeting — Phase 2 approval</span></li>
+            </ul>
+
+            <h2>Hourly plan</h2>
+            <table>
+              <thead><tr><th>Start → end</th><th>Activity</th><th>Notes touched</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td class="mut">7 → 7.5</td><td>Northlight workshop · plant walkdown</td><td class="mut">Asset register · Q1 plan</td><td><span class="st ok">done</span></td></tr>
+                <tr><td class="mut">8 → 8.5</td><td>Obsidian — process model P-204</td><td class="mut">Model P-204 · Mass balance</td><td><span class="st ok">done</span></td></tr>
+                <tr><td class="mut">9 → 9.5</td><td>Teams — team sync Week 10</td><td class="mut">Meeting notes Week 10</td><td><span class="st ok">done</span></td></tr>
+                <tr><td class="mut">10.5 → 11</td><td>HYSYS — simulation recalculated (0.04 %)</td><td class="mut">Simulation P-204</td><td><span class="st ok">done</span></td></tr>
+                <tr><td class="mut">12 → 12.5</td><td>Lunch (no PC signal)</td><td class="mut">—</td><td><span class="st">free</span></td></tr>
+                <tr><td class="mut">15 → 15.5</td><td>Teams — customer meeting Northlight</td><td class="mut">Meeting note 09.03.26</td><td><span class="st doing">running</span></td></tr>
+                <tr><td class="mut">16.5 → 17</td><td>Automation / sync (agents)</td><td class="mut">Activity Hub</td><td><span class="st ok">done</span></td></tr>
+              </tbody>
+            </table>
+
+            <h2>History</h2>
+            <ul class="mk">
+              <li><span class="mut">06:40 —</span> Rebuild for the new day, blank as of 06:00. Only the fixed calendar appointments pre-filled.</li>
+              <li><span class="mut">17:36 —</span> Afternoon filled from activity data: 12:30 Excel · 13:30 quote draft · 15:00 customer meeting. No new dictation.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="view" id="v4">
+          <article class="note">
+            <h1>📊 Exercise — Tracking</h1>
+            <div class="callout"><span class="ic">ℹ</span><b>Canonical tracking table.</b> Written every evening ~21:00 by the tracking agent from calendar and activity data. Streaks are the early warning — one missed day is noise, four in a row is a pattern.</div>
+
+            <h2>Legend</h2>
+            <ul class="mk"><li>0–3 days: no marker</li><li>4–6 days: ⚠️ yellow</li><li>7+ days: 🔴 red + bold</li></ul>
+
+            <h2>Table</h2>
+            <table>
+              <thead><tr><th>Date</th><th>Running 🏃</th><th>Gym 💪</th><th>Days without sport</th></tr></thead>
+              <tbody>
+                <tr><td>01.03.26</td><td>—</td><td>✓</td><td>0 💪</td></tr>
+                <tr><td>02.03.26</td><td>✓</td><td>—</td><td>0 🏃</td></tr>
+                <tr><td>03.03.26</td><td>—</td><td>—</td><td>1</td></tr>
+                <tr><td>04.03.26</td><td>✓</td><td>—</td><td>0 🏃</td></tr>
+                <tr><td>05.03.26</td><td>—</td><td>✓</td><td>0 💪</td></tr>
+                <tr><td>06.03.26</td><td>✓</td><td>—</td><td>0 🏃</td></tr>
+                <tr><td>07.03.26</td><td>—</td><td>—</td><td>1</td></tr>
+                <tr><td>08.03.26</td><td>✓</td><td>✓</td><td>0 🏃</td></tr>
+                <tr><td>09.03.26</td><td>✓</td><td>—</td><td>0 🏃</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </section>
       </div>
     </div>
-  </section>
 
-  <!-- 3 — TAGESPLAN -->
-  <section class="view" id="v3">
-    <div class="win"><div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">RA — Umsetzungsplan.md</span></div>
-      <div class="win-body">
-        <div class="doc-title">📅 Tagesplan — Montag 09.03.26</div>
-        <div class="doc-sub">zuletzt aktualisiert 17:36 · jeder Block hat eine exakte Uhrzeit</div>
-        <h4>Feste Termine aus dem Kalender</h4>
-        <ul class="plain">
-          <li>06:00–07:00 Lauf am Morgen · 8 km</li>
-          <li>07:00–08:00 Werkstatt Nordlicht — Anlagenbegehung</li>
-          <li>09:00–09:30 Team-Sync Woche 10</li>
-          <li>15:00–15:30 Kundentermin Nordlicht — Freigabe Phase 2</li>
-        </ul>
-        <h4>Tagesplan nach Stunden</h4>
-        <table>
-          <thead><tr><th>Start → Ende</th><th>Aktivität</th><th>Notizen (AW)</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td class="mut">7 → 7.5</td><td>Werkstatt Nordlicht · Anlagenbegehung</td><td class="mut">Anlagenregister · Prüfplan Q1</td><td><span class="pill g">gemacht</span></td></tr>
-            <tr><td class="mut">8 → 8.5</td><td>Obsidian — Prozessmodell P-204</td><td class="mut">Modell P-204 · Massenbilanz</td><td><span class="pill g">gemacht</span></td></tr>
-            <tr><td class="mut">9 → 9.5</td><td>Teams — Team-Sync Woche 10</td><td class="mut">Protokoll Woche 10</td><td><span class="pill g">gemacht</span></td></tr>
-            <tr><td class="mut">10.5 → 11</td><td>HYSYS — Simulation neu gerechnet (0,04 %)</td><td class="mut">Simulation P-204</td><td><span class="pill g">gemacht</span></td></tr>
-            <tr><td class="mut">12 → 12.5</td><td>Mittagspause (kein PC-Signal)</td><td class="mut">—</td><td><span class="pill">frei</span></td></tr>
-            <tr><td class="mut">15 → 15.5</td><td>Teams — Kundentermin Nordlicht</td><td class="mut">Terminnotiz 09.03.26</td><td><span class="pill y">im Gange</span></td></tr>
-            <tr><td class="mut">16.5 → 17</td><td>Automatisierung/Sync (Agenten)</td><td class="mut">Activity Hub</td><td><span class="pill g">gemacht</span></td></tr>
-          </tbody>
-        </table>
-        <h4>Historial</h4>
-        <ul class="plain">
-          <li>06:40 — Rebuild für den neuen Tag, Tabula rasa ab 06:00.</li>
-          <li>17:36 — Nachmittag nach ActivityWatch gefüllt · 12:30 Excel · 13:30 Angebot · 15:00 Kundentermin.</li>
-        </ul>
+    <div class="rightbar">
+      <div class="side-head">Outline</div>
+      <div id="outline">
+        <div class="item">Notes</div>
+        <div class="item">Databanks</div>
+        <div class="item">Changed today</div>
+        <div class="item">PC Workflow</div>
+        <div class="item lvl2">Daily metadata</div>
       </div>
+      <div class="side-head">Backlinks</div>
+      <div class="item">09.03.26</div>
+      <div class="item">Week 10</div>
+      <div class="item">P-204</div>
     </div>
-  </section>
+  </div>
 
-  <!-- 4 — TRACKING -->
-  <section class="view" id="v4">
-    <div class="win"><div class="win-bar"><span class="win-dots"><i></i><i></i><i></i></span><span class="win-title">Ejercicio — Tracking.md</span></div>
-      <div class="win-body">
-        <div class="doc-title">📊 Ejercicio — Tracking</div>
-        <div class="doc-sub">täglich ~21:00 vom Tracking-Agenten geschrieben · Streaks als Frühwarnung</div>
-        <h4>Legende</h4>
-        <div class="flags"><span>0–3 Tage <b>kein Emoji</b></span><span>4–6 Tage <b>⚠️ gelb</b></span><span>7+ Tage <b>🔴 rot</b></span></div>
-        <table>
-          <thead><tr><th>Fecha</th><th>Laufen 🏃</th><th>Fitnessstudio 💪</th><th>Tage ohne Sport</th></tr></thead>
-          <tbody>
-            <tr><td>01.03.26</td><td>—</td><td>✓</td><td>0 💪</td></tr>
-            <tr><td>02.03.26</td><td>✓</td><td>—</td><td>0 🏃</td></tr>
-            <tr><td>03.03.26</td><td>—</td><td>—</td><td>1</td></tr>
-            <tr><td>04.03.26</td><td>✓</td><td>—</td><td>0 🏃</td></tr>
-            <tr><td>05.03.26</td><td>—</td><td>✓</td><td>0 💪</td></tr>
-            <tr><td>06.03.26</td><td>✓</td><td>—</td><td>0 🏃</td></tr>
-            <tr><td>07.03.26</td><td>—</td><td>—</td><td>1</td></tr>
-            <tr><td>08.03.26</td><td>✓</td><td>✓</td><td>0 🏃</td></tr>
-            <tr><td>09.03.26</td><td>✓</td><td>—</td><td>0 🏃</td></tr>
-          </tbody>
-        </table>
-        <p class="note">Der Agent schreibt die Zeile jeden Abend aus Kalender + Aktivität, berechnet den Streak und markiert erst ab 4 Tagen — dieselbe Tabelle, die ein Coach lesen würde.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="foot">
-    <span>Vistas demo · datos ficticios</span>
-    <span class="hint">Pestañas: cada vista es una copia 1:1 de la vista real · solo los datos son inventados</span>
+  <div class="statusbar">
+    <span id="st-note">09.03.26</span>
+    <span id="st-w">412 words</span>
+    <span id="st-c">2.684 characters</span>
+    <span class="spacer"></span>
+    <span>Reading view</span>
+    <span>YellowVault</span>
   </div>
 </div>
+
 <script>
 (function () {
-  function contentHeight() {
-    var bottom = 0;
-    for (var el = document.body.firstElementChild; el; el = el.nextElementSibling) {
-      var r = el.getBoundingClientRect();
-      if (r.height) bottom = Math.max(bottom, r.bottom);
-    }
-    bottom += (parseFloat(getComputedStyle(document.body).paddingBottom) || 0);
-    return Math.ceil(bottom);
-  }
-  function fitParent() {
-    try {
-      var h = contentHeight();
-      if (!h || h < 120) return;
-      var fe = window.frameElement;
-      if (!fe) return;
-      if (Math.abs(parseInt(fe.style.height, 10) - h) > 1) fe.style.height = h + "px";
-    } catch (e) {}
-  }
-  var btns = [].slice.call(document.querySelectorAll(".tabs button"));
-  btns.forEach(function (b) {
+  var outlines = {
+    v1: ["Notes", "Databanks", "Changed today", "PC Workflow", "Daily metadata"],
+    v2: ["Now", "Urgent", "To finish"],
+    v3: ["Fixed appointments", "Hourly plan", "History"],
+    v4: ["Legend", "Table"]
+  };
+  var names = { v1: "09.03.26", v2: "Task Index", v3: "RA — Day Plan", v4: "Tracking" };
+  var tabs = [].slice.call(document.querySelectorAll(".tabbar button"));
+  tabs.forEach(function (b) {
     b.addEventListener("click", function () {
-      btns.forEach(function (x) { x.classList.remove("on"); });
+      tabs.forEach(function (x) { x.classList.remove("on"); });
       b.classList.add("on");
+      var id = b.dataset.v;
       [].slice.call(document.querySelectorAll(".view")).forEach(function (v) {
-        v.classList.toggle("on", v.id === b.dataset.v);
+        v.classList.toggle("on", v.id === id);
       });
-      setTimeout(fitParent, 30);
+      var ol = document.getElementById("outline");
+      ol.innerHTML = (outlines[id] || []).map(function (t, i) {
+        return '<div class="item' + (i > 2 ? " lvl2" : "") + '">' + t + "</div>";
+      }).join("");
+      document.getElementById("st-note").textContent = names[id] || "";
+      document.getElementById("st-w").textContent = b.dataset.w + " words";
+      document.getElementById("st-c").textContent = b.dataset.c + " characters";
+      document.querySelector(".pane").scrollTop = 0;
     });
   });
-  window.addEventListener("load", fitParent);
-  window.addEventListener("resize", fitParent);
-  if (window.ResizeObserver) new ResizeObserver(fitParent).observe(document.documentElement);
-  setTimeout(fitParent, 200);
-  setTimeout(fitParent, 700);
 })();
 </script>
 </body>

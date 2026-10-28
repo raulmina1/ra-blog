@@ -50,9 +50,9 @@ Everything on this page runs on this machine **before** it is offered: **107 age
 
 ## What it looks like — the four views you open every day
 
-Promotional material, not a mock-up: the panels below are **1:1 copies of the real views** (same headings, same columns, same callouts, same markers). Only the data is invented — a fictional company, **Nordlicht Engineering**, and a fictional day, **Monday 09.03.26**.
+Promotional material, not a mock-up: the window below is **the vault as I see it** — same theme, same file tree, same tabs, same reading view. Only the vault and the data are invented: a fictional company, **Northlight Engineering**, and a fictional day, **Monday 09.03.26**.
 
-<div class="ra-diagram"><div class="ra-diagram-head"><span class="ra-overline">Organization System &middot; Demo Views</span><h3>Daily note · task index · day plan · tracking</h3><p>Switch between the four views. Each one is a working surface an agent writes into — not a template.</p></div><iframe src="/static/mental-maps/system-views.html" style="width:100%;height:900px;border:0;background:#000;display:block" title="Organization system — demo views"></iframe><div class="ra-diagram-foot"><span>4 views</span><span>demo data</span><span>written by agents</span><span>screenshot-ready</span></div></div>
+<div class="ra-diagram"><div class="ra-diagram-head"><span class="ra-overline">Organization System &middot; Demo Vault</span><h3>The four notes, as they open in Obsidian</h3><p>Same theme (Vanilla AMOLED, gold accent), same panels, same tab bar. Switch tabs like you would in the app — only the vault and the data are fictional.</p></div><iframe src="/static/mental-maps/system-views.html" style="width:100%;height:640px;border:0;background:#000;display:block" title="Obsidian — organization system demo views"></iframe><div class="ra-diagram-foot"><span>4 notes</span><span>Obsidian reading view</span><span>demo data</span><span>screenshot-ready</span></div></div>
 
 | View | What it proves |
 |---|---|
