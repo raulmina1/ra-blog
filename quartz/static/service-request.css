@@ -6,13 +6,13 @@
   --sr-gold: #d9c400;
   --sr-gold-dim: #a89a00;
   --sr-ink: #f3f1e7;
-  --sr-muted: #a7a292;
+  --sr-muted: #b8b2a0;
   --sr-panel: #1b1a13;
   --sr-panel-2: #211f16;
   --sr-line: rgba(217, 196, 0, 0.18);
   --sr-line-soft: rgba(255, 255, 255, 0.08);
   margin: 8px 0 40px;
-  padding: 34px 30px 40px;
+  padding: 40px 36px 46px;
   border-radius: 20px;
   border: 1px solid var(--sr-line);
   background:
@@ -25,7 +25,7 @@
   line-height: 1.6;
 }
 
-.sr-shell a { color: var(--sr-gold); text-decoration: none; border-bottom: 1px solid rgba(217, 196, 0, 0.35); }
+.sr-shell a { color: #f2d900; text-decoration: none; border-bottom: 1px solid rgba(217, 196, 0, 0.35); }
 .sr-shell a:hover { border-bottom-color: var(--sr-gold); }
 
 .sr-brand {
@@ -51,14 +51,14 @@
   background-clip: text;
   color: transparent;
 }
-.sr-lead { margin: 0 0 26px; color: var(--sr-muted); max-width: 62ch; }
+.sr-lead { margin: 0 0 30px; color: #cdc7b3; max-width: 62ch; }
 
 .sr-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 0 0 30px; }
 .sr-step {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
   border: 1px solid var(--sr-line-soft);
   border-radius: 12px;
-  padding: 14px 14px 16px;
+  padding: 17px 17px 19px;
 }
 .sr-step .n {
   display: inline-flex;
@@ -74,9 +74,9 @@
   margin-bottom: 9px;
 }
 .sr-step strong { display: block; font-size: 13.5px; letter-spacing: 0.01em; margin-bottom: 3px; }
-.sr-step p { margin: 0; font-size: 12.5px; color: var(--sr-muted); line-height: 1.45; }
+.sr-step p { margin: 0; font-size: 12.5px; color: #c4beaa; line-height: 1.5; }
 
-.sr-section { margin: 0 0 26px; }
+.sr-section { margin: 0 0 34px; }
 .sr-section > .sr-legend {
   display: flex;
   align-items: baseline;
@@ -101,7 +101,7 @@
 
 .sr-field label { font-size: 12.5px; font-weight: 600; color: #ded9c4; letter-spacing: 0.02em; }
 .sr-field label .req { color: var(--sr-gold); }
-.sr-field .hint { font-size: 12px; color: var(--sr-muted); }
+.sr-field .hint { font-size: 12.5px; color: #c8c2ad; line-height: 1.5; }
 
 .sr-shell input[type="text"],
 .sr-shell input[type="email"],
@@ -143,24 +143,24 @@
 
 /* service code */
 .sr-code-wrap {
-  border: 1px solid rgba(217, 196, 0, 0.34);
-  background: linear-gradient(180deg, rgba(217, 196, 0, 0.07), rgba(217, 196, 0, 0.02));
-  border-radius: 14px;
-  padding: 16px 16px 18px;
+  border-left: 2px solid rgba(217, 196, 0, 0.55);
+  background: linear-gradient(90deg, rgba(217, 196, 0, 0.06), rgba(217, 196, 0, 0) 65%);
+  border-radius: 0 12px 12px 0;
+  padding: 14px 0 16px 18px;
 }
 .sr-shell input#sr_code {
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-  font-size: 22px;
-  letter-spacing: 0.22em;
+  font-size: 21px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  text-align: center;
-  padding: 14px 12px;
-  border-color: rgba(217, 196, 0, 0.45);
+  text-align: left;
+  padding: 14px 16px;
+  border-color: rgba(217, 196, 0, 0.5);
   background: #14130c;
   color: #fff8c9;
 }
 .sr-shell input#sr_code::placeholder { letter-spacing: 0.18em; color: #5f5a4a; }
-.sr-code-wrap .hint { margin: 8px 0 0; text-align: center; }
+.sr-code-wrap .hint { margin: 9px 0 0; text-align: left; max-width: 62ch; }
 .sr-code-wrap .hint b { color: var(--sr-gold); font-family: ui-monospace, Consolas, monospace; letter-spacing: 0.08em; }
 
 .sr-consent { display: flex; gap: 11px; align-items: flex-start; margin: 4px 0 0; }
@@ -168,7 +168,7 @@
   width: 18px; height: 18px; margin-top: 2px; accent-color: var(--sr-gold);
   flex: 0 0 auto; cursor: pointer;
 }
-.sr-consent span { font-size: 13px; color: var(--sr-muted); }
+.sr-consent span { font-size: 13px; color: #cdc7b3; }
 
 .sr-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 26px; }
 .sr-btn {
@@ -196,7 +196,7 @@
 }
 .sr-btn-ghost:hover { background: rgba(217, 196, 0, 0.08); }
 
-.sr-status { margin-top: 14px; font-size: 13.5px; min-height: 20px; color: var(--sr-muted); }
+.sr-status { margin-top: 14px; font-size: 13.5px; min-height: 20px; color: #b8b2a0; }
 .sr-status.ok { color: #86d98a; }
 .sr-status.warn { color: #f0b34a; }
 
@@ -216,11 +216,11 @@
 }
 
 .sr-foot {
-  margin-top: 34px;
+  margin-top: 38px;
   padding-top: 18px;
   border-top: 1px solid var(--sr-line-soft);
   font-size: 12.5px;
-  color: var(--sr-muted);
+  color: #b8b2a0;
   display: flex;
   flex-wrap: wrap;
   gap: 8px 22px;
