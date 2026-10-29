@@ -63,11 +63,11 @@ Five years of process, mechanical and thermal engineering — oil &amp; gas and 
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-10-28">
+<a class="home-card internal" href="./Daily/2026-10-29">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Brent settles at &#36;113.88 as the war premium leaks — but…</span>
-  <span class="home-card-desc">refining and freight costs, plus diesel-export demand, are the binding constraints now.</span>
-  <span class="home-card-meta">28 Oct 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Brent settles at &#36;115.32 as Washington briefs Gulf allies on…</span>
+  <span class="home-card-desc">the number that matters is how far actual output sits below quota, and that is a Hormuz question, not a Vienna one.</span>
+  <span class="home-card-meta">29 Oct 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

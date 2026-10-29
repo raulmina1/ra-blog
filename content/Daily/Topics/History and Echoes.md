@@ -25,6 +25,7 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 The reporting keeps anchoring today to a specific past moment ("since 2008", "lowest since 2016"). Each row is an anchor the source chose itself, quoted, not interpreted.
 
+- **2026-10-29** — Its highest since June 2023, and the French equivalent hit a near two-year high of €122.50
 - **2026-10-28** — The lowest since November 2023
 - **2026-10-28** — Global visible inventories are at multi-year lows after roughly 500m barrels drawn since February, and government stock releases are largely finished
 - **2026-10-26** — Highest since December 2022
@@ -43,4 +44,4 @@ The reporting keeps anchoring today to a specific past moment ("since 2008", "lo
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-28|28 Oct 2026]] | 2 dated precedents quoted today |
+| [[Daily/2026-10-29|29 Oct 2026]] | 1 dated precedents quoted today |

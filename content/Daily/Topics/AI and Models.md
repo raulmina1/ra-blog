@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-28|28 Oct 2026]] | Parents sue OpenAI over GPT-4o and a seizure-medication taper |
+| [[Daily/2026-10-29|29 Oct 2026]] | The buildout's cash-flow crossover is now in the accounts: Alphabet's debt up 479 % in a year |

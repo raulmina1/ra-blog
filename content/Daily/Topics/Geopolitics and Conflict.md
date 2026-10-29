@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-28|28 Oct 2026]] | Khamenei sets terms, Oman proposes a Gulf non-aggression pact, and UBS lifts its Brent forecast |
+| [[Daily/2026-10-29|29 Oct 2026]] | WSJ: Washington tells Gulf allies to prepare for a short, intense campaign — after the midterms |
