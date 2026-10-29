@@ -46,7 +46,7 @@ Everything on this page runs on this machine **before** it is offered: **107 age
 
 ## The Complete Diagram
 
-<div class="ra-diagram"><div class="ra-diagram-head"><span class="ra-overline">Agent Ecosystem &middot; One-Pager</span><h3>Anatomy of one agent — from trigger to output</h3><p>Six layers, every agent. Interactive: drag to pan, scroll or pinch to zoom, double-click to reset.</p></div><iframe src="/static/mental-maps/agent-ecosystem.html" style="width:100%;height:900px;border:0;background:#000;display:block" title="Agent ecosystem architecture"></iframe><div class="ra-diagram-foot"><span>4 trigger types</span><span>51.811 triples in context</span><span>14.180 RAG chunks</span><span>144 scheduled runs</span></div></div>
+<div class="ra-diagram"><div class="ra-diagram-head"><span class="ra-overline">Agent Anatomy &middot; One-Pager</span><h3>Anatomy of one agent — six layers, one loop</h3><p>Every agent in the fleet follows the same path, from the trigger that wakes it to the note it leaves behind.</p></div><iframe src="/static/mental-maps/agent-anatomy.html" style="width:100%;height:720px;border:0;background:#000;display:block" title="Agent anatomy — six layers"></iframe><div class="ra-diagram-foot"><span>6 layers</span><span>3 trigger types</span><span>51.811 triples in context</span><span>144 scheduled runs</span></div></div>
 
 ## The six layers
 
