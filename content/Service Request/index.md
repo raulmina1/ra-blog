@@ -36,7 +36,7 @@ semantic_class: note
       <div class="sr-field">
         <label for="sr_code">Your service code <span class="req">*</span></label>
         <input id="sr_code" type="text" inputmode="text" autocomplete="off" spellcheck="false" maxlength="9" placeholder="RA-000000" required>
-        <p class="hint">Format <b>RA-123456</b>. You receive it with your first inquiry. No code yet? Write to <a href="mailto:raul.mina1@outlook.com?subject=Service%20code%20request">raul.mina1@outlook.com</a> and you get one within 24 hours.</p>
+        <p class="hint">Format <b>RA-123456</b>.<span id="sr_code_state" class="sr-code-state"></span> You receive it with your first inquiry. No code yet? Write to <a href="mailto:raul.mina1@outlook.com?subject=Service%20code%20request">raul.mina1@outlook.com</a> and you get one within 24 hours.</p>
       </div>
     </div>
   </section>

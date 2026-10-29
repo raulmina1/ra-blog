@@ -71,6 +71,10 @@
     var raw = (c.value || "").toUpperCase().replace(/\s+/g, "");
     if (raw && raw.indexOf("-") < 0 && /^RA[0-9]{6}$/.test(raw)) raw = raw.slice(0, 2) + "-" + raw.slice(2);
     c.value = raw;
+    var ok = CODE_RE.test(raw);
+    c.classList.toggle("ok", ok);
+    var s = el("sr_code_state");
+    if (s) s.textContent = ok ? "✓ valid" : "";
   }
 
   window.srSend = function () {
