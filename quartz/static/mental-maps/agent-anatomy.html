@@ -12,8 +12,8 @@
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg);color:var(--txt);
     font-family:"MADE Tommy",system-ui,-apple-system,"Segoe UI",sans-serif}
-  .wrap{padding:6px 10px 0}
-  svg{display:block;width:100%;height:auto}
+  .wrap{padding:6px 10px 0;overflow-x:auto}
+  svg{display:block;width:100%;height:auto;min-width:900px}
   .foot{display:flex;gap:18px;align-items:center;flex-wrap:wrap;
     padding:6px 6px 10px;font-size:11px;color:var(--sub)}
   .foot i{display:inline-block;width:22px;height:0;border-top:2px solid var(--gold);
@@ -160,14 +160,19 @@
   <span style="color:#5f5f55">six layers · one loop · no agent names</span>
 </div>
 <script>
+/* keep the hosting iframe exactly as tall as the diagram (same-origin) */
 (function () {
-  function report() {
-    var h = document.body.scrollHeight;
-    try { parent.postMessage({ type: 'ra-diagram-height', height: h }, '*'); } catch (e) {}
+  function sync() {
+    var fe = window.frameElement;
+    if (!fe) return;
+    var h = Math.ceil(document.body.getBoundingClientRect().height);
+    if (h && Math.abs(parseInt(fe.style.height || 0, 10) - h) > 2) fe.style.height = h + 'px';
   }
-  window.addEventListener('load', report);
-  window.addEventListener('resize', report);
-  setTimeout(report, 250);
+  window.addEventListener('load', sync);
+  window.addEventListener('resize', sync);
+  if (window.ResizeObserver) new ResizeObserver(sync).observe(document.body);
+  setTimeout(sync, 200);
+  setTimeout(sync, 800);
 })();
 </script>
 </body>
