@@ -66,34 +66,41 @@ mermaid.initialize({
 <div class="mermaid-container"><pre class="mermaid">
 flowchart TB
     subgraph S0["01 · Trigger"]
-    CH["💬 Chat / Telegram"]
-    CR["⏱ Cron · 144 Jobs"]
+    direction LR
+    CH["💬 Chat<br/>CLI · Telegram"]
+    CR["⏱ Scheduler<br/>144 jobs"]
+    HK["📥 File hook<br/>run_prompt"]
     end
 
     subgraph S1["02 · Skill"]
-    SK["SKILL.md<br/>Rolle · Workflow · Guardrails"]
-    MO["Modell-Routing<br/>lokal ↔ Cloud"]
+    SK["SKILL.md<br/>role · workflow · rules"]
+    MR["Model routing<br/>local ↔ cloud"]
     end
 
-    subgraph S2["03 · Kontext"]
-    VT[("Vault<br/>4.063 Notizen")]
-    KG[("Graph<br/>51.811 Triples")]
-    RG[("RAG<br/>14.180 Chunks")]
+    subgraph S2["03 · Context"]
+    direction LR
+    VT[("Vault<br/>4.063 notes")]
+    KG[("Graph<br/>51.811 triples")]
+    RG[("RAG<br/>14.180 chunks")]
     end
 
-    subgraph S3["04 · Ausführung"]
-    TL["Tools<br/>Dateien · Shell · APIs"]
-    GR{"Guardrails<br/>Privacy · GO"}
+    subgraph S3["04 · Run"]
+    direction LR
+    TL["Tools<br/>files · shell · APIs"]
+    GR{"Gate<br/>privacy · GO · scope"}
     end
 
     subgraph S4["05 · Output"]
-    NT["Vault-Notiz"]
+    direction LR
+    NT["Vault note<br/>frontmatter · links"]
     PUB["Telegram · Blog<br/>WhatsApp · Anki"]
     end
 
-    subgraph S5["06 · Betrieb"]
-    OPS["Cron · Healer<br/>Watchdogs"]
-    BKP["Backup<br/>Health-Checks"]
+    subgraph S5["06 · Operations"]
+    direction LR
+    OPS["Scheduler<br/>healers · watchdogs"]
+    LOG["Logs<br/>metrics · alerts"]
+    BKP["Backup<br/>health checks"]
     end
 
     S0 ~~~ S1
@@ -104,34 +111,36 @@ flowchart TB
 
     CH --> SK
     CR --> SK
-    SK --> MO
+    HK --> SK
+    SK --> MR
     SK --> VT
     SK --> KG
     SK --> RG
-    SK --> TL
+    MR --> TL
     TL --> GR
     GR -->|pass| NT
     GR -->|pass| PUB
-    NT -.-> VT
-    NT -.-> KG
-    NT -.-> RG
-    OPS -.-> CR
-    BKP -.-> KG
+    NT -.->|re-index| VT
+    NT -.->|re-index| KG
+    NT -.->|re-index| RG
+    OPS -.->|wake up| CR
+    LOG -.->|red alert| PUB
+    BKP -.->|restore| KG
 
     classDef layer fill:#0b0b09,stroke:#332f12,stroke-width:1px,color:#f5f5f5
     classDef step fill:#141412,stroke:#3a3a30,stroke-width:1px,color:#ecece4
     classDef store fill:#141412,stroke:#8a7420,stroke-width:1.4px,color:#f0c040
     classDef hub fill:#1b1a10,stroke:#c4ab00,stroke-width:2px,color:#ffffff
-    class CH,CR,MO,TL,PUB,OPS,BKP step
+    class CH,CR,HK,MR,TL,PUB,OPS,LOG,BKP step
     class VT,KG,RG store
-    class SK,GR hub
+    class SK,GR,NT hub
 
 </pre></div>
 <div class="diagram-foot">
-  <span><i></i>Datenfluss</span>
-  <span><i class="dash"></i>Rückkopplung / Betrieb</span>
-  <button class="diagram-zoom" type="button" aria-label="Diagramm vergrößern">⛶ Größer</button>
-  <span class="hint">Ziehen · Mausrad / Pinch = Zoom · Doppelklick = zurück</span>
+  <span><i></i>Data flow</span>
+  <span><i class="dash"></i>Feedback / operations</span>
+  <button class="diagram-zoom" type="button" aria-label="Enlarge diagram">⛶ Larger</button>
+  <span class="hint">Drag · wheel / pinch = zoom · double-click = reset</span>
 </div>
 <script>
 /* Pan & zoom for the Mermaid SVG (wheel/pinch = zoom, drag = pan, dblclick = reset)

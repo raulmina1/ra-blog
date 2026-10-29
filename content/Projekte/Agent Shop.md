@@ -142,65 +142,185 @@ Everything on this page runs on this machine **before** it is offered: **107 age
 
 ## What is in the catalog
 
-These are agents that already run here — grouped by the job they replace, not by technology.
+The complete fleet — every agent and skill that runs on this machine, grouped by the job it replaces. **107 skills in total**, 18 of them active every day.
 
 <div class="ra-rows">
 
 <div class="ra-row">
-<div class="ra-row-head"><span class="ra-ic">🇩🇪</span><h3>German learning</h3><span class="ra-meta">7 agents · ~734 cards generated</span></div>
-<p>From a photo of a class note to a finished Anki deck — plus a tutor that corrects what I write and answers with audio.</p>
-<div class="ra-box"><ul>
-<li><strong>The deck builders:</strong> Wörter-Scout (fills empty vocabulary stubs with gender, plural, conjugations, examples) · Klodi (VHS class note → 8 Anki cards) · Kasun (filters and rewrites a whole lesson note) · Kontext B2 drill (daily exam drill with corrections, not answers).</li>
-<li><strong>The correctors:</strong> Marthyna (written German, Spanish, English + TTS audio) · Kendrik (a German letter explained sentence by sentence for a B1 reader) · handwriting OCR (photo → structured text, with a verification pass).</li>
+<div class="ra-row-head"><span class="ra-ic">🧠</span><h3>Life, coaching and the daily rhythm</h3><span class="ra-meta">23 agents</span></div>
+<p>The people layer: coaching, health, calendar, tasks and the daily plan.</p>
+<div class="ra-box ra-box-list"><ul>
+<li><strong>Kio</strong> — life coach, scans open items, prioritises, unblocks</li>
+<li><strong>Lebens-Coach</strong> — the long-horizon coach behind Kio</li>
+<li><strong>Frank</strong> — career psychologist, decisions read through your values</li>
+<li><strong>RA-Mirror</strong> — second perspective on the day, written at night</li>
+<li><strong>Manhattan</strong> — audits contradictions and cognitive friction in the log</li>
+<li><strong>Simara</strong> — game master over the real vault content</li>
+<li><strong>Chila</strong> — relationship archivist for 04_LEBEN/02_LEUTE</li>
+<li><strong>Caballo</strong> — nutrition coach with Strava data, gain weight</li>
+<li><strong>Ernaehrungs-Coach</strong> — eating habits and meal structure</li>
+<li><strong>Leonardo</strong> — responsible tracking of microdosing, with limits</li>
+<li><strong>Leona Household Finances</strong> — rent, utilities and Wellhub owed monthly</li>
+<li><strong>Health Records</strong> — the clinical history note, kept current</li>
+<li><strong>Ejercicio Tracking</strong> — activity files → weekly training numbers</li>
+<li><strong>Metrics Dashboard</strong> — activity, PC use, calendar and tasks in one view</li>
+<li><strong>Amparo</strong> — calendar capture and routing, agenda, events, notes</li>
+<li><strong>Calendario Solar</strong> — daily notes in 10_CALENDAR, events routed</li>
+<li><strong>Umsetzungsplan</strong> — rebuilds the daily execution plan</li>
+<li><strong>Dexter</strong> — restructures pending tasks into a clean shape</li>
+<li><strong>Atum</strong> — turns one complex task into a step-by-step plan</li>
+<li><strong>Alex</strong> — companion agent and router between the others</li>
+<li><strong>Diego</strong> — messenger between Dexter and Marthyna</li>
+<li><strong>Voice Dictation Decode</strong> — cleans up dictated messages before they are used</li>
+<li><strong>Mera v2</strong> — business-idea analysis and code critique</li>
 </ul></div>
 </div>
 
 <div class="ra-row">
-<div class="ra-row-head"><span class="ra-ic">💼</span><h3>Career and applications</h3><span class="ra-meta">5 agents · CV, Anschreiben, portals</span></div>
-<p>The part of a job search that eats evenings: tailoring the documents, filling the same form for the twentieth time, preparing for the interview.</p>
-<div class="ra-box"><ul>
-<li><strong>Documents:</strong> Paula (German career consultant: covers, applications, positioning) · Application docs (CV poster + Anschreiben + portfolio as one PDF set) · LinkedIn authoring (measured results in, invented claims out).</li>
-<li><strong>Research and forms:</strong> employer research (interview case study from public material) · portal forms (fills German job-portal forms field by field through the browser).</li>
+<div class="ra-row-head"><span class="ra-ic">🇩🇪</span><h3>German and learning</h3><span class="ra-meta">12 agents</span></div>
+<p>Course notes become decks, letters get explained, corrections come back as audio.</p>
+<div class="ra-box ra-box-list"><ul>
+<li><strong>Wörter-Scout</strong> — fills empty vocabulary stubs, gender, plural, conjugations</li>
+<li><strong>Klodi</strong> — VHS class note → 8 Anki cards</li>
+<li><strong>Kasun</strong> — processes one lesson note end to end</li>
+<li><strong>Marthyna</strong> — corrects German, Spanish and English, answers as audio</li>
+<li><strong>Kendrik</strong> — explains a German letter sentence by sentence for B1</li>
+<li><strong>Kontext B2 Drill</strong> — daily exam drill with corrections</li>
+<li><strong>Deutsch Prüfung Simulation</strong> — builds DTZ/DTB exam simulations</li>
+<li><strong>Deutsche Übungen Foto</strong> — photo of an exercise → corrected worksheet</li>
+<li><strong>OCR Handschrift</strong> — handwritten German notes → text, with error tracking</li>
+<li><strong>Image Processor</strong> — notebook photos processed locally</li>
+<li><strong>German MOOC Certificates</strong> — finds courses and certificates worth doing</li>
+<li><strong>German Degree Recognition</strong> — foreign degree recognition, step by step</li>
 </ul></div>
 </div>
 
 <div class="ra-row">
-<div class="ra-row-head"><span class="ra-ic">🕸️</span><h3>Knowledge and semantics</h3><span class="ra-meta">5 agents · 51.811 triples</span></div>
-<p>Agents that keep the vault itself healthy — structure, links, frontmatter, and the graph on top of it.</p>
-<div class="ra-box"><ul>
-<li><strong>The readers:</strong> Misuko (general expert over the vault, answering with KG + RAG context) · ontology export (TTL → VOWL JSON, so the graph is readable by a human).</li>
-<li><strong>The cleaners:</strong> vault audits (structure, dangling links, semantic gaps, with a repair list) · link repair (fixes broken wikilinks against the real slug index) · continuous improvement (missing frontmatter, tags and sections, with proposed fixes).</li>
+<div class="ra-row-head"><span class="ra-ic">💼</span><h3>Career and applications</h3><span class="ra-meta">12 agents</span></div>
+<p>Documents, portals, research and the German paperwork around a job search.</p>
+<div class="ra-box ra-box-list"><ul>
+<li><strong>Paula</strong> — German career consultant, covers, positioning, interviews</li>
+<li><strong>Paula Application Docs</strong> — CV poster + Anschreiben + signature as one PDF</li>
+<li><strong>Paula Naxcon</strong> — technical preparation for the NAXCON process role</li>
+<li><strong>Cover Letter Reviewer</strong> — line-by-line review of a German cover letter</li>
+<li><strong>Bewerbungsportal Forms</strong> — fills German job-portal forms field by field</li>
+<li><strong>Interview Company Research</strong> — case study built from public company material</li>
+<li><strong>German Salary Research</strong> — salary and net pay by location, DE/CH/NL/Gulf</li>
+<li><strong>Berlin Engineering Networking</strong> — AI and engineering events worth attending</li>
+<li><strong>Berlin Professional Events</strong> — process and AI events in Berlin, filtered</li>
+<li><strong>Work Shift Schedule Sync</strong> — employer schedule → real shifts in the vault</li>
+<li><strong>Employer Correspondence</strong> — mail to the employer, in the right tone</li>
+<li><strong>Planeteers Wiki</strong> — CDR/OAE concepts, built for interview prep</li>
 </ul></div>
 </div>
 
 <div class="ra-row">
-<div class="ra-row-head"><span class="ra-ic">💰</span><h3>Money, admin and documents</h3><span class="ra-meta">6 agents · German paperwork</span></div>
-<p>Letters with deadlines, payslips, reminders and invoices — the paperwork that punishes you for forgetting it.</p>
-<div class="ra-box"><ul>
-<li><strong>The advisors:</strong> Maribel (balances, projection, monthly review) · Keith (monthly market report, Germany and Colombia kept separate) · freelance invoices (German Rechnung with the mandatory fields).</li>
-<li><strong>The intake:</strong> official document intake (deadlines and obligations extracted from a letter) · Mahnung / Stundung (answer to a payment reminder with the legal basis) · payslip processing (Lohnabrechnung read, archived, net pay booked).</li>
+<div class="ra-row-head"><span class="ra-ic">💰</span><h3>Money, admin and documents</h3><span class="ra-meta">13 agents</span></div>
+<p>Balances, payslips, letters with deadlines, receipts and the shopping list.</p>
+<div class="ra-box ra-box-list"><ul>
+<li><strong>Maribel</strong> — personal finance, balance, projection, monthly review</li>
+<li><strong>Keith</strong> — market report and portfolio view, Germany and Colombia split</li>
+<li><strong>Job Hours Earnings</strong> — hours worked → earnings, feeds Maribel</li>
+<li><strong>Cashflow Projection Chart</strong> — the money chart, drawn from real balances</li>
+<li><strong>German Payslip Processing</strong> — Lohnabrechnung read, archived, net pay booked</li>
+<li><strong>Official Document Intake</strong> — official letter → deadlines and obligations</li>
+<li><strong>Einkaufs Checkliste</strong> — shopping list kept in the vault</li>
+<li><strong>Einkauf Liste</strong> — adds items to the shopping checklist</li>
+<li><strong>Mahecha</strong> — receipt photo → structured Quittung</li>
+<li><strong>Household Energy Costs</strong> — what heating, hot water and showers cost</li>
+<li><strong>Trip Budget Planning</strong> — budget for a trip, before booking</li>
+<li><strong>German Freelance Setup</strong> — §21 visa, taxes, freelance paperwork</li>
+<li><strong>Trading Copilot Sim</strong> — simulated trading, practice, never real money</li>
 </ul></div>
 </div>
 
 <div class="ra-row">
-<div class="ra-row-head"><span class="ra-ic">🎬</span><h3>Content and media</h3><span class="ra-meta">5 agents · blog, channel, digest</span></div>
-<p>Publishing is a workflow, not a mood: draft, privacy check, deploy, distribute — and a daily digest that never invents a fact.</p>
-<div class="ra-box"><ul>
-<li><strong>The publishers:</strong> Wane (blog strategist: drafts, privacy firewall, deploy, distribution kit) · Valentina (brand publishing across blog, Telegram and the WhatsApp channel) · Bob (single-panel illustrations in the RA visual language).</li>
-<li><strong>The inputs:</strong> Laura (daily news digest from named sources) · Lisa and Sly (concert radar and Spotify library work).</li>
+<div class="ra-row-head"><span class="ra-ic">🕸️</span><h3>Vault, memory and knowledge</h3><span class="ra-meta">20 agents</span></div>
+<p>The layer that keeps the vault itself healthy and answers with real context.</p>
+<div class="ra-box ra-box-list"><ul>
+<li><strong>Misuko</strong> — general expert over the vault, answers with KG + RAG</li>
+<li><strong>Vault RAG</strong> — vector index, 14.180 chunks, refreshed</li>
+<li><strong>Vault KG Context</strong> — graph + vector context for any note</li>
+<li><strong>Vault Audit</strong> — structure, orphans, gaps, with a repair list</li>
+<li><strong>Vault Link Repair</strong> — broken wikilinks fixed against the slug index</li>
+<li><strong>Vault Continuous Improvement</strong> — finds missing frontmatter, tags, sections</li>
+<li><strong>Vault Content Locator</strong> — where a topic already lives in the vault</li>
+<li><strong>Vault Task Closing</strong> — creates, closes and postpones TSK tasks</li>
+<li><strong>Daily Note Routing</strong> — nightly routing of the day's content to its notes</li>
+<li><strong>Pending Inbox</strong> — the 98_MARKDOWNS/02_PENDING queue, emptied</li>
+<li><strong>Subrayados Deep Dive</strong> — new highlights → deeper explanations</li>
+<li><strong>Scanned Book Page Library</strong> — scanned book stored page by page</li>
+<li><strong>TTL to VOWL</strong> — ontology exported so a human can read the graph</li>
+<li><strong>Hermes Memory</strong> — three memory tiers, kept within budget</li>
+<li><strong>Galactus</strong> — maintains and evolves the ecosystem diagrams</li>
+<li><strong>YellowVault Agent Creation</strong> — new agents created with the house conventions</li>
+<li><strong>Vault Calendar Auto Notes</strong> — weather and moon notes, written daily</li>
+<li><strong>Vault Auto Reports</strong> — keeps the automatic report scripts running</li>
+<li><strong>YellowVault Event Changes</strong> — cancelled or moved events handled</li>
+<li><strong>RA Context Plugin</strong> — the chat-context plugin, tuned and debugged</li>
 </ul></div>
 </div>
 
 <div class="ra-row">
-<div class="ra-row-head"><span class="ra-ic">🛡️</span><h3>Operations and security</h3><span class="ra-meta">4 agents · one finding per path</span></div>
-<p>The agents that watch the machine, the vault and the repos — and stay quiet until something is actually wrong.</p>
-<div class="ra-box"><ul>
-<li><strong>Security:</strong> Flu (Windows guardian: exposed keys, open ports, one finding per path) · security audit (repo and machine scan with a prioritised report).</li>
-<li><strong>Housekeeping:</strong> metrics dashboard (activity, PC usage and workload consolidated per day) · vault backup (USB backup built from a verified manifest).</li>
+<div class="ra-row-head"><span class="ra-ic">🎬</span><h3>Content, publishing and brand</h3><span class="ra-meta">12 agents</span></div>
+<p>Draft, check, publish, distribute — blog, Telegram, WhatsApp and print.</p>
+<div class="ra-box ra-box-list"><ul>
+<li><strong>Wane</strong> — blog strategist, draft, privacy firewall, deploy</li>
+<li><strong>Valentina</strong> — publishes the brand across blog, Telegram, WhatsApp</li>
+<li><strong>Bob</strong> — single-panel illustrations from a note</li>
+<li><strong>Laura</strong> — daily news digest from named sources</li>
+<li><strong>Colombia Historia Posts</strong> — daily posts on Colombian history</li>
+<li><strong>Lisa</strong> — concert radar from Spotify top artists</li>
+<li><strong>Sly</strong> — Spotify library and taste work</li>
+<li><strong>RA Brand Visuals</strong> — metric dashboards and data-viz posters</li>
+<li><strong>RA Note Export</strong> — note → branded PDF, Chrome headless</li>
+<li><strong>Obsidian Branded Export</strong> — same export, Obsidian side</li>
+<li><strong>AI Image Generation</strong> — images generated or derived on demand</li>
+<li><strong>Fullyellow Support</strong> — answers customer questions about Fullyellow</li>
+</ul></div>
+</div>
+
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">🏗️</span><h3>Engineering and process</h3><span class="ra-meta">8 agents</span></div>
+<p>Process simulation, P&ID deliverables and the layout work behind them.</p>
+<div class="ra-box ra-box-list"><ul>
+<li><strong>Tommaso</strong> — engineering services, CAD exports, P&ID, projects</li>
+<li><strong>Tommaso Projects</strong> — daily project radar: status and next steps</li>
+<li><strong>Phase Envelope Simulation</strong> — PVT phase envelopes and PR-EOS flash</li>
+<li><strong>Process Simulator Files</strong> — HYSYS .hsc files, or driving a running HYSYS</li>
+<li><strong>P&ID and Process Standards</strong> — deliverables checked against the standards</li>
+<li><strong>Industrial Water Quality</strong> — demineralised water, UPW and steam specs</li>
+<li><strong>Satellite Plant Layout</strong> — plant layout derived from satellite images</li>
+<li><strong>Local GPU Inference</strong> — ComfyUI, Ollama and local models on the 3050</li>
+</ul></div>
+</div>
+
+<div class="ra-row">
+<div class="ra-row-head"><span class="ra-ic">🛡️</span><h3>Operations, security and plumbing</h3><span class="ra-meta">12 agents</span></div>
+<p>The agents that keep the machine, the mail and the backups running.</p>
+<div class="ra-box ra-box-list"><ul>
+<li><strong>Flu</strong> — Windows security guardian, keys, ports, one finding per path</li>
+<li><strong>Javier</strong> — Outlook and MS Graph integration</li>
+<li><strong>Email Pipeline Ops</strong> — 12 scripts and 12 cron jobs kept alive</li>
+<li><strong>Amigo Visible</strong> — donor inbox for Manos Visibles, classified</li>
+<li><strong>Prompt Runner</strong> — runs prompts from notes with run_prompt: true</li>
+<li><strong>Prompt Runner Fast</strong> — fast dispatch without the scan</li>
+<li><strong>Peer Review</strong> — audits another agent against its own SKILL.md</li>
+<li><strong>Security Code Scanning</strong> — SAST over a repo, prioritised findings</li>
+<li><strong>Windows Security Audit</strong> — exposed keys and open ports on this machine</li>
+<li><strong>RA Taskbar HW Monitor</strong> — hardware readout in the taskbar</li>
+<li><strong>YellowVault Backup System</strong> — USB backup from a verified manifest</li>
+<li><strong>Log Forensics</strong> — JSONL logs read for the first real cause</li>
 </ul></div>
 </div>
 
 </div>
+
+<style>
+.ra-box-list{padding-top:.35rem;padding-bottom:.35rem}
+.ra-box-list li{margin:.16rem 0;line-height:1.45}
+.ra-box-list li strong{color:#f0c040;font-weight:600}
+</style>
 
 > [!note] Not a demo
 > Every agent above has a history: notes it wrote, runs it completed, failures it reported. You get the same skill file, adapted to your folder names and your rules.
