@@ -4,158 +4,146 @@ tags:
   - service
   - form
   - request
-description: "Send a service request to Raul Mina — analysis, calculation, small tool or document. Structured intake, answer within 24 hours."
+description: "Send a service request to Fullyellow with your service code. Structured intake, answer within 24 hours."
 reading_time: "2 min"
 publish: true
 semantic_class: note
 ---
 
-# 🎫 Service Request
+<link rel="stylesheet" href="/ra-blog/static/service-request.css">
+<script src="/ra-blog/static/service-request.js" defer></script>
 
-Every request gets a number, a scope and a delivery date. Fill this form, press send, and it arrives in my inbox, so no request gets lost in a chat.
+<div class="sr-shell">
 
-> [!info] How it works
-> 1. You fill the form and press **Send by email**. Your own mail program opens with the request already written out; you press send.
-> 2. I acknowledge within **24 hours** and give you your request number.
-> 3. Within **48 hours** you get the written scope: what is included, what is excluded, effort, price.
-> 4. Work starts only after your **GO**.
->
-> **First consultation is free.** The form does not commit you to anything.
+<div class="sr-brand"><span class="dot"></span> Fullyellow · Raul Mina · Berlin</div>
 
----
+<div class="sr-h1">Service Request</div>
 
-## 📋 Request form
+<p class="sr-lead">Every request gets a number, a scope and a delivery date. Fill the form, press send, and it lands in my inbox already tagged with your service code, so nothing gets lost in a chat.</p>
+
+<div class="sr-steps">
+  <div class="sr-step"><span class="n">1</span><strong>Your code</strong><p>Identifies you or your company in the register.</p></div>
+  <div class="sr-step"><span class="n">2</span><strong>You send</strong><p>Your own mail program opens with the request written out.</p></div>
+  <div class="sr-step"><span class="n">3</span><strong>Acknowledgement</strong><p>Within 24 h, with your request number.</p></div>
+  <div class="sr-step"><span class="n">4</span><strong>Scope and GO</strong><p>Within 48 h: included, excluded, effort, price.</p></div>
+</div>
 
 <form id="reqForm" onsubmit="return false;">
 
-  <div style="margin-bottom:16px;">
-    <label for="sr_name" style="display:block;margin-bottom:4px;font-weight:600;color:#1a1a10;">Your name *</label>
-    <input type="text" id="sr_name" required placeholder="First and last name"
-      style="width:100%;max-width:420px;padding:10px;border:1px solid #b0b0a0;border-radius:6px;background:#f5f5f0;color:#1a1a10;font-family:inherit;">
-  </div>
+  <section class="sr-section">
+    <div class="sr-legend">01 · Service code</div>
+    <div class="sr-code-wrap">
+      <div class="sr-field">
+        <label for="sr_code">Your service code <span class="req">*</span></label>
+        <input id="sr_code" type="text" inputmode="text" autocomplete="off" spellcheck="false" maxlength="9" placeholder="RA-000000" required>
+        <p class="hint">Format <b>RA-123456</b>. You receive it with your first inquiry. No code yet? Write to <a href="mailto:raul.mina1@outlook.com?subject=Service%20code%20request">raul.mina1@outlook.com</a> and you get one within 24 hours.</p>
+      </div>
+    </div>
+  </section>
 
-  <div style="margin-bottom:16px;">
-    <label for="sr_email" style="display:block;margin-bottom:4px;font-weight:600;color:#1a1a10;">Your email *</label>
-    <input type="email" id="sr_email" required placeholder="you@example.com"
-      style="width:100%;max-width:420px;padding:10px;border:1px solid #b0b0a0;border-radius:6px;background:#f5f5f0;color:#1a1a10;font-family:inherit;">
-  </div>
+  <section class="sr-section">
+    <div class="sr-legend">02 · Who is asking</div>
+    <div class="sr-grid">
+      <div class="sr-field">
+        <label for="sr_name">Your name <span class="req">*</span></label>
+        <input id="sr_name" type="text" autocomplete="name" placeholder="First and last name" required>
+      </div>
+      <div class="sr-field">
+        <label for="sr_email">Email <span class="req">*</span></label>
+        <input id="sr_email" type="email" autocomplete="email" placeholder="you@example.com" required>
+      </div>
+    </div>
+  </section>
 
-  <div style="margin-bottom:16px;">
-    <label for="sr_kind" style="display:block;margin-bottom:4px;font-weight:600;color:#1a1a10;">What kind of service? *</label>
-    <select id="sr_kind" required
-      style="width:100%;max-width:420px;padding:10px;border:1px solid #b0b0a0;border-radius:6px;background:#f5f5f0;color:#1a1a10;font-family:inherit;">
-      <option value="">— please choose —</option>
-      <option>Financial analysis (company, market, personal budget)</option>
-      <option>Calculation or model (costs, scenarios, projection)</option>
-      <option>Small tool or automation (script, sheet, agent)</option>
-      <option>Document or report (PDF, one-pager, summary)</option>
-      <option>Consultation / sparring session</option>
-      <option>Something else</option>
-    </select>
-  </div>
+  <section class="sr-section">
+    <div class="sr-legend">03 · What you need</div>
+    <div class="sr-grid">
+      <div class="sr-field">
+        <label for="sr_kind">Kind of service <span class="req">*</span></label>
+        <select id="sr_kind" required>
+          <option value="">— please choose —</option>
+          <option>Financial analysis (company, market, personal budget)</option>
+          <option>Calculation or model (costs, scenarios, projection)</option>
+          <option>Small tool or automation (script, sheet, agent)</option>
+          <option>Document or report (PDF, one-pager, summary)</option>
+          <option>Consultation / sparring session</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="sr-field">
+        <label for="sr_result">What should I hand over?</label>
+        <select id="sr_result">
+          <option>Not sure yet</option>
+          <option>PDF report</option>
+          <option>Excel workbook</option>
+          <option>Working tool or script</option>
+          <option>Short answer in chat or email</option>
+        </select>
+      </div>
+      <div class="sr-field full">
+        <label for="sr_title">Your request in one line <span class="req">*</span></label>
+        <input id="sr_title" type="text" placeholder="e.g. Monthly budget model for my household" required>
+      </div>
+      <div class="sr-field full">
+        <label for="sr_desc">Describe the problem <span class="req">*</span></label>
+        <textarea id="sr_desc" rows="6" placeholder="What is the situation? What should the result be? What have you tried?" required></textarea>
+      </div>
+    </div>
+  </section>
 
-  <div style="margin-bottom:16px;">
-    <label for="sr_title" style="display:block;margin-bottom:4px;font-weight:600;color:#1a1a10;">Your request in one line *</label>
-    <input type="text" id="sr_title" required placeholder="e.g. Monthly budget model for my household"
-      style="width:100%;max-width:520px;padding:10px;border:1px solid #b0b0a0;border-radius:6px;background:#f5f5f0;color:#1a1a10;font-family:inherit;">
-  </div>
+  <section class="sr-section">
+    <div class="sr-legend">04 · Timing and data</div>
+    <div class="sr-grid">
+      <div class="sr-field">
+        <label for="sr_deadline">When do you need it?</label>
+        <input id="sr_deadline" type="date">
+      </div>
+      <div class="sr-field">
+        <label for="sr_urgency">Urgency</label>
+        <select id="sr_urgency">
+          <option>Normal</option>
+          <option>This week</option>
+          <option>Urgent</option>
+        </select>
+      </div>
+      <div class="sr-field full">
+        <label for="sr_data">Whose data is involved?</label>
+        <select id="sr_data">
+          <option>No personal data</option>
+          <option>My own data</option>
+          <option>Third-party data (clients, employer, family)</option>
+        </select>
+      </div>
+      <div class="sr-field full">
+        <label for="sr_notes">Anything else <span class="hint">links, files mentioned, budget idea</span></label>
+        <textarea id="sr_notes" rows="3" placeholder="Optional. Files can follow as a reply to my acknowledgement."></textarea>
+      </div>
+    </div>
+  </section>
 
-  <div style="margin-bottom:16px;">
-    <label for="sr_desc" style="display:block;margin-bottom:4px;font-weight:600;color:#1a1a10;">Describe the problem *</label>
-    <textarea id="sr_desc" rows="6" required
-      placeholder="What is the situation? What should the result be? What have you tried?"
-      style="width:100%;max-width:520px;padding:10px;border:1px solid #b0b0a0;border-radius:6px;background:#f5f5f0;color:#1a1a10;font-family:inherit;"></textarea>
-  </div>
-
-  <div style="margin-bottom:16px;">
-    <label for="sr_result" style="display:block;margin-bottom:4px;font-weight:600;color:#1a1a10;">What should I hand over?</label>
-    <select id="sr_result"
-      style="width:100%;max-width:420px;padding:10px;border:1px solid #b0b0a0;border-radius:6px;background:#f5f5f0;color:#1a1a10;font-family:inherit;">
-      <option>Not sure yet</option>
-      <option>PDF report</option>
-      <option>Excel workbook</option>
-      <option>Working tool or script</option>
-      <option>Short answer in chat or email</option>
-    </select>
-  </div>
-
-  <div style="margin-bottom:16px;">
-    <label for="sr_deadline" style="display:block;margin-bottom:4px;font-weight:600;color:#1a1a10;">When do you need it?</label>
-    <input type="date" id="sr_deadline"
-      style="width:100%;max-width:220px;padding:10px;border:1px solid #b0b0a0;border-radius:6px;background:#f5f5f0;color:#1a1a10;font-family:inherit;">
-    <label for="sr_urgency" style="display:block;margin:10px 0 4px;font-weight:600;color:#1a1a10;">Urgency</label>
-    <select id="sr_urgency"
-      style="width:100%;max-width:220px;padding:10px;border:1px solid #b0b0a0;border-radius:6px;background:#f5f5f0;color:#1a1a10;font-family:inherit;">
-      <option>Normal</option>
-      <option>This week</option>
-      <option>Urgent</option>
-    </select>
-  </div>
-
-  <div style="margin-bottom:16px;">
-    <label for="sr_data" style="display:block;margin-bottom:4px;font-weight:600;color:#1a1a10;">Whose data is involved?</label>
-    <select id="sr_data"
-      style="width:100%;max-width:420px;padding:10px;border:1px solid #b0b0a0;border-radius:6px;background:#f5f5f0;color:#1a1a10;font-family:inherit;">
-      <option>No personal data</option>
-      <option>My own data</option>
-      <option>Third-party data (clients, employer, family)</option>
-    </select>
-  </div>
-
-  <div style="margin-bottom:16px;">
-    <label for="sr_notes" style="display:block;margin-bottom:4px;font-weight:600;color:#1a1a10;">Anything else (links, files mentioned, budget idea)</label>
-    <textarea id="sr_notes" rows="3"
-      placeholder="Optional. Files can follow as a reply to my acknowledgement."
-      style="width:100%;max-width:520px;padding:10px;border:1px solid #b0b0a0;border-radius:6px;background:#f5f5f0;color:#1a1a10;font-family:inherit;"></textarea>
-  </div>
-
-  <div style="margin-bottom:20px;">
-    <label style="display:flex;gap:8px;align-items:flex-start;max-width:520px;color:#1a1a10;">
-      <input type="checkbox" id="sr_consent" required style="margin-top:4px;">
-      <span>I agree that my name, email and the content of this request are stored for the purpose of processing it. No sharing with third parties. *</span>
+  <section class="sr-section">
+    <div class="sr-legend">05 · Consent</div>
+    <label class="sr-consent">
+      <input type="checkbox" id="sr_consent" required>
+      <span>I agree that my name, email, service code and the content of this request are stored for the purpose of processing it. No sharing with third parties. <span class="req">*</span></span>
     </label>
+  </section>
+
+  <div class="sr-actions">
+    <button type="button" class="sr-btn sr-btn-primary" onclick="srSend()">✉️ Send request</button>
+    <button type="button" class="sr-btn sr-btn-ghost" onclick="srCopy()">📋 Copy as text</button>
   </div>
-
-  <button type="button" onclick="srSend()"
-    style="padding:12px 32px;background:#807500;color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:600;cursor:pointer;">
-    ✉️ Send by email
-  </button>
-  <button type="button" onclick="srCopy()"
-    style="padding:12px 20px;margin-left:8px;background:transparent;color:#807500;border:1px solid #807500;border-radius:6px;font-size:15px;font-weight:600;cursor:pointer;">
-    📋 Copy as text
-  </button>
-
-  <div id="sr_status" style="margin-top:12px;font-size:14px;color:#6b6b5e;min-height:20px;"></div>
-  <textarea id="sr_preview" readonly style="display:none;width:100%;max-width:520px;min-height:220px;margin-top:12px;font-family:ui-monospace,Consolas,monospace;font-size:12.5px;padding:10px;border:1px solid #b0b0a0;border-radius:6px;background:#fff;color:#1a1a10;"></textarea>
+  <div id="sr_status" class="sr-status"></div>
+  <textarea id="sr_preview" class="sr-preview" readonly></textarea>
 
 </form>
 
-<script src="/ra-blog/static/service-request.js" defer></script>
+<div class="sr-foot">
+  <span class="mono">Fullyellow · Service Request v2</span>
+  <span>First consultation free</span>
+  <span><a href="mailto:raul.mina1@outlook.com">raul.mina1@outlook.com</a></span>
+  <span><a href="https://wa.me/4917681056196">WhatsApp</a></span>
+  <span><a href="https://t.me/RAFullYellowbot">Telegram</a></span>
+</div>
 
----
-
-## 📮 Or write it directly
-
-Prefer to skip the form? Write to [raul.mina1@outlook.com](mailto:raul.mina1@outlook.com?subject=%5BKR%5D%20Service%20request) with the subject **`[KR] Service request`** and these six points:
-
-1. Your name and email
-2. What kind of service
-3. Your request in one line
-4. The problem and the result you want
-5. When you need it
-6. Whose data is involved
-
----
-
-## 📌 What happens after you send it
-
-| Step | Time | What you get |
-| :--- | :--- | :--- |
-| Acknowledgement | within 24 h | Your request number (`KR-001`, `KR-002`, …) |
-| Scope | within 48 h | What is included, what is excluded, effort, price |
-| GO | when you confirm | Work starts, delivery date is fixed |
-| Delivery | agreed date | File with a date in its name, filed and archived |
-
----
-
-*Questions before sending? [raul.mina1@outlook.com](mailto:raul.mina1@outlook.com) · WhatsApp [+49 176 81056196](https://wa.me/4917681056196) · [@RAFullYellowbot](https://t.me/RAFullYellowbot)*
+</div>
