@@ -107,6 +107,13 @@ see_also:
   <span class="home-card-meta">12 screenshots · demo vault</span>
 </a>
 
+<a class="home-card internal" href="./System-Changelog">
+  <span class="home-card-icon">🔧</span>
+  <span class="home-card-title">System Changelog</span>
+  <span class="home-card-desc">What changed in the system, written from its own state: new automations, new capabilities, how the knowledge graph grows. Counts and categories only.</span>
+  <span class="home-card-meta">Updated automatically</span>
+</a>
+
 </div>
 
 <div class="ra-section-head">
