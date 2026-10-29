@@ -105,54 +105,6 @@ Five years of process, mechanical and thermal engineering — oil &amp; gas and 
 
 </div>
 
-## Wissen
-
-<div class="home-grid home-grid-3">
-
-<a class="home-card internal" href="./Engineering/">
-  <span class="home-card-icon">🏭</span>
-  <span class="home-card-title">Engineering</span>
-  <span class="home-card-desc">Hydrogen, carbon capture, process engineering, manufacturing.</span>
-  <span class="home-card-meta">24 posts</span>
-</a>
-
-<a class="home-card internal" href="./Deutsch/">
-  <span class="home-card-icon">🇩🇪</span>
-  <span class="home-card-title">Deutsch lernen</span>
-  <span class="home-card-desc">Grammatik, Mental Maps, Flashcards — VHS B1.2 resources.</span>
-  <span class="home-card-meta">16 posts</span>
-</a>
-
-<a class="home-card internal" href="./Semantic-Web/">
-  <span class="home-card-icon">🕸️</span>
-  <span class="home-card-title">Semantic Web</span>
-  <span class="home-card-desc">RDF, SPARQL, OWL, Knowledge Graphs.</span>
-  <span class="home-card-meta">9 posts</span>
-</a>
-
-<a class="home-card internal" href="./Wirtschaft/">
-  <span class="home-card-icon">⚡</span>
-  <span class="home-card-title">Wirtschaft</span>
-  <span class="home-card-desc">Energy markets, merit order, CO₂ pricing.</span>
-  <span class="home-card-meta">4 posts</span>
-</a>
-
-<a class="home-card internal" href="./Leben-in-Deutschland/">
-  <span class="home-card-icon">🏠</span>
-  <span class="home-card-title">Leben in Deutschland</span>
-  <span class="home-card-desc">Practical guides for living in Germany.</span>
-  <span class="home-card-meta">2 posts</span>
-</a>
-
-<a class="home-card internal" href="./Kolumnen/">
-  <span class="home-card-icon">✍️</span>
-  <span class="home-card-title">Kolumnen</span>
-  <span class="home-card-desc">Opinion columns on engineering, AI, and language learning.</span>
-  <span class="home-card-meta">2 posts</span>
-</a>
-
-</div>
-
 ## Projekte & Services
 
 <div class="home-grid home-grid-3">
@@ -191,54 +143,6 @@ Five years of process, mechanical and thermal engineering — oil &amp; gas and 
   <span class="home-card-icon">🏗️</span>
   <span class="home-card-title">Engineering Portfolio</span>
   <span class="home-card-desc">Process, mechanical and thermal design — projects, capabilities, tools.</span>
-</a>
-
-</div>
-
-## Latest
-
-<div class="home-grid home-grid-2">
-
-<a class="home-card internal" href="./Projekte/AI-Ecosystem-One-Pager-Autonomie">
-  <span class="home-card-icon">🧠</span>
-  <span class="home-card-title">AI Ecosystem One-Pager (Autonomie)</span>
-  <span class="home-card-desc">Ein System, das sich selbst überwacht.</span>
-  <span class="home-card-meta">Aug 17 · Projekte</span>
-</a>
-
-<a class="home-card internal" href="./Projekte/AI-Ecosystem-One-Pager-Innenansicht">
-  <span class="home-card-icon">🔬</span>
-  <span class="home-card-title">AI Ecosystem One-Pager (Innenansicht)</span>
-  <span class="home-card-desc">Sechs Schichten, 16 Knoten — ein Blick ins Innere.</span>
-  <span class="home-card-meta">Aug 14 · Projekte</span>
-</a>
-
-<a class="home-card internal" href="./Engineering/HANNOVER-MESSE-2026">
-  <span class="home-card-icon">🏭</span>
-  <span class="home-card-title">HANNOVER MESSE 2026</span>
-  <span class="home-card-desc">The world's leading industrial trade fair — halls, hubs, networking.</span>
-  <span class="home-card-meta">Aug 14 · Engineering</span>
-</a>
-
-<a class="home-card internal" href="./Deutsch/DTZ-B1---Missverst%C3%A4ndnisse-und-Pr%C3%BCfungsformate">
-  <span class="home-card-icon">🇩🇪</span>
-  <span class="home-card-title">DTZ B1 — Missverständnisse und Prüfungsformate</span>
-  <span class="home-card-desc">Die 14 häufigsten Mythen und die echten Prüfungsformate.</span>
-  <span class="home-card-meta">Aug 13 · Deutsch</span>
-</a>
-
-<a class="home-card internal" href="./Wirtschaft/Redispatch-2.0">
-  <span class="home-card-icon">⚡</span>
-  <span class="home-card-title">Redispatch 2.0</span>
-  <span class="home-card-desc">Grid congestion management in the German energy market.</span>
-  <span class="home-card-meta">Aug 12 · Wirtschaft</span>
-</a>
-
-<a class="home-card internal" href="./Leben-in-Deutschland/TK-Zusatzleistungen">
-  <span class="home-card-icon">🏠</span>
-  <span class="home-card-title">TK Zusatzleistungen</span>
-  <span class="home-card-desc">Practical extras from German public health insurance.</span>
-  <span class="home-card-meta">Aug 12 · Leben in Deutschland</span>
 </a>
 
 </div>
