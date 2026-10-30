@@ -25,6 +25,11 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 30 Oct 2026
+- **1 new automation** — blog & content (1)
+- **New capabilities** — Obsidian Canvas Diagrams, Client Service Intake, Web Research, Document Email Delivery
+- **Knowledge graph** — +17 notes · +19,523 triples
+
 ### 29 Oct 2026
 - **7 new automations** — knowledge graph (4), monitoring (3)
 - **New capabilities** — Obsidian Canvas Diagrams, Phishing Email Triage, Security Guardrails, Obsidian Canvas Authoring, Obsidian Project Data Layer
