@@ -25,6 +25,10 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 31 Oct 2026
+- **New capabilities** — Vault Audit, Windows Endpoint Hardening, Obsidian Note Charts
+- **Knowledge graph** — +25 notes · +2,525 triples
+
 ### 30 Oct 2026
 - **1 new automation** — blog & content (1)
 - **New capabilities** — Obsidian Canvas Diagrams, Client Service Intake, Web Research, Document Email Delivery
