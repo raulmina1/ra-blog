@@ -25,6 +25,11 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 01 Nov 2026
+- **2 new automations**
+- **New capabilities** — Vault Content Locator, Autocad Dwg Automation, Vault Note Extension, LLM Model Comparison
+- **Knowledge graph** — +45 notes · +671 triples
+
 ### 31 Oct 2026
 - **New capabilities** — Vault Audit, Windows Endpoint Hardening, Obsidian Note Charts
 - **Knowledge graph** — +25 notes · +2,525 triples
