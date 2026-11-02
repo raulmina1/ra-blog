@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-29|29 Oct 2026]] | Colombia returns to the dollar bond market, and the peso is at a six-week high |
+| [[Daily/2026-11-02|2 Nov 2026]] | A holiday Monday, a peso at 3,182.99 and a central bank that will not move first |

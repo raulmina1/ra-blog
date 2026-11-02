@@ -63,11 +63,11 @@ Five years of process, mechanical and thermal engineering — oil &amp; gas and 
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-10-29">
+<a class="home-card internal" href="./Daily/2026-11-02">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Brent settles at &#36;115.32 as Washington briefs Gulf allies on…</span>
-  <span class="home-card-desc">the number that matters is how far actual output sits below quota, and that is a Hormuz question, not a Vienna one.</span>
-  <span class="home-card-meta">29 Oct 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">DIW cuts Germany to 1.0 % — and its oil assumption is already…</span>
+  <span class="home-card-desc">Read the assumptions against the tape: Brent is at &#36;112 and TTF at €102, so the forecast is a bet that the second quarter of 2027 brings the.</span>
+  <span class="home-card-meta">2 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

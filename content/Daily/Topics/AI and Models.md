@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-29|29 Oct 2026]] | The buildout's cash-flow crossover is now in the accounts: Alphabet's debt up 479 % in a year |
+| [[Daily/2026-11-02|2 Nov 2026]] | The AI-capex story gets its first positive cash-flow counterexample — Microsoft |

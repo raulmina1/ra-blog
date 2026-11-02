@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-10-29|29 Oct 2026]] | WSJ: Washington tells Gulf allies to prepare for a short, intense campaign — after the midterms |
+| [[Daily/2026-11-02|2 Nov 2026]] | The IRGC says two tankers hit mines in Hormuz — the claim is still uncorroborated, and traffic… |
