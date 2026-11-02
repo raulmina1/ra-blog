@@ -843,22 +843,77 @@ body {
   }
 }
 
-body[data-slug="index"] #quartz-body .article-title {
-  margin: 0.6rem 0 0;
-}
-
-body[data-slug="index"] #quartz-body .content-meta {
-  margin-top: 0.1rem;
-  font-size: 0.82rem;
-  opacity: 0.7;
-}
-
+// The homepage header band is redundant: the hero carries the H1 and the brand,
+// so the title/date/tags row only added air. Hidden on every viewport and the
+// band's top margin collapsed (Raúl 02.11.26: "quitar ese espacio vacío negro
+// que está y quitar lo que dice abajo de él también").
+body[data-slug="index"] #quartz-body .article-title,
+body[data-slug="index"] #quartz-body .content-meta,
 body[data-slug="index"] #quartz-body .tags {
-  margin: 0.5rem 0 0;
+  display: none;
+}
+
+body[data-slug="index"] #quartz-body .page-header,
+body[data-slug="index"] #quartz-body .page-header header {
+  padding: 0;
+  min-height: 0;
+}
+
+body[data-slug="index"] #quartz-body .page-header header {
+  margin: 0;
+}
+
+// phones: the band no longer needs the stock margins, so the hero can sit right
+// under the sticky top bar; desktop keeps a slightly larger top rhythm than the
+// stock 2.2rem because the title that used to fill the band is gone
+@media (max-width: 800px) {
+  body[data-slug="index"] #quartz-body .page-header {
+    margin-top: 0;
+  }
+
+  // the stock `.page > #quartz-body .sidebar.left:has(.explorer)` rule packs a
+  // whole `padding: 1rem 0` — it outranks a plain `#quartz-body` selector, so the
+  // mobile bar's own padding-bottom has to be overridden with the same shape
+  body[data-slug="index"] .page > #quartz-body .sidebar.left {
+    padding-top: 0.35rem;
+    padding-bottom: 0.3rem;
+  }
+
+  // the hero's own top padding was the last bit of dead air under the top bar
+  body[data-slug="index"] article .ra-hero {
+    padding-top: 0.25rem;
+  }
+
+  // markdown wraps the badge in a <p> that carries its own 0.9rem margin-top
+  body[data-slug="index"] article .ra-hero > p:first-of-type {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 801px) {
+  body[data-slug="index"] #quartz-body .page-header {
+    margin-top: 2.6rem;
+  }
+
+  body[data-slug="index"] #quartz-body .sidebar.left {
+    padding-top: 2.6rem;
+  }
+
+  body[data-slug="index"] article .ra-hero {
+    padding-top: 1.4rem;
+  }
 }
 
 body[data-slug="index"] article .ra-hero {
-  margin-top: 1.1rem;
+  margin-top: 0;
+}
+
+// phones: pull the hero up under the bar (this rule must stay AFTER the
+// margin-top reset above, otherwise the reset wins by cascade order)
+@media (max-width: 800px) {
+  body[data-slug="index"] article .ra-hero {
+    margin-top: -0.55rem;
+  }
 }
 
 // homepage section titles get the enterprise accent — a hairline rule with a
