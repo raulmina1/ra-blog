@@ -49,6 +49,130 @@ h4, h5, h6 {
   letter-spacing: 0.01em;
 }
 
+// ── Explorer: clear hierarchy (Raúl 02.11.26: "que se vea mucho mejor") ───────
+// Level 1 = the map (pages + sections), level 2 = the pages inside a section.
+// Themes vars only, so the menu stays readable in light and dark.
+.explorer-content {
+  margin-top: 0.35rem;
+
+  & .explorer-ul > li > a {
+    display: block;
+    padding: 0.42rem 0.6rem;
+    border-radius: 7px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--dark);
+    opacity: 1;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+
+    &:hover {
+      background-color: var(--lightgray);
+      color: var(--dark);
+    }
+
+    &.active {
+      color: var(--secondary);
+      font-weight: 600;
+      opacity: 1;
+    }
+  }
+
+  & .explorer-ul > li > .folder-container {
+    padding: 0.42rem 0.6rem;
+    border-radius: 7px;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background-color: var(--lightgray);
+    }
+
+    & .folder-icon {
+      color: var(--secondary);
+      opacity: 0.75;
+    }
+
+    & div > a,
+    & div > button > span {
+      font-size: 0.92rem;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+  }
+
+  // nested pages: smaller, dimmer, hanging from a gold hairline rail
+  & .folder-outer > ul {
+    margin: 0.15rem 0 0.45rem 0.85rem;
+    padding-left: 0.85rem;
+    border-left: 1px solid color-mix(in srgb, var(--secondary) 38%, transparent);
+
+    & > li > a {
+      display: block;
+      padding: 0.3rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.86rem;
+      line-height: 1.4;
+      color: color-mix(in srgb, var(--dark) 68%, transparent);
+      opacity: 1;
+      transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+
+      &:hover {
+        background-color: var(--lightgray);
+        color: var(--dark);
+      }
+
+      &.active {
+        color: var(--secondary);
+        font-weight: 600;
+      }
+    }
+
+    & > li > .folder-container {
+      padding: 0.3rem 0.5rem;
+      border-radius: 6px;
+
+      &:hover {
+        background-color: var(--lightgray);
+      }
+
+      & div > a,
+      & div > button > span {
+        font-size: 0.86rem;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// phones: the drawer is the only navigation, give it room to breathe
+@media all and (max-width: 800px) {
+  // stock puts a full-viewport-width drawer inside the sidebar, which itself sits
+  // 1rem inside the page → the right 15 px were clipped and long titles ran off
+  // the screen. Constrain it to the visible area.
+  .sidebar.left .explorer-content {
+    box-sizing: border-box;
+    width: calc(100vw - 2rem);
+    max-width: calc(100vw - 2rem);
+  }
+
+  .explorer-content {
+    padding: 0.2rem 0.75rem 2rem;
+
+    & .explorer-ul > li > a,
+    & .explorer-ul > li > .folder-container {
+      padding-top: 0.52rem;
+      padding-bottom: 0.52rem;
+    }
+
+    & .folder-outer > ul > li > a {
+      line-height: 1.45;
+    }
+  }
+}
+
 // Callouts: match Obsidian's style more closely
 .callout {
   border-radius: 4px;

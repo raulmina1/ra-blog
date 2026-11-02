@@ -2,6 +2,13 @@ import { FileTrieNode } from "../../util/fileTrie"
 import { FullSlug, resolveRelative, simplifySlug } from "../../util/path"
 import { ContentDetails } from "../../plugins/emitters/contentIndex"
 
+// esbuild runs this bundle with `keepNames`, so it rewrites every function it
+// bundles into `__name(fn, "name")`. The Explorer's sortFn / mapFn / filterFn are
+// serialised with `toString()` into the DOM and evaluated in the page scope, where
+// that bundled `__name` does not exist — without this shim the whole navigation
+// renders empty ("__name is not defined") as soon as a custom option is used.
+;(window as any).__name = (window as any).__name || ((fn: unknown) => fn)
+
 type MaybeHTMLElement = HTMLElement | undefined
 
 interface ParsedOptions {
