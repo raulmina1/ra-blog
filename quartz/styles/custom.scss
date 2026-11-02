@@ -130,6 +130,12 @@ h4, h5, h6 {
     }
   }
 
+  // vertical air around a sub-list exists only while it is open — a collapsed
+  // folder must not reserve its margins (that was doubling every row height)
+  & .folder-outer.open > ul {
+    margin: 0.12rem 0 0.45rem 0.9rem;
+  }
+
   // a hairline separates the two start pages from the section list
   & .explorer-ul > li:nth-child(2) {
     margin-bottom: 0.45rem;
@@ -139,7 +145,7 @@ h4, h5, h6 {
 
   // ── level 2 ──────────────────────────────────────────────
   & .folder-outer > ul {
-    margin: 0.12rem 0 0.55rem 0.9rem;
+    margin: 0;
     padding: 0 0 0.1rem 0.75rem;
     border-left: 1px solid color-mix(in srgb, var(--secondary) 26%, transparent);
 
