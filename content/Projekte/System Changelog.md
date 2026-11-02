@@ -25,6 +25,11 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 02 Nov 2026
+- **3 new automations** — knowledge graph (1)
+- **New capabilities** — Windows Laptop Power Modes, Vault Note Relocation, Backup Restore Verification
+- **Knowledge graph** — +31 notes · +2,756 triples
+
 ### 01 Nov 2026
 - **2 new automations**
 - **New capabilities** — Vault Content Locator, Autocad Dwg Automation, Vault Note Extension, LLM Model Comparison
