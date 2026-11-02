@@ -13,6 +13,9 @@ import * as Component from "./quartz/components"
 const explorerOptions = {
   folderDefaultState: "collapsed" as const,
   folderClickBehavior: "link" as const,
+  // every folder starts closed and stays closed on the next page — no remembered
+  // open state (Raúl 02.11.26: "todos los desplegables deben estar ocultos por defecto")
+  useSavedState: false,
   // display labels (English, short) — the menu is the site's table of contents
   mapFn: (node) => {
     const labels = {

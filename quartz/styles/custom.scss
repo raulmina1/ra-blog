@@ -49,109 +49,173 @@ h4, h5, h6 {
   letter-spacing: 0.01em;
 }
 
-// ── Explorer: clear hierarchy (Raúl 02.11.26: "que se vea mucho mejor") ───────
-// Level 1 = the map (pages + sections), level 2 = the pages inside a section.
-// Themes vars only, so the menu stays readable in light and dark.
+// ── Explorer: the site's table of contents (Raúl 02.11.26) ────────────────────
+// Level 1 = sections and start pages, level 2 = the pages inside a section.
+// The chevron sits on the RIGHT edge so every label starts on the same rail;
+// themes vars only, so the menu stays readable in light and dark.
 .explorer-content {
-  margin-top: 0.35rem;
+  margin-top: 0.65rem;
 
-  & .explorer-ul > li > a {
-    display: block;
-    padding: 0.42rem 0.6rem;
-    border-radius: 7px;
+  // ── level 1 ──────────────────────────────────────────────
+  & .explorer-ul > li > a,
+  & .explorer-ul > li > .folder-container {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    min-height: 2.3rem;
+    margin: 0 0 1px;
+    padding: 0.34rem 0.6rem;
+    border-radius: 8px;
     font-size: 0.92rem;
     font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.005em;
     color: var(--dark);
     opacity: 1;
     transition:
-      background-color 0.15s ease,
-      color 0.15s ease;
+      background-color 0.16s ease,
+      color 0.16s ease;
+  }
+
+  & .explorer-ul > li > a {
+    text-decoration: none;
 
     &:hover {
-      background-color: var(--lightgray);
+      background-color: color-mix(in srgb, var(--lightgray) 65%, transparent);
       color: var(--dark);
     }
 
     &.active {
       color: var(--secondary);
       font-weight: 600;
-      opacity: 1;
+      background-color: color-mix(in srgb, var(--secondary) 9%, transparent);
     }
   }
 
   & .explorer-ul > li > .folder-container {
-    padding: 0.42rem 0.6rem;
-    border-radius: 7px;
-    transition: background-color 0.15s ease;
+    justify-content: space-between;
+    gap: 0.5rem;
 
     &:hover {
-      background-color: var(--lightgray);
+      background-color: color-mix(in srgb, var(--lightgray) 65%, transparent);
     }
 
-    & .folder-icon {
-      color: var(--secondary);
-      opacity: 0.75;
+    & > div {
+      flex: 1 1 auto;
+      min-width: 0;
     }
 
     & div > a,
     & div > button > span {
       font-size: 0.92rem;
       font-weight: 500;
-      line-height: 1.35;
+      line-height: 1.3;
+      color: inherit;
+    }
+
+    // chevron on the right, quiet until hover
+    & > .folder-icon {
+      order: 2;
+      margin: 0;
+      flex: 0 0 auto;
+      color: var(--secondary);
+      opacity: 0.4;
+      transition:
+        opacity 0.16s ease,
+        transform 0.3s ease;
+    }
+
+    &:hover > .folder-icon {
+      opacity: 0.85;
     }
   }
 
-  // nested pages: smaller, dimmer, hanging from a gold hairline rail
-  & .folder-outer > ul {
-    margin: 0.15rem 0 0.45rem 0.85rem;
-    padding-left: 0.85rem;
-    border-left: 1px solid color-mix(in srgb, var(--secondary) 38%, transparent);
+  // a hairline separates the two start pages from the section list
+  & .explorer-ul > li:nth-child(2) {
+    margin-bottom: 0.45rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--lightgray);
+  }
 
-    & > li > a {
-      display: block;
-      padding: 0.3rem 0.5rem;
+  // ── level 2 ──────────────────────────────────────────────
+  & .folder-outer > ul {
+    margin: 0.12rem 0 0.55rem 0.9rem;
+    padding: 0 0 0.1rem 0.75rem;
+    border-left: 1px solid color-mix(in srgb, var(--secondary) 26%, transparent);
+
+    & > li > a,
+    & > li > .folder-container {
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      min-height: 1.9rem;
+      margin: 0 0 1px;
+      padding: 0.22rem 0.5rem;
       border-radius: 6px;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
+      font-weight: 400;
       line-height: 1.4;
-      color: color-mix(in srgb, var(--dark) 68%, transparent);
+      color: color-mix(in srgb, var(--dark) 66%, transparent);
       opacity: 1;
       transition:
-        background-color 0.15s ease,
-        color 0.15s ease;
+        background-color 0.16s ease,
+        color 0.16s ease;
+    }
+
+    & > li > a {
+      text-decoration: none;
 
       &:hover {
-        background-color: var(--lightgray);
+        background-color: color-mix(in srgb, var(--lightgray) 55%, transparent);
         color: var(--dark);
       }
 
       &.active {
         color: var(--secondary);
         font-weight: 600;
+        background-color: color-mix(in srgb, var(--secondary) 8%, transparent);
       }
     }
 
     & > li > .folder-container {
-      padding: 0.3rem 0.5rem;
-      border-radius: 6px;
+      justify-content: space-between;
+      gap: 0.4rem;
 
       &:hover {
-        background-color: var(--lightgray);
+        background-color: color-mix(in srgb, var(--lightgray) 55%, transparent);
+      }
+
+      & > div {
+        flex: 1 1 auto;
+        min-width: 0;
       }
 
       & div > a,
       & div > button > span {
-        font-size: 0.86rem;
+        font-size: 0.85rem;
         font-weight: 500;
+        line-height: 1.35;
+        color: inherit;
+      }
+
+      & > .folder-icon {
+        order: 2;
+        margin: 0;
+        flex: 0 0 auto;
+        opacity: 0.35;
+      }
+
+      &:hover > .folder-icon {
+        opacity: 0.8;
       }
     }
   }
 }
 
-// phones: the drawer is the only navigation, give it room to breathe
+// phones: the drawer is the only navigation — more air, bigger tap targets
 @media all and (max-width: 800px) {
   // stock puts a full-viewport-width drawer inside the sidebar, which itself sits
-  // 1rem inside the page → the right 15 px were clipped and long titles ran off
-  // the screen. Constrain it to the visible area.
+  // 1rem inside the page → the right 15 px were clipped. Constrain it.
   .sidebar.left .explorer-content {
     box-sizing: border-box;
     width: calc(100vw - 2rem);
@@ -159,16 +223,21 @@ h4, h5, h6 {
   }
 
   .explorer-content {
-    padding: 0.2rem 0.75rem 2rem;
+    padding: 0.3rem 0.6rem 2.5rem;
+    margin-top: 0.15rem;
 
     & .explorer-ul > li > a,
     & .explorer-ul > li > .folder-container {
-      padding-top: 0.52rem;
-      padding-bottom: 0.52rem;
+      min-height: 2.6rem;
+      padding-top: 0.42rem;
+      padding-bottom: 0.42rem;
     }
 
-    & .folder-outer > ul > li > a {
-      line-height: 1.45;
+    & .folder-outer > ul > li > a,
+    & .folder-outer > ul > li > .folder-container {
+      min-height: 2.15rem;
+      padding-top: 0.3rem;
+      padding-bottom: 0.3rem;
     }
   }
 }
