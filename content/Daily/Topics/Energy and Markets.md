@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-02|2 Nov 2026]] | DIW cuts Germany to 1.0 % — and its oil assumption is already 37 dollars below spot |
+| [[Daily/2026-11-03|3 Nov 2026]] | Brent falls 7.6 % in a day — the biggest drop in over three months, on words not barrels |

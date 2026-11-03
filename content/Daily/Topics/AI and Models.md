@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-02|2 Nov 2026]] | The AI-capex story gets its first positive cash-flow counterexample — Microsoft |
+| [[Daily/2026-11-03|3 Nov 2026]] | Anthropic stops agents from re-sending the whole conversation — 35 % faster first token, same… |

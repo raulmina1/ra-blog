@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-02|2 Nov 2026]] | The IRGC says two tankers hit mines in Hormuz — the claim is still uncorroborated, and traffic… |
+| [[Daily/2026-11-03|3 Nov 2026]] | The US struck Qeshm — defensive, undisclosed, and hours before the vote |

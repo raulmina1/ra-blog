@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-02|2 Nov 2026]] | A holiday Monday, a peso at 3,182.99 and a central bank that will not move first |
+| [[Daily/2026-11-03|3 Nov 2026]] | The rescue bill reaches the floor — and the government starts using the word "default" |
