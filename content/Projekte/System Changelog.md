@@ -25,6 +25,11 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 04 Nov 2026
+- **2 new automations**
+- **New capabilities** — Security Guardrails, Vault KG Context Retrieval, Image Layout Qa, Whatsapp Messaging
+- **Knowledge graph** — +43 notes · +4,346 triples
+
 ### 03 Nov 2026
 - **2 new automations** — knowledge graph (2)
 
