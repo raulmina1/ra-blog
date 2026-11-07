@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-03|3 Nov 2026]] | The US struck Qeshm — defensive, undisclosed, and hours before the vote |
+| [[Daily/2026-11-07|7 Nov 2026]] | The Gulf war has its first confirmed seafarer death — and Iran claims two more tankers on mines |

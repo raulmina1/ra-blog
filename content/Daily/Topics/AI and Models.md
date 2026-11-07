@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-03|3 Nov 2026]] | Anthropic stops agents from re-sending the whole conversation — 35 % faster first token, same… |
+| [[Daily/2026-11-07|7 Nov 2026]] | Anthropic's IPO is now priced by the market, not by the company: \$1.0–1.25 trillion is the new… |

@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-03|3 Nov 2026]] | Brent falls 7.6 % in a day — the biggest drop in over three months, on words not barrels |
+| [[Daily/2026-11-07|7 Nov 2026]] | Brent ends the week at \$98.32 after a 13 % weekly collapse — the steepest since the start of… |

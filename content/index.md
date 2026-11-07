@@ -63,11 +63,11 @@ Five years of process, mechanical and thermal engineering — oil &amp; gas and 
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-03">
+<a class="home-card internal" href="./Daily/2026-11-07">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Brent falls 7.6 % in a day — the biggest drop in over three…</span>
-  <span class="home-card-desc">This is the mirror image of the 31 October crash: a premium being removed by diplomacy while physical supply is unchanged.</span>
-  <span class="home-card-meta">3 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Brent ends the week at &#36;98.32 after a 13 % weekly collapse…</span>
+  <span class="home-card-desc">The week repriced the *war premium*, not the barrel: Middle Eastern exports are recovering, demand signals are weak.</span>
+  <span class="home-card-meta">7 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">
