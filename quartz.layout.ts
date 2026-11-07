@@ -161,7 +161,9 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.Explorer(explorerOptions as any),
   ],
-  right: [Component.DesktopOnly(Component.TableOfContents()), Component.Backlinks()],
+  // Backlinks were removed (Raúl 07.11.26): the panel only surfaced noise like
+  // the contact-form confirmation page. The graph already shows the real neighbours.
+  right: [Component.DesktopOnly(Component.TableOfContents())],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
