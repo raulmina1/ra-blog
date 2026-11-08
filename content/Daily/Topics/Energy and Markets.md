@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-07|7 Nov 2026]] | Brent ends the week at \$98.32 after a 13 % weekly collapse — the steepest since the start of… |
+| [[Daily/2026-11-08|8 Nov 2026]] | Week ahead: a \$20 peace dividend already paid, and an asymmetric calendar |

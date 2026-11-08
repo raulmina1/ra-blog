@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-07|7 Nov 2026]] | Anthropic's IPO is now priced by the market, not by the company: \$1.0–1.25 trillion is the new… |
+| [[Daily/2026-11-08|8 Nov 2026]] | Claude can now read your bank accounts — read-only, and that is the whole point |

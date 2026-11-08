@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-07|7 Nov 2026]] | The Rescue bill is being costed at more than 4 % of GDP of adjustment by 2030 |
+| [[Daily/2026-11-08|8 Nov 2026]] | Six weeks, 70 % of the economic commissions, and a default warning |

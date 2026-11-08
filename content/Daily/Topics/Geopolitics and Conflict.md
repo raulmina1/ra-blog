@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-07|7 Nov 2026]] | The Gulf war has its first confirmed seafarer death — and Iran claims two more tankers on mines |
+| [[Daily/2026-11-08|8 Nov 2026]] | Herzog hands Eisenkot the mandate — Netanyahu's first real exit since 2021 |

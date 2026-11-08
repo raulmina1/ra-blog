@@ -75,11 +75,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-07">
+<a class="home-card internal" href="./Daily/2026-11-08">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Anthropic's IPO is now priced by the market, not by the…</span>
-  <span class="home-card-desc">This is a financing story with a feedback loop: OpenAI reportedly closed only &#36;11 bn of a targeted &#36;30 bn at a &#36;1.25 trillion valuation.</span>
-  <span class="home-card-meta">7 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Claude can now read your bank accounts — read-only, and that…</span>
+  <span class="home-card-desc">This is the settlement of the fight from 22.10, when Morgan Stanley blocked third-party agents and JPM/BofA/Citi/WFC restricted them: the agent gets.</span>
+  <span class="home-card-meta">8 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">
