@@ -25,6 +25,10 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 08 Nov 2026
+- **New capabilities** — Receipt OCR Extraction, Security Guardrails, Vault KG Context Retrieval, Docker Desktop Wsl2, Image Layout Qa
+- **Knowledge graph** — +329 notes · +19,038 triples
+
 ### 07 Nov 2026
 - **4 new automations** — knowledge graph (1)
 - **New capabilities** — Receipt OCR Extraction, Security Guardrails, Vault KG Context Retrieval, Docker Desktop Wsl2, Image Layout Qa
