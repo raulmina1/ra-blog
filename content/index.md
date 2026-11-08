@@ -11,17 +11,100 @@ semantic_class: note
 
 <div class="ra-hero">
 
-<span class="ra-hero-badge">🦅 Your AI. Your data. Your rules.</span>
-<h1 class="ra-hero-h1">Automate your life with an AI that is <em>yours</em>.</h1>
-<p class="ra-hero-sub">Prompt, Agent, Cron &amp; Hook systems for Obsidian and Hermes Agent — engineered by a process engineer. Your data never leaves your machine.</p>
+<span class="ra-hero-badge">Process Engineering &amp; AI Automation</span>
+<h1 class="ra-hero-h1">Process engineering and <em>local-first AI</em> for German businesses</h1>
+<p class="ra-hero-sub">P&amp;ID, HYSYS simulation and ASME design, plus AI automation that keeps your data on your own machine — built for engineering firms, consultancies and SMEs.</p>
 
 <div class="ra-hero-cta">
-  <a class="ra-btn ra-btn-primary internal" href="./Projekte/">⚡ Start — pick your system</a>
-  <a class="ra-btn ra-btn-secondary internal" href="./Contact/">🕊️ Free 30-min call</a>
+  <a class="ra-btn ra-btn-primary internal" href="./Contact/">📅 Book a free call</a>
+  <a class="ra-btn ra-btn-secondary internal" href="#what-i-do">🧭 See the services</a>
 </div>
 
-<p class="ra-hero-trust">130+ prompts · 18 agents · 100% local-first · Privacy by default</p>
+<p class="ra-hero-trust">130+ prompts · 18 agents · 50+ P&amp;ID · 100% local-first</p>
 
+</div>
+
+---
+
+## What I do
+
+<p class="ra-lead">Two practices, one engineer: process design for plants and equipment, and AI systems that run on your own machine.</p>
+
+<div class="ra-services">
+
+<div class="ra-service">
+  <span class="ra-service-kicker">Engineering</span>
+  <h3>Process engineering</h3>
+  <p>P&amp;ID/PFD, HYSYS simulation, ASME VIII and plant layout.</p>
+  <ul>
+    <li>50+ P&amp;ID and PFD delivered</li>
+    <li>45+ Aspen HYSYS simulations</li>
+    <li>ASME VIII vessels and meter runs</li>
+  </ul>
+  <a class="ra-service-link internal" href="./Projekte/Engineering-Portfolio">See the portfolio →</a>
+</div>
+
+<div class="ra-service">
+  <span class="ra-service-kicker">AI automation</span>
+  <h3>AI automation packs</h3>
+  <p>Ready-made automation packs on Obsidian and Hermes, priced.</p>
+  <ul>
+    <li>Prompt, Agent, Cron and Hook packs</li>
+    <li>Knowledge-graph context service</li>
+    <li>100% local-first, no cloud</li>
+  </ul>
+  <a class="ra-service-link internal" href="./Projekte/Prompt-Shop">See the packs →</a>
+</div>
+
+<div class="ra-service">
+  <span class="ra-service-kicker">Custom build</span>
+  <h3>Agents &amp; data pipeline</h3>
+  <p>Custom agents and a data pipeline that feeds your knowledge graph.</p>
+  <ul>
+    <li>18 agents built and running</li>
+    <li>NER → graph → RAG every 30 minutes</li>
+    <li>Data never leaves your machine</li>
+  </ul>
+  <a class="ra-service-link internal" href="./Projekte/Agent-Shop">See agent work →</a>
+</div>
+
+</div>
+
+<div class="ra-proof">
+  <div><strong>130+</strong><span>prompts ready to deploy</span></div>
+  <div><strong>18</strong><span>agents in production</span></div>
+  <div><strong>50+</strong><span>P&amp;ID delivered</span></div>
+  <div><strong>51,811</strong><span>knowledge-graph triples</span></div>
+</div>
+
+---
+
+## How it works
+
+<div class="ra-steps">
+  <div class="ra-step">
+    <b>1</b>
+    <h4>Book a call</h4>
+    <p>A free 30-minute call to map your problem.</p>
+  </div>
+  <div class="ra-step">
+    <b>2</b>
+    <h4>Get a scope</h4>
+    <p>A fixed deliverable and price, agreed before work starts.</p>
+  </div>
+  <div class="ra-step">
+    <b>3</b>
+    <h4>Receive results</h4>
+    <p>Working files and documentation, on time and to spec.</p>
+  </div>
+</div>
+
+## Who it's for
+
+<div class="ra-audience">
+  <span>Engineering firms needing P&amp;ID, simulation or ASME design</span>
+  <span>Consultancies and SMEs adopting AI without cloud dependence</span>
+  <span>Technical recruiters seeking process engineering and ML skills</span>
 </div>
 
 ---
@@ -147,6 +230,15 @@ Five years of process, mechanical and thermal engineering — oil &amp; gas and 
   <span class="home-card-desc">Schedule a free discovery call or send a message.</span>
 </a>
 
+</div>
+
+---
+
+## Talk about your next project
+
+<div class="ra-cta-band">
+  <p>A free 30-minute call — no obligation, clear next steps. Bring the drawing, the process or the workflow that is slowing you down; you leave with a scope, not a sales pitch.</p>
+  <a class="ra-btn ra-btn-primary internal" href="./Contact/">📅 Book a call</a>
 </div>
 
 ---

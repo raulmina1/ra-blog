@@ -44,6 +44,207 @@ h4, h5, h6 {
   font-size: 0.88em;
 }
 
+
+// ============================================================
+// Homepage — sales sections (Raúl 07.11.26: "se entienda mejor la idea,
+// profesional para vender qué es exactamente lo que hago")
+// Same enterprise language as the cards: dark literal panels, gold accents.
+// ============================================================
+.ra-lead {
+  margin: 0.2rem 0 0;
+  max-width: 46em;
+  color: #a8a89a;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.ra-services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+  margin: 1.1rem 0 0;
+}
+
+.ra-service {
+  display: flex;
+  flex-direction: column;
+  padding: 1.15rem 1.1rem 1rem;
+  border: 1px solid #2e2e28;
+  border-radius: 12px;
+  background: #0f0f0d;
+}
+
+.ra-service-kicker {
+  margin-bottom: 0.45rem;
+  color: #c4ab00;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ra-service h3 {
+  margin: 0 0 0.4rem;
+  color: #ecece4;
+  font-size: 1.02rem;
+  line-height: 1.25;
+}
+
+.ra-service > p {
+  margin: 0 0 0.75rem;
+  color: #a8a89a;
+  font-size: 0.87rem;
+  line-height: 1.45;
+}
+
+.ra-service ul {
+  margin: 0 0 0.95rem;
+  padding: 0;
+  list-style: none;
+}
+
+.ra-service li {
+  position: relative;
+  padding-left: 1.05rem;
+  color: #cfcfc4;
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.ra-service li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #c4ab00;
+  font-size: 0.78rem;
+}
+
+.ra-service a.ra-service-link {
+  margin-top: auto;
+  color: #c4ab00;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+.ra-proof {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  margin: 1.3rem 0 0.4rem;
+}
+
+.ra-proof > div {
+  padding: 0.1rem 0 0.1rem 0.75rem;
+  border-left: 2px solid #c4ab00;
+}
+
+.ra-proof strong {
+  display: block;
+  color: #ecece4;
+  font-size: 1.4rem;
+  line-height: 1.15;
+}
+
+.ra-proof span {
+  color: #a8a89a;
+  font-size: 0.73rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.ra-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.05rem 0 0.2rem;
+}
+
+.ra-step b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #c4ab00;
+  border-radius: 50%;
+  color: #c4ab00;
+  font-size: 0.78rem;
+}
+
+.ra-step h4 {
+  margin: 0 0 0.25rem;
+  color: #ecece4;
+  font-size: 0.95rem;
+}
+
+.ra-step p {
+  margin: 0;
+  color: #a8a89a;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.ra-audience {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.9rem 0 0;
+}
+
+.ra-audience span {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid #2e2e28;
+  border-radius: 999px;
+  background: #0f0f0d;
+  color: #cfcfc4;
+  font-size: 0.82rem;
+}
+
+.ra-cta-band {
+  margin: 1.4rem 0 0.4rem;
+  padding: 1.4rem 1.2rem;
+  border: 1px solid #2e2e28;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #0f0f0d, #0a0a09);
+  text-align: center;
+}
+
+.ra-cta-band h3 {
+  margin: 0 0 0.35rem;
+  color: #ecece4;
+  font-size: 1.22rem;
+}
+
+.ra-cta-band p {
+  margin: 0 0 0.95rem;
+  color: #a8a89a;
+  font-size: 0.9rem;
+}
+
+@media all and (max-width: 800px) {
+  .ra-services,
+  .ra-steps {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .ra-proof {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem;
+  }
+
+  .ra-service {
+    padding: 1rem 0.95rem 0.9rem;
+  }
+}
+
 // Explorer folder/file labels
 .folder-title, .file-title {
   letter-spacing: 0.01em;
