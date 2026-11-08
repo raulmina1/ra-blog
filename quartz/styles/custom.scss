@@ -140,8 +140,14 @@ h4, h5, h6 {
 }
 
 .ra-proof > div {
+  min-width: 0;
   padding: 0.1rem 0 0.1rem 0.75rem;
   border-left: 2px solid #c4ab00;
+}
+
+.ra-proof span {
+  display: block;
+  overflow-wrap: anywhere;
 }
 
 .ra-proof strong {
