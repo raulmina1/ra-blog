@@ -841,8 +841,11 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
     // events do not re-append it.
     const homePanel = document.querySelector(".ra-home-graph")
     const homeHero = document.querySelector("article .ra-hero")
-    if (homePanel && homeHero && homePanel.previousElementSibling !== homeHero) {
-      homeHero.after(homePanel)
+    // The graph used to sit directly under the hero and pushed the offer below the
+    // fold (Raúl 08.11.26: the page has to sell first). Park it after the numbers.
+    const graphAnchor = document.querySelector("article .ra-proof") || homeHero
+    if (homePanel && graphAnchor && homePanel.previousElementSibling !== graphAnchor) {
+      graphAnchor.after(homePanel)
     }
     // The backdrop must cover the hero and nothing more. Its height depends on
     // the hero's real bottom (which varies with the headline wrap and the card

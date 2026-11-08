@@ -35,10 +35,10 @@ semantic_class: note
 <div class="ra-service">
   <span class="ra-service-kicker">Engineering</span>
   <h3>Process engineering</h3>
-  <p>P&amp;ID/PFD, HYSYS simulation, ASME VIII and plant layout.</p>
+  <p>Drawings, simulation and vessel design — the documents your fabricator builds from.</p>
   <ul>
-    <li>50+ P&amp;ID and PFD delivered</li>
-    <li>45+ Aspen HYSYS simulations</li>
+    <li>P&amp;ID / PFD packages (50+ delivered)</li>
+    <li>HYSYS process simulation (45+ models)</li>
     <li>ASME VIII vessels and meter runs</li>
   </ul>
   <a class="ra-service-link internal" href="./Projekte/Engineering-Portfolio">See the portfolio →</a>
@@ -47,7 +47,7 @@ semantic_class: note
 <div class="ra-service">
   <span class="ra-service-kicker">AI automation</span>
   <h3>AI automation packs</h3>
-  <p>Ready-made automation packs on Obsidian and Hermes, priced.</p>
+  <p>Fixed-price packs installed once on your machine — you keep the files.</p>
   <ul>
     <li>Prompt, Agent, Cron and Hook packs</li>
     <li>Knowledge-graph context service</li>
@@ -59,7 +59,7 @@ semantic_class: note
 <div class="ra-service">
   <span class="ra-service-kicker">Custom build</span>
   <h3>Agents &amp; data pipeline</h3>
-  <p>Custom agents and a data pipeline that feeds your knowledge graph.</p>
+  <p>Custom agents and a pipeline that turns your documents into a searchable graph.</p>
   <ul>
     <li>18 agents built and running</li>
     <li>NER → graph → RAG every 30 minutes</li>
