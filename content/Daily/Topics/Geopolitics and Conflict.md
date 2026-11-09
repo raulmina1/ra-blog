@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-08|8 Nov 2026]] | Herzog hands Eisenkot the mandate — Netanyahu's first real exit since 2021 |
+| [[Daily/2026-11-09|9 Nov 2026]] | Iran says up to four tankers hit mines in the "unauthorised" channel — and the US disabled… |

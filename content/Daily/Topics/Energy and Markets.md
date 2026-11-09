@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-08|8 Nov 2026]] | Week ahead: a \$20 peace dividend already paid, and an asymmetric calendar |
+| [[Daily/2026-11-09|9 Nov 2026]] | Brent holds below \$98 after its steepest weekly fall since April 2020 — and the physical market… |

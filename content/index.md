@@ -128,11 +128,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-08">
+<a class="home-card internal" href="./Daily/2026-11-09">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Claude can now read your bank accounts — read-only, and that…</span>
-  <span class="home-card-desc">This is the settlement of the fight from 22.10, when Morgan Stanley blocked third-party agents and JPM/BofA/Citi/WFC restricted them: the agent gets.</span>
-  <span class="home-card-meta">8 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">The best coding agent fully solves 26.4 % of real tasks, not…</span>
+  <span class="home-card-desc">and evidence that benchmark scores above 90 % now say nothing about delivery.</span>
+  <span class="home-card-meta">9 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

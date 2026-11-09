@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-08|8 Nov 2026]] | Six weeks, 70 % of the economic commissions, and a default warning |
+| [[Daily/2026-11-09|9 Nov 2026]] | December hike odds jump to ~80 % — Friday's payrolls did that, and Tuesday's CPI decides the… |

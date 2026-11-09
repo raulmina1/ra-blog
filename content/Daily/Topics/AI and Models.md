@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-08|8 Nov 2026]] | Claude can now read your bank accounts — read-only, and that is the whole point |
+| [[Daily/2026-11-09|9 Nov 2026]] | The best coding agent fully solves 26.4 % of real tasks, not 99 % |
