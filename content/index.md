@@ -128,11 +128,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-09">
+<a class="home-card internal" href="./Daily/2026-11-10">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">The best coding agent fully solves 26.4 % of real tasks, not…</span>
-  <span class="home-card-desc">and evidence that benchmark scores above 90 % now say nothing about delivery.</span>
-  <span class="home-card-meta">9 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">ChatGPT Enterprise lands in AWS Marketplace — procurement as…</span>
+  <span class="home-card-desc">> Warum relevant?</span>
+  <span class="home-card-meta">10 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

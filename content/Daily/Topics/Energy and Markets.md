@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-09|9 Nov 2026]] | Brent holds below \$98 after its steepest weekly fall since April 2020 — and the physical market… |
+| [[Daily/2026-11-10|10 Nov 2026]] | Gas: TTF at €85.59 after a −17.7 % correction, but storage sits 18 points below normal |

@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-09|9 Nov 2026]] | December hike odds jump to ~80 % — Friday's payrolls did that, and Tuesday's CPI decides the… |
+| [[Daily/2026-11-10|10 Nov 2026]] | Security track: joint US-Colombia air-assault drills at Tolemaida, new plan for Boyacá |

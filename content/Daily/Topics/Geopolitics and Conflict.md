@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-09|9 Nov 2026]] | Iran says up to four tankers hit mines in the "unauthorised" channel — and the US disabled… |
+| [[Daily/2026-11-10|10 Nov 2026]] | Trump: the Iran war is "militarily effectively over" — but the Hormuz blockade stays |
