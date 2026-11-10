@@ -25,6 +25,10 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 10 Nov 2026
+- **New capabilities** — Windows Kiosk Lock Screen
+- **Knowledge graph** — +15 notes · +2,035 triples
+
 ### 09 Nov 2026
 - **5 new automations** — vault & notes (2)
 - **New capabilities** — Vault Proposal Review, Email Safety Assessment, HTML Data Dashboard, Textbook Page Notes
