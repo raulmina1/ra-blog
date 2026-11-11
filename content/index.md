@@ -128,11 +128,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-10">
+<a class="home-card internal" href="./Daily/2026-11-11">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">ChatGPT Enterprise lands in AWS Marketplace — procurement as…</span>
-  <span class="home-card-desc">> Warum relevant?</span>
-  <span class="home-card-meta">10 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">OpenAI puts verified business profiles and agents inside…</span>
+  <span class="home-card-desc">OpenAI launched Businesses in ChatGPT in beta: companies claim a blue-check profile and deploy Business Agents that answer product questions.</span>
+  <span class="home-card-meta">11 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

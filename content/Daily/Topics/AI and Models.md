@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-10|10 Nov 2026]] | ChatGPT Enterprise lands in AWS Marketplace — procurement as the product |
+| [[Daily/2026-11-11|11 Nov 2026]] | OpenAI puts verified business profiles and agents inside ChatGPT |

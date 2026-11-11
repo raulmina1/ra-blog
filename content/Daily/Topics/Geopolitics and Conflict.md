@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-10|10 Nov 2026]] | Trump: the Iran war is "militarily effectively over" — but the Hormuz blockade stays |
+| [[Daily/2026-11-11|11 Nov 2026]] | Abu Dhabi day one: Rubio says "a lot of work to be done" |

@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-10|10 Nov 2026]] | Security track: joint US-Colombia air-assault drills at Tolemaida, new plan for Boyacá |
+| [[Daily/2026-11-11|11 Nov 2026]] | October inflation 6.30 % — and the peso is back at 3,270 |

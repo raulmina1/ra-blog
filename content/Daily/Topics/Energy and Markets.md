@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-10|10 Nov 2026]] | Gas: TTF at €85.59 after a −17.7 % correction, but storage sits 18 points below normal |
+| [[Daily/2026-11-11|11 Nov 2026]] | Brent breaks \$90 intraday, settles at \$91.49 — then bounces on tanker attacks |
