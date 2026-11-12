@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-11|11 Nov 2026]] | October inflation 6.30 % — and the peso is back at 3,270 |
+| [[Daily/2026-11-12|12 Nov 2026]] | Wall Street rebounds on CoreWeave, not on confidence: S&P +0.97 %, Nasdaq 100 +1.89 % |

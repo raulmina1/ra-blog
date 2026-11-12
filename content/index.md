@@ -128,11 +128,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-11">
+<a class="home-card internal" href="./Daily/2026-11-12">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">OpenAI puts verified business profiles and agents inside…</span>
-  <span class="home-card-desc">OpenAI launched Businesses in ChatGPT in beta: companies claim a blue-check profile and deploy Business Agents that answer product questions.</span>
-  <span class="home-card-meta">11 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Google ships a "Decisions API": 1,000 graded questions in one…</span>
+  <span class="home-card-desc">> What?</span>
+  <span class="home-card-meta">12 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

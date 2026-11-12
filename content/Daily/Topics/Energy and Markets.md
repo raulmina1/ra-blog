@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-11|11 Nov 2026]] | Brent breaks \$90 intraday, settles at \$91.49 — then bounces on tanker attacks |
+| [[Daily/2026-11-12|12 Nov 2026]] | Gas bounces with oil: TTF +2.7 % to €86.99 as Hormuz attacks return to the price |

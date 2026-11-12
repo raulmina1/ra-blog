@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-11|11 Nov 2026]] | OpenAI puts verified business profiles and agents inside ChatGPT |
+| [[Daily/2026-11-12|12 Nov 2026]] | Google ships a "Decisions API": 1,000 graded questions in one pass, \$0.10 per million input… |
