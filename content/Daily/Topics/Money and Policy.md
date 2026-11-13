@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-12|12 Nov 2026]] | Wall Street rebounds on CoreWeave, not on confidence: S&P +0.97 %, Nasdaq 100 +1.89 % |
+| [[Daily/2026-11-13|13 Nov 2026]] | Colombia's Q3 GDP lands Tuesday — consensus is "below 2 %", the weakest of 2026 |

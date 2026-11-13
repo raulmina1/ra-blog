@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-12|12 Nov 2026]] | Gas bounces with oil: TTF +2.7 % to €86.99 as Hormuz attacks return to the price |
+| [[Daily/2026-11-13|13 Nov 2026]] | Berlin opens another capacity auction — skewed to hydrogen-ready gas plants |

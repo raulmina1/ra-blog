@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-12|12 Nov 2026]] | Abu Dhabi talks end with the war's biggest prisoner exchange — and no ceasefire |
+| [[Daily/2026-11-13|13 Nov 2026]] | Mines, a radar and the insurance market: October was the worst shipping month of the war |

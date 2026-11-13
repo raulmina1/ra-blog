@@ -128,11 +128,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-12">
+<a class="home-card internal" href="./Daily/2026-11-13">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Google ships a "Decisions API": 1,000 graded questions in one…</span>
-  <span class="home-card-desc">> What?</span>
-  <span class="home-card-meta">12 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Gemini 4 Hydrogen becomes Google's volume default at…</span>
+  <span class="home-card-desc">For agent loops that fire hundreds of small requests per task, flat pricing over 1M tokens is the difference between estimate and gamble.</span>
+  <span class="home-card-meta">13 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

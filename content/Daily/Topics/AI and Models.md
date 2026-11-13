@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-12|12 Nov 2026]] | Google ships a "Decisions API": 1,000 graded questions in one pass, \$0.10 per million input… |
+| [[Daily/2026-11-13|13 Nov 2026]] | Gemini 4 Hydrogen becomes Google's volume default at \$1.50/\$7.50 |
