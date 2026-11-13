@@ -25,6 +25,11 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 13 Nov 2026
+- **6 new automations** — knowledge graph (3)
+- **New capabilities** — Email Pipeline Ops, Vault RAG, Obsidian Bases Maps
+- **Knowledge graph** — +63 notes · +2,190 triples
+
 ### 12 Nov 2026
 - **6 new automations** — knowledge graph (1)
 - **New capabilities** — Yellowvault Backup System, Windows Pc Lock Operations
