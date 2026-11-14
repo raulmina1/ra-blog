@@ -25,6 +25,10 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 14 Nov 2026
+- **3 new automations** — knowledge graph (1)
+- **New capabilities** — Public Dataset Sourcing, Vault Note Translation
+
 ### 13 Nov 2026
 - **6 new automations** — knowledge graph (3)
 - **New capabilities** — Email Pipeline Ops, Vault RAG, Obsidian Bases Maps
