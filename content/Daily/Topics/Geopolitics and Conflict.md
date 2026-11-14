@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-13|13 Nov 2026]] | Mines, a radar and the insurance market: October was the worst shipping month of the war |
+| [[Daily/2026-11-14|14 Nov 2026]] | Gulf states take the Hormuz file to the Security Council: 7,000 missiles, 1,600 ships disrupted |

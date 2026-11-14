@@ -128,11 +128,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-13">
+<a class="home-card internal" href="./Daily/2026-11-14">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Gemini 4 Hydrogen becomes Google's volume default at…</span>
-  <span class="home-card-desc">For agent loops that fire hundreds of small requests per task, flat pricing over 1M tokens is the difference between estimate and gamble.</span>
-  <span class="home-card-meta">13 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Anthropic's own alignment team argues against per-user agents</span>
+  <span class="home-card-desc">For a vault full of ~50 single-purpose agents this is a direct design warning: giving every actor its own agent degrades coordination and honesty.</span>
+  <span class="home-card-meta">14 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

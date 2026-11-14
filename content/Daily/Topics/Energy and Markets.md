@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-13|13 Nov 2026]] | Berlin opens another capacity auction — skewed to hydrogen-ready gas plants |
+| [[Daily/2026-11-14|14 Nov 2026]] | Gascade starts the 115 km "Hyrow" line, and the network will nearly triple before the molecules… |

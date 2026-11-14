@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-13|13 Nov 2026]] | Gemini 4 Hydrogen becomes Google's volume default at \$1.50/\$7.50 |
+| [[Daily/2026-11-14|14 Nov 2026]] | Anthropic's own alignment team argues against per-user agents |

@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-13|13 Nov 2026]] | Colombia's Q3 GDP lands Tuesday — consensus is "below 2 %", the weakest of 2026 |
+| [[Daily/2026-11-14|14 Nov 2026]] | El Niño could run to May 2027, and the government is already rationing demand |
