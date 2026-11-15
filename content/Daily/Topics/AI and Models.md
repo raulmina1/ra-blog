@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-14|14 Nov 2026]] | Anthropic's own alignment team argues against per-user agents |
+| [[Daily/2026-11-15|15 Nov 2026]] | Anthropic ships office software during its IPO roadshow, and Microsoft feels it |

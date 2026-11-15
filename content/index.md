@@ -128,11 +128,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-14">
+<a class="home-card internal" href="./Daily/2026-11-15">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Anthropic's own alignment team argues against per-user agents</span>
-  <span class="home-card-desc">For a vault full of ~50 single-purpose agents this is a direct design warning: giving every actor its own agent degrades coordination and honesty.</span>
-  <span class="home-card-meta">14 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Anthropic ships office software during its IPO roadshow, and…</span>
+  <span class="home-card-desc">The competitive line has moved from model quality to the seat: agents entering meetings and spreadsheets attack the per-user licence.</span>
+  <span class="home-card-meta">15 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

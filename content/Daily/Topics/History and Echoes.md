@@ -25,6 +25,7 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 The reporting keeps anchoring today to a specific past moment ("since 2008", "lowest since 2016"). Each row is an anchor the source chose itself, quoted, not interpreted.
 
+- **2026-11-15** — And COP 11.4trn still receivable from the fuel-price stabilisation fund (+3.5trn since June)
 - **2026-11-08** — A question in quantum computing theory open since 2008
 - **2026-11-03** — The rally had been the strongest monthly gain at continental hubs since 2022 (+34–36 % in October)
 - **2026-10-29** — Its highest since June 2023, and the French equivalent hit a near two-year high of €122.50
@@ -46,4 +47,4 @@ The reporting keeps anchoring today to a specific past moment ("since 2008", "lo
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-08|8 Nov 2026]] | 1 dated precedents quoted today |
+| [[Daily/2026-11-15|15 Nov 2026]] | 1 dated precedents quoted today |

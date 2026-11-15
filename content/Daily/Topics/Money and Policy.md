@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-14|14 Nov 2026]] | El Niño could run to May 2027, and the government is already rationing demand |
+| [[Daily/2026-11-15|15 Nov 2026]] | Ecopetrol's refining turnaround: from a COP 0.97trn loss to COP 4.23trn profit in nine months |
