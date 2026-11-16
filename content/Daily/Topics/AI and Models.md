@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-15|15 Nov 2026]] | Anthropic ships office software during its IPO roadshow, and Microsoft feels it |
+| [[Daily/2026-11-16|16 Nov 2026]] | Google prices the cheap tier: one model, 1,000 questions, \$0.10 per million input tokens |

@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-15|15 Nov 2026]] | Iran says three tankers hit mines on Saturday; the US says the lanes are clear |
+| [[Daily/2026-11-16|16 Nov 2026]] | Kushner and Witkoff take the Abu Dhabi result to Putin, and Lavrov restates the 2024 conditions |

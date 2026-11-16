@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-15|15 Nov 2026]] | Ecopetrol's refining turnaround: from a COP 0.97trn loss to COP 4.23trn profit in nine months |
+| [[Daily/2026-11-16|16 Nov 2026]] | The AI trade survived its own news: best week since August, and now the print |

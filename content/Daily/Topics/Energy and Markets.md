@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-15|15 Nov 2026]] | Germany's 2027 budget: €560.9bn of spending, ~€210bn of new debt |
+| [[Daily/2026-11-16|16 Nov 2026]] | First session after the reopen: the surplus argument wins, and Washington adds tankers |

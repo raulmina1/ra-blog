@@ -128,11 +128,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-15">
+<a class="home-card internal" href="./Daily/2026-11-16">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Anthropic ships office software during its IPO roadshow, and…</span>
-  <span class="home-card-desc">The competitive line has moved from model quality to the seat: agents entering meetings and spreadsheets attack the per-user licence.</span>
-  <span class="home-card-meta">15 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Google prices the cheap tier: one model, 1,000 questions…</span>
+  <span class="home-card-desc">This is the layer that decides how much of an agent pipeline ever reaches an expensive model — filtering, triage, routing, yes/no gates.</span>
+  <span class="home-card-meta">16 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">
