@@ -26,7 +26,7 @@ for the pipeline itself.
 <!-- ENTRIES -->
 
 ### 16 Nov 2026
-- **2 new automations** — knowledge graph (1)
+- **3 new automations** — knowledge graph (2)
 - **New capabilities** — Specialist Agent Handoff
 
 ### 14 Nov 2026
