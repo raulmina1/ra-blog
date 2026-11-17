@@ -25,6 +25,11 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 17 Nov 2026
+- **2 new automations** — monitoring (1), blog & content (1)
+- **New capabilities** — Hunter Email Lookup
+- **Knowledge graph** — +734 notes · +81,088 triples
+
 ### 16 Nov 2026
 - **3 new automations** — knowledge graph (2)
 - **New capabilities** — Specialist Agent Handoff
