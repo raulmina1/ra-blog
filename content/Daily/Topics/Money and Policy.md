@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-17|17 Nov 2026]] | The AI trade survived its own news: best week since August, and now the print |
+| [[Daily/2026-11-18|18 Nov 2026]] | The AI trade survived its own news: best week since August, and now the print |

@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-17|17 Nov 2026]] | First session after the reopen: the surplus argument wins, and Washington adds tankers |
+| [[Daily/2026-11-18|18 Nov 2026]] | First session after the reopen: the surplus argument wins, and Washington adds tankers |
