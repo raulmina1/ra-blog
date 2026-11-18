@@ -25,6 +25,11 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 18 Nov 2026
+- **2 new automations** — vault & notes (1), monitoring (1)
+- **New capabilities** — Yellowvault Event Changes, Windows Uri Scheme Handlers
+- **Knowledge graph** — +20 notes · +388 triples
+
 ### 17 Nov 2026
 - **2 new automations** — monitoring (1), blog & content (1)
 - **New capabilities** — Hunter Email Lookup
