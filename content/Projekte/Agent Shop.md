@@ -42,7 +42,7 @@ relationship:
 
 A prompt tells an AI what to do **once**. An agent has a **role**, a **workflow**, a **context layer** and **guardrails** — it runs on a schedule or on a file event, keeps state between sessions, and stops itself when a rule would be broken.
 
-Everything on this page runs on this machine **before** it is offered: **107 agent skills installed**, **144 scheduled automations**, **18 agents in daily use**.
+Everything on this page is in daily operation **before** it is offered: **107 agent skills installed**, **144 scheduled automations**, **18 agents in daily use**.
 
 ## The Complete Diagram
 
@@ -115,7 +115,7 @@ Everything on this page runs on this machine **before** it is offered: **107 age
 
 <div class="ra-row">
 <div class="ra-row-head"><span class="ra-ic">📊</span><h3>Numbers behind the fleet</h3><span class="ra-meta">measured, not estimated</span></div>
-<p>Everything on this page runs on this machine before it is offered — these are the live figures at the time of writing.</p>
+<p>Everything on this page is in daily operation before it is offered — these are the live figures at the time of writing.</p>
 <div class="ra-box"><ul>
 <li><strong>The fleet:</strong> 107 agent skills installed, 18 in daily use, 144 enabled cron jobs out of 156 defined, four trigger types.</li>
 <li><strong>The context:</strong> 4.063 notes, 51.811 triples, 14.180 RAG chunks, three memory tiers — plus log viewer, Grafana, health checks and a weekly backup.</li>
@@ -149,7 +149,7 @@ Everything on this page runs on this machine **before** it is offered: **107 age
 
 ## What is in the catalog
 
-The complete fleet — every agent and skill that runs on this machine, grouped by the job it replaces. **107 skills in total**, 18 of them active every day.
+The complete fleet — every agent and skill in the live setup, grouped by the job it replaces. **107 skills in total**, 18 of them active every day.
 
 <div class="ra-rows">
 
@@ -298,7 +298,7 @@ The complete fleet — every agent and skill that runs on this machine, grouped 
 <li><strong>P&ID and Process Standards</strong> — deliverables checked against the standards</li>
 <li><strong>Industrial Water Quality</strong> — demineralised water, UPW and steam specs</li>
 <li><strong>Satellite Plant Layout</strong> — plant layout derived from satellite images</li>
-<li><strong>Local GPU Inference</strong> — ComfyUI, Ollama and local models on the 3050</li>
+<li><strong>Model Inference</strong> — ComfyUI, Ollama and open-weight models, GPU or hosted</li>
 </ul></div>
 </div>
 

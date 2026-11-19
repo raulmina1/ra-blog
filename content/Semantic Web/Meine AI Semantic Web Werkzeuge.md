@@ -6,7 +6,7 @@ tags:
   - tools
   - knowledge-graph
   - ra-blog
-description: "Die Werkzeuge, mit denen ich täglich arbeite: von meinem AI-Ökosystem über den Knowledge Graph bis zur Semantic-Web-Entwicklung. Alles lokal, alles selbst gebaut."
+description: "Die Werkzeuge, mit denen ich täglich arbeite: von meinem AI-Ökosystem über den Knowledge Graph bis zur Semantic-Web-Entwicklung. Alles selbst gebaut, Modelle frei wählbar."
 reading_time: "5 min"
 type: showcase
 lang: de
@@ -25,7 +25,7 @@ see_also:
 
 > Ich baue mir meine Werkzeuge selbst. Hier ist, womit ich jeden Tag arbeite — von der AI-Automatisierung bis zur Semantic-Web-Entwicklung.
 
-Mein Tag läuft über ein **AI-Ökosystem**, das auf meinem Obsidian-Vault aufbaut, und eine **Semantic-Web-Entwicklung**, die aus Notizen einen echten Knowledge Graph macht. Alles läuft lokal oder on-demand in Docker — ohne SaaS-Lock-in.
+Mein Tag läuft über ein **AI-Ökosystem**, das auf meinem Obsidian-Vault aufbaut, und eine **Semantic-Web-Entwicklung**, die aus Notizen einen echten Knowledge Graph macht. Alles selbst gebaut und ohne SaaS-Lock-in — die Modelle sind austauschbar: pro Projekt kommt der Anbieter zum Einsatz, der die regionalen Sicherheits- und Datenschutzvorgaben erfüllt.
 
 ## 🧠 AI-Ökosystem — die tägliche Automatisierung
 

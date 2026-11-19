@@ -23,7 +23,7 @@ see_also:
 
 > An AI ecosystem — one page, six layers, zero dead space.
 
-This is what my system looks like from the inside — in a single diagram, 16 nodes, all local, no SaaS:
+This is what my system looks like from the inside — in a single diagram, 16 nodes, no SaaS, models chosen per deployment:
 
 <iframe src="/static/mental-maps/ecosystem-one-pager.html" style="width:100%;height:720px;border:1px solid #3a3a3a;border-radius:8px;background:#000" title="AI ecosystem One-Pager"></iframe>
 

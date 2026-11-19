@@ -26,7 +26,7 @@ see_also:
 
 > I write a note. Then something happens — without me lifting a finger.
 
-Every note in my Obsidian vault passes through a data pipeline: **entities are recognized, metadata is enriched, everything is turned into a Knowledge Graph (51.811 triples) and, in parallel, into a vector index (14.180 chunks).** Every 30 minutes, automatically, locally — without SaaS.
+Every note in my Obsidian vault passes through a data pipeline: **entities are recognized, metadata is enriched, everything is turned into a Knowledge Graph (51.811 triples) and, in parallel, into a vector index (14.180 chunks).** Every 30 minutes, automatically, model-agnostic — without SaaS.
 
 ## The Complete Diagram
 
@@ -86,7 +86,7 @@ Three query paths feed the **Prompt Runner**:
 
 ## Services & Pricing
 
-This pipeline is no one-off experiment — it runs for me every day. If you want something like it for your own knowledge base, your team, or your product, I'll set it up, install it, and document it. Everything runs locally, without forced SaaS subscriptions.
+This pipeline is no one-off experiment — it runs for me every day. If you want something like it for your own knowledge base, your team, or your product, I'll set it up, install it, and document it. The model layer is interchangeable: each setup runs on the provider that meets your regional security and data-handling rules — without forced SaaS subscriptions.
 
 | Package | What you get | Price |
 |-------|-----------------|-------|

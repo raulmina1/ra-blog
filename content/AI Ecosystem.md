@@ -409,7 +409,7 @@ DeepSeek alone accounts for 8.55T tokens — more than triple any other single p
 
 ## 13. Ecosystem One-Pager (Aug. 2026)
 
-> Das ganze Ökosystem in einer Ansicht: 4.063 Notizen → dualer Watchdog + 30-Minuten-Orchestrator → zwei parallele Gehirne (GraphDB 51.811 Triples + ChromaDB 14.180 Chunks) → drei Agenten → Prompt Runner → Visualisierung und Betrieb. 16 Knoten, ohne toten Raum, alles lokal oder Docker on-demand.
+> Das ganze Ökosystem in einer Ansicht: 4.063 Notizen → dualer Watchdog + 30-Minuten-Orchestrator → zwei parallele Gehirne (GraphDB 51.811 Triples + ChromaDB 14.180 Chunks) → drei Agenten → Prompt Runner → Visualisierung und Betrieb. 16 Knoten, ohne toten Raum, Modelle frei wählbar, Docker on-demand.
 
 <iframe src="/static/mental-maps/ecosystem-one-pager.html" style="width:100%;height:720px;border:1px solid #3a3a3a;border-radius:8px;background:#000" title="AI-Ökosystem One-Pager"></iframe>
 

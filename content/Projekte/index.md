@@ -21,14 +21,14 @@ see_also:
 
 <span class="ra-hero-badge">🦅 Built, used, sold — no demos</span>
 <h1 class="ra-hero-h1">Systems that already run <em>every day</em>.</h1>
-<p class="ra-hero-sub">Prompt, agent, cron and hook systems for Obsidian and Hermes Agent — plus knowledge-graph pipelines and process engineering design. Everything on this page runs on this machine before it is offered to anyone.</p>
+<p class="ra-hero-sub">Prompt, agent, cron and hook systems for Obsidian and Hermes Agent — plus knowledge-graph pipelines and process engineering design. Every system on this page is in daily operation before it is offered to anyone.</p>
 
 <div class="ra-hero-cta">
   <a class="ra-btn ra-btn-primary" href="mailto:raul.mina1@outlook.com?subject=Project%20inquiry%20%E2%80%94%20RA%20Blog">✉️ Ask for a quote</a>
   <a class="ra-btn ra-btn-secondary internal" href="../Contact/">🕊️ Free 30-min call</a>
 </div>
 
-<p class="ra-hero-trust">Local-first · No cloud lock-in · Delivered as files you own</p>
+<p class="ra-hero-trust">Model-agnostic · Regional data handling · Delivered as files you own</p>
 
 </div>
 
@@ -68,7 +68,7 @@ see_also:
   <span class="home-card-badge">Bookable service</span>
   <span class="home-card-icon">🔄</span>
   <span class="home-card-title">AI Ecosystem Data Pipeline</span>
-  <span class="home-card-desc">The path of a note: NER → Knowledge Graph (51,811 triples) → RAG (14,180 chunks), rebuilt every 30 minutes. Setup, audit or the full pipeline — your stack, your machine.</span>
+  <span class="home-card-desc">The path of a note: NER → Knowledge Graph (51,811 triples) → RAG (14,180 chunks), rebuilt every 30 minutes. Setup, audit or the full pipeline — your stack, your rules.</span>
   <span class="home-card-meta">From €150 · full pipeline €690</span>
 </a>
 
@@ -216,7 +216,7 @@ see_also:
 
 <div class="ra-side-card ra-side-note">
   <span class="ra-side-title">How it works</span>
-  <p>You describe the process. I check whether automation fits — and say so honestly if it does not. Then a fixed scope and a fixed price, delivered as files on your machine. No subscription required, no cloud dependency.</p>
+  <p>You describe the process. I check whether automation fits — and say so honestly if it does not. Then a fixed scope and a fixed price, delivered as files in your environment. Models and hosting are matched to your region — no subscription required.</p>
 </div>
 
 </div>

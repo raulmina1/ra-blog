@@ -13,14 +13,14 @@ semantic_class: note
 
 <span class="ra-hero-badge">🦅 Your AI. Your data. Your rules.</span>
 <h1 class="ra-hero-h1">Automate your life with an AI that is <em>yours</em>.</h1>
-<p class="ra-hero-sub">Prompt, Agent, Cron &amp; Hook systems for Obsidian and Hermes Agent — engineered by a process engineer. Your data never leaves your machine.</p>
+<p class="ra-hero-sub">Prompt, Agent, Cron &amp; Hook systems for Obsidian and Hermes Agent — engineered by a process engineer. Models and hosting are chosen per project to fit your region's security and data rules.</p>
 
 <div class="ra-hero-cta">
   <a class="ra-btn ra-btn-primary internal" href="./Projekte/">⚡ Start — pick your system</a>
   <a class="ra-btn ra-btn-secondary internal" href="./Contact/">🕊️ Free 30-min call</a>
 </div>
 
-<p class="ra-hero-trust">130+ prompts · 18 agents · 100% local-first · Privacy by default</p>
+<p class="ra-hero-trust">130+ prompts · 18 agents · Model-agnostic · Regional data handling</p>
 
 </div>
 
@@ -47,11 +47,11 @@ semantic_class: note
 <div class="ra-service">
   <span class="ra-service-kicker">AI automation</span>
   <h3>AI automation packs</h3>
-  <p>Fixed-price packs installed once on your machine — you keep the files.</p>
+  <p>Fixed-price packs installed in your own environment — you keep the files.</p>
   <ul>
     <li>Prompt, Agent, Cron and Hook packs</li>
     <li>Knowledge-graph context service</li>
-    <li>100% local-first, no cloud</li>
+    <li>Models and providers matched to your region</li>
   </ul>
   <a class="ra-service-link internal" href="./Projekte/Prompt-Shop">See the packs →</a>
 </div>
@@ -63,7 +63,7 @@ semantic_class: note
   <ul>
     <li>18 agents built and running</li>
     <li>NER → graph → RAG every 30 minutes</li>
-    <li>Data never leaves your machine</li>
+    <li>Data handling agreed per project — EU or regional</li>
   </ul>
   <a class="ra-service-link internal" href="./Projekte/Agent-Shop">See agent work →</a>
 </div>

@@ -14,7 +14,7 @@ hide_folder_listing: true
 
 <span class="ra-hero-badge">📬 Free first consultation</span>
 <h1 class="ra-hero-h1">Tell me what process you want to <em>automate</em>.</h1>
-<p class="ra-hero-sub">AI agents with Human-in-the-Loop, knowledge graphs and data pipelines — for Obsidian, Hermes Agent and your own infrastructure. Your data never leaves your machine.</p>
+<p class="ra-hero-sub">AI agents with Human-in-the-Loop, knowledge graphs and data pipelines — for Obsidian, Hermes Agent and your own infrastructure. Models and hosting are adapted to your regional security and data rules.</p>
 
 <div class="ra-hero-cta">
   <a class="ra-btn ra-btn-primary" href="#contactForm">⚡ Send a message</a>
@@ -43,8 +43,8 @@ hide_folder_listing: true
 </div>
 
 <div class="ra-kpi">
-  <span class="ra-kpi-value">100 %</span>
-  <span class="ra-kpi-label">Local-first, no lock-in</span>
+  <span class="ra-kpi-value">Regional</span>
+  <span class="ra-kpi-label">Security &amp; data handling per project</span>
 </div>
 
 </div>
@@ -165,7 +165,7 @@ hide_folder_listing: true
 
 <div class="ra-side-card ra-side-note">
   <span class="ra-side-title">Good to know</span>
-  <p>NDA on request. Your data stays on your own infrastructure — no cloud lock-in, no third-party access.</p>
+  <p>NDA on request. Deployment, model provider and data handling are agreed per project — including regional or on-premise setups where your rules require them.</p>
 </div>
 
 </aside>

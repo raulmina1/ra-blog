@@ -5,7 +5,7 @@ tags:
   - ecosystem
   - automation
   - ra-blog
-description: "My complete AI ecosystem on one page: 4.063 notes, dual watchdog, two brains (GraphDB + ChromaDB), all local — a system that monitors itself."
+description: "My complete AI ecosystem on one page: 4.063 notes, dual watchdog, two brains (GraphDB + ChromaDB) — a system that monitors itself."
 reading_time: "4 min"
 type: showcase
 lang: en
@@ -23,7 +23,7 @@ see_also:
 
 > I didn't buy a productivity system — I built one that monitors itself.
 
-Over the last few months, my Obsidian vault has grown into a complete AI ecosystem: **130+ components, 12 autonomous agents, 44 prompts, 5 hooks** — all local, 24/7, no SaaS lock-in.
+Over the last few months, my Obsidian vault has grown into a complete AI ecosystem: **130+ components, 12 autonomous agents, 44 prompts, 5 hooks** — 24/7, model-agnostic, no SaaS lock-in.
 
 The one-pager behind it is brutally simple: **4.063 notes → dual watchdog + orchestrator every 30 minutes → two parallel brains → agents → back to the notes.**
 
