@@ -25,6 +25,10 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 19 Nov 2026
+- **New capabilities** — Obsidian Sync Diagnostics
+- **Knowledge graph** — +16 notes · +1530 triples
+
 ### 18 Nov 2026
 - **2 new automations** — vault & notes (1), monitoring (1)
 - **New capabilities** — Yellowvault Event Changes, Windows Uri Scheme Handlers
