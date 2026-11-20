@@ -1,0 +1,50 @@
+.ra-md-source {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 2.2rem 0 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid #2e2e28;
+  font-family: var(--bodyFont);
+  font-size: 0.8rem;
+
+  .ra-md-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.32rem 0.75rem;
+    border: 1px solid #4a4a3a;
+    border-radius: 4px;
+    background: transparent;
+    color: #c4ab00 !important;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    background-image: none !important;
+    transition:
+      border-color 0.15s ease,
+      background-color 0.15s ease;
+
+    &:hover {
+      border-color: #c4ab00;
+      background-color: rgba(196, 171, 0, 0.08);
+    }
+  }
+
+  .ra-md-chip-icon {
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+
+  .ra-md-hint {
+    color: #8a8a78;
+    line-height: 1.4;
+
+    a {
+      color: #8a8a78 !important;
+      text-decoration: underline;
+      background-image: none !important;
+    }
+  }
+}

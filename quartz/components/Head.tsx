@@ -101,6 +101,14 @@ export default (() => {
 
         <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
+        {/* machine-readable twin of every page + site index for AI agents */}
+        <link
+          rel="alternate"
+          type="text/markdown"
+          href={joinSegments(`${url.toString()}/`, "static/llm", `${fileData.slug}.md`)}
+          title="Markdown version of this page"
+        />
+        <link rel="llms" href={joinSegments(`${url.toString()}/`, "llms.txt")} />
         <meta name="generator" content="Quartz" />
 
         <script

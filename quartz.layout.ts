@@ -123,7 +123,7 @@ const explorerOptions = {
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [Component.ScrollHide()],
-  afterBody: [],
+  afterBody: [Component.MarkdownSource()],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/raulmina1",

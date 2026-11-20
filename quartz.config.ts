@@ -87,6 +87,8 @@ const config: QuartzConfig = {
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.Favicon(),
+      // markdown mirror of every page + /llms.txt + /llms-full.txt for AI agents
+      Plugin.LlmMarkdown(),
       Plugin.NotFoundPage(),
       // CustomOgImages removed (2026-08-17): it fetches fonts from Google Fonts
       // and fails with self-hosted fonts (MADE Tommy). Default static

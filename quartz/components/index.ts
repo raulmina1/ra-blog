@@ -25,6 +25,7 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import ScrollHide from "./ScrollHide"
+import MarkdownSource from "./MarkdownSource"
 
 export {
   ArticleTitle,
@@ -54,4 +55,5 @@ export {
   Flex,
   ConditionalRender,
   ScrollHide,
+  MarkdownSource,
 }
