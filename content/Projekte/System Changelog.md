@@ -25,6 +25,10 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 20 Nov 2026
+- **New capabilities** — Obsidian Visual Maps
+- **Knowledge graph** — +18 notes · +382 triples
+
 ### 19 Nov 2026
 - **New capabilities** — Obsidian Sync Diagnostics
 - **Knowledge graph** — +16 notes · +1530 triples
