@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-19|19 Nov 2026]] | Google prices the cheap tier: one model, 1,000 questions, \$0.10 per million input tokens |
+| [[Daily/2026-11-20|20 Nov 2026]] | Google prices the cheap tier: one model, 1,000 questions, \$0.10 per million input tokens |

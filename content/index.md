@@ -128,11 +128,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-19">
+<a class="home-card internal" href="./Daily/2026-11-20">
   <span class="home-card-icon">🗞️</span>
   <span class="home-card-title">Google prices the cheap tier: one model, 1,000 questions…</span>
   <span class="home-card-desc">This is the layer that decides how much of an agent pipeline ever reaches an expensive model — filtering, triage, routing, yes/no gates.</span>
-  <span class="home-card-meta">19 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-meta">20 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">
