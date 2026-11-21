@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-20|20 Nov 2026]] | First session after the reopen: the surplus argument wins, and Washington adds tankers |
+| [[Daily/2026-11-21|21 Nov 2026]] | EIA: chokepoint shipments +19% in Q3, October output at 23.1 mb/d — and \$86 Brent for 2027 |

@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-20|20 Nov 2026]] | Kushner and Witkoff take the Abu Dhabi result to Putin, and Lavrov restates the 2024 conditions |
+| [[Daily/2026-11-21|21 Nov 2026]] | Berlin choreographs the Ukraine file, Moscow answers with the largest strike in months |
