@@ -25,6 +25,10 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 21 Nov 2026
+- **1 new automation**
+- **Knowledge graph** — +19 notes · +741 triples
+
 ### 20 Nov 2026
 - **New capabilities** — Obsidian Visual Maps
 - **Knowledge graph** — +18 notes · +382 triples
