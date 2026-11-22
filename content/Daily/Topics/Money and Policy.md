@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-21|21 Nov 2026]] | Ecopetrol negotiates 10-year gas contracts with PDVSA and waits on an OFAC licence |
+| [[Daily/2026-11-22|22 Nov 2026]] | Ecopetrol negotiates 10-year gas contracts with PDVSA and waits on an OFAC licence |

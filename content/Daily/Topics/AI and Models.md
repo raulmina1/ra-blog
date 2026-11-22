@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-21|21 Nov 2026]] | GPT-6.2 Astra and Sol: benchmark gains, and two days of "essentially unusable" |
+| [[Daily/2026-11-22|22 Nov 2026]] | GPT-6.2 Astra and Sol: benchmark gains, and two days of "essentially unusable" |

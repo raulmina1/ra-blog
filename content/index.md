@@ -128,11 +128,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-21">
+<a class="home-card internal" href="./Daily/2026-11-22">
   <span class="home-card-icon">🗞️</span>
   <span class="home-card-title">GPT-6.2 Astra and Sol: benchmark gains, and two days of…</span>
   <span class="home-card-desc">and a pre-release universal jailbreak makes that a security question, not a taste question.</span>
-  <span class="home-card-meta">21 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-meta">22 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">
