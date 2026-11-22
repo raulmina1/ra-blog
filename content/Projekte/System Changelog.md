@@ -25,6 +25,11 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 22 Nov 2026
+- **3 new automations**
+- **New capabilities** — Daily Note Routing, Drive Document Search
+- **Knowledge graph** — +36 notes · +1429 triples
+
 ### 21 Nov 2026
 - **1 new automation**
 - **Knowledge graph** — +19 notes · +741 triples
