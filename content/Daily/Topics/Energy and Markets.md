@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-22|22 Nov 2026]] | EIA: chokepoint shipments +19% in Q3, October output at 23.1 mb/d — and \$86 Brent for 2027 |
+| [[Daily/2026-11-23|23 Nov 2026]] | Öl fällt mit den Aktienmärkten — 20 % Minus im November |
