@@ -25,6 +25,12 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 24 Nov 2026
+- **5 new automations**
+  - Vault microSD Sync · alle 15 Min — vault & notes
+- **New capabilities** — Daily Note Routing, Drive Document Search, Local Service Provider Research, Hermes Agent
+- **Knowledge graph** — +89 notes · +4486 triples
+
 ### 23 Nov 2026
 - **5 new automations**
   - Vault microSD Sync · alle 15 Min — vault & notes
