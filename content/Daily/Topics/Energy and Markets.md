@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-24|24 Nov 2026]] | Öl fällt mit den Aktienmärkten — 20 % Minus im November |
+| [[Daily/2026-11-25|25 Nov 2026]] | Öl fällt mit den Aktienmärkten — 20 % Minus im November |

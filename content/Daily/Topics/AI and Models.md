@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-24|24 Nov 2026]] | Enterprise-Agenten werden regierbar: Anthropic self-hosted, Microsoft Agent 365 |
+| [[Daily/2026-11-25|25 Nov 2026]] | Enterprise-Agenten werden regierbar: Anthropic self-hosted, Microsoft Agent 365 |
