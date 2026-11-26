@@ -25,6 +25,9 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 26 Nov 2026
+- **1 new automation**
+
 ### 24 Nov 2026
 - **New automation** — Obsidian recycle · daily 05:00 — vault & notes
 
