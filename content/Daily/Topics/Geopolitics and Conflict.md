@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-25|25 Nov 2026]] | COP31: Klimagipfel scheitert erstmals seit 2009 |
+| [[Daily/2026-11-26|26 Nov 2026]] | Thyssenkrupp Steel sucht 20.000 bis 40.000 t Wasserstoff pro Jahr ab 2031 |

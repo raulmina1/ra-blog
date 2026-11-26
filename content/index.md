@@ -128,11 +128,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-25">
+<a class="home-card internal" href="./Daily/2026-11-26">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Enterprise-Agenten werden regierbar: Anthropic self-hosted…</span>
-  <span class="home-card-desc">Die Frage verschiebt sich von „was kann ein Agent' zu „wer haftet, was kostet er, wer darf ihn abschalten'.</span>
-  <span class="home-card-meta">25 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Zwei Leaderboards, zwei Sieger: OpenAI gewinnt GDPx…</span>
+  <span class="home-card-desc">Die Rankings widersprechen sich, weil GDPx nur die wirtschaftlich wertvollen Domänen gewichtet, BenchLeader dagegen alles mittelt.</span>
+  <span class="home-card-meta">26 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">
