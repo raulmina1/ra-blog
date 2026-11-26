@@ -25,32 +25,20 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
-### 25 Nov 2026
-- **6 new automations**
-  - Vault microSD Sync · alle 15 Min — vault & notes
-- **New capabilities** — Daily Note Routing, Drive Document Search, Local Service Provider Research, Hermes Agent
-- **Knowledge graph** — +70 notes · +4733 triples
-
 ### 24 Nov 2026
-- **5 new automations**
-  - Vault microSD Sync · alle 15 Min — vault & notes
-- **New capabilities** — Daily Note Routing, Drive Document Search, Local Service Provider Research, Hermes Agent
-- **Knowledge graph** — +89 notes · +4486 triples
+- **New automation** — Obsidian recycle · daily 05:00 — vault & notes
 
 ### 23 Nov 2026
-- **5 new automations**
-  - Vault microSD Sync · alle 15 Min — vault & notes
-- **New capabilities** — Daily Note Routing, Drive Document Search, Local Service Provider Research
-- **Knowledge graph** — +69 notes · +3641 triples
+- **New automation** — Vault microSD sync · every 15 min — vault & notes
 
 ### 22 Nov 2026
 - **3 new automations**
-- **New capabilities** — Daily Note Routing, Drive Document Search
-- **Knowledge graph** — +36 notes · +1429 triples
+  - Knowledge graph upkeep · every minute — knowledge graph
+  - RAM chart · every 3 h — monitoring
+  - B2 audio drill · hourly, 05–22 — German practice
 
 ### 21 Nov 2026
-- **1 new automation**
-- **Knowledge graph** — +19 notes · +741 triples
+- **New automation** — Knowledge graph genome · every minute — knowledge graph
 
 ### 20 Nov 2026
 - **New capabilities** — Obsidian Visual Maps
@@ -68,7 +56,6 @@ for the pipeline itself.
 ### 17 Nov 2026
 - **2 new automations** — monitoring (1), blog & content (1)
 - **New capabilities** — Hunter Email Lookup
-- **Knowledge graph** — +734 notes · +81,088 triples
 
 ### 16 Nov 2026
 - **3 new automations** — knowledge graph (2)
@@ -90,7 +77,6 @@ for the pipeline itself.
 
 ### 11 Nov 2026
 - **3 new automations** — knowledge graph (1)
-- **New capabilities** — Yellowvault Backup System
 - **Knowledge graph** — +26 notes · +4,893 triples
 
 ### 10 Nov 2026
@@ -104,26 +90,21 @@ for the pipeline itself.
 
 ### 08 Nov 2026
 - **New capabilities** — Receipt OCR Extraction, Security Guardrails, Vault KG Context Retrieval, Docker Desktop Wsl2, Image Layout Qa
-- **Knowledge graph** — +329 notes · +19,038 triples
 
 ### 07 Nov 2026
 - **4 new automations** — knowledge graph (1)
-- **New capabilities** — Receipt OCR Extraction, Security Guardrails, Vault KG Context Retrieval, Docker Desktop Wsl2, Image Layout Qa
-- **Knowledge graph** — +308 notes · +15,222 triples
 
 ### 06 Nov 2026
 - **3 new automations** — knowledge graph (1)
-- **New capabilities** — Receipt OCR Extraction, Security Guardrails, Whatsapp Messaging, Docker Desktop Wsl2, Image Layout Qa
-- **Knowledge graph** — +81 notes · +9,412 triples
+- **New capabilities** — Whatsapp Messaging
 
 ### 05 Nov 2026
 - **3 new automations** — knowledge graph (1)
-- **New capabilities** — Security Guardrails, Vault KG Context Retrieval, Docker Desktop Wsl2, Image Layout Qa, Sparql Bridge
+- **New capabilities** — Sparql Bridge
 - **Knowledge graph** — +57 notes · +7,056 triples
 
 ### 04 Nov 2026
 - **2 new automations**
-- **New capabilities** — Security Guardrails, Vault KG Context Retrieval, Image Layout Qa, Whatsapp Messaging
 - **Knowledge graph** — +43 notes · +4,346 triples
 
 ### 03 Nov 2026
@@ -146,9 +127,7 @@ for the pipeline itself.
 ### 30 Oct 2026
 - **1 new automation** — blog & content (1)
 - **New capabilities** — Obsidian Canvas Diagrams, Client Service Intake, Web Research, Document Email Delivery
-- **Knowledge graph** — +17 notes · +19,523 triples
 
 ### 29 Oct 2026
 - **7 new automations** — knowledge graph (4), monitoring (3)
-- **New capabilities** — Obsidian Canvas Diagrams, Phishing Email Triage, Security Guardrails, Obsidian Canvas Authoring, Obsidian Project Data Layer
-
+- **New capabilities** — Phishing Email Triage, Obsidian Canvas Authoring, Obsidian Project Data Layer
