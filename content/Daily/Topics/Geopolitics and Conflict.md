@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-26|26 Nov 2026]] | Thyssenkrupp Steel sucht 20.000 bis 40.000 t Wasserstoff pro Jahr ab 2031 |
+| [[Daily/2026-11-27|27 Nov 2026]] | Schleswig-Holstein funds the Brunsbüttel hydrogen pipeline with €5.8 million |

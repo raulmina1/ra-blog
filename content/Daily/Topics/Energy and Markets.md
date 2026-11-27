@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-26|26 Nov 2026]] | Brent bei 94,60 \$ — OPEC+ entscheidet am Sonntag ohne die VAE |
+| [[Daily/2026-11-27|27 Nov 2026]] | Brent settles at \$96.57, its highest since 6 November, as OPEC+ looks set to roll over |

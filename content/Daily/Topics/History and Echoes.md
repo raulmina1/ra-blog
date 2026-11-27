@@ -25,6 +25,8 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 The reporting keeps anchoring today to a specific past moment ("since 2008", "lowest since 2016"). Each row is an anchor the source chose itself, quoted, not interpreted.
 
+- **2026-11-27** — The highest since 2009
+- **2026-11-27** — The highest since 2023, and third-quarter GDP was revised up to 4.3 % from 3.5 %
 - **2026-11-22** — Peso at 3,415/USD after its biggest one-day fall since August
 - **2026-11-21** — Peso at 3,415/USD after its biggest one-day fall since August
 - **2026-11-15** — And COP 11.4trn still receivable from the fuel-price stabilisation fund (+3.5trn since June)
@@ -49,4 +51,4 @@ The reporting keeps anchoring today to a specific past moment ("since 2008", "lo
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-22|22 Nov 2026]] | 1 dated precedents quoted today |
+| [[Daily/2026-11-27|27 Nov 2026]] | 2 dated precedents quoted today |

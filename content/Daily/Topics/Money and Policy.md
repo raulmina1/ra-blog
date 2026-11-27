@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-26|26 Nov 2026]] | KI-Infrastruktur übersteigt die Innenfinanzierung: 1,1 Billionen \$ externe Mittel |
+| [[Daily/2026-11-27|27 Nov 2026]] | Public debt at 62.2 % of GDP and the highest average interest rate since 2009 |

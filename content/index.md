@@ -128,11 +128,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-26">
+<a class="home-card internal" href="./Daily/2026-11-27">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Zwei Leaderboards, zwei Sieger: OpenAI gewinnt GDPx…</span>
-  <span class="home-card-desc">Die Rankings widersprechen sich, weil GDPx nur die wirtschaftlich wertvollen Domänen gewichtet, BenchLeader dagegen alles mittelt.</span>
-  <span class="home-card-meta">26 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Anthropic rewrote its Messages API in Rust and used the old…</span>
+  <span class="home-card-desc">Verification, not generation, is now the binding constraint on engineering ambition.</span>
+  <span class="home-card-meta">27 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">
