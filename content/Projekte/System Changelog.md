@@ -25,6 +25,10 @@ for the pipeline itself.
 
 <!-- ENTRIES -->
 
+### 28 Nov 2026
+- **1 new automation**
+  - Guard montaje /c · alle 15 Min
+
 ### 27 Nov 2026
 - **1 new automation**
 
