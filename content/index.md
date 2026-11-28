@@ -128,11 +128,11 @@ semantic_class: note
 <!-- DAILY:BEGIN -->
 <div class="home-grid home-grid-2">
 
-<a class="home-card internal" href="./Daily/2026-11-27">
+<a class="home-card internal" href="./Daily/2026-11-28">
   <span class="home-card-icon">🗞️</span>
-  <span class="home-card-title">Anthropic rewrote its Messages API in Rust and used the old…</span>
-  <span class="home-card-desc">Verification, not generation, is now the binding constraint on engineering ambition.</span>
-  <span class="home-card-meta">27 Nov 2026 · Daily Brief · 7 stories</span>
+  <span class="home-card-title">Brent posts its first weekly gain of November while WTI loses…</span>
+  <span class="home-card-desc">A rollover on Sunday keeps the geopolitical premium and leaves the structural surplus underneath it untouched.</span>
+  <span class="home-card-meta">28 Nov 2026 · Daily Brief · 7 stories</span>
 </a>
 
 <a class="home-card internal" href="./Daily/">

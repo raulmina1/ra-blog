@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-27|27 Nov 2026]] | Public debt at 62.2 % of GDP and the highest average interest rate since 2009 |
+| [[Daily/2026-11-28|28 Nov 2026]] | The peso's official rate rose 1.08 % to 3,630.89 while business confidence fell again |

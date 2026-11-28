@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-27|27 Nov 2026]] | Anthropic rewrote its Messages API in Rust and used the old service as the verifier |
+| [[Daily/2026-11-28|28 Nov 2026]] | Both frontier labs now want a limit — and nobody has signed on |

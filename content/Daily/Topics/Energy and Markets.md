@@ -26,4 +26,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-27|27 Nov 2026]] | Brent settles at \$96.57, its highest since 6 November, as OPEC+ looks set to roll over |
+| [[Daily/2026-11-28|28 Nov 2026]] | Brent posts its first weekly gain of November while WTI loses a fourth week in a row |

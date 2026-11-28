@@ -25,4 +25,4 @@ This page is a **thread**: every daily issue that touches this topic is filed he
 
 | Date | Story |
 |---|---|
-| [[Daily/2026-11-27|27 Nov 2026]] | Schleswig-Holstein funds the Brunsbüttel hydrogen pipeline with €5.8 million |
+| [[Daily/2026-11-28|28 Nov 2026]] | US forces disabled a 15th ship running the Iranian blockade |
